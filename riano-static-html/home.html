@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RIANO</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+          // The location of Uluru
+          const uluru = { lat: -25.344, lng: 131.036 };
+          // The map, centered at Uluru
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: uluru,
+          });
+          // The marker, positioned at Uluru
+          const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+          });
+        }
+      </script>
+</head>
+<body>
+    <div class="her-damit">
+        <div class="her-damit-left">
+            <img src="images/bitcoin.png">
+        </div>
+        <div class="her-damit-center">
+            Willst du deine Kryptowährungen in ein Stück Pizza verwandeln?<a onClick="document.getElementsByClassName('section3')[0].scrollIntoView(); $(this.parentNode.parentNode).fadeOut(300,function(){document.body.removeChild(this.parentNode.parentNode)})"><b><u> Her Damit! </a></u></b>
+        </div>
+        <div class="her-damit-right">
+            <button onclick=" $(this.parentNode.parentNode).fadeOut(300,function(){document.body.removeChild(this.parentNode.parentNode)})"><img src="images/x.svg"></button>
+        </div>
+    </div>
+   
+
+
+    <div class="top-menu">
+        <div class="top-menu-title">RIANO</div>
+        <div class="top-menu-select">
+            <a href="home.html" class="top-tab selected">Home</a>
+            <a href="menu.html" class="top-tab">Menu</a>
+            <a href="uber.html" class="top-tab">Uber Uns</a>
+            <a href="home.html#section5" class="top-tab">Kontakt</a>
+        </div>
+        <div class="top-menu-icons">
+            <a id="notification"><img src="images/bell.svg"/></a>
+            <a id="cart"><div class="new-notification">5</div><img src="images/cart.svg"/></a>
+        </div>
+    </div>
+
+    <div id="menuToggle">
+        <!--
+        A fake / hidden checkbox is used as click reciever,
+        so you can use the :checked selector on it.
+        -->
+        <input type="checkbox" />
+        
+        <!--
+        Some spans to act as a hamburger.
+        
+        They are acting like a real hamburger,
+        not that McDonalds stuff.
+        -->
+        <span></span>
+        <span></span>
+        <span></span>
+        
+        <!--
+        Too bad the menu has to be inside of the button
+        but hey, it's pure CSS magic.
+        -->
+        <ul id="menu">
+          <a href="home.html" onClick="document.getElementsByClassName('section2')[0].scrollIntoView();"><li>Home</li></a>
+          <a href="menu.html"><li>Menu</li></a>
+          <a href="uber.html"><li>Uber Uns</li></a>
+          <a href="home.html#section5"><li>Kontakt</li></a>
+        </ul>
+      </div>
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+    <div class="page-inner">
+        <div class="section1">
+            <div class="section1-inner">
+                <div class="s1-title">Bestelle jetzt, ein Stück Happiness</div>
+                <div class="s1-description">Hab Sonne im Herzenund Pizza im Bauch.Dann bist du glücklichund satt bist du auch.</div>
+                <div class="search-box">
+                    <div class="search-box-field">
+                        <img src="images/search.svg"/>
+                        <input class="search-input" type="search" placeholder="Suche deine Lieblingspizza..."/>
+                    </div>
+                <button class="search-button" >Search</button>
+                </div>
+                <div id="bitcoin">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                       width="200px" height="200px" viewBox="100 100 400 400" xml:space="preserve">
+                      <filter id="dropshadow" height="130%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+                    <feOffset dx="0" dy="0" result="offsetblur"/>
+                    <feFlood flood-color="#523429"/>
+                  <feComposite in2="offsetblur" operator="in"/>
+                  <feMerge>
+                  <feMergeNode/>
+                  <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                  </filter>          
+                  <path class="path" style="filter:url(#dropshadow)" fill="#000000" d="M446.089,261.45c6.135-41.001-25.084-63.033-67.769-77.735l13.844-55.532l-33.801-8.424l-13.48,54.068
+                      c-8.896-2.217-18.015-4.304-27.091-6.371l13.568-54.429l-33.776-8.424l-13.861,55.521c-7.354-1.676-14.575-3.328-21.587-5.073
+                      l0.034-0.171l-46.617-11.64l-8.993,36.102c0,0,25.08,5.746,24.549,6.105c13.689,3.42,16.159,12.478,15.75,19.658L208.93,357.23
+                      c-1.675,4.158-5.925,10.401-15.494,8.031c0.338,0.485-24.579-6.134-24.579-6.134l-9.631,40.468l36.843,9.188
+                      c8.178,2.051,16.209,4.19,24.098,6.217l-13.978,56.17l33.764,8.424l13.852-55.571c9.235,2.499,18.186,4.813,26.948,6.995
+                      l-13.802,55.309l33.801,8.424l13.994-56.061c57.648,10.902,100.998,6.502,119.237-45.627c14.705-41.979-0.731-66.193-31.06-81.984
+                      C425.008,305.984,441.655,291.455,446.089,261.45z M368.859,369.754c-10.455,41.983-81.128,19.285-104.052,13.589l18.562-74.404
+                      C306.28,314.65,379.774,325.975,368.859,369.754z M379.302,260.846c-9.527,38.187-68.358,18.781-87.442,14.023l16.828-67.489
+                      C327.767,212.14,389.234,221.02,379.302,260.846z"/>
+                            
+                  </svg>
+                  </div>
+            </div>
+            <img class="pizza" src="images/pizza.png"/>
+        </div>
+        <div id="section2" class="section2">
+            <div class="section2-inner">
+                <div class="s2-head-left-small">WAS WIR ANBIETEN</div>
+                <div class="s2-head">
+                    <div class="s2-head-left">
+                        <div class="s2-head-left-big">Unser Special Service</div>
+                    </div>
+                    <div class="s2-head-right">
+                        wir habenseit über 21 Jahre Erfahrung darin, Pizza mit einem unverwechselbaren und authentischen Geschmack zu servieren 
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center;flex-wrap: nowrap; align-items: center;">
+                    <div class="mobile-paginate" style="display: flex;justify-content: center;">
+                        <button id="left_scroll1" class="circle1"><img id="paginate_left1" src="images/scroll-left-dis.svg"/></button>       
+                    </div>
+                    <div class="s2-items">
+                        
+                        <ul>
+                            <li class="service-element">
+                                <div class="service-element-inner">
+                                    <div class="service-icon"><img src="images/service1.svg"/></div>
+                                    <div class="service-title">Premium Qualität</div>
+                                    <div class="service-description">Wir verwenden hochwertige Zutaten für die Herstellung unserer Pizzen, daher sind die Aromen authentischer als in anderen Geschäften!</div>
+                                    <div class="service-button"> <a>Mehr erfahren</a><img src="images/arrow-right.svg"/></div>
+                                </div>
+                            </li>
+                            <li class="service-element">
+                                <div class="service-element-inner">
+                                    <div class="service-icon"><img src="images/service2.svg"/></div>
+                                    <div class="service-title">Schnelle Lieferung</div>
+                                    <div class="service-description">Wir bieten kostenlose 
+                                        Lieferserices für Gebiete innerhalb von 10 km von uns.</div>
+                                    <div class="service-button"> <a>Mehr erfahren</a><img src="images/arrow-right.svg"/></div>
+                                </div>
+                            </li>
+                            <li class="service-element">
+                                <div class="service-element-inner">
+                                    <div class="service-icon"><img src="images/service3.svg"/></div>
+                                    <div class="service-title">Krypto Zahlung</div>
+                                    <div class="service-description">Wir bieten an, ein Stück Pizza mit Krypto zu kaufen. Verwandeln Sie jetzt Ihre Krypto’s in eine Pizza</div>
+                                    <div class="service-button"> <a>Mehr erfahren</a><img src="images/arrow-right.svg"/></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mobile-paginate" style="display: flex;justify-content: center;">
+                        <button id="right_scroll1" class="circle2"><img id="paginate_right1" src="images/scroll-right.svg"/></button>
+                    </div>
+                 </div>
+         </div>
+        </div>
+        <div class="section3">
+            <div class="section3-inner">
+                <div class="section3-inner-again">
+                    <div class="s3-menu">
+                        <div class="s3-menu-texts">
+                            <div class="s3-menu-texts-small">UNSER MENÜ</div>
+                            <div class="s3-menu-texts-big">Am meisten bestellt</div>
+                            <div class="s3-menu-texts-description">There are over +230 Menüs with different categories</div>
+                        </div>
+                        <div class="s3-menu-scroll">
+                            <ul>
+                                <li id="gat1" class="s3-list-element"><button onclick="showTab(1)">Burgers</button></li>
+                                <li id="gat2" class="s3-list-element active"><button onclick="showTab(2)">Pizza</button></li>
+                                <li id="gat3" class="s3-list-element"><button onclick="showTab(3)">Risotto</button></li>
+                                <li id="gat4" class="s3-list-element"><button onclick="showTab(4)">Veggie</button></li>
+                                <li id="gat5" class="s3-list-element"><button onclick="showTab(5)">Drinks</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="pizza_tab2"class="s3-items">
+                        <div class="s3-item">
+                            <div class="s3-item-image"><img src="images/item1.png"/></div>
+                            <div class="s3-item-name">Marinara Pizza</div>
+                            <div class="s3-item-price">
+                                <div class="s3-item-price-cost">€ 120,00</div>
+                                <div class="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
+                            </div>
+                            <div class="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
+                            <div class="s3-item-size">
+                                <button onclick="selectSize(this)" class="size-button">33cm</button>
+                                <button onclick="selectSize(this)" class="size-button active">40cm</button>
+                                <button onclick="selectSize(this)" class="size-button">55cm</button>
+                            </div>
+                            <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div></div>
+                        <div class="s3-item">
+                            <div class="s3-item-image"><img src="images/item1.png"/></div>
+                            <div class="s3-item-name">Super Supreme</div>
+                            <div class="s3-item-price">
+                                <div class="s3-item-price-cost">€ 190,00</div>
+                                <div class="s3-item-price-rating"><img src="images/star.svg"/>4,7</div>
+                            </div>
+                            <div class="s3-item-details">Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten</div>
+                            <div class="s3-item-size">
+                                <button onclick="selectSize(this)" class="size-button active">33cm</button>
+                                <button onclick="selectSize(this)" class="size-button ">40cm</button>
+                                <button onclick="selectSize(this)" class="size-button">55cm</button>
+                            </div>
+                            <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div></div>
+                        <div class="s3-item">
+                            <div class="s3-item-image"><img src="images/item1.png"/></div>
+                            <div class="s3-item-name">Marinara Pizza</div>
+                            <div class="s3-item-price">
+                                <div class="s3-item-price-cost">€ 120,00</div>
+                                <div class="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
+                            </div>
+                            <div class="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
+                            <div class="s3-item-size">
+                                <button onclick="selectSize(this)" class="size-button">33cm</button>
+                                <button onclick="selectSize(this)" class="size-button active">40cm</button>
+                                <button onclick="selectSize(this)" class="size-button">55cm</button>
+                            </div>
+                            <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div>
+                        </div>
+                        <div class="s3-item">
+                            <div class="s3-item-image"><img src="images/item1.png"/></div>
+                            <div class="s3-item-name">Super Supreme</div>
+                            <div class="s3-item-price">
+                                <div class="s3-item-price-cost">€ 190,00</div>
+                                <div class="s3-item-price-rating"><img src="images/star.svg"/>4,7</div>
+                            </div>
+                            <div class="s3-item-details">Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten</div>
+                            <div class="s3-item-size">
+                                <button onclick="selectSize(this)" class="size-button active">33cm</button>
+                                <button onclick="selectSize(this)" class="size-button ">40cm</button>
+                                <button onclick="selectSize(this)" class="size-button">55cm</button>
+                            </div>
+                            <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div>
+                        </div>
+                        <div class="s3-item">
+                            <div class="s3-item-image"><img src="images/item1.png"/></div>
+                            <div class="s3-item-name">Marinara Pizza</div>
+                            <div class="s3-item-price">
+                                <div class="s3-item-price-cost">€ 120,00</div>
+                                <div class="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
+                            </div>
+                            <div class="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
+                            <div class="s3-item-size">
+                                <button onclick="selectSize(this)" class="size-button">33cm</button>
+                                <button onclick="selectSize(this)" class="size-button active">40cm</button>
+                                <button onclick="selectSize(this)" class="size-button">55cm</button>
+                            </div>
+                            <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div>
+                        </div>
+                        <div class="s3-item">
+                            <div class="s3-item-image"><img src="images/item1.png"/></div>
+                            <div class="s3-item-name">Super Supreme</div>
+                            <div class="s3-item-price">
+                                <div class="s3-item-price-cost">€ 190,00</div>
+                                <div class="s3-item-price-rating"><img src="images/star.svg"/>4,7</div>
+                            </div>
+                            <div class="s3-item-details">Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten</div>
+                            <div class="s3-item-size">
+                                <button onclick="selectSize(this)" class="size-button active">33cm</button>
+                                <button onclick="selectSize(this)" class="size-button ">40cm</button>
+                                <button onclick="selectSize(this)" class="size-button">55cm</button>
+                            </div>
+                            <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="s3-pagination">
+                    <div class="paginate-items">
+                        <button id="left_scroll" class="circle1"><img id="paginate_left" src="images/scroll-left-dis.svg"/></button>
+                        <button id="right_scroll" class="circle2"><img id="paginate_right" src="images/scroll-right.svg"/></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section4">
+            <div class="section4-inner">
+                <div class="s4-head">
+                    <div class="s4-head-left">
+                        <div class="s4-head-left-small">FIRMENANGEBOTE</div>
+                        <div class="s4-head-left-big">Unsere Sonderangebote für  Unternehmen</div>
+                    </div>
+                    <div class="s4-head-right">
+                        Sind Sie eine Anwaltskanzlei in Österreich? Holen  Sie sich jetzt ein Sonderangebot.  
+                    </div>
+                </div>
+                <div class="s4-items">
+                    <ul>
+                        <li class="s4-item-element">
+                            <div class="s4-item-element-inner">
+                                <div class="s4-item-photo"><img src="images/aitem1.png"/></div>
+                                <div class="s4-item-info">Packages 1</div>
+                                <div class="s4-item-details">
+                                    <div class="s4-item-name-promo">
+                                        <div class="s4-item-name">Pizza + Pepsi</div>
+                                        <div class="s4-item-promo">(Gösser 0,5L +0,50 €)</div>
+                                    </div>
+                                    <div class="s4-item-price">€ 6.50</div>
+                                </div>
+                                
+                                <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div> </div>
+                        </li>
+                        <li class="s4-item-element">
+                            <div class="s4-item-element-inner">
+                                <div class="s4-item-photo"><img src="images/aitem2.png"/></div>
+                                <div class="s4-item-info">Packages 2</div>
+                                <div class="s4-item-details">
+                                    <div class="s4-item-name-promo">
+                                        <div class="s4-item-name">Pasta + Pepsi</div>
+                                        <div class="s4-item-promo">(Gösser 0,5L +0,50 €)</div>
+                                    </div>
+                                    <div class="s4-item-price">€ 6.50</div>
+                                </div>
+                                
+                                <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div> </div>
+                        </li>
+                        <li class="s4-item-element">
+                            <div class="s4-item-element-inner">
+                                <div class="s4-item-photo"><img src="images/aitem3.png"/></div>
+                                <div class="s4-item-info">Packages 3</div>
+                                <div class="s4-item-details">
+                                    <div class="s4-item-name-promo">
+                                        <div class="s4-item-name">Schnitzel + Pepsi</div>
+                                        <div class="s4-item-promo">(Gösser 0,5L +0,50 €)</div>
+                                    </div>
+                                    <div class="s4-item-price">€ 7.00</div>
+                                </div>
+                                
+                                <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div> </div>
+                        </li>
+                    </ul>
+                </div>
+          </div>
+        </div>
+        <div class="section5" id="section5">
+            <div class="section5-inner">
+                <div class="s5-map"><div id="map"></div></div>
+                <div class="s5-kontakt">
+                    <div class="s5-kontakt-texts-small">UNSER PROFIL</div>
+                    <div class="s5-kontakt-texts-big">Kontakt</div> 
+                    <div class="s5-items">
+                        <ul>
+                            <li class="s5-item">
+                                <div class="s5-item-inner">
+                                    <img src="images/smartphone.svg"/>
+                                    <div class="s5-kontakt-info">
+                                        <div class="s5-kontakt-name">Mobile</div>
+                                        <div class="s5-kontakt-details">+43 (0) 699 103 11 888</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="s5-item">
+                                <div class="s5-item-inner">
+                                    <img src="images/addresse.svg"/>
+                                    <div class="s5-kontakt-info">
+                                        <div class="s5-kontakt-name">Addresse</div>
+                                        <div class="s5-kontakt-details">Gerasdorfer Str. 124, 1210 Wien, Austria</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="s5-item">
+                                <div class="s5-item-inner">
+                                    <img src="images/telefonnummer.svg"/>
+                                    <div class="s5-kontakt-info">
+                                        <div class="s5-kontakt-name">Telefonnummer</div>
+                                        <div class="s5-kontakt-details">+43 (0) 1 294 80 30</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="s5-item">
+                                <div class="s5-item-inner">
+                                    <img src="images/booking.svg"/>
+                                    <div class="s5-kontakt-info">
+                                        <div class="s5-kontakt-name">Öffnungszeiten</div>
+                                        <div class="s5-kontakt-details">Montag - Sonntag, 10:00 - 10:00</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section6">
+            <div class="section6-inner">
+                <div class="s6-title">ABONIEREN</div>
+                <div class="s6-text">Hinterlasse deine Email um die neuesten Nachrichten oder Angebote zu erhalten</div>
+                <div class="s6-description">Wenn Sie sich bei unseren Newsletter anmelden, erhalten Sie zusätzliche Gutscheine und immer die neuesten Angebote von uns.</div>
+                <div class="s6-email"><input type="text" placeholder="Enter your email address"/><button>Abonieren</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="foot">
+        <div class="foot-left">
+            <div class="foot-left-title"> RIANO</div>
+            <div class="foot-left-description">
+                we provide fast food with premium
+                goods and fast and safe delivery. we are
+                also accept payments in crypto.
+            </div>
+            <div class="foot-left-socials">
+                <a><img src="images/instagram.svg"/></a>
+                <a><img src="images/facebook.svg"/></a>
+                <a><img src="images/twitter.svg"/></a>
+            </div>
+        </div>
+        <div class="foot-right">
+            <div class="foot-right-about">About
+                <a href="uber.html">Uber Uns</a>
+                <a href="home.html#section2">Features</a>
+                <a id="news-href">News</a>
+            </div>
+            <div class="foot-right-support">Support
+                <a id="feedback">Feedback</a>
+                <a href="home.html#section5">Kontakt</a>
+                <a>Cookies Information</a>
+            </div>
+            <div class="foot-right-touch">Get in Touch
+                <a id="question">Question or feedback?</a>
+                <a>We'd love to hear from you</a>
+            </div>
+        </div>
+    </div>
+
+
+
+     <!-- Modals -->
+  <div class="modal fade" id="feedback_modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="feedback-modal">
+            <button class="modal-x" data-dismiss="modal"><img src="images/x.svg"/></button>
+            <div class="feedback-modal-inner">
+                <div class="modal-title">Leave us some feedback!</div>
+                <div class="modal-feedback-title">Feedback</div>
+                <textarea class="modal-textarea" ></textarea>
+                <div class="modal-double-bottom">
+                    <div class="modal-input-name">
+                        <div class="modal-input-name-title">Your Name</div>
+                        <input class="modal-input-area" type="text"/>
+                    </div>
+                    <div class="modal-input-email">
+                        <div class="modal-input-name-title">Your E-mail</div>
+                        <input class="modal-input-area" type="text"/>
+                    </div>
+                </div>
+                <div class="modal-feedback-button">
+                    <button class="modal-feedback-send" data-dismiss="modal">Send Feedback</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="bitcoin_modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="bitcoin-modal">
+            <button class="modal-x" data-dismiss="modal"><img src="images/x.svg"/></button>
+            <div class="feedback-modal-inner">
+                <div class="bitcoin-modal-images">
+                    <img class="bitcoin-modal-imgs" src="images/bitcoin.png">
+                    <img class="bitcoin-modal-imgs" src="images/double-arrow.svg">
+                    <img class="bitcoin-modal-imgs" src="images/pizza.svg">
+                </div>
+                <div class="modal-title">Hey! Have you ever seen a crypto turn into a slice of pizza?</div>
+                <div class="modal-bitcoin-description">Jetzt akzeptieren wir Zahlungen per Kryptowährungen, sodass Sie Ihre Kryptowährungen gegen ein Stück Pizza eintauschen können</div> 
+                <div class="modal-feedback-button">
+                    <button class="modal-feedback-send" data-dismiss="modal">Check it now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="notification_modal" role="dialog">
+    <div class="notification-dialog">
+        <div class="notification-modal">
+            <div class="notification-modal-inner">
+                <div class="fm-head">
+                    <div class="fm-head-left">Notification (5)</div>
+                    <div class="fm-head-right"><a>View all</a></div>
+                </div>
+                <div class="fm-tabs">
+                    <button class="fm-tab active" id="tagmodal_tab1" onclick="showModalTab('modal_tab1')">Transaction</button>
+                    <button class="fm-tab" id="tagmodal_tab2" onclick="showModalTab('modal_tab2')">News</button>
+                </div>
+                <div id="modal_tab1" class="modal-tab1">
+                    <div class="modal-tab-title">Payment Procress</div>
+                    <div class="modal-notifications-list">
+                        <ul>
+                            <li>
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/dish.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">Dein Essen Its angekommen :)</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/delivery.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">Ihr Essen wird geliefert</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/pot.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">Ihre Bestellung wird bearbeitet</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="checked-noti">
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/check-circle.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">#1290 Zahlung erfolgreich</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li >
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/dish.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">#1290 Zahlung erfolgreich</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-order-history">
+                        <div class="modal-order-history-title">View Order History</div>
+                        <input placeholder="Enter the code here"/>
+                    </div>
+                </div>
+                <div id="modal_tab2" class="modal-tab2">
+                    <div class="modal-news-list">
+                        <ul>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li class="checked-noti">
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="modal-mark-as-read" >Mark as read</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="cart_modal" role="dialog">
+    <div class="notification-dialog">
+        <div class="notification-modal">
+            <div class="notification-modal-inner">
+                <div class="fm-head">
+                    <div class="fm-head-left">Cart (5)</div>
+                    <div class="fm-head-right"><a>View all</a></div>
+                </div>
+                <div class="cart-list">
+                    <ul>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/risotto.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Italian Risotto</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/combo3.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Pizza + Pepsi (Comparison Janusz to D*ck) </div>
+                                        <div class="cart-element-quantity">3 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/combo1.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Johny Walker + 2x1,5l ololool</div>
+                                        <div class="cart-element-quantity">2 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/vodka.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Vodka 1L</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/risotto.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Italian Risotto</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/risotto.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Italian Risotto</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <a href="cart.html" class="checkout-now-button">Checkout Now</a>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="ingredients_modal" role="dialog">
+    <div id="ingredients_dialog" class="modal-dialog">
+        <div class="ingredients-modal">
+            <button class="modal-x" data-dismiss="modal"><img src="images/x.svg"/></button>
+            <div class="ingredients-modal-inner">
+                <div class="ingredients-modal-title">Custom Ingredients</div>
+                <div class="ingredients-modal-selects">
+                    <div class="ingredients-modal-selects-title">
+                        Pizza Crust
+                        <div class="ingredients-modal-selects-title-smaller">Choose 1</div>
+                    </div>
+                    <div class="ingredients-selection-list">
+                        <label for="crispy_ingredients"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                         Crispy
+                                        <div class="ingredients-details-title-right">+ € 2.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="radio" name="ingredients_option" id="crispy_ingredients" value="crispy_ingredients" />
+                             </div>
+                         </label>
+                         <label for="stuffed_ingredients"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Stuffed Crust Cheese
+                                        <div class="ingredients-details-title-right">+ € 5.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="radio" name="ingredients_option" id="stuffed_ingredients" value="stuffed_ingredients" />
+                             </div>
+                         </label>
+
+                         <label for="crown_ingredients"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Crown Crust
+                                        <div class="ingredients-details-title-right">+ € 5.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="radio" name="ingredients_option" id="crown_ingredients" value="crown_ingredients" />
+                             </div>
+                         </label>
+                         <label for="pan_ingredients"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Pan Pizza
+                                        <div class="ingredients-details-title-right">+ € 5.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="radio" name="ingredients_option" id="pan_ingredients" value="pan_ingredients" />
+                             </div>
+                         </label>
+
+                         <label for="chilli_ingredients"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Filled Chili Mozzarella
+                                        <div class="ingredients-details-title-right">+ € 5.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="radio" name="ingredients_option" id="chilli_ingredients" value="chilli_ingredients" />
+                             </div>
+                         </label>
+
+                         <label for="cheese_ingredients"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Cheese Burst
+                                        <div class="ingredients-details-title-right">+ € 5.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="radio" name="ingredients_option" id="cheese_ingredients" value="cheese_ingredients" />
+                             </div>
+                         </label>
+                         <label for="doublecheese_ingredients"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Double Cheese Burst
+                                        <div class="ingredients-details-title-right">+ € 5.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="radio" name="ingredients_option" id="doublecheese_ingredients" value="doublecheese_ingredients" />
+                             </div>
+                         </label>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="ingredients-modal-selects">
+                    <div class="ingredients-modal-selects-title">
+                        Pizza Sauce
+                        <div class="ingredients-modal-selects-title-smaller">max 3</div>
+                    </div>
+                    <div class="ingredients-selection-list">
+                        <label for="pizza_sauce"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Pizza Sauce
+                                        <div class="ingredients-details-title-right">+ € 3.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="pizza_sauce" value="pizza_sauce" />
+                             </div>
+                         </label>
+                         <label for="chilli_sauce"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Chilli Sauce
+                                        <div class="ingredients-details-title-right">+ € 1.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="chilli_sauce" value="chilli_sauce" />
+                             </div>
+                         </label>
+
+
+                         <label for="mayonnaise_sauce"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Mayonnaise Sauce
+                                        <div class="ingredients-details-title-right">+ € 2.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="mayonnaise_sauce" value="mayonnaise_sauce" />
+                             </div>
+                         </label>
+                         <label for="blackpepper_sauce"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Blackpepper Sauce
+                                        <div class="ingredients-details-title-right">+ € 2.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="blackpepper_sauce" value="blackpepper_sauce" />
+                             </div>
+                         </label>
+                         <label for="spicy_bbq"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Spicy BBQ
+                                        <div class="ingredients-details-title-right">+ € 2.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="spicy_bbq" value="spicy_bbq" />
+                             </div>
+                         </label>
+                         <label for="truffle_sauce"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Truffle Mushroom Sauce
+                                        <div class="ingredients-details-title-right">+ € 1.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="truffle_sauce" value="truffle_sauce" />
+                             </div>
+                         </label>
+                         <label for="mexican_seasoning"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Mexican Seasoning
+                                        <div class="ingredients-details-title-right">+ € 4.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="mexican_seasoning" value="mexican_seasoning" />
+                             </div>
+                         </label>
+                         <label for="butterschatch_sauce"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Butterschotch Sauce
+                                        <div class="ingredients-details-title-right">+ € 5.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="butterschatch_sauce" value="butterschatch_sauce" />
+                             </div>
+                         </label>
+                    </div>
+                </div>
+
+
+
+
+                <div class="ingredients-modal-selects">
+                    <div class="ingredients-modal-selects-title">
+                        Pizza Toppings
+                        <div class="ingredients-modal-selects-title-smaller">max 5</div>
+                    </div>
+                    <div class="ingredients-selection-list">
+                        <label for="spicy_tuna"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Hot Spicy Tuna
+                                        <div class="ingredients-details-title-right">+ € 4.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="spicy_tuna" value="spicy_tuna" />
+                             </div>
+                         </label>
+                         <label for="beef_black"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Beef Black Pepper
+                                        <div class="ingredients-details-title-right">+ € 3.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="beef_black" value="beef_black" />
+                             </div>
+                         </label>
+
+
+                         <label for="beef_rasher"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Beef Rasher
+                                        <div class="ingredients-details-title-right">+ € 2.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="beef_rasher" value="beef_rasher" />
+                             </div>
+                         </label>
+                         <label for="beef_sausage"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Beef Sausage
+                                        <div class="ingredients-details-title-right">+ € 3.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="beef_sausage" value="beef_sausage" />
+                             </div>
+                         </label>
+                         <label for="corn"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Corn
+                                        <div class="ingredients-details-title-right">+ € 2.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="corn" value="corn" />
+                             </div>
+                         </label>
+                         <label for="jalapeno"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Jalapeno
+                                        <div class="ingredients-details-title-right">+ € 1.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="jalapeno" value="jalapeno" />
+                             </div>
+                         </label>
+                         <label for="green_pepper"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Green pepper
+                                        <div class="ingredients-details-title-right">+ € 3.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="green_pepper" value="green_pepper" />
+                             </div>
+                         </label>
+                         <label for="onion"> 
+                            <div class="ingredients-option">
+                                 <div class="ingredients-details">
+                                     <div class="ingredients-details-title">
+                                        Onion
+                                        <div class="ingredients-details-title-right">+ € 2.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="checkbox" name="ingredients_option" id="onion" value="onion" />
+                             </div>
+                         </label>
+                    </div>
+                </div>
+
+                <div class="ingredients-modal-selects-title">
+                    Note :
+                    <div class="ingredients-modal-selects-title-smaller">(optional)</div>
+                </div>
+                <input placeholder="Make it more spicy" class="note-input-modal"/>
+                <div class="ingredients-total">
+                    Total Pizza
+                    <div class="s3-item-cart">4</div>
+                </div>
+                <button class="add-to-cart-button">Add to Cart - €257.00</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+    <script>
+        function checkPaginate(){   
+            let s3_scroll = $('.s3-items')[0].scrollLeft;
+            let s3_max = $('.s3-items')[0].scrollWidth-$('.s3-items')[0].clientWidth
+            if (s3_scroll > 0){
+                document.getElementById("paginate_left").src = "images/scroll-right.svg";
+                document.getElementById("left_scroll").style.backgroundColor="#523429";
+                document.getElementById("paginate_left").style.transform="rotate(180deg)";}
+            else {
+                document.getElementById("paginate_left").src = "images/scroll-left-dis.svg";
+                document.getElementById("left_scroll").style.backgroundColor="#DDDBDA";
+                document.getElementById("paginate_left").style.transform="rotate(0deg)";}
+            if (s3_max - s3_scroll > 5){
+                document.getElementById("paginate_right").src = "images/scroll-right.svg";
+                document.getElementById("right_scroll").style.backgroundColor="#523429";
+                document.getElementById("paginate_right").style.transform="rotate(0deg)";}
+            else {
+                document.getElementById("paginate_right").src = "images/scroll-left-dis.svg";
+                document.getElementById("right_scroll").style.backgroundColor="#DDDBDA";
+                document.getElementById("paginate_right").style.transform="rotate(180deg)";}
+            
+        }
+        function checkPaginate1(){   
+            let s3_scroll = $('.s2-items ul')[0].scrollLeft;
+            let s3_max = $('.s2-items ul')[0].scrollWidth-$('.s2-items ul')[0].clientWidth
+            if (s3_scroll > 0){
+                document.getElementById("paginate_left1").src = "images/scroll-right.svg";
+                document.getElementById("left_scroll1").style.backgroundColor="#523429";
+                document.getElementById("paginate_left1").style.transform="rotate(180deg)";}
+            else {
+                document.getElementById("paginate_left1").src = "images/scroll-left-dis.svg";
+                document.getElementById("left_scroll1").style.backgroundColor="#DDDBDA";
+                document.getElementById("paginate_left1").style.transform="rotate(0deg)";}
+            if (s3_max - s3_scroll > 15){
+                document.getElementById("paginate_right1").src = "images/scroll-right.svg";
+                document.getElementById("right_scroll1").style.backgroundColor="#523429";
+                document.getElementById("paginate_right1").style.transform="rotate(0deg)";}
+            else {
+                document.getElementById("paginate_right1").src = "images/scroll-left-dis.svg";
+                document.getElementById("right_scroll1").style.backgroundColor="#DDDBDA";
+                document.getElementById("paginate_right1").style.transform="rotate(180deg)";}
+            
+        }
+        $(".s3-items").on("scroll", function (e) {
+            checkPaginate();
+        });
+        quantitiesDivs = document.getElementsByClassName('s3-item-cart');
+            quantities = [];
+            for(var i=0, n=quantitiesDivs.length;i<n;i++) {
+                quantities[i]=parseInt(document.getElementsByClassName('s3-item-cart')[i].innerHTML);
+                 }
+
+        function renderQuantities(){
+            
+            for(var i=0, n=quantitiesDivs.length;i<n;i++) {
+                quantitiesDivs[i].innerHTML='<button onclick="changeQuantityMinus('+i+')"><img src="images/minus.svg"/></button>'+quantities[i]+'<button onclick="changeQuantityPlus('+i+')"><img src="images/plus.svg"/></button>';
+            }
+        }
+        function changeQuantityMinus(number){
+            if(quantities[number]>1){
+            quantities[number]-=1;
+            renderQuantities();}
+        }
+        function changeQuantityPlus(number){
+            quantities[number]+=1;
+            renderQuantities();
+        }
+
+
+        $(document).ready(function(){
+            renderQuantities();
+            
+                $('div[id^="modal_tab"]').hide();
+                $('#modal_tab1').show();
+            $("#cart").click(function(){
+                $("#cart_modal").modal();
+            });
+            $("#notification").click(function(){
+                $("#notification_modal").modal();
+            });
+            $("#news-href").click(function(){
+                $("#notification_modal").modal();
+            });
+            $("#bitcoin_modal").modal();
+
+            $("#feedback").click(function(){
+            $("#feedback_modal").modal();
+            });
+            $(".s3-add-to-cart").click(function(){
+            $("#ingredients_modal").modal();
+            });
+
+            $("#question").click(function(){
+                $("#feedback_modal").modal();
+            });
+
+            $('#right_scroll').click(function(){   
+                let s3_scroll = $('.s3-items').scrollLeft();
+                s3_scroll += 380; 
+                $('.s3-items').animate({ //animate element that has scroll
+                    scrollLeft: s3_scroll  //for scrolling
+                }, 300);
+                $('.s3-items').promise().done(function(){checkPaginate()});
+            });
+            $('#left_scroll').click(function(){   
+                 let s3_scroll = $('.s3-items').scrollLeft();
+                s3_scroll -= 380; 
+                $('.s3-items').animate({ //animate element that has scroll
+                    scrollLeft: s3_scroll  //for scrolling
+                }, 300);
+               
+                $('.s3-items').promise().done(function(){checkPaginate()});
+            });
+
+
+            $('#right_scroll1').click(function(){   
+                let s3_scroll = $('.s2-items ul').scrollLeft();
+                s3_scroll +=  $('.service-element').width() + $(window).width()*0.1;
+                $('.s2-items ul').animate({ //animate element that has scroll
+                    scrollLeft: s3_scroll  //for scrolling
+                }, 300);
+                $('.s2-items ul').promise().done(function(){checkPaginate1()});
+            });
+            $('#left_scroll1').click(function(){   
+                 let s3_scroll = $('.s2-items ul').scrollLeft();
+                s3_scroll -=  $('.service-element').width() + $(window).width()*0.1;
+                $('.s2-items ul').animate({ //animate element that has scroll
+                    scrollLeft: s3_scroll  //for scrolling
+                }, 300);
+               
+                $('.s2-items ul').promise().done(function(){checkPaginate1()});
+            });
+        });
+            function showModalTab(asd){
+                $('.fm-tab').removeClass('active');
+                $('#tag'+asd).addClass('active');
+                $('div[id^="modal_tab"]').fadeOut(500,function(){ $('div[id^="modal_tab"]').hide();});
+                $('#'+asd).fadeIn(500,function(){ $('#'+asd).show();});
+            };
+            function showTab(asd){
+                $('.s3-list-element').removeClass('active');
+                $('#gat'+asd).addClass('active');
+                $('div[id^="pizza_tab"]').fadeOut(500,function(){ $('div[id^="pizza_tab"]').hide();});
+                $('#pizza_tab'+asd).fadeIn(500,function(){ $('#'+asd).show();});
+            };
+        function selectSize(source){
+        sources = $(source.parentNode).children();
+            for(var i=0, n=sources.length;i<n;i++) {
+                
+            sources.removeClass("active");
+                 }
+            $(source).addClass("active");
+        }
+        </script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+    async
+  ></script>
+</body>
+</html>

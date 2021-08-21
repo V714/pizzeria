@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RIANO</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+          // The location of Uluru
+          const uluru = { lat: -25.344, lng: 131.036 };
+          // The map, centered at Uluru
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: uluru,
+          });
+          // The marker, positioned at Uluru
+          const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+          });
+        }
+      </script>
+</head>
+<body>
+   
+
+
+    <div class="top-menu">
+        <div class="top-menu-title">RIANO</div>
+        <div class="top-menu-select">
+            <a href="home.html" class="top-tab selected">Home</a>
+            <a href="menu.html" class="top-tab">Menu</a>
+            <a href="uber.html" class="top-tab">Uber Uns</a>
+            <a href="home.html#section5" class="top-tab">Kontakt</a>
+        </div>
+        <div class="top-menu-icons">
+            <a id="notification"><img src="images/bell.svg"/></a>
+            <a id="cart"><div class="new-notification">5</div><img src="images/cart.svg"/></a>
+        </div>
+    </div>
+
+    <div id="menuToggle">
+        <!--
+        A fake / hidden checkbox is used as click reciever,
+        so you can use the :checked selector on it.
+        -->
+        <input type="checkbox" />
+        
+        <!--
+        Some spans to act as a hamburger.
+        
+        They are acting like a real hamburger,
+        not that McDonalds stuff.
+        -->
+        <span></span>
+        <span></span>
+        <span></span>
+        
+        <!--
+        Too bad the menu has to be inside of the button
+        but hey, it's pure CSS magic.
+        -->
+        <ul id="menu">
+          <a href="home.html" onClick="document.getElementsByClassName('section2')[0].scrollIntoView();"><li>Home</li></a>
+          <a href="menu.html"><li>Menu</li></a>
+          <a href="uber.html"><li>Uber Uns</li></a>
+          <a href="home.html#section5"><li>Kontakt</li></a>
+        </ul>
+      </div>
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+    <div class="page-inner">
+
+        <div class="section1-mid">
+            <div class="section1-mid-inner">
+                <div class="s1-mid-title">Order History</div>
+                <div class="s1-mid-text">Enter the transaction code below to see you previous order</div>
+                <input placeholder="Enter the code here"></input>
+            </div>
+            <div class="history">
+                <div class="history-head">
+                    <div class="history-head-left">Order id “<b>#1290</b>”</div>
+                    <div class="history-head-right">Sunday, 24 April 2021 | 19:20:02</div>
+                </div>
+                <div class="user-data">
+                    <div class="user-data-head">User Data</div>
+                    <div class="user-data-details">
+                        <div class="user-data-detail">
+                            <div class="user-data-detail-1">Order Type</div>
+                            <div class="user-data-detail-2">:</div>
+                            <div class="user-data-detail-3">Delivery</div>
+                        </div>
+                        <div class="user-data-detail">
+                            <div class="user-data-detail-1">Name</div>
+                            <div class="user-data-detail-2">:</div>
+                            <div class="user-data-detail-3">JohnDoe (Apartment)</div>
+                        </div>
+                        <div class="user-data-detail">
+                            <div class="user-data-detail-1">Telp Number</div>
+                            <div class="user-data-detail-2">:</div>
+                            <div class="user-data-detail-3">+62 219-1209-1029</div>
+                        </div>
+                        <div class="user-data-detail">
+                            <div class="user-data-detail-1">City</div>
+                            <div class="user-data-detail-2">:</div>
+                            <div class="user-data-detail-3">Vienna</div>
+                        </div>
+                        <div class="user-data-detail">
+                            <div class="user-data-detail-1">Address</div>
+                            <div class="user-data-detail-2">:</div>
+                            <div class="user-data-detail-3">21 District Vienna, Sun City, 2910</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-item">
+                    <div class="order-item-head">Order Item</div>
+                    <table id="history_table" class="history-table">
+                        <tr>
+                            <th class="history-table-number">#</th>
+                            <th class="history-table-food">Food</th>
+                            <th class="history-table-amount">Amount</th>
+                            <th class="history-table-note">Note</th>
+                            <th class="history-table-price">Price</th>
+                        </tr>
+                        <tr>
+                            <td>1.</td>
+                            <td>Italian Risotto</td>
+                            <td>2</td>
+                            <td>Please add some chilli there</td>
+                            <td>€ 30.00</td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>Meaty Pizza</td>
+                            <td>3</td>
+                            <td>-</td>
+                            <td>€ 22.31</td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>Cheese Lovers</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>€ 12.20</td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>Tuna Melt</td>
+                            <td>2</td>
+                            <td>-</td>
+                            <td>€ 40.00</td>
+                        </tr>
+                    </table>
+                    <div class="under-table">
+                        <button class="under-table-button"><img src="images/printer.svg"/>Print</button>
+                        <button class="under-table-button-filled">Re-order Food</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <!-- Modals -->
+  <div class="modal fade" id="feedback_modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="feedback-modal">
+            <button class="modal-x" data-dismiss="modal"><img src="images/x.svg"/></button>
+            <div class="feedback-modal-inner">
+                <div class="modal-title">Leave us some feedback!</div>
+                <div class="modal-feedback-title">Feedback</div>
+                <textarea class="modal-textarea" ></textarea>
+                <div class="modal-double-bottom">
+                    <div class="modal-input-name">
+                        <div class="modal-input-name-title">Your Name</div>
+                        <input class="modal-input-area" type="text"/>
+                    </div>
+                    <div class="modal-input-email">
+                        <div class="modal-input-name-title">Your E-mail</div>
+                        <input class="modal-input-area" type="text"/>
+                    </div>
+                </div>
+                <div class="modal-feedback-button">
+                    <button class="modal-feedback-send" data-dismiss="modal">Send Feedback</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="bitcoin_modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="bitcoin-modal">
+            <button class="modal-x" data-dismiss="modal"><img src="images/x.svg"/></button>
+            <div class="feedback-modal-inner">
+                <div class="bitcoin-modal-images">
+                    <img class="bitcoin-modal-imgs" src="images/bitcoin.png">
+                    <img class="bitcoin-modal-imgs" src="images/double-arrow.svg">
+                    <img class="bitcoin-modal-imgs" src="images/pizza.svg">
+                </div>
+                <div class="modal-title">Hey! Have you ever seen a crypto turn into a slice of pizza?</div>
+                <div class="modal-bitcoin-description">Jetzt akzeptieren wir Zahlungen per Kryptowährungen, sodass Sie Ihre Kryptowährungen gegen ein Stück Pizza eintauschen können</div> 
+                <div class="modal-feedback-button">
+                    <button class="modal-feedback-send" data-dismiss="modal">Check it now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="notification_modal" role="dialog">
+    <div class="notification-dialog">
+        <div class="notification-modal">
+            <div class="notification-modal-inner">
+                <div class="fm-head">
+                    <div class="fm-head-left">Notification (5)</div>
+                    <div class="fm-head-right"><a>View all</a></div>
+                </div>
+                <div class="fm-tabs">
+                    <button class="fm-tab active" id="tagmodal_tab1" onclick="showModalTab('modal_tab1')">Transaction</button>
+                    <button class="fm-tab" id="tagmodal_tab2" onclick="showModalTab('modal_tab2')">News</button>
+                </div>
+                <div id="modal_tab1" class="modal-tab1">
+                    <div class="modal-tab-title">Payment Procress</div>
+                    <div class="modal-notifications-list">
+                        <ul>
+                            <li>
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/dish.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">Dein Essen Its angekommen :)</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/delivery.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">Ihr Essen wird geliefert</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/pot.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">Ihre Bestellung wird bearbeitet</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="checked-noti">
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/check-circle.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">#1290 Zahlung erfolgreich</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li >
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/dish.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">#1290 Zahlung erfolgreich</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-order-history">
+                        <div class="modal-order-history-title">View Order History</div>
+                        <input placeholder="Enter the code here"/>
+                    </div>
+                </div>
+                <div id="modal_tab2" class="modal-tab2">
+                    <div class="modal-news-list">
+                        <ul>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li class="checked-noti">
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="modal-mark-as-read" >Mark as read</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="cart_modal" role="dialog">
+    <div class="notification-dialog">
+        <div class="notification-modal">
+            <div class="notification-modal-inner">
+                <div class="fm-head">
+                    <div class="fm-head-left">Cart (5)</div>
+                    <div class="fm-head-right"><a>View all</a></div>
+                </div>
+                <div class="cart-list">
+                    <ul>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/risotto.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Italian Risotto</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/combo3.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Pizza + Pepsi (Comparison Janusz to D*ck) </div>
+                                        <div class="cart-element-quantity">3 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/combo1.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Johny Walker + 2x1,5l ololool</div>
+                                        <div class="cart-element-quantity">2 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/vodka.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Vodka 1L</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/risotto.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Italian Risotto</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/risotto.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Italian Risotto</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <a href="cart.html" class="checkout-now-button">Checkout Now</a>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+    <script>
+        $(".s3-items").on("scroll", function (e) {
+            checkPaginate();
+        });
+        $(document).ready(function(){
+                $('div[id^="modal_tab"]').hide();
+                $('#modal_tab1').show();
+            $("#cart").click(function(){
+                $("#cart_modal").modal();
+            });
+            $("#notification").click(function(){
+                $("#notification_modal").modal();
+            });
+
+$("#news-href").click(function(){
+                $("#notification_modal").modal();
+            });
+
+            $("#feedback").click(function(){
+            $("#feedback_modal").modal();
+            });
+
+            $("#question").click(function(){
+                $("#feedback_modal").modal();
+            });
+
+            
+        });
+        function showModalTab(asd){
+                $('.fm-tab').removeClass('active');
+                $('#tag'+asd).addClass('active');
+                $('div[id^="modal_tab"]').fadeOut(500,function(){ $('div[id^="modal_tab"]').hide();});
+                $('#'+asd).fadeIn(500,function(){ $('#'+asd).show();});
+            };
+        </script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+    async
+  ></script>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RIANO</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+          // The location of Uluru
+          const uluru = { lat: -25.344, lng: 131.036 };
+          // The map, centered at Uluru
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 4,
+            center: uluru,
+          });
+          // The marker, positioned at Uluru
+          const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+          });
+        }
+      </script>
+</head>
+<body>
+   
+
+
+    <div class="top-menu">
+        <div class="top-menu-title">RIANO</div>
+        <div class="top-menu-select">
+            <a href="home.html" class="top-tab ">Home</a>
+            <a href="menu.html" class="top-tab selected">Menu</a>
+            <a href="uber.html" class="top-tab">Uber Uns</a>
+            <a href="home.html#section5" class="top-tab">Kontakt</a>
+        </div>
+        <div class="top-menu-icons">
+            <a id="notification"><img src="images/bell.svg"/></a>
+            <a id="cart"><div class="new-notification">5</div><img src="images/cart.svg"/></a>
+        </div>
+    </div>
+
+    <div id="menuToggle">
+        <!--
+        A fake / hidden checkbox is used as click reciever,
+        so you can use the :checked selector on it.
+        -->
+        <input type="checkbox" />
+        
+        <!--
+        Some spans to act as a hamburger.
+        
+        They are acting like a real hamburger,
+        not that McDonalds stuff.
+        -->
+        <span></span>
+        <span></span>
+        <span></span>
+        
+        <!--
+        Too bad the menu has to be inside of the button
+        but hey, it's pure CSS magic.
+        -->
+        <ul id="menu">
+          <a href="home.html" onClick="document.getElementsByClassName('section2')[0].scrollIntoView();"><li>Home</li></a>
+          <a href="menu.html"><li>Menu</li></a>
+          <a href="uber.html"><li>Uber Uns</li></a>
+          <a href="home.html#section5"><li>Kontakt</li></a>
+        </ul>
+      </div>
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+    <div class="page-inner">
+
+        <div class="section1-item">
+            <div class="section1-item-inner">
+                <div class="page-links">
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="menu.html"><img src="images/right-vector.svg"/>Menu </a></li>
+                        <li><a><img src="images/right-vector.svg"/>Risotto </a></li>
+                        <li><a class="actual"><img src="images/right-vector.svg"/>Italian Risotto</a></li>
+                    </ul>
+                </div>
+                <div class="item-details">
+                    <div class="item-detail-image">
+                        <div class="item-detail-fullimage"><img src="images/risotto.png"/></div>
+                        <div class="item-detail-thumbnails">
+                            <div class="item-detail-thumbnails-image"><a href="images/risotto.png"><img src="images/risotto.png"/></a></div>
+                            <div class="item-detail-thumbnails-image"><a href="images/risotto.png"><img src="images/risotto.png"/></a></div>
+                            <div class="item-detail-thumbnails-image"><a href="images/risotto.png"><img src="images/risotto.png"/></a></div>
+                            <div class="item-detail-thumbnails-image"><a href="images/risotto.png"><img src="images/risotto.png"/></a></div>
+                        </div>
+                    </div>
+                    <div class="item-detail-description">
+                        <div class="item-detail-name">Italian Risotto</div>
+                        <div class="item-detail-info">
+                            <div class="item-detail-info-small"><img src="images/star.svg"/>4.5</div>
+                            <div class="item-detail-info-small"><img src="images/clock.svg"/>40-45 min</div>
+                            <div class="item-detail-info-small"><img src="images/kcal.svg"/>380 kCal</div>
+                        </div>
+                        <div class="item-detail-text">
+                            <div class="item-detail-text-bigger">Details</div>
+                            <div class="item-detail-text-smaller">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach.</div>
+                        </div>
+                    </div>
+                    <div class="item-details-price">
+                        <div class="item-details-price-head">
+                            <div class="item-details-price-head-left">
+                                <div class="item-details-price-head-left-small">Price</div>
+                                <div class="item-details-price-head-left-bigger">€ 30.00</div>
+                            </div>
+                            <div class="item-details-price-head-right">
+                                <div class="s3-item-cart">4
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-detail-add-note">Add Note</div>
+                        <input placeholder="ex. add more chilli"/>
+                        <button class="item-detail-button" id="addToCart"><img src="images/cart-white.svg"/>Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section2">
+            <div class="section2-inner">
+                <div class="s2-head">
+                    <div class="s2-head-left">
+                        <div class="s2-head-left-small">ÄNHLICHE PRODUKTE</div>
+                        <div class="s2-head-left-big">Änhliche Speisen</div>
+                        <div class="s2-head-left-description">Here are our recommendations with a similar menu and must be tried</div>
+                    </div>
+                    <div class="uber-s2-head-right">
+                        <div class="paginate-items">
+                            <button id="left_scroll1" class="circle1"><img id="paginate_left1" src="images/scroll-left-dis.svg"/></button>
+                            <button id="right_scroll1" class="circle2"><img id="paginate_right1" src="images/scroll-right.svg"/></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="s22-items">
+                    
+                    <div class="s3-item">
+                        <div class="s3-item-image"><img src="images/risotto.png"/></div>
+                        <div class="s3-item-name">Italian Risotto</div>
+                        <div class="s3-item-price">
+                            <div class="s3-item-price-cost">€ 320,00</div>
+                            <div class="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
+                        </div>
+                        <div class="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
+                        <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div> </div>
+                    <div class="s3-item">
+                        <div class="s3-item-image"><img src="images/risotto.png"/></div>
+                        <div class="s3-item-name">Italian Risotto</div>
+                        <div class="s3-item-price">
+                            <div class="s3-item-price-cost">€ 320,00</div>
+                            <div class="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
+                        </div>
+                        <div class="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
+                        <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div> </div>
+                    <div class="s3-item">
+                        <div class="s3-item-image"><img src="images/risotto.png"/></div>
+                        <div class="s3-item-name">Italian Risotto</div>
+                        <div class="s3-item-price">
+                            <div class="s3-item-price-cost">€ 320,00</div>
+                            <div class="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
+                        </div>
+                        <div class="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
+                        <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div> </div>
+                    <div class="s3-item">
+                        <div class="s3-item-image"><img src="images/risotto.png"/></div>
+                        <div class="s3-item-name">Italian Risotto</div>
+                        <div class="s3-item-price">
+                            <div class="s3-item-price-cost">€ 320,00</div>
+                            <div class="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
+                        </div>
+                        <div class="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
+                        <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div> </div>
+                    <div class="s3-item">
+                        <div class="s3-item-image"><img src="images/risotto.png"/></div>
+                        <div class="s3-item-name">Italian Risotto</div>
+                        <div class="s3-item-price">
+                            <div class="s3-item-price-cost">€ 320,00</div>
+                            <div class="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
+                        </div>
+                        <div class="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
+                        <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div> </div>
+                    <div class="s3-item">
+                        <div class="s3-item-image"><img src="images/risotto.png"/></div>
+                        <div class="s3-item-name">Italian Risotto</div>
+                        <div class="s3-item-price">
+                            <div class="s3-item-price-cost">€ 320,00</div>
+                            <div class="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
+                        </div>
+                        <div class="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
+                        <div class="magic-buttons"><div class="s3-item-cart">4
+                            </div>
+                        <button class="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                   </div> </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <!-- Modals -->
+  <div class="modal fade" id="feedback_modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="feedback-modal">
+            <button class="modal-x" data-dismiss="modal"><img src="images/x.svg"/></button>
+            <div class="feedback-modal-inner">
+                <div class="modal-title">Leave us some feedback!</div>
+                <div class="modal-feedback-title">Feedback</div>
+                <textarea class="modal-textarea" ></textarea>
+                <div class="modal-double-bottom">
+                    <div class="modal-input-name">
+                        <div class="modal-input-name-title">Your Name</div>
+                        <input class="modal-input-area" type="text"/>
+                    </div>
+                    <div class="modal-input-email">
+                        <div class="modal-input-name-title">Your E-mail</div>
+                        <input class="modal-input-area" type="text"/>
+                    </div>
+                </div>
+                <div class="modal-feedback-button">
+                    <button class="modal-feedback-send" data-dismiss="modal">Send Feedback</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="bitcoin_modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="bitcoin-modal">
+            <button class="modal-x" data-dismiss="modal"><img src="images/x.svg"/></button>
+            <div class="feedback-modal-inner">
+                <div class="bitcoin-modal-images">
+                    <img class="bitcoin-modal-imgs" src="images/bitcoin.png">
+                    <img class="bitcoin-modal-imgs" src="images/double-arrow.svg">
+                    <img class="bitcoin-modal-imgs" src="images/pizza.svg">
+                </div>
+                <div class="modal-title">Hey! Have you ever seen a crypto turn into a slice of pizza?</div>
+                <div class="modal-bitcoin-description">Jetzt akzeptieren wir Zahlungen per Kryptowährungen, sodass Sie Ihre Kryptowährungen gegen ein Stück Pizza eintauschen können</div> 
+                <div class="modal-feedback-button">
+                    <button class="modal-feedback-send" data-dismiss="modal">Check it now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="notification_modal" role="dialog">
+    <div class="notification-dialog">
+        <div class="notification-modal">
+            <div class="notification-modal-inner">
+                <div class="fm-head">
+                    <div class="fm-head-left">Notification (5)</div>
+                    <div class="fm-head-right"><a>View all</a></div>
+                </div>
+                <div class="fm-tabs">
+                    <button class="fm-tab active" id="tagmodal_tab1" onclick="showModalTab('modal_tab1')">Transaction</button>
+                    <button class="fm-tab" id="tagmodal_tab2" onclick="showModalTab('modal_tab2')">News</button>
+                </div>
+                <div id="modal_tab1" class="modal-tab1">
+                    <div class="modal-tab-title">Payment Procress</div>
+                    <div class="modal-notifications-list">
+                        <ul>
+                            <li>
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/dish.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">Dein Essen Its angekommen :)</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/delivery.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">Ihr Essen wird geliefert</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/pot.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">Ihre Bestellung wird bearbeitet</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="checked-noti">
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/check-circle.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">#1290 Zahlung erfolgreich</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li >
+                                <div class="modal-notifications-element-inner">
+                                    <div class="modal-image-circle"><img src="images/dish.svg"/></div>
+                                    <div class="modal-notifications-element-text">
+                                        <div class="modal-notifications-element-title">#1290 Zahlung erfolgreich</div>
+                                        <div class="modal-notifications-element-date">30 April <div class="dot"></div>19:20:02</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-order-history">
+                        <div class="modal-order-history-title">View Order History</div>
+                        <input placeholder="Enter the code here"/>
+                    </div>
+                </div>
+                <div id="modal_tab2" class="modal-tab2">
+                    <div class="modal-news-list">
+                        <ul>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li class="checked-noti">
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                 </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="modal-news-element-inner">
+                                    <div class="promo-info">New Promo</div>
+                                    <div class="promo-details">
+                                        <img src="images/newpromo1.png"/>
+                                        <div class="modal-notifications-element-text">
+                                            <div class="modal-notifications-element-title">Hunger Monday!</div>
+                                            <div class="modal-notifications-element-date">let's enjoy this Hunger Monday, get mozzarella and vodka pizza only € 10</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="modal-mark-as-read" >Mark as read</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="cart_modal" role="dialog">
+    <div class="notification-dialog">
+        <div class="notification-modal">
+            <div class="notification-modal-inner">
+                <div class="fm-head">
+                    <div class="fm-head-left">Cart (5)</div>
+                    <div class="fm-head-right"><a>View all</a></div>
+                </div>
+                <div class="cart-list">
+                    <ul>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/risotto.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Italian Risotto</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/combo3.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Pizza + Pepsi (Comparison Janusz to D*ck) </div>
+                                        <div class="cart-element-quantity">3 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/combo1.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Johny Walker + 2x1,5l ololool</div>
+                                        <div class="cart-element-quantity">2 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/vodka.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Vodka 1L</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/risotto.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Italian Risotto</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="cart-element-inner">
+                                <div class="cart-element-left"><img src="images/risotto.png"/>
+                                    <div class="cart-element-details">
+                                        <div class="cart-element-name">Italian Risotto</div>
+                                        <div class="cart-element-quantity">1 Items</div>
+                                    </div>
+                                </div>
+                                <div class="cart-element-right">€ 30.00</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <a href="cart.html" class="checkout-now-button">Checkout Now</a>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="addToCart_modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="feedback-modal">
+            <div class="addToCart-modal-inner">
+                <img src="images/succes.svg"></img>
+                <div class="modal-title">Erfolgreich ins Warenkorb gelegt</div>
+                <div class="modal-feedback-button">
+                    <button class="modal-feedback-send" data-dismiss="modal">Check my cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+    <script>
+        $(".s2-items").on("scroll", function (e) {
+            checkPaginate1();
+        });function checkPaginate1(){   
+            let s3_scroll = $('.s2-items')[0].scrollLeft;
+            let s3_max = $('.s2-items')[0].scrollWidth-$('.s2-items')[0].clientWidth
+            if (s3_scroll > 0){
+                document.getElementById("paginate_left1").src = "images/scroll-right.svg";
+                document.getElementById("left_scroll1").style.backgroundColor="#523429";
+                document.getElementById("paginate_left1").style.transform="rotate(180deg)";}
+            else {
+                document.getElementById("paginate_left1").src = "images/scroll-left-dis.svg";
+                document.getElementById("left_scroll1").style.backgroundColor="#DDDBDA";
+                document.getElementById("paginate_left1").style.transform="rotate(0deg)";}
+            if (s3_max - s3_scroll > 5){
+                document.getElementById("paginate_right1").src = "images/scroll-right.svg";
+                document.getElementById("right_scroll1").style.backgroundColor="#523429";
+                document.getElementById("paginate_right1").style.transform="rotate(0deg)";}
+            else {
+                document.getElementById("paginate_right1").src = "images/scroll-left-dis.svg";
+                document.getElementById("right_scroll1").style.backgroundColor="#DDDBDA";
+                document.getElementById("paginate_right1").style.transform="rotate(180deg)";}
+            
+        }  
+        quantitiesDivs = document.getElementsByClassName('s3-item-cart');
+        quantities = [];
+        for(var i=0, n=quantitiesDivs.length;i<n;i++) {
+            quantities[i]=parseInt(document.getElementsByClassName('s3-item-cart')[i].innerHTML);
+             }
+
+    function renderQuantities(){
+        
+        for(var i=0, n=quantitiesDivs.length;i<n;i++) {
+            quantitiesDivs[i].innerHTML='<button onclick="changeQuantityMinus('+i+')"><img src="images/minus.svg"/></button>'+quantities[i]+'<button onclick="changeQuantityPlus('+i+')"><img src="images/plus.svg"/></button>';
+        }
+    }
+    function changeQuantityMinus(number){
+        if(quantities[number]>1){
+        quantities[number]-=1;
+        renderQuantities();}
+    }
+    function changeQuantityPlus(number){
+        quantities[number]+=1;
+        renderQuantities();
+    }
+
+
+    $(document).ready(function(){
+        renderQuantities();
+            $("#cart").click(function(){
+                $("#cart_modal").modal();
+            });
+            $("#notification").click(function(){
+                $("#notification_modal").modal();
+            });
+
+$("#news-href").click(function(){
+                $("#notification_modal").modal();
+            });
+
+            $("#feedback").click(function(){
+                $("#feedback_modal").modal();
+            });
+
+            $("#addToCart").click(function(){
+            $("#addToCart_modal").modal();
+            });
+
+            $("#question").click(function(){
+                $("#feedback_modal").modal();
+            });
+
+            $('#right_scroll1').click(function(){   
+                let s3_scroll = $('.s2-items').scrollLeft();
+                if ($(window).width() < 768) {
+                    s3_scroll += 365;       
+                }
+                else {
+                    s3_scroll += 395; 
+                } 
+                $('.s2-items').animate({ //animate element that has scroll
+                    scrollLeft: s3_scroll  //for scrolling
+                }, 300);
+                $('.s2-items').promise().done(function(){checkPaginate1()});
+            });
+            $('#left_scroll1').click(function(){   
+                 let s3_scroll = $('.s2-items').scrollLeft();
+                 if ($(window).width() < 768) {
+                    s3_scroll -= 365;       
+                }
+                else {
+                    s3_scroll -= 395; 
+                }
+                $('.s2-items').animate({ //animate element that has scroll
+                    scrollLeft: s3_scroll  //for scrolling
+                }, 300);
+               
+                $('.s2-items').promise().done(function(){checkPaginate1()});
+            });
+        });
+        </script>
+</body>
+</html>
