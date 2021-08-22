@@ -1,0 +1,38 @@
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge add Firefox */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none; /* Firefox */
+}
+html {
+  overflow-x:hidden;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  margin:0;
+  overflow-x:hidden;
+}
+ul, li{
+  list-style-type: none;
+}
+a{
+  color:black;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+button{
+  border:none;
+  background-color: transparent;
+}
+input:focus{
+  outline:none;
+}

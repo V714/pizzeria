@@ -1,0 +1,38 @@
+  
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 2110;
+      opacity:0;
+      stroke:#523429;
+    }
+    15%{
+      opacity:1;
+      stroke:#523429;
+    }
+    70%{
+      opacity:1;
+      stroke:#523429;
+    }
+    100%{
+      stroke-dashoffset:0;
+      opacity:0;
+      stroke:#523429;
+    }
+  }
+  
+
+@keyframes tab-hover {
+    from {
+        color: #523429;
+        background-color: #F0EEE8;
+    }
+    to {
+        background-color: #523429;
+        color:#fff;
+    }
+}
+
+@keyframes selected {
+  0% {width:0%;}
+  100% { width:100%; }
+}
