@@ -1,6 +1,4 @@
 
-import '../../styles/Home.css'
-
 function Section6 (){
     return(
         <div className="section6">

@@ -1,12 +1,14 @@
-import '../styles/Riano.css';
-import '../styles/Home.css';
+
+import Section1 from './Uber/Section1';
+import Section2 from './Uber/Section2';
 
 function Uber() {
   return (
     <div>
 
-       <code>UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU</code> 
-
+        <Section1/>
+        <Section2/>
+        
     </div>
   );
 }

@@ -1,17 +1,20 @@
 
-import '../styles/Riano.css';
-import '../styles/Home.css';
-
-
+import Section1 from './Menu/Section1';
+import Section2 from './Menu/Section2';
+import Section3 from './Menu/Section3';
 
 function Menu() {
+
   return (
     <div>
 
-       <code>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</code> 
+        <Section1/>
+        <Section2/>
+        <Section3/>
 
     </div>
   );
+  
 }
 
 export default Menu;

@@ -1,7 +1,4 @@
 
-import '../../styles/Home.css'
-import '../../styles/Keyframes.css'
-
 function Section1 (){
     return(
         <div className="section1">

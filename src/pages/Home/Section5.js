@@ -1,11 +1,11 @@
 
-import '../../styles/Home.css'
+import GMap from '../GoogleMaps';
 
 function Section5 (){
     return(
         <div className="section5" id="section5">
         <div className="section5-inner">
-            <div className="s5-map"><div id="map"></div></div>
+            <div className="s5-map"><div id="map"><GMap/></div></div>
             <div className="s5-kontakt">
                 <div className="s5-kontakt-texts-small">UNSER PROFIL</div>
                 <div className="s5-kontakt-texts-big">Kontakt</div> 

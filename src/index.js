@@ -4,12 +4,16 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Header from './pages/Header';
 import Footer from './pages/Footer';
+import './styles/Riano.css';
 
 ReactDOM.render(
   <React.StrictMode>
+
     <Header />
     <Footer />
+    
   </React.StrictMode>,
+
   document.getElementById('root')
 );
 

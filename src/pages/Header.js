@@ -6,14 +6,14 @@ import {
   Redirect
 } from "react-router-dom";
 
-import '../styles/Riano.css';
-import '../styles/Header.css';
-import '../styles/Keyframes.css';
-import '../styles/Home.css';
-
 import Home from './Home';
 import Menu from './Menu';
 import Uber from './Uber';
+import Cart from './Cart';
+import Checkout from './Checkout';
+import Details from './Details';
+import Item from './Item';
+import History from './History';
 
 function Header() {
   return (
@@ -40,6 +40,13 @@ function Header() {
       <Redirect to="/home" />
       </Route>
 
+        <Route path="/cart"><Cart/></Route>
+        <Route path="/checkout"><Checkout/></Route>
+        <Route path="/details"><Details/></Route>
+        <Route path="/item"><Item/></Route>
+        <Route path="/history"><History/></Route>
+
+
         <Route path="/home"><Home/></Route>
         <Route path="/menu"><Menu/></Route>
         <Route path="/uber"><Uber/></Route>
@@ -49,6 +56,7 @@ function Header() {
       
     </Router>
   );
+  
 }
 
 export default Header;
