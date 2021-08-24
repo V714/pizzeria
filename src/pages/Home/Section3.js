@@ -1,5 +1,21 @@
 
-function Section3 (){
+import react from 'react'
+import Modal from 'react-modal';
+import ModalIngredients from '../Modals/Ingredients';
+Modal.setAppElement('#root')
+
+class Section3 extends react.Component{
+    constructor(props){
+        super(props)
+        this.state={
+            modalIsOpenIngr: false
+        }
+    }
+    closer = () => {
+        this.setState({modalIsOpenIngr: false})
+    }
+
+    render(){
     return(
         <div className="section3">
         <div className="section3-inner">
@@ -36,7 +52,8 @@ function Section3 (){
                         </div>
                         <div className="magic-buttons"><div className="s3-item-cart">4
                         </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                    <button className="s3-add-to-cart" onClick={() => this.setState({modaIsOpenIngr: true})
+} > <img src="images/cart-white.svg"/>Add to Cart </button>
                </div></div>
                     <div className="s3-item">
                         <div className="s3-item-image"><img src="images/item1.webp"/></div>
@@ -53,7 +70,8 @@ function Section3 (){
                         </div>
                         <div className="magic-buttons"><div className="s3-item-cart">4
                         </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                    <button className="s3-add-to-cart" onClick={() => this.setState({modaIsOpenIngr: true})
+} > <img src="images/cart-white.svg"/>Add to Cart </button>
                </div></div>
                     <div className="s3-item">
                         <div className="s3-item-image"><img src="images/item1.webp"/></div>
@@ -70,7 +88,8 @@ function Section3 (){
                         </div>
                         <div className="magic-buttons"><div className="s3-item-cart">4
                         </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                    <button className="s3-add-to-cart" onClick={() => this.setState({modaIsOpenIngr: true})
+} > <img src="images/cart-white.svg"/>Add to Cart </button>
                </div>
                     </div>
                     <div className="s3-item">
@@ -88,7 +107,8 @@ function Section3 (){
                         </div>
                         <div className="magic-buttons"><div className="s3-item-cart">4
                         </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                    <button className="s3-add-to-cart" onClick={() => this.setState({modaIsOpenIngr: true})
+} > <img src="images/cart-white.svg"/>Add to Cart </button>
                </div>
                     </div>
                     <div className="s3-item">
@@ -106,7 +126,8 @@ function Section3 (){
                         </div>
                         <div className="magic-buttons"><div className="s3-item-cart">4
                         </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                    <button className="s3-add-to-cart" onClick={() => this.setState({modaIsOpenIngr: true})
+} > <img src="images/cart-white.svg"/>Add to Cart </button>
                </div>
                     </div>
                     <div className="s3-item">
@@ -124,7 +145,8 @@ function Section3 (){
                         </div>
                         <div className="magic-buttons"><div className="s3-item-cart">4
                         </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+                    <button className="s3-add-to-cart" onClick={() => this.setState({modaIsOpenIngr: true})
+} > <img src="images/cart-white.svg"/>Add to Cart </button>
                </div>
                     </div>
                 </div>
@@ -137,8 +159,54 @@ function Section3 (){
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+        <Modal 
+        isOpen={this.state.modaIsOpenIngr} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => this.setState({modaIsOpenIngr: false})}
+        closeTimeoutMS={350}
+        className={"ingredients_dialog"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+            <ModalIngredients closer = {this.closer}/>
+      </Modal>
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
-    );
+
+
+
+
+
+
+    );}
 }
 
 export default Section3;

@@ -1,5 +1,5 @@
 
-import GMap from '../GoogleMaps';
+import GMap from './GoogleMaps';
 
 function Section5 (){
     return(

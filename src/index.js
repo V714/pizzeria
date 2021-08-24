@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Header from './pages/Header';
-import Footer from './pages/Footer';
+import Header from './Header';
+import Footer from './Footer';
 import './styles/Riano.css';
 
 ReactDOM.render(
