@@ -1,6 +1,28 @@
+import react from "react";
+
+import ModalNote from "./Modals/Note"
+import ModalPayment from "./Modals/Payment"
+import ModalCheckout from "./Modals/Checkout"
+
+import Modal from 'react-modal';
+Modal.setAppElement('#root')
 
 
-function Checkout() {
+class Checkout extends react.Component {
+    constructor(props){
+        super(props)
+        this.state={
+            modalIsOpenPaym: false,
+            modalIsOpenNote: false,
+            modalIsOpenChck: false
+        }
+    }
+
+    closer = () => {
+        this.setState({modalIsOpenNote: false, modalIsOpenChck: false, modalIsOpenPaym: false})
+    }
+
+    render(){
   return (
 
    <div>
@@ -39,12 +61,12 @@ function Checkout() {
                                 </div>
                             </div>
                         </div>
-                        <button id="checkoutNow" className="change-address-button">Change Address</button>
+                        <button id="checkoutNow" className="change-address-button" onClick={() => this.setState({modalIsOpenChck: true})}>Change Address</button>
                         <div className="s1-cart-left-list">
                                 <div className="cart-item-detail">
                                     <div className="cart-item-detail-photo">
                                         <div className="cart-item-detail-image"><img src="images/risotto.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note"><img src="images/note.svg"/>Add Note</button></div>
+                                        <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => this.setState({modalIsOpenNote: true})}><img src="images/note.svg"/>Add Note</button></div>
                                     </div>
                                     <div className="cart-item-detail-text">
                                         <div className="cart-item-detail-name">Italian Risotto</div>
@@ -123,7 +145,7 @@ function Checkout() {
                                     <div className="s1-cart-summary-total-left">Total</div>
                                     <div className="s1-cart-summary-total-right">€ 123.32</div>
                             </div>
-                            <button id="payment" className="checkout-now-button">Choose Payment</button>
+                            <button id="payment" className="checkout-now-button" onClick={() => this.setState({modalIsOpenPaym: true})}>Choose Payment</button>
                         </div>
                     </div>
                 </div>
@@ -134,8 +156,76 @@ function Checkout() {
 
     
     </div>
+
+    <Modal 
+        isOpen={this.state.modalIsOpenChck} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => this.closer()}
+        closeTimeoutMS={350}
+        className={"checkoutNow-modal"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+            <ModalCheckout closer = { this.closer }/>
+      </Modal>
+
+
+    <Modal 
+        isOpen={this.state.modalIsOpenNote} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => this.closer()}
+        closeTimeoutMS={350}
+        className={"modal-dialog"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+            <ModalNote closer = { this.closer }/>
+      </Modal>
+
+      <Modal 
+        isOpen={this.state.modalIsOpenPaym} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => this.closer()}
+        closeTimeoutMS={350}
+        className={"payment-modal"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+            <ModalPayment closer = { this.closer }/>
+      </Modal>
+
+
+
+
     </div>
-);
+);}
 }
 
 export default Checkout;

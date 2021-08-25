@@ -138,7 +138,10 @@ button:hover{
 input:focus{
     outline:none;
 }
-
+.actived{
+    background-color: #523429 !important;
+    color: #fff !important;
+}
 
 
 
@@ -739,7 +742,11 @@ color: #1D1816;
     border-radius: 3px;
 }
 .delivery-modal{
-    width:100%;
+    margin: auto;
+    margin-top: 150px;
+    padding-bottom: 10px;
+    width: 95%;
+    max-width:750px;
     background-color: #fff;
     border-radius: 10px;
 }
@@ -894,17 +901,22 @@ margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width:900px;
+    width: 95%;
+    max-width:900px;
     height: 100%;
 }
 .checkoutNow-modal{
     background-color: #fff;
-    width: 100%;
+    margin:auto;
+    margin-top: 50px;
+    width: 95%;
+    max-width: 800px;
     
     border-radius: 10px;
 }
 .checkoutNow-modal-inner{
     padding:20px 20px;
+    margin-right: -25px;
 }
 #payment_dialog{
     display: flex;
@@ -915,12 +927,16 @@ margin-top: 80px;
 }
 .payment-modal{
     background-color: #fff;
-    width: 100%;
+    max-width: 600px;
+    width: 95%;
+    margin: auto;
     margin-top: 50px;
     border-radius: 10px;
+    height: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .payment-modal-inner{
-    padding:20px 50px;
     display: flex;
     flex-direction: column;
 }
@@ -936,7 +952,7 @@ margin-top: 80px;
     
 }
 .checkoutNow-modal-map{
-    width: 850px;
+    width: 100%;
     height: 180px;
     background-color: #ADA7A4;
     margin-top: 30px;
@@ -945,6 +961,7 @@ margin-top: 80px;
 .checkoutNow-modal-info-double{
     display: flex;
     justify-content: center;
+    width:105%;
 }
 .checkoutNow-modal-info-name,
 .checkoutNow-modal-info-telp,
@@ -963,7 +980,7 @@ margin-top: 80px;
     margin-top: 10px;
 }
 .checkoutNow-modal-info-addres{
-    width:100% !important;
+    width: 105%;
 }
 .checkoutNow-modal-info-address{
     font-family: Nunito Sans;
@@ -977,7 +994,7 @@ margin-top: 80px;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    width:97%;
+    width:100%;
 }
 
 .checkoutNow-modal-info-telp input,
@@ -1024,7 +1041,6 @@ margin-top: 80px;
 .checkoutNow-modal-buttons{
     display: flex;
     justify-content: flex-end;
-    margin-right: 30px;
 }
 .checkoutNow-modal-button{
     margin: 10px 10px;
@@ -3654,7 +3670,14 @@ margin-top: 30px;
     display: flex;
     text-align: left;
     flex-direction: column;
-    padding: 50px;
+    padding: 0;
+}
+.s1-cart-summary-modal{
+    width:100%;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    padding: 40px 20px;
 }
 .s1-cart-summary-title{
     padding:10px 30px;

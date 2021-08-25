@@ -1,5 +1,28 @@
+import react from "react";
 
-function Section1 (){
+import ModalDelivery from "../Modals/Delivery";
+import ModalCheckout from "../Modals/Checkout";
+import ModalNote from "../Modals/Note";
+
+import Modal from 'react-modal';
+Modal.setAppElement('#root')
+
+
+class Section1 extends react.Component{
+    constructor(props){
+        super(props)
+        this.state={
+            modalIsOpenDeli: false,
+            modalIsOpenNote: false,
+            modalIsOpenChck: false
+        }
+    }
+
+    closer = () => {
+        this.setState({modalIsOpenDeli: false, modalIsOpenChck: false, modalIsOpenNote: false})
+    }
+
+    render(){
     return(
         <div className="section1-item">
             <div className="section1-item-inner">
@@ -19,7 +42,7 @@ function Section1 (){
                                 <div className="cart-item-detail">
                                     <div className="cart-item-detail-photo">
                                         <div className="cart-item-detail-image"><img src="images/risotto.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note"><img src="images/note.svg"/>Add Note</button></div>
+                                        <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => this.setState({modalIsOpenNote: true})}><img src="images/note.svg"/>Add Note</button></div>
                                     </div>
                                     <div className="cart-item-detail-text">
                                         <div className="cart-item-detail-name">Italian Risotto</div>
@@ -38,7 +61,7 @@ function Section1 (){
                                 <div className="cart-item-detail">
                                     <div className="cart-item-detail-photo">
                                         <div className="cart-item-detail-image"><img src="images/combo1.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note"><img src="images/note.svg"/>Add Note</button></div>
+                                        <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => this.setState({modalIsOpenNote: true})}><img src="images/note.svg"/>Add Note</button></div>
                                     </div>
                                     <div className="cart-item-detail-text">
                                         <div className="cart-item-detail-name">Pizza + Pepsi (Company Offer 1)</div>
@@ -106,7 +129,7 @@ function Section1 (){
                                 <div className="s1-cart-delivery-info">
                                     <img src="images/delivery.svg"/> Delivery Order
                                 </div>
-                                <button id="change_delivery" className="delivery-change-button">Change</button>
+                                <button id="change_delivery" className="delivery-change-button" onClick={() => this.setState({modalIsOpenDeli: true})}>Change</button>
                             </div>
                             <div className="s1-cart-summary">
                                 <div className="s1-cart-summary-title">Payment Summary</div>
@@ -118,7 +141,7 @@ function Section1 (){
                                     <div className="s1-cart-summary-total-left">Total</div>
                                     <div className="s1-cart-summary-total-right">€ 123.32</div>
                             </div>
-                            <button id="checkoutNow" className="checkout-now-button">Checkout Now</button>
+                            <button id="checkoutNow" className="checkout-now-button" onClick={() => this.setState({modalIsOpenChck: true})} >Checkout Now</button>
                         </div>
                     </div>
                 </div>
@@ -126,8 +149,74 @@ function Section1 (){
 
             </div>
         </div>
+
+        <Modal 
+        isOpen={this.state.modalIsOpenDeli} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => this.closer()}
+        closeTimeoutMS={350}
+        className={"delivery-modal"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+            <ModalDelivery closer = { this.closer }/>
+      </Modal>
+
+
+      <Modal 
+        isOpen={this.state.modalIsOpenChck} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => this.closer()}
+        closeTimeoutMS={350}
+        className={"checkoutNow-modal"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+            <ModalCheckout closer = { this.closer }/>
+      </Modal>
+
+
+      <Modal 
+        isOpen={this.state.modalIsOpenNote} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => this.closer()}
+        closeTimeoutMS={350}
+        className={"modal-dialog"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+            <ModalNote closer = { this.closer }/>
+      </Modal>
+
         </div>
-    );
+    );}
 }
 
 export default Section1;
