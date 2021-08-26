@@ -1,4 +1,7 @@
 
+
+import MenuItem from "../Items/MenuItem";
+
 function Section3 (){
     return(
         <div className="section3">
@@ -21,418 +24,57 @@ function Section3 (){
                 <a><img src="images/bitcoin.webp"/><div className="s3-menu-tabbing-text">PAYMOREFORIT</div></a>
             </div>
             <div id="tab1" className="s3-menu-tab-pizza tabContent">
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div></div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/item1.webp"/></div>
-                    <div className="s3-item-name">Marinara Pizza</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 120,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,2</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht.</div>
-                    <div className="s3-item-size">
-                        <button onclick="selectSize(this)" className="size-button">33cm</button>
-                        <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                        <button onclick="selectSize(this)" className="size-button">55cm</button>
-                    </div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-            </div>
-            <div id="tab2" className="s3-menu-tab-pizza tabContent">
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
-                <div className="s3-menu-item">
-                    <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                    <div className="s3-item-name">Italian Risotto</div>
-                    <div className="s3-item-price">
-                        <div className="s3-item-price-cost">€ 30,00</div>
-                        <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                    </div>
-                    <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                    <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div>
-                </div>
+                
+            <MenuItem name="MarinAAAAAAAAAAAAAara Pizza" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Super Supreme" 
+                                image="images/risotto.webp"
+                                price="190,00" 
+                                rating="4,7" 
+                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
+                    
+                    <MenuItem name="Italian Risotto" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Super Supreme" 
+                                image="images/risotto.webp"
+                                price="190,00" 
+                                rating="4,7" 
+                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
+                              
+                    <MenuItem name="MarinAAAAAAAAAAAAAara Pizza" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Super Supreme" 
+                                image="images/risotto.webp"
+                                price="190,00" 
+                                rating="4,7" 
+                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>     
+                    
+                    <MenuItem name="Italian Risotto" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Super Supreme" 
+                                image="images/risotto.webp"
+                                price="190,00" 
+                                rating="4,7" 
+                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
+                              
+               
+               
             </div>
         </div>
     </div>

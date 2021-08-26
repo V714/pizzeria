@@ -1,3 +1,5 @@
+import ComboItem from "../Items/ComboItem";
+import OffersItem from "../Items/OffersItem";
 
 function Section2 (){
     return(
@@ -53,58 +55,22 @@ function Section2 (){
             </div>
            <div className="s2-menu-border-again"></div>
             <div className="s2-combo-items">
-                <div className="s2-combo-item">
-                    <div className="s2-menu-all-content">
-                        <img className="s2-img-menu-item" src="images/combo1.webp"/>
-                        <div className="s2-menu-item-content">
-                            <div className="s2-menu-item-title">Combos 1</div>
-                            <div className="s2-menu-item-name">Johny Walker + 2x1,5L + 1 Pizza (33 cm) </div>
-                            <div className="s2-menu-item-price">€ 35.00</div>
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div></div>
-                    </div>
-                </div>
-                <div className="s2-combo-item">
-                    <div className="s2-menu-all-content">
-                        <img className="s2-img-menu-item" src="images/combo2.webp"/>
-                        <div className="s2-menu-item-content">
-                            <div className="s2-menu-item-title">Combos 2</div>
-                            <div className="s2-menu-item-name">Johny Walker + 2x1,5L + 1 Pizza (33 cm) </div>
-                            <div className="s2-menu-item-price">€ 35.00</div>
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div></div>
-                    </div>
-                </div>
-                <div className="s2-combo-item">
-                    <div className="s2-menu-all-content">
-                        <img className="s2-img-menu-item" src="images/combo3.webp"/>
-                        <div className="s2-menu-item-content">
-                            <div className="s2-menu-item-title">Combos 3</div>
-                            <div className="s2-menu-item-name">Johny Walker + 2x1,5L + 1 Pizza (33 cm) </div>
-                            <div className="s2-menu-item-price">€ 35.00</div>
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div></div>
-                    </div>
-                </div>
-                <div className="s2-combo-item">
-                    <div className="s2-menu-all-content">
-                        <img className="s2-img-menu-item" src="images/combo3.webp"/>
-                        <div className="s2-menu-item-content">
-                            <div className="s2-menu-item-title">Combos 3</div>
-                            <div className="s2-menu-item-name">Johny Walker + 2x1,5L + 1 Pizza (33 cm) </div>
-                            <div className="s2-menu-item-price">€ 35.00</div>
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div></div>
-                    </div>
-                </div>
+
+                <ComboItem index="1"
+                            name="Johny Walker + 2x1,5L + 1 Pizza (33 cm)"
+                            image="images/combo1.webp"
+                            price="35,00"/>
+
+                <ComboItem index="2"
+                            name="Johny Walker + 2x1,5L + 1 Pizza (33 cm)"
+                            image="images/combo2.webp"
+                            price="35,00"/>
+                
+                <ComboItem index="3"
+                            name="Johny Walker + 2x1,5L + 1 Pizza (33 cm)"
+                            image="images/combo3.webp"
+                            price="35,00"/>
+
             </div>
             <div className="s2-menu-left-again">
                 <div className="s2-menu-left-icon">03</div>
@@ -115,74 +81,24 @@ function Section2 (){
             </div>
             <div className="s2-firme-items">
                 <ul>
-                    <li className="s4-item-element">
-                        <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img src="images/aitem1.webp"/></div>
-                            <div className="s4-item-info">Packages 1</div>
-                            <div className="s4-item-details">
-                                <div className="s4-item-name-promo">
-                                    <div className="s4-item-name">Pizza + Pepsi</div>
-                                    <div className="s4-item-promo">(Gösser 0,5L +0,50 €)</div>
-                                </div>
-                                <div className="s4-item-price">€ 6.50</div>
-                            </div>
-                            
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div></div>
-                    </li>
-                    <li className="s4-item-element">
-                        <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img src="images/aitem2.webp"/></div>
-                            <div className="s4-item-info">Packages 2</div>
-                            <div className="s4-item-details">
-                                <div className="s4-item-name-promo">
-                                    <div className="s4-item-name">Pasta + Pepsi</div>
-                                    <div className="s4-item-promo">(Gösser 0,5L +0,50 €)</div>
-                                </div>
-                                <div className="s4-item-price">€ 6.50</div>
-                            </div>
-                            
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div></div>
-                    </li>
-                    <li className="s4-item-element">
-                        <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img src="images/aitem3.webp"/></div>
-                            <div className="s4-item-info">Packages 3</div>
-                            <div className="s4-item-details">
-                                <div className="s4-item-name-promo">
-                                    <div className="s4-item-name">Schnitzel + Pepsi</div>
-                                    <div className="s4-item-promo">(Gösser 0,5L +0,50 €)</div>
-                                </div>
-                                <div className="s4-item-price">€ 7.00</div>
-                            </div>
-                            
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div></div>
-                    </li>
-                    <li className="s4-item-element">
-                        <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img src="images/aitem1.webp"/></div>
-                            <div className="s4-item-info">Packages 1</div>
-                            <div className="s4-item-details">
-                                <div className="s4-item-name-promo">
-                                    <div className="s4-item-name">Pizza + Pepsi</div>
-                                    <div className="s4-item-promo">(Gösser 0,5L +0,50 €)</div>
-                                </div>
-                                <div className="s4-item-price">€ 6.50</div>
-                            </div>
-                            
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div></div>
-                    </li>
+                <OffersItem image="images/aitem1.webp"
+                                info="Packages 1"
+                                name="Pizza + Pepsi"
+                                promo="(Gösser 0,5L +0,50 €)"
+                                price="6,50"/>
+
+                    <OffersItem image="images/aitem2.webp"
+                                info="Packages 2"
+                                name="Pasta + Pepsi"
+                                promo="(Gösser 0,5L +0,50 €)"
+                                price="6,50"/>
+
+                    <OffersItem image="images/aitem3.webp"
+                                info="Packages 3"
+                                name="Schnitzel + Pepsi"
+                                promo="(Gösser 0,5L +0,50 €)"
+                                price="7,00"/>
+
                 </ul>
             </div>
         </div>

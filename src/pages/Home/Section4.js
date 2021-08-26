@@ -1,5 +1,9 @@
+import react from "react";
+import OffersItem from "../Items/OffersItem";
 
-function Section4 (){
+class Section4 extends react.Component{
+
+    render(){
     return(
         <div className="section4">
         <div className="section4-inner">
@@ -14,62 +18,29 @@ function Section4 (){
             </div>
             <div className="s4-items">
                 <ul>
-                    <li className="s4-item-element">
-                        <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img src="images/aitem1.webp"/></div>
-                            <div className="s4-item-info">Packages 1</div>
-                            <div className="s4-item-details">
-                                <div className="s4-item-name-promo">
-                                    <div className="s4-item-name">Pizza + Pepsi</div>
-                                    <div className="s4-item-promo">(Gösser 0,5L +0,50 €)</div>
-                                </div>
-                                <div className="s4-item-price">€ 6.50</div>
-                            </div>
-                            
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div> </div>
-                    </li>
-                    <li className="s4-item-element">
-                        <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img src="images/aitem2.webp"/></div>
-                            <div className="s4-item-info">Packages 2</div>
-                            <div className="s4-item-details">
-                                <div className="s4-item-name-promo">
-                                    <div className="s4-item-name">Pasta + Pepsi</div>
-                                    <div className="s4-item-promo">(Gösser 0,5L +0,50 €)</div>
-                                </div>
-                                <div className="s4-item-price">€ 6.50</div>
-                            </div>
-                            
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div> </div>
-                    </li>
-                    <li className="s4-item-element">
-                        <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img src="images/aitem3.webp"/></div>
-                            <div className="s4-item-info">Packages 3</div>
-                            <div className="s4-item-details">
-                                <div className="s4-item-name-promo">
-                                    <div className="s4-item-name">Schnitzel + Pepsi</div>
-                                    <div className="s4-item-promo">(Gösser 0,5L +0,50 €)</div>
-                                </div>
-                                <div className="s4-item-price">€ 7.00</div>
-                            </div>
-                            
-                            <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                    <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-               </div> </div>
-                    </li>
+                    <OffersItem image="images/aitem1.webp"
+                                info="Packages 1"
+                                name="Pizza + Pepsi"
+                                promo="(Gösser 0,5L +0,50 €)"
+                                price="6,50"/>
+
+                    <OffersItem image="images/aitem2.webp"
+                                info="Packages 2"
+                                name="Pasta + Pepsi"
+                                promo="(Gösser 0,5L +0,50 €)"
+                                price="6,50"/>
+
+                    <OffersItem image="images/aitem3.webp"
+                                info="Packages 3"
+                                name="Schnitzel + Pepsi"
+                                promo="(Gösser 0,5L +0,50 €)"
+                                price="7,00"/>
+
                 </ul>
             </div>
       </div>
     </div>
     );
-}
+}}
 
 export default Section4;
