@@ -1,8 +1,8 @@
 import react from "react";
 
-import ModalNote from "./Modals/Note"
-import ModalPayment from "./Modals/Payment"
-import ModalCheckout from "./Modals/Checkout"
+import ModalNote from "../Modals/Note"
+import ModalPayment from "../Modals/Payment"
+import ModalCheckout from "../Modals/Checkout"
 
 import Modal from 'react-modal';
 Modal.setAppElement('#root')

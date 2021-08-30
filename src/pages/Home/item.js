@@ -1,7 +1,7 @@
 import react from "react";
 
 import Modal from 'react-modal';
-import ModalIngredients from '../Modals/Ingredients';
+import ModalIngredients from '../../Modals/Ingredients';
 Modal.setAppElement('#root')
 
 class MenuItem extends react.Component{

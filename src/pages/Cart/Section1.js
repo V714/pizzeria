@@ -1,8 +1,8 @@
 import react from "react";
-
-import ModalDelivery from "../Modals/Delivery";
-import ModalCheckout from "../Modals/Checkout";
-import ModalNote from "../Modals/Note";
+import CartItem from '../Items/CartItem';
+import {cartData} from '../../data/cartData';
+import ModalDelivery from "../../Modals/Delivery";
+import ModalCheckout from "../../Modals/Checkout";
 
 import Modal from 'react-modal';
 Modal.setAppElement('#root')
@@ -13,13 +13,27 @@ class Section1 extends react.Component{
         super(props)
         this.state={
             modalIsOpenDeli: false,
-            modalIsOpenNote: false,
-            modalIsOpenChck: false
+            modalIsOpenChck: false,
+            delivery: true,
+            database: []
         }
     }
 
+    async componentDidMount() {
+		this.setState({
+			database: await this.getCartDatabase()
+		})
+	}
+    getCartDatabase = async () => {
+		return new Promise(function (resolve, reject) {
+			setTimeout(() => {
+				resolve(cartData())
+			}, 100)
+		})
+	}
+
     closer = () => {
-        this.setState({modalIsOpenDeli: false, modalIsOpenChck: false, modalIsOpenNote: false})
+        this.setState({modalIsOpenDeli: false, modalIsOpenChck: false})
     }
 
     render(){
@@ -38,88 +52,19 @@ class Section1 extends react.Component{
                         <div className="s1-cart-left-title">Shopping Cart</div>
 
                         <div className="s1-cart-left-list">
-                            <label className="checkboxLabel"><input name="cart-item" type="checkbox" onclick="checkToggle(this)" /> <span className="checkmark"></span>
-                                <div className="cart-item-detail">
-                                    <div className="cart-item-detail-photo">
-                                        <div className="cart-item-detail-image"><img src="images/risotto.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => this.setState({modalIsOpenNote: true})}><img src="images/note.svg"/>Add Note</button></div>
-                                    </div>
-                                    <div className="cart-item-detail-text">
-                                        <div className="cart-item-detail-name">Italian Risotto</div>
-                                        <div className="cart-item-detail-price">€ 30.00</div>
-                                        <div className="cart-item-detail-note">
-                                            <div className="cart-item-detail-note-text"></div>
-                                        </div>
-                                    </div>
-                                    <div className="cart-item-detail-quantity">
-                                        <button onclick="deleteCartItem(this)"><img src="images/bin.svg"/></button>
-                                        <div className="s3-item-cart">4</div>
-                                    </div>
-                                </div>
-                            </label>
-                            <label className="checkboxLabel"><input name="cart-item" type="checkbox" onclick="checkToggle(this)" /> <span className="checkmark"></span>
-                                <div className="cart-item-detail">
-                                    <div className="cart-item-detail-photo">
-                                        <div className="cart-item-detail-image"><img src="images/combo1.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => this.setState({modalIsOpenNote: true})}><img src="images/note.svg"/>Add Note</button></div>
-                                    </div>
-                                    <div className="cart-item-detail-text">
-                                        <div className="cart-item-detail-name">Pizza + Pepsi (Company Offer 1)</div>
-                                        <div className="cart-item-detail-price">€ 30.00</div>
-                                        <div className="cart-item-detail-note">Note :
-                                            <div className="cart-item-detail-note-text">
-                                                Please add a little chilli powder in there and add some mayonese too
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="cart-item-detail-quantity">
-                                        <button onclick="deleteCartItem(this)"><img src="images/bin.svg"/></button>
-                                        <div className="s3-item-cart">3</div>
-                                    </div>
-                                </div>
-                            </label>
-                            <label className="checkboxLabel"><input name="cart-item" type="checkbox" onclick="checkToggle(this)" /> <span className="checkmark"></span>
-                                <div className="cart-item-detail">
-                                    <div className="cart-item-detail-photo">
-                                        <div className="cart-item-detail-image"><img src="images/combo2.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note"><img src="images/note.svg"/>Add Note</button></div>
-                                    </div>
-                                    <div className="cart-item-detail-text">
-                                        <div className="cart-item-detail-name">Johny Walker + 2x1,5L + 1 Pizza (33 cm) </div>
-                                        <div className="cart-item-detail-price">€ 30.00</div>
-                                        <div className="cart-item-detail-note">Note :
-                                            <div className="cart-item-detail-note-text">
-                                                Please add a little chilli powder in there and add some mayonese too
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="cart-item-detail-quantity">
-                                        <button onclick="deleteCartItem(this)"><img src="images/bin.svg"/></button>
-                                        <div className="s3-item-cart">2</div>
-                                    </div>
-                                </div>
-                            </label>
-                            <label className="checkboxLabel"><input name="cart-item" type="checkbox" onclick="checkToggle(this)" /> <span className="checkmark"></span>
-                                <div className="cart-item-detail">
-                                    <div className="cart-item-detail-photo">
-                                        <div className="cart-item-detail-image"><img src="images/vodka.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note"><img src="images/note.svg"/>Add Note</button></div>
-                                    </div>
-                                    <div className="cart-item-detail-text">
-                                        <div className="cart-item-detail-name">Vodka 1L</div>
-                                        <div className="cart-item-detail-price">€ 30.00</div>
-                                        <div className="cart-item-detail-note">
-                                            <div className="cart-item-detail-note-text">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="cart-item-detail-quantity">
-                                        <button onclick="deleteCartItem(this)"><img src="images/bin.svg"/></button>
-                                        <div className="s3-item-cart">1<img src="images/plus.svg"/>
-                                         </div>
-                                    </div>
-                                </div>
-                            </label>
+
+                                {this.state.database &&
+					            this.state.database.map((item) => (
+                                <label className="checkboxLabel"><input name="cart-item" type="checkbox" onclick="checkToggle(this)" /> <span className="checkmark"></span>
+						        <CartItem name={item.name}
+                                price={item.price}
+                                note={item.note}
+								  symbol={item.coin_symbol}
+								  image={item.image} 
+								  quantity={item.quantity}/>
+                                  </label>
+                                ))}
+
                         </div>
                     </div>
 
@@ -194,26 +139,7 @@ class Section1 extends react.Component{
       </Modal>
 
 
-      <Modal 
-        isOpen={this.state.modalIsOpenNote} 
-        shouldCloseOnOverlayClick={true} 
-        onRequestClose={() => this.closer()}
-        closeTimeoutMS={350}
-        className={"modal-dialog"}
-        style={{
-          overlay: {
-            position: 'fixed',
-            transition: 'all 0.4s ease-in-out',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-            zIndex: 9999
-          }
-        }}>
-            <ModalNote closer = { this.closer }/>
-      </Modal>
+     
 
         </div>
     );}

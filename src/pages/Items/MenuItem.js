@@ -1,9 +1,5 @@
 import react from "react";
 
-import Modal from 'react-modal';
-import ModalIngredients from '../Modals/Ingredients';
-Modal.setAppElement('#root')
-
 class PizzaItem extends react.Component{
     constructor(props){
         super(props)

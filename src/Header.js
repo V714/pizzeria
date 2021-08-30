@@ -15,10 +15,11 @@ import Details from './pages/Details';
 import Item from './pages/Item';
 import History from './pages/History';
 
-import ModalNotification from './pages/Modals/Notification';
-import ModalCart from './pages/Modals/Cart';
-import ModalBTC from './pages/Modals/Bitcoin';
+import ModalNotification from './Modals/Notification';
+import ModalCart from './Modals/Cart';
+import ModalBTC from './Modals/Bitcoin';
 
+import { cartData } from './data/cartData';
 
 import react from 'react'
 import Modal from 'react-modal';
@@ -30,13 +31,27 @@ class Header extends react.Component {
     this.state={
         modalIsOpenNoti: false,
         modalIsOpenCart: false,
-        modalIsOpenBTC: true
+        modalIsOpenBTC: true,
+        cartData: []
     }
 }
 closer = () => {
     this.setState({modalIsOpenNoti: false});
     this.setState({modalIsOpenCart: false});
     this.setState({modalIsOpenBTC: false});
+}
+ async componentDidMount() {
+  this.setState({
+    cartData: await this.getCartDatabase()
+  })
+}
+
+ getCartDatabase = async () => {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      resolve(cartData())
+    }, 100)
+  })
 }
 
   render(){
@@ -54,7 +69,7 @@ closer = () => {
         </nav>
         <div className="top-menu-icons">
             <button onClick={() => this.setState({modalIsOpenNoti: true})} id="notification"><img src="images/bell.svg"/></button>
-            <button onClick={() => this.setState({modalIsOpenCart: true})} id="cart"><div className="new-notification">5</div><img src="images/cart.svg"/></button>
+            <button onClick={() => this.setState({modalIsOpenCart: true})} id="cart"><div className="new-notification">{this.state.cartData.length}</div><img src="images/cart.svg"/></button>
         </div>
       </header>
       <div className="page-inner">

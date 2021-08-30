@@ -1,7 +1,7 @@
 import react from "react";
 
 
-import ModalFeedback from './pages/Modals/Feedback';
+import ModalFeedback from './Modals/Feedback';
 import Modal from 'react-modal';
 
 Modal.setAppElement('#root')
