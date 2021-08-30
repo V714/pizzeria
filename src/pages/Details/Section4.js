@@ -1,3 +1,4 @@
+import MenuItem from '../Items/MenuItem';
 
 function Section4 (){
     return(
@@ -18,83 +19,54 @@ function Section4 (){
                 </div>
                 <div className="s2-items">
                     
-                    <div className="s3-item">
-                        <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                        <div className="s3-item-name">Italian Risotto</div>
-                        <div className="s3-item-price">
-                            <div className="s3-item-price-cost">€ 320,00</div>
-                            <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                        </div>
-                        <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                        <div className="magic-buttons"><div className="s3-item-cart">4
-                            </div>
-                        <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-                   </div> 
-                    </div>
-                    <div className="s3-item">
-                        <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                        <div className="s3-item-name">Italian Risotto</div>
-                        <div className="s3-item-price">
-                            <div className="s3-item-price-cost">€ 320,00</div>
-                            <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                        </div>
-                        <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                        <div className="magic-buttons"><div className="s3-item-cart">4
-                            </div>
-                        <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-                   </div> 
-                    </div>
-                    <div className="s3-item">
-                        <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                        <div className="s3-item-name">Italian Risotto</div>
-                        <div className="s3-item-price">
-                            <div className="s3-item-price-cost">€ 320,00</div>
-                            <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                        </div>
-                        <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                        <div className="magic-buttons"><div className="s3-item-cart">4
-                        </div>
-                        <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button></div>
-                    </div>
-                    <div className="s3-item">
-                        <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                        <div className="s3-item-name">Italian Risotto</div>
-                        <div className="s3-item-price">
-                            <div className="s3-item-price-cost">€ 320,00</div>
-                            <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                        </div>
-                        <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                        <div className="magic-buttons"><div className="s3-item-cart">3
-                            </div>
-                        <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-                   </div> 
-                    </div>
-                    <div className="s3-item">
-                        <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                        <div className="s3-item-name">Italian Risotto</div>
-                        <div className="s3-item-price">
-                            <div className="s3-item-price-cost">€ 320,00</div>
-                            <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                        </div>
-                        <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                        <div className="magic-buttons"><div className="s3-item-cart">4
-                            </div>
-                        <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-                   </div> 
-                    </div>
-                    <div className="s3-item">
-                        <div className="s3-item-image"><img src="images/risotto.webp"/></div>
-                        <div className="s3-item-name">Italian Risotto</div>
-                        <div className="s3-item-price">
-                            <div className="s3-item-price-cost">€ 320,00</div>
-                            <div className="s3-item-price-rating"><img src="images/star.svg"/>4,5</div>
-                        </div>
-                        <div className="s3-item-details">Marinara Pizza is our populer best popular pizza. it was made with tomato, chicken, cheese, and also a spinach</div>
-                        <div className="magic-buttons"><div className="s3-item-cart">4
-                            </div>
-                        <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
-                   </div> 
-                    </div>
+                <MenuItem name="Italian Risotto" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Italian Risotto" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Italian Risotto" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Italian Risotto" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Italian Risotto" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Italian Risotto" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Italian Risotto" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <MenuItem name="Italian Risotto" 
+                                image="images/risotto.webp"
+                                price="120,00" 
+                                rating="4,2" 
+                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
                 </div>
             </div>
         </div>

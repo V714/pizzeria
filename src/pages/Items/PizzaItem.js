@@ -4,14 +4,21 @@ import Modal from 'react-modal';
 import ModalIngredients from '../Modals/Ingredients';
 Modal.setAppElement('#root')
 
+const size = "size-button";
+const sizePicked = "size-button picked-size";
+
 class PizzaItem extends react.Component{
     constructor(props){
         super(props)
         this.state={
             modalIsOpenIngr: false,
-            quantity: 1
+            quantity: 1,
+            size1: false,
+            size2: true,
+            size3: false
         }
     }
+    
     quantityPlus = () => {
         this.setState({ quantity: this.state.quantity + 1 })
     }
@@ -23,6 +30,22 @@ class PizzaItem extends react.Component{
     closer = () => {
         this.setState({modalIsOpenIngr: false})
     }
+    pizzaSize = (sizeNumber) => {
+        this.setState({size1 : false,size2 : false,size3 : false})
+        switch(sizeNumber){
+            case 1:
+                this.setState({size1 : true})
+                break;
+            case 2:
+                this.setState({size2 : true})
+                break;
+            case 3:
+                this.setState({size3 : true})
+                break;
+        }
+        
+    }
+
     render(){
         return(
             <div className="s3-item">
@@ -34,9 +57,9 @@ class PizzaItem extends react.Component{
             </div>
             <div className="s3-item-details">{this.props.details}</div>
             <div className="s3-item-size">
-                <button onclick="selectSize(this)" className="size-button">33cm</button>
-                <button onclick="selectSize(this)" className="size-button active">40cm</button>
-                <button onclick="selectSize(this)" className="size-button">55cm</button>
+                <button onClick={() => this.pizzaSize(1)} className={this.state.size1 ? sizePicked : size}>33cm</button>
+                <button onClick={() => this.pizzaSize(2)} className={this.state.size2 ? sizePicked : size}>40cm</button>
+                <button onClick={() => this.pizzaSize(3)} className={this.state.size3 ? sizePicked : size}>55cm</button>
             </div>
             <div className="magic-buttons"><div className="s3-item-cart"><button onClick={() => this.quantityMinus()}><img src="images/minus.svg"/></button>{this.state.quantity}<button onClick={() => this.quantityPlus()}><img src="images/plus.svg"/></button>
             </div>
