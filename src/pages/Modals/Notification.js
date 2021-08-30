@@ -1,4 +1,6 @@
 
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+
 
 function ModalNotification(){
     return(
@@ -8,11 +10,12 @@ function ModalNotification(){
                     <div className="fm-head-left">Notification (5)</div>
                     <div className="fm-head-right"><a>View all</a></div>
                 </div>
-                <div className="fm-tabs">
-                    <button className="fm-tab active" id="tagmodal_tab1" onclick="showModalTab('modal_tab1')">Transaction</button>
-                    <button className="fm-tab" id="tagmodal_tab2" onclick="showModalTab('modal_tab2')">News</button>
-                </div>
-                <div id="modal_tab1" className="modal-tab1">
+                <Tabs>
+                <TabList className="fm-tabs">
+                    <Tab className="fm-tab"  >Transaction</Tab>
+                    <Tab className="fm-tab" >News</Tab>
+                </TabList>
+                <TabPanel id="modal_tab1" className="modal-tab1">
                     <div className="modal-tab-title">Payment Procress</div>
                     <div className="modal-notifications-list">
                         <ul>
@@ -67,8 +70,8 @@ function ModalNotification(){
                         <div className="modal-order-history-title">View Order History</div>
                         <input placeholder="Enter the code here"/>
                     </div>
-                </div>
-                <div id="modal_tab2" className="modal-tab2">
+                </TabPanel>
+                <TabPanel id="modal_tab2" className="modal-tab2">
                     <div className="modal-news-list">
                         <ul>
                             <li>
@@ -146,7 +149,8 @@ function ModalNotification(){
                         </ul>
                     </div>
                     <button className="modal-mark-as-read" >Mark as read</button>
-                </div>
+                </TabPanel>
+                </Tabs>
             </div>
         </div>
     );

@@ -49,7 +49,7 @@ closer = () => {
             <li><NavLink className="top-tab" to="/home" activeClassName="selected">Home</NavLink></li>
             <li><NavLink className="top-tab" to="/menu" activeClassName="selected">Menu</NavLink></li>
             <li><NavLink className="top-tab" to="/uber" activeClassName="selected">Uber Uns</NavLink></li>
-            <li><NavLink className="top-tab" to="/home#section5">Kontakt</NavLink></li>
+            <li><a className="top-tab" href="home#section5">Kontakt</a></li>
           </ul>
         </nav>
         <div className="top-menu-icons">

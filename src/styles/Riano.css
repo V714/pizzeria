@@ -452,6 +452,7 @@ color: #7B736F;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+    padding-left: 10px;
 }
 .fm-tab{
     width: 140px;
@@ -461,9 +462,8 @@ color: #7B736F;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 19px;
+    line-height: 39px;
     letter-spacing: 0em;
-    text-align: left;
     color: #523429;
     text-align: center;
 }
@@ -572,7 +572,8 @@ color: #1D1816;
 .modal-order-history input{
     margin-top: 10px;
     border:none;
-    padding:20px 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     width:100%;
 }
 .checked-noti{
@@ -1291,6 +1292,11 @@ color: #1D1816;
     background-color: #523429 !important;
     color: #fff !important;
 }
+.react-tabs__tab--selected{
+    transition: all 0.2s ease-in-out;
+    background-color: #523429 !important;
+    color: #fff !important;
+}
 /*
 
 Menu
@@ -1854,7 +1860,8 @@ align-items: center;
 }
 
 .s3-menu{
-    width: 50%;
+    max-width: 450px;
+    min-width: 450px;
 }
 
 .s3-menu-texts{
@@ -1928,8 +1935,6 @@ align-items: center;
     display: flex;
     justify-content: flex-start;
     overflow-x: scroll;
-    width: 100%;
-    margin-left: 25px;
 }
 
 .s3-item{
@@ -1943,10 +1948,11 @@ align-items: center;
     box-shadow: 0px 10px 40px 0px #1D18160D;
     justify-content: space-between;
     margin-bottom: 40px;
+    height: 600px;
 
 }
 .s3-menu-tab-pizza{
-    height: 1400px;
+    max-height: 1400px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -2855,15 +2861,13 @@ color: #1D1816;
     flex-direction: row;
     overflow-x: scroll;
     overflow-y: hidden;
-    height: 100px;
     margin-bottom: 70px;
 }
-.s3-menu-tabbing a{
+.s3-menu-tabbing li {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    height: 78px;
     padding:20px 40px;
     padding-right: 60px;
     margin-left: 40px;
@@ -2875,6 +2879,7 @@ color: #1D1816;
     letter-spacing: 0em;
     color: #1D1816;
     background-color: #F7F8F8;
+    margin-bottom: 10px;
 }
 .s3-menu-tabbing img{
     width: 38px;
