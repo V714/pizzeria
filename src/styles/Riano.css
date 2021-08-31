@@ -115,7 +115,6 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     margin:0;
     overflow-x:hidden;
-    cursor: wait;
 }
 ul, li{
     list-style-type: none;

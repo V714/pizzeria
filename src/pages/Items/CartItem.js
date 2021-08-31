@@ -1,6 +1,7 @@
 import react from 'react';
 
 import ModalNote from "../../Modals/Note";
+import { changeNote, deleteCartItem } from '../../data/cartData';
 
 import Modal from 'react-modal';
 Modal.setAppElement('#root')
@@ -17,8 +18,9 @@ class CartItem extends react.Component{
     closer = () => {
         this.setState({ modalIsOpenNote: false})
     }
-    changeNote = (e) => {
+    changeNoteProp = (e) => {
         this.setState({note: e.target.value})
+        changeNote(this.props.id,this.state.note)
     }
 
     render(){
@@ -35,7 +37,7 @@ class CartItem extends react.Component{
             </div>
         </div>
         <div className="cart-item-detail-quantity">
-            <button onclick="deleteCartItem(this)"><img src="images/bin.svg"/></button>
+            <button onClick={() => deleteCartItem(this.props.id)}><img src="images/bin.svg"/></button>
             <div className="s3-item-cart">{this.props.quantity}</div>
         </div>
         <Modal 
@@ -56,7 +58,7 @@ class CartItem extends react.Component{
             zIndex: 9999
           }
         }}>
-            <ModalNote closer = { this.closer } changeNote={this.changeNote} note={this.state.note}/>
+            <ModalNote closer = { this.closer } changeNote={this.changeNoteProp} note={this.state.note}/>
       </Modal>
     </div>)
     }

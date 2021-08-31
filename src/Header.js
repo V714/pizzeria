@@ -42,16 +42,15 @@ closer = () => {
 }
  async componentDidMount() {
   this.setState({
-    cartData: await this.getCartDatabase()
+    cartData: cartData
   })
+}
+refresh = () => {
+  this.forceUpdate()
 }
 
  getCartDatabase = async () => {
-  return new Promise(function (resolve, reject) {
-    setTimeout(() => {
-      resolve(cartData())
-    }, 100)
-  })
+  return cartData;
 }
 
   render(){
@@ -69,7 +68,10 @@ closer = () => {
         </nav>
         <div className="top-menu-icons">
             <button onClick={() => this.setState({modalIsOpenNoti: true})} id="notification"><img src="images/bell.svg"/></button>
-            <button onClick={() => this.setState({modalIsOpenCart: true})} id="cart"><div className="new-notification">{this.state.cartData.length}</div><img src="images/cart.svg"/></button>
+            <button onClick={() => this.setState({modalIsOpenCart: true})} id="cart">
+              {this.state.cartData.length > 0 && <div className="new-notification">{this.state.cartData.length}</div>}
+              
+              <img src="images/cart.svg"/></button>
         </div>
       </header>
       <div className="page-inner">

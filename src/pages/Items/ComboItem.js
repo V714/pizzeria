@@ -1,4 +1,5 @@
 import react from "react";
+import { addToCart } from "../../data/cartData";
 
 class ComboItem extends react.Component{
     constructor(props){
@@ -27,7 +28,7 @@ class ComboItem extends react.Component{
                     <div className="s2-menu-item-price">€ {this.props.price}</div>
             <div className="magic-buttons"><div className="s3-item-cart"><button onClick={() => this.quantityMinus()}><img src="images/minus.svg"/></button>{this.state.quantity}<button onClick={() => this.quantityPlus()}><img src="images/plus.svg"/></button>
             </div>
-            <button className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+            <button className="s3-add-to-cart" onClick={() => addToCart(this.props.id,this.props.name,this.props.image,this.props.price,this.props.note,this.state.quantity)}> <img src="images/cart-white.svg"/>Add to Cart </button>
        </div></div>
             </div>
         </div>

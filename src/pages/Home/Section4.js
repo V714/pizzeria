@@ -18,19 +18,22 @@ class Section4 extends react.Component{
             </div>
             <div className="s4-items">
                 <ul>
-                    <OffersItem image="images/aitem1.webp"
+                    <OffersItem id={27}
+                                image="images/aitem1.webp"
                                 info="Packages 1"
                                 name="Pizza + Pepsi"
                                 promo="(Gösser 0,5L +0,50 €)"
                                 price="6,50"/>
 
-                    <OffersItem image="images/aitem2.webp"
+                    <OffersItem id={27}
+                                image="images/aitem2.webp"
                                 info="Packages 2"
                                 name="Pasta + Pepsi"
                                 promo="(Gösser 0,5L +0,50 €)"
                                 price="6,50"/>
 
-                    <OffersItem image="images/aitem3.webp"
+                    <OffersItem id={27}
+                                image="images/aitem3.webp"
                                 info="Packages 3"
                                 name="Schnitzel + Pepsi"
                                 promo="(Gösser 0,5L +0,50 €)"

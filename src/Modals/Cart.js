@@ -16,11 +16,7 @@ class ModalCart extends react.Component{
 		})
 	}
     getCartDatabase = async () => {
-		return new Promise(function (resolve, reject) {
-			setTimeout(() => {
-				resolve(cartData())
-			}, 100)
-		})
+		return cartData;
 	}
     render(){
     return(

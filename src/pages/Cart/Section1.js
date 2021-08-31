@@ -25,11 +25,7 @@ class Section1 extends react.Component{
 		})
 	}
     getCartDatabase = async () => {
-		return new Promise(function (resolve, reject) {
-			setTimeout(() => {
-				resolve(cartData())
-			}, 100)
-		})
+		return cartData;
 	}
 
     closer = () => {
@@ -56,7 +52,9 @@ class Section1 extends react.Component{
                                 {this.state.database &&
 					            this.state.database.map((item) => (
                                 <label className="checkboxLabel"><input name="cart-item" type="checkbox" onclick="checkToggle(this)" /> <span className="checkmark"></span>
-						        <CartItem name={item.name}
+						        <CartItem 
+                                id={item.id}
+                                name={item.name}
                                 price={item.price}
                                 note={item.note}
 								  symbol={item.coin_symbol}

@@ -20,49 +20,57 @@ function Section2 (){
             <div className="s22-items">
                 
                
-                    <MenuItem name="Italian Risotto" 
+                    <MenuItem   id={401}
+                                name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price="120,00" 
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem name="Italian Risotto" 
+                    <MenuItem id={401}
+                                name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price="120,00" 
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem name="Italian Risotto" 
+                    <MenuItem id={401}
+                                name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price="120,00" 
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem name="Italian Risotto" 
+                    <MenuItem id={401}
+                                name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price="120,00" 
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem name="Italian Risotto" 
+                    <MenuItem id={401}
+                                name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price="120,00" 
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem name="Italian Risotto" 
+                    <MenuItem id={401}
+                                name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price="120,00" 
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem name="Italian Risotto" 
+                    <MenuItem id={401}
+                                name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price="120,00" 
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem name="Italian Risotto" 
+                    <MenuItem id={401}
+                                name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price="120,00" 
                                 rating="4,2" 

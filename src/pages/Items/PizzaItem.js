@@ -1,6 +1,7 @@
 import react from "react";
 
 import Modal from 'react-modal';
+import { onAdd } from "../../data/cartData";
 import ModalIngredients from '../../Modals/Ingredients';
 Modal.setAppElement('#root')
 
