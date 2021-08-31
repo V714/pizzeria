@@ -1,45 +1,11 @@
-export const cartData = [
-    {
-        id:23,
-        name:"Italian Risotto",
-        price:30.00,
-        image:"images/risotto.webp",
-        note:"",
-        quantity: 5
-    },
-    {
-        id:8323,
-        name:"Pizza + Pepsi (Company Offer 1)",
-        price:"40.00",
-        image:"images/combo1.webp",
-        note:"Please add a little chilli powder in there and add some mayonese too",
-        quantity: 1,
-        size: 2,
-        extras: "chilli (x2), bacon (x1)"
-    },
-    {
-        id:123,
-        name:"Johny Walker + 2x1,5L + 1 Pizza (33 cm)",
-        price:30.00,
-        image:"images/combo2.webp",
-        note:"",
-        quantity: 2,
-        size: 22
-    },
-    {
-        id:2,
-        name:"Vodka 1L",
-        price:20.00,
-        image:"images/vodka.webp",
-        note:"Please add more vodka",
-        quantity: 8
-    },
-]
+export let cartData=[]
 
+if (JSON.parse(localStorage.getItem('cartData'))){
+ cartData = JSON.parse(localStorage.getItem('cartData'));}
 
 export const addToCart = (id,name,image,price,note,quantity,size=1,extras='') => {
-    let exist = false
-    for(var i = 0; i < cartData.length; i++){if(cartData[i].id == id){
+    /*let exist = false
+     for(var i = 0; i < cartData.length; i++){if(cartData[i].id == id){
         exist = true;
         cartData[i].quantity = cartData[i].quantity + quantity;
     }}
@@ -57,16 +23,45 @@ export const addToCart = (id,name,image,price,note,quantity,size=1,extras='') =>
             size: size,
             extras: extras
                     });
-    }
-    console.log(cartData)
+    } */
+    cartData.push({
+        number: cartData.length,
+        id: id,
+        name: name,
+        image: image,
+        price: price,
+        note: note,
+        quantity: quantity,
+        size: size,
+        extras: extras
+                });
+
+    localStorage.setItem("cartData", JSON.stringify(cartData));
+    window.location.reload(false);
+
 }
 export const changeNote = (id,note) => {
-    for(var i = 0; i < cartData.length; i++){if(cartData[i].id == id){
+    for(var i = 0; i < cartData.length; i++){
+        if(cartData[i].id == id){
         cartData[i].note = note;
     }}
+    
+    localStorage.setItem("cartData", JSON.stringify(cartData));
 }
 
-export const deleteCartItem = (id) => {
+export const deleteCartItem = (number) => {
     
-    cartData.filter((item) => item.id != id);
+    if(cartData.length==1){cartData=[]}
+    else{
+        for(var i = 0; i < cartData.length; i++){
+            cartData[i].number = i;
+        }
+    
+        cartData = cartData.filter(item => item.number != number)
+    }
+    
+    
+    localStorage.setItem("cartData", JSON.stringify(cartData));
+    window.location.reload(false);
+
 }

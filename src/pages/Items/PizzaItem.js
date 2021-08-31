@@ -97,7 +97,8 @@ class PizzaItem extends react.Component{
                 id={this.props.id}
                 name={this.props.name}
                 image={this.props.image}
-                price={this.props.price}/>
+                price={this.props.price}
+                quantity={this.state.quantity}/>
       </Modal>
       
       

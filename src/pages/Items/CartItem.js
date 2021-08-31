@@ -37,7 +37,7 @@ class CartItem extends react.Component{
             </div>
         </div>
         <div className="cart-item-detail-quantity">
-            <button onClick={() => deleteCartItem(this.props.id)}><img src="images/bin.svg"/></button>
+            <button onClick={() => deleteCartItem(this.props.number)}><img src="images/bin.svg"/></button>
             <div className="s3-item-cart">{this.props.quantity}</div>
         </div>
         <Modal 

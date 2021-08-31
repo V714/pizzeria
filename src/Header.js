@@ -31,7 +31,7 @@ class Header extends react.Component {
     this.state={
         modalIsOpenNoti: false,
         modalIsOpenCart: false,
-        modalIsOpenBTC: true,
+        modalIsOpenBTC: false,
         cartData: []
     }
 }
@@ -44,6 +44,12 @@ closer = () => {
   this.setState({
     cartData: cartData
   })
+  if(JSON.parse(localStorage.getItem('bitcoinModal')) == null){
+    this.setState({
+      modalIsOpenBTC: true
+    })
+    localStorage.setItem("bitcoinModal", JSON.stringify("false"));
+  }
 }
 refresh = () => {
   this.forceUpdate()
@@ -69,7 +75,8 @@ refresh = () => {
         <div className="top-menu-icons">
             <button onClick={() => this.setState({modalIsOpenNoti: true})} id="notification"><img src="images/bell.svg"/></button>
             <button onClick={() => this.setState({modalIsOpenCart: true})} id="cart">
-              {this.state.cartData.length > 0 && <div className="new-notification">{this.state.cartData.length}</div>}
+              {this.state.cartData !== null &&
+              this.state.cartData.length > 0 && <div className="new-notification">{this.state.cartData.length}</div>}
               
               <img src="images/cart.svg"/></button>
         </div>

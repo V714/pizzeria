@@ -1,7 +1,7 @@
 import react from "react";
 import { addToCart } from "../../data/cartData";
 
-class PizzaItem extends react.Component{
+class MenuItem extends react.Component{
     constructor(props){
         super(props)
         this.state={
@@ -43,4 +43,4 @@ class PizzaItem extends react.Component{
     }
 }
 
-export default PizzaItem;
+export default MenuItem;

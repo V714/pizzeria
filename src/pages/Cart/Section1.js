@@ -15,13 +15,24 @@ class Section1 extends react.Component{
             modalIsOpenDeli: false,
             modalIsOpenChck: false,
             delivery: true,
-            database: []
+            database: [],
+            price: 0,
+            quantity: 0
         }
     }
 
     async componentDidMount() {
 		this.setState({
 			database: await this.getCartDatabase()
+		})
+        let price=0;
+        let quantity=0;
+        this.state.database.map((item) => {price += (item.price*item.quantity);
+                                            quantity+= item.quantity})
+        
+		this.setState({
+			price: price,
+            quantity: quantity
 		})
 	}
     getCartDatabase = async () => {
@@ -35,7 +46,7 @@ class Section1 extends react.Component{
     render(){
     return(
         <div className="section1-item">
-            <div className="section1-item-inner">
+            {this.state.database.length > 0 && <div className="section1-item-inner">
                 <div className="page-links">
                     <ul>
                         <li><a href="home.html">Home</a></li>
@@ -50,9 +61,10 @@ class Section1 extends react.Component{
                         <div className="s1-cart-left-list">
 
                                 {this.state.database &&
-					            this.state.database.map((item) => (
+					            this.state.database.map((item,index) => (
                                 <label className="checkboxLabel"><input name="cart-item" type="checkbox" onclick="checkToggle(this)" /> <span className="checkmark"></span>
 						        <CartItem 
+                                number={index}
                                 id={item.id}
                                 name={item.name}
                                 price={item.price}
@@ -77,22 +89,28 @@ class Section1 extends react.Component{
                             <div className="s1-cart-summary">
                                 <div className="s1-cart-summary-title">Payment Summary</div>
                                 <div className="s1-cart-summary-price">
-                                    <div className="s1-cart-summary-price-left">Price (10 items)</div>
-                                    <div className="s1-cart-summary-price-right">€ 120.32</div>
+                                    <div className="s1-cart-summary-price-left">Price ({this.state.quantity} items)</div>
+                                    <div className="s1-cart-summary-price-right">€ {this.state.price}</div>
                                 </div>
                                 <div className="s1-cart-summary-total">
                                     <div className="s1-cart-summary-total-left">Total</div>
-                                    <div className="s1-cart-summary-total-right">€ 123.32</div>
+                                    <div className="s1-cart-summary-total-right">€ {this.state.price+3}</div>
                             </div>
                             <button id="checkoutNow" className="checkout-now-button" onClick={() => this.setState({modalIsOpenChck: true})} >Checkout Now</button>
                         </div>
                     </div>
                 </div>
 
-
             </div>
         </div>
 
+}
+{this.state.database.length <= 0 && <div className="section1-item-inner">
+    <div className="s1-cart" style={{justifyContent: "center"}}>
+                    <div className="s1-cart-left">
+                        <div className="s1-cart-left-title">Shopping Cart is Empty</div>
+</div></div></div>
+}
         <Modal 
         isOpen={this.state.modalIsOpenDeli} 
         shouldCloseOnOverlayClick={true} 
