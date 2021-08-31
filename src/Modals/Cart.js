@@ -35,7 +35,8 @@ class ModalCart extends react.Component{
                                         <div className="cart-element-left"><img src={item.image}/>
                                             <div className="cart-element-details">
                                                 <div className="cart-element-name">{item.name}</div>
-                                                <div className="cart-element-quantity">{item.quantity} Items</div>
+                                                
+                                                {item.quantity > 1 &&   <div className="cart-element-quantity">  {item.quantity} Items</div>}
                                             </div>
                                         </div>
                                         <div className="cart-element-right">€ {item.price}</div>

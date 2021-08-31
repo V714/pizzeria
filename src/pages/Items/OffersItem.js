@@ -21,7 +21,7 @@ class OffersItem extends react.Component{
         return(
             <li className="s4-item-element">
                         <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img src={this.props.image}/>asdasd</div>
+                            <div className="s4-item-photo"><img src={this.props.image}/></div>
                             <div className="s4-item-info">{this.props.info}</div>
                             <div className="s4-item-details">
                                 <div className="s4-item-name-promo">

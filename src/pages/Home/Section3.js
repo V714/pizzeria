@@ -36,63 +36,77 @@ class Section3 extends react.Component{
                     </TabList>
                 </div>
                 <TabPanel id="pizza_tab2" className="s3-items">
-                BURGIR
-                </TabPanel>
-                <TabPanel id="pizza_tab2" className="s3-items">
-                   
-                    <PizzaItem id={41}
-                                name="MarinAAAAAAAAAAAAAara Pizza" 
-                                image="images/item1.webp"
-                                price="120,00" 
-                                rating="4,2" 
-                                details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
-
-                    <PizzaItem id={40}
-                                name="Super Supreme" 
-                                image="images/item1.webp"
-                                price="190,00" 
-                                rating="4,7" 
-                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
-                    
-                    <PizzaItem id={431}
+                
+                <PizzaItem id={431}
                                 name="Marinara Pizza" 
                                 image="images/item1.webp"
-                                price="120,00" 
-                                rating="4,2" 
-                                details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
-
-                    <PizzaItem id={40}
-                                name="Super Supreme" 
-                                image="images/item1.webp"
-                                price="190,00" 
-                                rating="4,7" 
-                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
-                              
-                    <PizzaItem id={433}
-                                name="MarinAAAAAAAAAAAAAara Pizza" 
-                                image="images/item1.webp"
-                                price="120,00" 
-                                rating="4,2" 
-                                details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
-
-                    <PizzaItem id={40}
-                                name="Super Supreme" 
-                                image="images/item1.webp"
-                                price="190,00" 
-                                rating="4,7" 
-                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>     
-                    
-                    <PizzaItem id={431}
-                                name="Marinara Pizza" 
-                                image="images/item1.webp"
-                                price="120,00" 
+                                price={120.00}
                                 rating="4,2" 
                                 details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
                     <PizzaItem id={40}
                                name="Super Supreme" 
                                 image="images/item1.webp"
-                                price="190,00" 
+                                price={190.00}
+                                rating="4,7" 
+                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
+                              
+                </TabPanel>
+                <TabPanel id="pizza_tab2" className="s3-items">
+                   
+                    <PizzaItem id={41}
+                                name="MarinAAAAAAAAAAAAAara Pizza" 
+                                image="images/item1.webp"
+                                price={120.00}
+                                rating="4,2" 
+                                details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <PizzaItem id={40}
+                                name="Super Supreme" 
+                                image="images/item1.webp"
+                                price={190.00}
+                                rating="4,7" 
+                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
+                    
+                    <PizzaItem id={431}
+                                name="Marinara Pizza" 
+                                image="images/item1.webp"
+                                price={120.00}
+                                rating="4,2" 
+                                details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <PizzaItem id={40}
+                                name="Super Supreme" 
+                                image="images/item1.webp"
+                                price={190.00}
+                                rating="4,7" 
+                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
+                              
+                    <PizzaItem id={433}
+                                name="MarinAAAAAAAAAAAAAara Pizza" 
+                                image="images/item1.webp"
+                                price={120.00}
+                                rating="4,2" 
+                                details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <PizzaItem id={40}
+                                name="Super Supreme" 
+                                image="images/item1.webp"
+                                price={190.00}
+                                rating="4,7" 
+                                details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>     
+                    
+                    <PizzaItem id={431}
+                                name="Marinara Pizza" 
+                                image="images/item1.webp"
+                                price={120.00}
+                                rating="4,2" 
+                                details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+
+                    <PizzaItem id={40}
+                               name="Super Supreme" 
+                                image="images/item1.webp"
+                                price={190.00}
                                 rating="4,7" 
                                 details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
                               
@@ -102,28 +116,28 @@ class Section3 extends react.Component{
                 <MenuItem id={401}
                                name="Italian Risotto" 
                                 image="images/risotto.webp"
-                                price="120,00" 
+                                price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
                     <MenuItem id={401}
                                name="Italian Risotto" 
                                 image="images/risotto.webp"
-                                price="120,00" 
+                                price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
                     <MenuItem id={401}
                                name="Italian Risotto" 
                                 image="images/risotto.webp"
-                                price="120,00" 
+                                price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
                     <MenuItem id={401}
                                name="Italian Risotto" 
                                 image="images/risotto.webp"
-                                price="120,00" 
+                                price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
@@ -133,56 +147,56 @@ class Section3 extends react.Component{
                 <PizzaItem id={41}
                                 name="MarinAAAAAAAAAAAAAara Pizza" 
                                 image="images/item1.webp"
-                                price="120,00" 
+                                price={120.00}
                                 rating="4,2" 
                                 details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
                     <PizzaItem id={40}
                                 name="Super Supreme" 
                                 image="images/item1.webp"
-                                price="190,00" 
+                                price={190.00}
                                 rating="4,7" 
                                 details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
                     
                     <PizzaItem id={431}
                                 name="Marinara Pizza" 
                                 image="images/item1.webp"
-                                price="120,00" 
+                                price={120.00}
                                 rating="4,2" 
                                 details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
                     <PizzaItem id={40}
                                 name="Super Supreme" 
                                 image="images/item1.webp"
-                                price="190,00" 
+                                price={190.00}
                                 rating="4,7" 
                                 details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
                               
                     <PizzaItem id={433}
                                 name="MarinAAAAAAAAAAAAAara Pizza" 
                                 image="images/item1.webp"
-                                price="120,00" 
+                                price={120.00}
                                 rating="4,2" 
                                 details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
                     <PizzaItem id={40}
                                 name="Super Supreme" 
                                 image="images/item1.webp"
-                                price="190,00" 
+                                price={190.00}
                                 rating="4,7" 
                                 details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>     
                     
                     <PizzaItem id={431}
                                 name="Marinara Pizza" 
                                 image="images/item1.webp"
-                                price="120,00" 
+                                price={120.00}
                                 rating="4,2" 
                                 details="Marinara Pizza ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
                     <PizzaItem id={40}
                                name="Super Supreme" 
                                 image="images/item1.webp"
-                                price="190,00" 
+                                price={190.00}
                                 rating="4,7" 
                                 details="Hackfleisch, Rindfleischburger, Mozzarella, Pilze, Zwiebeln, rote und grüne Paprikaschoten."/>
                               
@@ -190,9 +204,9 @@ class Section3 extends react.Component{
 
                 <TabPanel id="pizza_tab2" className="s3-items">
                 <MenuItem       id={999}
-                                name="JANUSZ" 
+                                name="Vodka" 
                                 image="images/vodka.webp"
-                                price="999,00" 
+                                price={999.00}
                                 rating="10,2" 
                                 details="cheeki breeki iv damke"/>
                 </TabPanel>

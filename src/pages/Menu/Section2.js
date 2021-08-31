@@ -59,17 +59,17 @@ function Section2 (){
                 <ComboItem id={22}
                             name="Johny Walker + 2x1,5L + 1 Pizza (33 cm)"
                             image="images/combo1.webp"
-                            price="35,00"/>
+                            price={35.00}/>
 
                 <ComboItem id={23}
                             name="Johny Walker + 2x1,5L + 1 Pizza (33 cm)"
                             image="images/combo2.webp"
-                            price="35,00"/>
+                            price={35.00}/>
                 
                 <ComboItem id={24}
                             name="Johny Walker + 2x1,5L + 1 Pizza (33 cm)"
                             image="images/combo3.webp"
-                            price="35,00"/>
+                            price={35.00}/>
 
             </div>
             <div className="s2-menu-left-again">
@@ -86,21 +86,21 @@ function Section2 (){
                                 info="Packages 1"
                                 name="Pizza + Pepsi"
                                 promo="(Gösser 0,5L +0,50 €)"
-                                price="6,50"/>
+                                price={6.50}/>
 
                     <OffersItem id={334}
                                 image="images/aitem2.webp"
                                 info="Packages 2"
                                 name="Pasta + Pepsi"
                                 promo="(Gösser 0,5L +0,50 €)"
-                                price="6,50"/>
+                                price={6.50}/>
 
                     <OffersItem id={338}
                                 image="images/aitem3.webp"
                                 info="Packages 3"
                                 name="Schnitzel + Pepsi"
                                 promo="(Gösser 0,5L +0,50 €)"
-                                price="7,00"/>
+                                price={7.00}/>
 
                 </ul>
             </div>

@@ -2,7 +2,7 @@ export const cartData = [
     {
         id:23,
         name:"Italian Risotto",
-        price:"30.00",
+        price:30.00,
         image:"images/risotto.webp",
         note:"",
         quantity: 5
@@ -13,13 +13,14 @@ export const cartData = [
         price:"40.00",
         image:"images/combo1.webp",
         note:"Please add a little chilli powder in there and add some mayonese too",
-        quantity: 2,
-        size: 2
+        quantity: 1,
+        size: 2,
+        extras: "chilli (x2), bacon (x1)"
     },
     {
         id:123,
         name:"Johny Walker + 2x1,5L + 1 Pizza (33 cm)",
-        price:"30.00",
+        price:30.00,
         image:"images/combo2.webp",
         note:"",
         quantity: 2,
@@ -28,7 +29,7 @@ export const cartData = [
     {
         id:2,
         name:"Vodka 1L",
-        price:"20.00",
+        price:20.00,
         image:"images/vodka.webp",
         note:"Please add more vodka",
         quantity: 8
@@ -36,7 +37,7 @@ export const cartData = [
 ]
 
 
-export const addToCart = (id,name,image,price,note,quantity,size=1) => {
+export const addToCart = (id,name,image,price,note,quantity,size=1,extras='') => {
     let exist = false
     for(var i = 0; i < cartData.length; i++){if(cartData[i].id == id){
         exist = true;
@@ -53,7 +54,8 @@ export const addToCart = (id,name,image,price,note,quantity,size=1) => {
             price: price,
             note: note,
             quantity: quantity,
-            size: size
+            size: size,
+            extras: extras
                     });
     }
     console.log(cartData)

@@ -1,6 +1,60 @@
 import react from "react";
+import {addToCart,changeNote} from "../data/cartData"
 
 class ModalIngredients extends react.Component{
+    constructor(props){
+        super(props)
+        this.state={
+            price:0,
+            priceBuffor:0,
+            extrasBuffor:'',
+            extras:'',
+            note: '',
+
+            crispy:false,
+            stuffed:false,
+            crown:false,
+            pan:false,
+            chilli_poz:false,
+            cheese:false,
+            double_cheese:false,
+
+            pizzaSauce:false,
+            chilliSauce:false,
+            mayoSauce:false,
+            blackpepperSauce:false,
+            bbqSauce:false,
+            truffleSauce:false,
+            mexicanSauce:false,
+            butterSauce:false,
+
+            hotTop:false,
+            beefBlackTop:false,
+            beefRasherTop:false,
+            beefSausageTop:false,
+            cornTop:false,
+            jalapenoTop:false,
+            greenTop:false,
+            onionTop:false
+
+        }
+    }
+    componentDidMount = () => {
+        this.setState({price: this.props.price})
+    }
+    addToPizza = (price,extra) => {
+        this.setState({price: this.props.price+this.state.priceBuffor,
+                        extras: this.state.extrasBuffor})
+    }
+    
+    changeNoteProp = (e) => {
+        this.setState({note: e.target.value})
+        changeNote(this.props.id,this.state.note)
+    }
+    
+    handleChange = (name) => {
+        this.setState({ name })
+    }
     render(){
     return(
         <div id="ingredients_dialog" className="modal-dialog">
@@ -14,6 +68,17 @@ class ModalIngredients extends react.Component{
                         <div className="ingredients-modal-selects-title-smaller">Choose 1</div>
                     </div>
                     <div className="ingredients-selection-list">
+                    <label for="default_ingredients"> 
+                            <div className="ingredients-option">
+                                 <div className="ingredients-details">
+                                     <div className="ingredients-details-title">
+                                         Default
+                                        <div className="ingredients-details-title-right">+ € 0.00</div>
+                                    </div>
+                                 </div>
+                                 <input type="radio" name="ingredients_option" id="default_ingredients"  value="crispy_ingredients" />
+                             </div>
+                         </label>
                         <label for="crispy_ingredients"> 
                             <div className="ingredients-option">
                                  <div className="ingredients-details">
@@ -22,7 +87,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="ingredients_option" id="crispy_ingredients" value="crispy_ingredients" />
+                                 <input type="radio" name="ingredients_option" id="crispy_ingredients"  value="crispy_ingredients" />
                              </div>
                          </label>
                          <label for="stuffed_ingredients"> 
@@ -304,7 +369,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="onion" value="onion" />
+                                 <input type="checkbox" name="ingredients_option" onChange={(e) => this.handleChange(e)} checked={this.state.crispy}  id="onion" value="onion" />
                              </div>
                          </label>
                     </div>
@@ -314,12 +379,22 @@ class ModalIngredients extends react.Component{
                     Note :
                     <div className="ingredients-modal-selects-title-smaller">(optional)</div>
                 </div>
-                <input placeholder="Make it more spicy" className="note-input-modal"/>
+                <input placeholder="Make it more spicy" onChange={(e) => this.changeNoteProp(e)} className="note-input-modal"/>
                 <div className="ingredients-total">
                     Total Pizza
-                    <div className="s3-item-cart">4</div>
+                    <div className="s3-item-cart">{this.props.quantity}</div>
                 </div>
-                <button className="add-to-cart-button">Add to Cart - €257.00</button>
+                <button className="add-to-cart-button" 
+                onClick={() => addToCart(
+                    this.props.id,
+                    this.props.name,
+                    this.props.image,
+                    this.state.price,
+                    this.state.note,
+                    this.props.quantity,
+                    this.props.size,
+                    this.state.extras)
+                    }>Add to Cart - €{this.state.price+this.state.priceBuffor}</button>
             </div>
         </div>
     </div>

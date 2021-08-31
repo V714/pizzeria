@@ -1,7 +1,6 @@
 import react from "react";
 
 import Modal from 'react-modal';
-import { onAdd } from "../../data/cartData";
 import ModalIngredients from '../../Modals/Ingredients';
 Modal.setAppElement('#root')
 
@@ -16,7 +15,8 @@ class PizzaItem extends react.Component{
             quantity: 1,
             size1: false,
             size2: true,
-            size3: false
+            size3: false,
+            size: 2
         }
     }
     
@@ -36,12 +36,15 @@ class PizzaItem extends react.Component{
         switch(sizeNumber){
             case 1:
                 this.setState({size1 : true})
+                this.setState({size : 1})
                 break;
             case 2:
                 this.setState({size2 : true})
+                this.setState({size : 2})
                 break;
             case 3:
                 this.setState({size3 : true})
+                this.setState({size : 3})
                 break;
         }
         
@@ -88,7 +91,13 @@ class PizzaItem extends react.Component{
             zIndex: 9999
           }
         }}>
-            <ModalIngredients closer = {this.closer}/>
+            <ModalIngredients 
+                closer = {this.closer} 
+                size={this.state.size}
+                id={this.props.id}
+                name={this.props.name}
+                image={this.props.image}
+                price={this.props.price}/>
       </Modal>
       
       
