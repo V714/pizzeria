@@ -1,6 +1,11 @@
+import react from "react";
 import MenuItem from "../Items/MenuItem";
 
-function Section2 (){
+ class Section2 extends react.Component{
+    constructor(props){
+        super(props)
+    }
+    render(){
     return(
         <div className="section2">
         <div className="section2-inner">
@@ -20,56 +25,56 @@ function Section2 (){
             <div className="s22-items">
                 
                
-                    <MenuItem   id={401}
+                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}  
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
@@ -79,7 +84,7 @@ function Section2 (){
             </div>
         </div>
     </div>
-    );
+    );}
 }
 
 export default Section2;

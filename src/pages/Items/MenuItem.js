@@ -1,5 +1,7 @@
 import react from "react";
 import { addToCart } from "../../data/cartData";
+import ModalCart from "../../Modals/Cart";
+
 
 class MenuItem extends react.Component{
     constructor(props){
@@ -33,8 +35,17 @@ class MenuItem extends react.Component{
             <div className="s3-item-details">{this.props.details}</div>
             <div className="magic-buttons"><div className="s3-item-cart"><button onClick={() => this.quantityMinus()}><img src="images/minus.svg"/></button>{this.state.quantity}<button onClick={() => this.quantityPlus()}><img src="images/plus.svg"/></button>
             </div>
-        <button className="s3-add-to-cart" onClick={() => addToCart(this.props.id,this.props.name,this.props.image,this.props.price,this.props.note,this.state.quantity)}
- > <img src="images/cart-white.svg"/>Add to Cart </button>
+        <button className="s3-add-to-cart" 
+            onClick={() => this.props.addProduct({
+
+                id: this.props.id,
+                name: this.props.name,
+                image: this.props.image,
+                price: this.props.price,
+                note: this.props.note,
+                quantity: this.state.quantity})}
+            
+            > <img src="images/cart-white.svg"/>Add to Cart </button>
    </div>
    
 

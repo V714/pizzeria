@@ -17,9 +17,9 @@ class Home extends react.Component{
 
           <Section1/>
           <Section2/>
-          <Section3/>
-          <Section4/>
-          <Section5/>
+          <Section3 products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
+          <Section4 products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
+          <Section5 />
           <Section6/>
 
       </div>

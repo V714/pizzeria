@@ -1,6 +1,11 @@
+import React from 'react';
 import MenuItem from '../Items/MenuItem';
 
-function Section4 (){
+class Section4 extends React.Component{
+    constructor(props){
+        super(props)
+    }
+    render(){
     return(
         <div className="section4">
             <div className="section4-inner">
@@ -19,56 +24,56 @@ function Section4 (){
                 </div>
                 <div className="s2-items">
                     
-                <MenuItem id={401}
+                <MenuItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
                                 rating="4,2" 
                                 details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem id={401}
+                    <MenuItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} id={401}
                                 name="Italian Risotto" 
                                 image="images/risotto.webp"
                                 price={120.00}
@@ -79,6 +84,6 @@ function Section4 (){
             </div>
         </div>
     );
-}
+}}
 
 export default Section4;

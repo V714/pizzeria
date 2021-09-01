@@ -1,3 +1,5 @@
+
+
 export let cartData=[]
 
 if (JSON.parse(localStorage.getItem('cartData'))){
@@ -35,9 +37,8 @@ export const addToCart = (id,name,image,price,note,quantity,size=1,extras='') =>
         size: size,
         extras: extras
                 });
-
+    
     localStorage.setItem("cartData", JSON.stringify(cartData));
-    window.location.reload(false);
 
 }
 export const changeNote = (id,note) => {
@@ -62,6 +63,5 @@ export const deleteCartItem = (number) => {
     
     
     localStorage.setItem("cartData", JSON.stringify(cartData));
-    window.location.reload(false);
 
 }

@@ -1,6 +1,5 @@
 import react from "react";
 import CartItem from '../Items/CartItem';
-import {cartData} from '../../data/cartData';
 import ModalDelivery from "../../Modals/Delivery";
 import ModalCheckout from "../../Modals/Checkout";
 
@@ -14,30 +13,10 @@ class Section1 extends react.Component{
         this.state={
             modalIsOpenDeli: false,
             modalIsOpenChck: false,
-            delivery: true,
-            database: [],
-            price: 0,
-            quantity: 0
+            delivery: true
         }
     }
 
-    async componentDidMount() {
-		this.setState({
-			database: await this.getCartDatabase()
-		})
-        let price=0;
-        let quantity=0;
-        this.state.database.map((item) => {price += (item.price*item.quantity);
-                                            quantity+= item.quantity})
-        
-		this.setState({
-			price: price,
-            quantity: quantity
-		})
-	}
-    getCartDatabase = async () => {
-		return cartData;
-	}
 
     closer = () => {
         this.setState({modalIsOpenDeli: false, modalIsOpenChck: false})
@@ -46,10 +25,10 @@ class Section1 extends react.Component{
     render(){
     return(
         <div className="section1-item">
-            {this.state.database.length > 0 && <div className="section1-item-inner">
+            {this.props.products.length > 0 && <div className="section1-item-inner">
                 <div className="page-links">
                     <ul>
-                        <li><a href="home.html">Home</a></li>
+                        <li><a href="home">Home</a></li>
                         <li><a className="actual"><img src="images/right-vector.svg"/>Shopping Cart</a></li>
                     </ul>
                 </div>
@@ -60,10 +39,10 @@ class Section1 extends react.Component{
 
                         <div className="s1-cart-left-list">
 
-                                {this.state.database &&
-					            this.state.database.map((item,index) => (
+                                {this.props.products &&
+					            this.props.products.map((item,index) => (
                                 <label className="checkboxLabel"><input name="cart-item" type="checkbox" onclick="checkToggle(this)" /> <span className="checkmark"></span>
-						        <CartItem 
+						        <CartItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}
                                 number={index}
                                 id={item.id}
                                 name={item.name}
@@ -89,12 +68,12 @@ class Section1 extends react.Component{
                             <div className="s1-cart-summary">
                                 <div className="s1-cart-summary-title">Payment Summary</div>
                                 <div className="s1-cart-summary-price">
-                                    <div className="s1-cart-summary-price-left">Price ({this.state.quantity} items)</div>
-                                    <div className="s1-cart-summary-price-right">€ {this.state.price}</div>
+                                    <div className="s1-cart-summary-price-left">Price ({this.props.products.length} items)</div>
+                                    <div className="s1-cart-summary-price-right">€ {this.props.totalPrice}</div>
                                 </div>
                                 <div className="s1-cart-summary-total">
                                     <div className="s1-cart-summary-total-left">Total</div>
-                                    <div className="s1-cart-summary-total-right">€ {this.state.price+3}</div>
+                                    <div className="s1-cart-summary-total-right">€ {this.props.totalPrice+3}</div>
                             </div>
                             <button id="checkoutNow" className="checkout-now-button" onClick={() => this.setState({modalIsOpenChck: true})} >Checkout Now</button>
                         </div>
@@ -105,7 +84,7 @@ class Section1 extends react.Component{
         </div>
 
 }
-{this.state.database.length <= 0 && <div className="section1-item-inner">
+{this.props.products.length <= 0 && <div className="section1-item-inner">
     <div className="s1-cart" style={{justifyContent: "center"}}>
                     <div className="s1-cart-left">
                         <div className="s1-cart-left-title">Shopping Cart is Empty</div>

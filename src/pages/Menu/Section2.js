@@ -1,7 +1,12 @@
+import React from "react";
 import ComboItem from "../Items/ComboItem";
 import OffersItem from "../Items/OffersItem";
 
-function Section2 (){
+class Section2 extends React.Component{
+    constructor(props){
+        super(props)
+    }
+    render(){
     return(
         <div className="section2">
         <div className="section2-inner">
@@ -56,17 +61,17 @@ function Section2 (){
            <div className="s2-menu-border-again"></div>
             <div className="s2-combo-items">
 
-                <ComboItem id={22}
+                <ComboItem products={this.props.products} addProduct={this.props.addProduct} id={22}
                             name="Johny Walker + 2x1,5L + 1 Pizza (33 cm)"
                             image="images/combo1.webp"
                             price={35.00}/>
 
-                <ComboItem id={23}
+                <ComboItem products={this.props.products} addProduct={this.props.addProduct} id={23}
                             name="Johny Walker + 2x1,5L + 1 Pizza (33 cm)"
                             image="images/combo2.webp"
                             price={35.00}/>
                 
-                <ComboItem id={24}
+                <ComboItem products={this.props.products} addProduct={this.props.addProduct} id={24}
                             name="Johny Walker + 2x1,5L + 1 Pizza (33 cm)"
                             image="images/combo3.webp"
                             price={35.00}/>
@@ -81,21 +86,21 @@ function Section2 (){
             </div>
             <div className="s2-firme-items">
                 <ul>
-                <OffersItem     id={333}
+                <OffersItem products={this.props.products} addProduct={this.props.addProduct}     id={333}
                                 image="images/aitem1.webp"
                                 info="Packages 1"
                                 name="Pizza + Pepsi"
                                 promo="(Gösser 0,5L +0,50 €)"
                                 price={6.50}/>
 
-                    <OffersItem id={334}
+                    <OffersItem products={this.props.products} addProduct={this.props.addProduct} id={334}
                                 image="images/aitem2.webp"
                                 info="Packages 2"
                                 name="Pasta + Pepsi"
                                 promo="(Gösser 0,5L +0,50 €)"
                                 price={6.50}/>
 
-                    <OffersItem id={338}
+                    <OffersItem products={this.props.products} addProduct={this.props.addProduct} id={338}
                                 image="images/aitem3.webp"
                                 info="Packages 3"
                                 name="Schnitzel + Pepsi"
@@ -106,7 +111,7 @@ function Section2 (){
             </div>
         </div>
     </div>
-    );
+    );}
 }
 
 export default Section2;

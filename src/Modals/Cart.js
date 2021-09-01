@@ -1,35 +1,23 @@
 
-import {cartData} from '../data/cartData';
+
 import react from 'react';
 
 class ModalCart extends react.Component{
     constructor(props){
         super(props)
-        this.state={
-            database: []
-        }
     }
-
-    async componentDidMount() {
-		this.setState({
-			database: await this.getCartDatabase()
-		})
-	}
-    getCartDatabase = async () => {
-		return cartData;
-	}
     render(){
     return(
         <div className="notification-modal">
         <div className="notification-modal-inner">
             <div className="fm-head">
-                <div className="fm-head-left">Cart ({this.state.database.length})</div>
-                <div className="fm-head-right"><a>View all</a></div>
+                <div className="fm-head-left">Cart ({this.props.products.length}): {this.props.totalPrice}€</div>
+                <div className="fm-head-right"><a href="cart">View all</a></div>
             </div>
             <div className="cart-list">
                 <ul>
-                {this.state.database &&
-					            this.state.database.map((item) => (
+                {this.props.products &&
+					            this.props.products.map((item) => (
                                     <li>
                                     <div className="cart-element-inner">
                                         <div className="cart-element-left"><img src={item.image}/>

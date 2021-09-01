@@ -19,8 +19,6 @@ import ModalNotification from './Modals/Notification';
 import ModalCart from './Modals/Cart';
 import ModalBTC from './Modals/Bitcoin';
 
-import { cartData } from './data/cartData';
-
 import react from 'react'
 import Modal from 'react-modal';
 Modal.setAppElement('#root')
@@ -32,31 +30,21 @@ class Header extends react.Component {
         modalIsOpenNoti: false,
         modalIsOpenCart: false,
         modalIsOpenBTC: false,
-        cartData: []
     }
 }
+
 closer = () => {
     this.setState({modalIsOpenNoti: false});
     this.setState({modalIsOpenCart: false});
     this.setState({modalIsOpenBTC: false});
 }
  async componentDidMount() {
-  this.setState({
-    cartData: cartData
-  })
   if(JSON.parse(localStorage.getItem('bitcoinModal')) == null){
     this.setState({
       modalIsOpenBTC: true
     })
     localStorage.setItem("bitcoinModal", JSON.stringify("false"));
   }
-}
-refresh = () => {
-  this.forceUpdate()
-}
-
- getCartDatabase = async () => {
-  return cartData;
 }
 
   render(){
@@ -75,8 +63,8 @@ refresh = () => {
         <div className="top-menu-icons">
             <button onClick={() => this.setState({modalIsOpenNoti: true})} id="notification"><img src="images/bell.svg"/></button>
             <button onClick={() => this.setState({modalIsOpenCart: true})} id="cart">
-              {this.state.cartData !== null &&
-              this.state.cartData.length > 0 && <div className="new-notification">{this.state.cartData.length}</div>}
+              {this.props.products !== null &&
+              this.props.products.length > 0 && <div className="new-notification">{this.props.products.length}</div>}
               
               <img src="images/cart.svg"/></button>
         </div>
@@ -88,17 +76,16 @@ refresh = () => {
       <Redirect to="/home" />
       </Route>
 
-        <Route path="/cart"><Cart/></Route>
-        <Route path="/checkout"><Checkout/></Route>
-        <Route path="/details"><Details/></Route>
-        <Route path="/item"><Item/></Route>
+        <Route path="/cart"><Cart totalPrice={this.props.totalPrice} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}/></Route>
+        <Route path="/checkout"><Checkout /* products={this.props.products} *//></Route>
+        <Route path="/details"><Details products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
+        <Route path="/item"><Item products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
         <Route path="/history"><History/></Route>
 
 
-        <Route path="/home"><Home/></Route>
-        <Route path="/menu"><Menu/></Route>
+        <Route path="/home"><Home products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
+        <Route path="/menu"><Menu products={this.props.products} addProduct={this.props.addProduct}/></Route>
         <Route path="/uber"><Uber/></Route>
-        <Route path="/home#section5"><Home/></Route>
       </Switch>
       </div>
       
@@ -160,7 +147,7 @@ refresh = () => {
             zIndex: 9999
           }
         }}>
-        <ModalCart/>
+        <ModalCart products={this.props.products} totalPrice={this.props.totalPrice} />
       </Modal>
 
       <Modal 

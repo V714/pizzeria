@@ -20,7 +20,7 @@ class CartItem extends react.Component{
     }
     changeNoteProp = (e) => {
         this.setState({note: e.target.value})
-        changeNote(this.props.id,this.state.note)
+        this.props.changeNote(this.props.number,this.state.note)
     }
 
     render(){
@@ -37,7 +37,7 @@ class CartItem extends react.Component{
             </div>
         </div>
         <div className="cart-item-detail-quantity">
-            <button onClick={() => deleteCartItem(this.props.number)}><img src="images/bin.svg"/></button>
+            <button onClick={() => this.props.deleteProduct(this.props.number)}><img src="images/bin.svg"/></button>
             <div className="s3-item-cart">{this.props.quantity}</div>
         </div>
         <Modal 

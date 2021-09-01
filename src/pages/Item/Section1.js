@@ -1,5 +1,10 @@
+import react from "react";
 
-function Section1 (){
+class Section1 extends react.Component{
+    constructor(props){
+        super(props)
+    }
+    render(){
     return(
         <div className="section1-item">
             <div className="section1-item-inner">
@@ -52,6 +57,6 @@ function Section1 (){
             </div>
         </div>
     );
-}
+}}
 
 export default Section1;
