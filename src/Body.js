@@ -43,10 +43,12 @@ class Body extends react.Component{
 
     changeNote = (number,note) => {
         for(var i = 0; i < this.state.products.length; i++){
-            if(this.state.products[i].number == number){
-                this.state.products[i].note = note;
-        }}
-        localStorage.setItem("Cart", JSON.stringify(this.state.products));
+            this.state.products[i].number = i;
+        }
+        this.setState({
+            products: this.state.products.map(item => item.number == number? {...item, note: note} : item)
+        })
+        localStorage.setItem("Cart", JSON.stringify(this.state.products.map(item => item.number == number? {...item, note: note} : item)));
     }
 
 

@@ -20,7 +20,7 @@ class CartItem extends react.Component{
     }
     changeNoteProp = (e) => {
         this.setState({note: e.target.value})
-        this.props.changeNote(this.props.number,this.state.note)
+        this.props.changeNote(this.props.number,e.target.value)
     }
 
     render(){

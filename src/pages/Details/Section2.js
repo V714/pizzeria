@@ -1,46 +1,190 @@
+import React from "react";
 
-function Section2 (){
-    return(
-        <div id="section2" className="section2">
-        <div className="section2-inner">
-            <div className="s3-title">Toppings</div>
-            <div className="toppings-items">
-                <ul>
-                    <li className="one-topping">
-                        <div className="magic-topping"><button id="crust"><img src="images/rotate.svg"/></button></div>
-                        <div className="one-topping-image"><img src="images/crispy.svg"/></div>
-                        Cryspy Crust
-                    </li>
-                    <li className="one-topping">
-                        <div className="magic-topping"><button onclick="deleteTopping(this)">-</button></div>
-                        <div className="one-topping-image"><img src="images/pizza-sauce.svg"/></div>
-                        Pizza Sauce
-                    </li>
-                    <li className="one-topping">
-                        <div className="magic-topping"><button onclick="deleteTopping(this)">-</button></div>
-                        <div className="one-topping-image"><img src="images/chilli.svg"/></div>
-                        Chilli Sauce
-                    </li>
-                    <li className="one-topping">
-                        <div className="magic-topping"><button onclick="deleteTopping(this)">-</button></div>
-                        <div className="one-topping-image"><img src="images/mayonnaise.svg"/></div>
-                        Mayonnaise Sauce
-                    </li>
-                    <li className="one-topping">
-                        <div className="magic-topping"><button onclick="deleteTopping(this)">-</button></div>
-                        <div className="one-topping-image"><img src="images/blackpepper.svg"/></div>
-                        Blackpepper Sauce (2x)
-                    </li>
-                    <li className="one-topping">
-                        <div className="magic-topping"><button onclick="deleteTopping(this)">-</button></div>
-                        <div className="one-topping-image"><img src="images/bacon.svg"/></div>
-                        Bacon (2x)
-                    </li>
-                </ul>
-            </div>
+class Section3 extends React.Component{
+    constructor(props){
+        super(props)
+        this.state={
+            toppings: [{
+                id: 11,
+                name: "Pizza Sauce",
+                price: 2,
+                image: "images/pizza-sauce.svg",
+                quantity: 1
+            },
+            {
+                id: 12,
+                name: "Chilli Sauce",
+                price: 3,
+                image: "images/chilli.svg",
+                quantity: 1
+            },
+            {
+                id: 13,
+                name: "Mayonnaise Sauce",
+                price: 1,
+                image: "images/mayonnaise.svg",
+                quantity: 1
+            },
+            {
+                id: 14,
+                name: "Blackpepper Sauce",
+                price: 2,
+                image: "images/blackpepper.svg",
+                quantity: 2
+            },
+            {
+                id: 15,
+                name: "Bacon",
+                price: 2,
+                image: "images/bacon.svg",
+                quantity: 2
+            }
+        ]
+        }
+    }
+
+    deleteTopping = (id) => {
+        this.setState({
+            toppings: this.state.toppings.filter(item => item.id != id)
+        })
+    }
+    addTopping = (top) => {
+        if(this.state.toppings.some(item => item.id == top.id)){
+            this.setState({
+                toppings: this.state.toppings.map(item => item.id == top.id? {...item, quantity: item.quantity+1} : item)
+            })
+        }
+        else{
+        this.setState({
+            toppings: [...this.state.toppings, top]
+        })}
+    }
+    render(){
+    return( <>
+    <div id="section2" className="section2">
+    <div className="section2-inner">
+        <div className="s3-title">Toppings</div>
+        <div className="toppings-items">
+            <ul>
+            
+            <li class="one-topping">
+                            <div class="magic-topping"><button id="crust"><img src="images/rotate.svg"/></button></div>
+                            <div class="one-topping-image"><img src="images/crispy.svg"/></div>
+                            Cryspy Crust
+                        </li>
+
+                {this.state.toppings &&
+					            this.state.toppings.map((item) => (
+                                    <li className="one-topping">
+                                    <div className="magic-topping"><button onClick={() => this.deleteTopping(item.id)}>-</button></div>
+                                    <div className="one-topping-image"><img src={item.image}/></div>
+                                    {item.name} {item.quantity > 1 && <>(x{item.quantity}) </>}
+                                    </li>
+                                ))}
+
+            </ul>
         </div>
     </div>
+</div>
+        <div  className="section3">
+            <div className="section3-inner">
+                <div className="s3-title">Add Extra Toppings</div>
+                <div className="extra-toppings">
+                    <div className="extra-topping">
+                        <div className="extra-topping-title">Pizza Topping</div>
+                        <div className="extra-topping-list">
+                                <div className="extra-option">
+                                    <div className="crust-image"><img src="images/chilli.svg"/></div>
+                                    <div className="delivery-details">
+                                        <div className="delivery-details-title">Chilli Sauce</div>
+                                        <div className="delivery-details-description">€ 3.00</div>
+                                    </div>
+                                    <button><img src="images/plus.svg"/></button>
+                                </div>
+                                <div className="extra-option">
+                                    <div className="crust-image"><img src="images/mayonnaise.svg"/></div>
+                                    <div className="delivery-details">
+                                        <div className="delivery-details-title">Mayonnaise Sauce</div>
+                                        <div className="delivery-details-description">€ 1.00</div>
+                                    </div>
+                                    <button><img src="images/plus.svg"/></button>
+                                </div>
+                                <div className="extra-option">
+                                    <div className="crust-image"><img src="images/blackpepper.svg"/></div>
+                                    <div className="delivery-details">
+                                        <div className="delivery-details-title">Blackpepper Sauce</div>
+                                        <div className="delivery-details-description">€ 2.00</div>
+                                    </div>
+                                    <button><img src="images/plus.svg"/></button>
+                                </div>
+                                <div className="extra-option">
+                                    <div className="crust-image"><img src="images/pizza-sauce.svg"/></div>
+                                    <div className="delivery-details">
+                                        <div className="delivery-details-title">Pizza Sauce</div>
+                                        <div className="delivery-details-description">€ 2.00</div>
+                                    </div>
+                                    <button><img src="images/plus.svg"/></button>
+                                </div>
+                                <div className="extra-option">
+                                    <div className="crust-image"><img src="images/vodka.webp"/></div>
+                                    <div className="delivery-details">
+                                        <div className="delivery-details-title">Janusz Sauce</div>
+                                        <div className="delivery-details-description">€ 0.01</div>
+                                    </div>
+                                    <button><img src="images/plus.svg"/></button>
+                                </div>
+                        </div>
+                    </div>
+                    <div className="extra-topping">
+                        <div className="extra-topping-title">Pizza Topping</div>
+                        <div className="extra-topping-list">
+                            <div className="extra-option">
+                                <div className="crust-image"><img src="images/bacon.svg"/></div>
+                                <div className="delivery-details">
+                                    <div className="delivery-details-title">Bacon</div>
+                                    <div className="delivery-details-description">€ 2.00</div>
+                                </div>
+                                <button><img src="images/plus.svg"/></button>
+                            </div>
+                            <div className="extra-option">
+                                <div className="crust-image"><img src="images/pepperoni.svg"/></div>
+                                <div className="delivery-details">
+                                    <div className="delivery-details-title">Pepperoni</div>
+                                    <div className="delivery-details-description">€ 3.00</div>
+                                </div>
+                                <button onClick={() => this.addTopping({id: 999, name: "Pepperoni", price: 3, image: "images/pepperoni.svg",quantity: 1})}><img src="images/plus.svg"/></button>
+                            </div>
+                            <div className="extra-option">
+                                <div className="crust-image"><img src="images/salami.svg"/></div>
+                                <div className="delivery-details">
+                                    <div className="delivery-details-title">Salami</div>
+                                    <div className="delivery-details-description">€ 3.00</div>
+                                </div>
+                                <button><img src="images/plus.svg"/></button>
+                            </div>
+                            <div className="extra-option">
+                                <div className="crust-image"><img src="images/sausage.svg"/></div>
+                                <div className="delivery-details">
+                                    <div className="delivery-details-title">Sausage</div>
+                                    <div className="delivery-details-description">€ 3.00</div>
+                                </div>
+                                <button><img src="images/plus.svg"/></button>
+                            </div>
+                            <div className="extra-option">
+                                <div className="crust-image"><img src="images/vodka.webp"/></div>
+                                <div className="delivery-details">
+                                    <div className="delivery-details-title">Janusz</div>
+                                    <div className="delivery-details-description">€ 0.01</div>
+                                </div>
+                                <button ><img src="images/plus.svg"/></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </>
     );
-}
+}}
 
-export default Section2;
+export default Section3;
