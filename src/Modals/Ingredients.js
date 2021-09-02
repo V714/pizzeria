@@ -4,20 +4,10 @@ class ModalIngredients extends react.Component{
     constructor(props){
         super(props)
         this.state={
-            price:0,
+            price:this.props.price,
             priceBuffor:0,
-            extrasBuffor:'',
-            extras:'',
             note: '',
-
-
-            crispy:false,
-            stuffed:false,
-            crown:false,
-            pan:false,
-            chilli_poz:false,
-            cheese:false,
-            double_cheese:false,
+            crustPrice: 0,
 
             pizzaSauce:false,
             chilliSauce:false,
@@ -39,20 +29,89 @@ class ModalIngredients extends react.Component{
 
         }
     }
-    componentDidMount = () => {
-        this.setState({price: this.props.price})
+    finishAdding = () => {
+        let extras = '';
+
+        this.state.pizzaSauce ? extras+="pizza sauce, " : extras=extras;
+        this.state.chilliSauce ? extras+="chilli sauce, " : extras=extras;
+        this.state.mayoSauce ? extras+="mayonnaise sauce, " : extras=extras;
+        this.state.blackpepperSauce ? extras+="blackpepper sauce, " : extras=extras;
+        this.state.bbqSauce ? extras+="spicy BBQ, " : extras=extras;
+        this.state.truffleSauce ? extras+="truffle mushroom sauce, " : extras=extras;
+        this.state.mexicanSauce ? extras+="mexican seasoning, " : extras=extras;
+        this.state.butterSauce ? extras+="butterschotch sauce, " : extras=extras;
+
+        this.state.hotTop ? extras+="hot spicy tuna, " : extras=extras;
+        this.state.beefBlackTop ? extras+="beef black pepper, " : extras=extras;
+        this.state.beefRasherTop ? extras+="beef rasher, " : extras=extras;
+        this.state.beefSausageTop ? extras+="beef sausage, " : extras=extras;
+        this.state.cornTop ? extras+="corn, " : extras=extras;
+        this.state.jalapenoTop ? extras+="jalapeno, " : extras=extras;
+        this.state.greenTop ? extras+="green pepper, " : extras=extras;
+        this.state.onionTop ? extras+="onion, " : extras=extras;
+        console.log(extras)
+        this.props.addProduct({
+                    
+            id: this.props.id,
+            name: this.props.name,
+            image: this.props.image,
+            price: this.props.price+this.state.crustPrice+this.state.priceBuffor,
+            note: this.props.note,
+            quantity: this.state.quantity,
+            extras: extras,
+            size: this.props.size})
+
     }
-    addToPizza = (price,extra) => {
-        this.setState({price: this.props.price+this.state.priceBuffor,
-                        extras: this.state.extrasBuffor})
-    }
-    
     changeNoteProp = (e) => {
         this.setState({note: e.target.value})
     }
-    
-    handleChange = (e) => {
-        console.log(this.state.name)
+    handleChangeRadio = (e) => {
+        console.log([e.target.id])
+        let price=0;
+        switch(e.target.value){
+            case "default": price=0;
+            case "crispy": price=2;
+            case "stuffed":price=5;
+            case "crown":price=5;
+            case "pan":price=5;
+            case "chilli_moz":price=5;
+            case "cheese":price=5;
+            case "double_cheese":price=5;
+        }
+        if(this.state[e.target.id]){
+            this.setState({crustPrice: price})
+    }
+    }
+    handleChangeCheckbox = (e) => {
+        let price=0;
+        switch(e.target.name){
+
+            case "pizzaSauce":price=3;break;
+            case "chilliSauce":price=1;break;
+            case "mayoSauce":price=2;break;
+            case "blackpepperSauce":price=2;break;
+            case "bbqSauce":price=2;break;
+            case "truffleSauce":price=1;break;
+            case "mexicanSauce":price=4;break;
+            case "butterSauce":price=5;break;
+
+            case "hotTop":price=4;break;
+            case "beefBlackTop":price=3;break;
+            case "beefRasherTop":price=2;break;
+            case "beefSausageTop":price=3;break;
+            case "cornTop":price=2;break;
+            case "jalapenoTop":price=1;break;
+            case "greenTop":price=3;break;
+            case "onionTop":price=2;break;
+        }
+        if(this.state[e.target.name]){
+            this.setState({priceBuffor: this.state.priceBuffor-price})
+        }
+        else{
+            this.setState({priceBuffor: this.state.priceBuffor+price})}
+
+        this.setState({[e.target.name]: !this.state[e.target.name]})
+        console.log(e.target.name)
     }
     render(){
     return(
@@ -75,7 +134,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 0.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="ingredients_option" id="default_ingredients"  value="crispy_ingredients" />
+                                 <input type="radio" name="extra_ingredients" id="default_ingredients"  value="default" onChange={(e) => this.handleChangeCheckbox(e)}  />
                              </div>
                          </label>
                         <label for="crispy_ingredients"> 
@@ -86,7 +145,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="ingredients_option" id="crispy_ingredients"  value="crispy_ingredients" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)} id="crispy_ingredients"  value="crispy" />
                              </div>
                          </label>
                          <label for="stuffed_ingredients"> 
@@ -97,7 +156,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="ingredients_option" id="stuffed_ingredients" value="stuffed_ingredients" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)} id="stuffed_ingredients" value="stuffed" />
                              </div>
                          </label>
 
@@ -109,7 +168,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="ingredients_option" id="crown_ingredients" value="crown_ingredients" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)} id="crown_ingredients" value="crown" />
                              </div>
                          </label>
                          <label for="pan_ingredients"> 
@@ -120,7 +179,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="ingredients_option" id="pan_ingredients" value="pan_ingredients" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)} id="pan_ingredients" value="pan" />
                              </div>
                          </label>
 
@@ -132,7 +191,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="ingredients_option" id="chilli_ingredients" value="chilli_ingredients" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)} id="chilli_ingredients" value="chilli_moz" />
                              </div>
                          </label>
 
@@ -144,7 +203,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="ingredients_option" id="cheese_ingredients" value="cheese_ingredients" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)}  id="cheese_ingredients" value="cheese" />
                              </div>
                          </label>
                          <label for="doublecheese_ingredients"> 
@@ -155,7 +214,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="ingredients_option" id="doublecheese_ingredients" value="doublecheese_ingredients" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)}  id="doublecheese_ingredients" value="double_cheese" />
                              </div>
                          </label>
                     </div>
@@ -187,7 +246,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 3.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="pizza_sauce" value="pizza_sauce" />
+                                 <input type="checkbox" name="pizzaSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.pizzaSauce} id="pizza_sauce" value="pizza_sauce" />
                              </div>
                          </label>
                          <label for="chilli_sauce"> 
@@ -198,7 +257,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 1.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="chilli_sauce" value="chilli_sauce" />
+                                 <input type="checkbox" name="chilliSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.chilliSauce} id="chilli_sauce" value="chilli_sauce" />
                              </div>
                          </label>
 
@@ -211,7 +270,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="mayonnaise_sauce" value="mayonnaise_sauce" />
+                                 <input type="checkbox" name="mayoSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.mayoSauce}  id="mayonnaise_sauce" value="mayonnaise_sauce" />
                              </div>
                          </label>
                          <label for="blackpepper_sauce"> 
@@ -222,7 +281,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="blackpepper_sauce" value="blackpepper_sauce" />
+                                 <input type="checkbox" name="blackpepperSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.blackpepperSauce} id="blackpepper_sauce" value="blackpepper_sauce" />
                              </div>
                          </label>
                          <label for="spicy_bbq"> 
@@ -233,7 +292,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="spicy_bbq" value="spicy_bbq" />
+                                 <input type="checkbox" name="bbqSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.bbqSauce} id="spicy_bbq" value="spicy_bbq" />
                              </div>
                          </label>
                          <label for="truffle_sauce"> 
@@ -244,7 +303,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 1.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="truffle_sauce" value="truffle_sauce" />
+                                 <input type="checkbox" name="truffleSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.truffleSauce} id="truffle_sauce" value="truffle_sauce" />
                              </div>
                          </label>
                          <label for="mexican_seasoning"> 
@@ -255,7 +314,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 4.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="mexican_seasoning" value="mexican_seasoning" />
+                                 <input type="checkbox" name="mexicanSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.mexicanSauce} id="mexican_seasoning" value="mexican_seasoning" />
                              </div>
                          </label>
                          <label for="butterschatch_sauce"> 
@@ -266,7 +325,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="butterschatch_sauce" value="butterschatch_sauce" />
+                                 <input type="checkbox" name="butterSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.butterSauce} id="butterschatch_sauce" value="butterschatch_sauce" />
                              </div>
                          </label>
                     </div>
@@ -289,7 +348,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 4.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="spicy_tuna" value="spicy_tuna" />
+                                 <input type="checkbox" name="hotTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.hotTop} id="spicy_tuna" value="spicy_tuna" />
                              </div>
                          </label>
                          <label for="beef_black"> 
@@ -300,7 +359,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 3.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="beef_black" value="beef_black" />
+                                 <input type="checkbox" name="beefBlackTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.beefBlackTop}  id="beef_black" value="beef_black" />
                              </div>
                          </label>
 
@@ -313,7 +372,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="beef_rasher" value="beef_rasher" />
+                                 <input type="checkbox" name="beefRasherTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.beefRasherTop} id="beef_rasher" value="beef_rasher" />
                              </div>
                          </label>
                          <label for="beef_sausage"> 
@@ -324,7 +383,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 3.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="beef_sausage" value="beef_sausage" />
+                                 <input type="checkbox" name="beefSausageTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.beefSausageTop} id="beef_sausage" value="beef_sausage" />
                              </div>
                          </label>
                          <label for="corn"> 
@@ -335,7 +394,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="corn" value="corn" />
+                                 <input type="checkbox" name="cornTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.cornTop} id="corn" value="corn" />
                              </div>
                          </label>
                          <label for="jalapeno"> 
@@ -346,7 +405,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 1.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="jalapeno" onChange={(e) => this.handleChange(e)} checked={this.state.jalapenoTop} value="jalapeno" />
+                                 <input type="checkbox" name="jalapenoTop" id="jalapeno" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.jalapenoTop} value="jalapeno" />
                              </div>
                          </label>
                          <label for="green_pepper"> 
@@ -357,7 +416,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 3.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="green_pepper" onChange={(e) => this.handleChange(e)} checked={this.state.greenTop} value="green_pepper" />
+                                 <input type="checkbox" name="greenTop" id="green_pepper" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.greenTop} value="green_pepper" />
                              </div>
                          </label>
                          <label for="onion"> 
@@ -368,7 +427,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" onChange={(e) => this.handleChange(e)} checked={this.state.onionTop}  id="onion" value="onion" />
+                                 <input type="checkbox" name="onionTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.onionTop}  id="onion" value="onion" />
                              </div>
                          </label>
                     </div>
@@ -384,18 +443,8 @@ class ModalIngredients extends react.Component{
                     <div className="s3-item-cart">{this.props.quantity}</div>
                 </div>
                 <button className="add-to-cart-button" 
-                onClick={() => this.props.addProduct({
-                    
-                    id: this.props.id,
-                    name: this.props.name,
-                    image: this.props.image,
-                    price: this.props.price+this.props.priceBuffor,
-                    note: this.props.note,
-                    quantity: this.state.quantity,
-                    extras: this.state.extras,
-                    size: this.props.size})
-
-                    }>Add to Cart - €{this.state.price+this.state.priceBuffor}</button>
+                onClick={() => this.finishAdding()}>
+                    Add to Cart - €{this.state.price+this.state.crustPrice+this.state.priceBuffor}</button>
             </div>
         </div>
     </div>

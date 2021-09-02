@@ -34,6 +34,7 @@ class CartItem extends react.Component{
             <div className="cart-item-detail-price">€ {this.props.price}</div>
             <div className="cart-item-detail-note">
                 <div className="cart-item-detail-note-text">{this.state.note}</div>
+                <div className="cart-item-detail-note-text">{this.props.extras}</div>
             </div>
         </div>
         <div className="cart-item-detail-quantity">

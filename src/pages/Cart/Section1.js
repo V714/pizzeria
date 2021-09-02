@@ -49,7 +49,8 @@ class Section1 extends react.Component{
                                 note={item.note}
 								  symbol={item.coin_symbol}
 								  image={item.image} 
-								  quantity={item.quantity}/>
+								  quantity={item.quantity}
+                                  extras={item.extras}/>
                                 ))}
 
                         </div>
