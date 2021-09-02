@@ -35,7 +35,7 @@ class OffersItem extends react.Component{
             </div>
                     <button className="s3-add-to-cart" 
                      onClick={() => this.props.addProduct({
-
+        
                         id: this.props.id,
                         name: this.props.name,
                         image: this.props.image,

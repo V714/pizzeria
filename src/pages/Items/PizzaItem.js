@@ -92,6 +92,7 @@ class PizzaItem extends react.Component{
           }
         }}>
             <ModalIngredients 
+            addProduct = {this.props.addProduct}
                 closer = {this.closer} 
                 size={this.state.size}
                 id={this.props.id}

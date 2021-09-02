@@ -7,6 +7,7 @@ class Body extends react.Component{
         this.state={
             products: [],
             totalPrice: 0,
+            address: []
         }
     }
     countTotalPrice = (price) => {
@@ -23,8 +24,12 @@ class Body extends react.Component{
              sum = JSON.parse(localStorage.getItem('Cart')).reduce(function(prev, cur) {
                 return prev + cur.price*cur.quantity;
               }, 0);}
+        
+        if (JSON.parse(localStorage.getItem('Address'))){
+            this.setState({
+                address: JSON.parse(localStorage.getItem('Address'))});}
               
-            this.countTotalPrice(sum)
+        this.countTotalPrice(sum)
 
     }
     addProduct = (product) => {
@@ -63,11 +68,19 @@ class Body extends react.Component{
         
     
     }
+    changeAddress = (nam,tel,cit,adr) => {
+        localStorage.setItem("Address", JSON.stringify({name: nam, telephone: tel, city: cit, address: adr}));
+        this.setState({
+            address: {name: nam, telephone: tel, city: cit, address: adr}
+        })
+        console.log(this.state.address)
+    }
+
 
     render(){
         return(
             
-            <Header totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
+            <Header address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
         )
     }
 }

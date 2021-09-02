@@ -1,5 +1,4 @@
 import react from "react";
-import {addToCart,changeNote} from "../data/cartData"
 
 class ModalIngredients extends react.Component{
     constructor(props){
@@ -10,6 +9,7 @@ class ModalIngredients extends react.Component{
             extrasBuffor:'',
             extras:'',
             note: '',
+
 
             crispy:false,
             stuffed:false,
@@ -49,11 +49,10 @@ class ModalIngredients extends react.Component{
     
     changeNoteProp = (e) => {
         this.setState({note: e.target.value})
-        changeNote(this.props.id,this.state.note)
     }
     
-    handleChange = (name) => {
-        this.setState({ name })
+    handleChange = (e) => {
+        console.log(this.state.name)
     }
     render(){
     return(
@@ -347,7 +346,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 1.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="jalapeno" value="jalapeno" />
+                                 <input type="checkbox" name="ingredients_option" id="jalapeno" onChange={(e) => this.handleChange(e)} checked={this.state.jalapenoTop} value="jalapeno" />
                              </div>
                          </label>
                          <label for="green_pepper"> 
@@ -358,7 +357,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 3.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" id="green_pepper" value="green_pepper" />
+                                 <input type="checkbox" name="ingredients_option" id="green_pepper" onChange={(e) => this.handleChange(e)} checked={this.state.greenTop} value="green_pepper" />
                              </div>
                          </label>
                          <label for="onion"> 
@@ -369,7 +368,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="checkbox" name="ingredients_option" onChange={(e) => this.handleChange(e)} checked={this.state.crispy}  id="onion" value="onion" />
+                                 <input type="checkbox" name="ingredients_option" onChange={(e) => this.handleChange(e)} checked={this.state.onionTop}  id="onion" value="onion" />
                              </div>
                          </label>
                     </div>
@@ -385,15 +384,17 @@ class ModalIngredients extends react.Component{
                     <div className="s3-item-cart">{this.props.quantity}</div>
                 </div>
                 <button className="add-to-cart-button" 
-                onClick={() => addToCart(
-                    this.props.id,
-                    this.props.name,
-                    this.props.image,
-                    this.state.price,
-                    this.state.note,
-                    this.props.quantity,
-                    this.props.size,
-                    this.state.extras)
+                onClick={() => this.props.addProduct({
+                    
+                    id: this.props.id,
+                    name: this.props.name,
+                    image: this.props.image,
+                    price: this.props.price+this.props.priceBuffor,
+                    note: this.props.note,
+                    quantity: this.state.quantity,
+                    extras: this.state.extras,
+                    size: this.props.size})
+
                     }>Add to Cart - €{this.state.price+this.state.priceBuffor}</button>
             </div>
         </div>

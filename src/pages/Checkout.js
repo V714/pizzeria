@@ -1,4 +1,5 @@
 import react from "react";
+import CartItem from "./Items/CartItem";
 
 import ModalNote from "../Modals/Note"
 import ModalPayment from "../Modals/Payment"
@@ -14,8 +15,16 @@ class Checkout extends react.Component {
         this.state={
             modalIsOpenPaym: false,
             modalIsOpenNote: false,
-            modalIsOpenChck: false
+            modalIsOpenChck: false,
+            checkout: false
         }
+    }
+    
+    componentDidMount = () => {
+        if (JSON.parse(localStorage.getItem('Address'))){
+            this.setState({checkout: true })
+        }
+        else{this.setState({checkout: false });window.location.href="cart"; }
     }
 
     closer = () => {
@@ -26,8 +35,8 @@ class Checkout extends react.Component {
   return (
 
    <div>
-
-<       div className="section1-item">
+       {this.state.checkout && <>
+  < div className="section1-item">
             <div className="section1-item-inner">
                 <div className="history-head">
                     <div className="history-head-left">Order id “<b>#1290</b>”</div>
@@ -42,84 +51,42 @@ class Checkout extends react.Component {
                                 <div className="user-data-detail">
                                     <div className="user-data-detail-1">Name</div>
                                     <div className="user-data-detail-2">:</div>
-                                    <div className="user-data-detail-3">JohnDoe (Apartment)</div>
+                                    <div className="user-data-detail-3">{this.props.address.name}</div>
                                 </div>
                                 <div className="user-data-detail">
                                     <div className="user-data-detail-1">Telp Number</div>
                                     <div className="user-data-detail-2">:</div>
-                                    <div className="user-data-detail-3">+62 219-1209-1029</div>
+                                    <div className="user-data-detail-3">{this.props.address.telephone}</div>
                                 </div>
                                 <div className="user-data-detail">
                                     <div className="user-data-detail-1">City</div>
                                     <div className="user-data-detail-2">:</div>
-                                    <div className="user-data-detail-3">Vienna</div>
+                                    <div className="user-data-detail-3">{this.props.address.city}</div>
                                 </div>
                                 <div className="user-data-detail">
                                     <div className="user-data-detail-1">Address</div>
                                     <div className="user-data-detail-2">:</div>
-                                    <div className="user-data-detail-3">21 District Vienna, Sun City, 2910</div>
+                                    <div className="user-data-detail-3">{this.props.address.address}</div>
                                 </div>
                             </div>
                         </div>
                         <button id="checkoutNow" className="change-address-button" onClick={() => this.setState({modalIsOpenChck: true})}>Change Address</button>
                         <div className="s1-cart-left-list">
-                                <div className="cart-item-detail">
-                                    <div className="cart-item-detail-photo">
-                                        <div className="cart-item-detail-image"><img src="images/risotto.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => this.setState({modalIsOpenNote: true})}><img src="images/note.svg"/>Add Note</button></div>
-                                    </div>
-                                    <div className="cart-item-detail-text">
-                                        <div className="cart-item-detail-name">Italian Risotto</div>
-                                        <div className="cart-item-detail-price">€ 30.00</div>
-                                        <div className="cart-item-detail-note">
-                                            <div className="cart-item-detail-note-text"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                 <div className="cart-item-detail">
-                                    <div className="cart-item-detail-photo">
-                                        <div className="cart-item-detail-image"><img src="images/combo1.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note"><img src="images/note.svg"/>Add Note</button></div>
-                                    </div>
-                                    <div className="cart-item-detail-text">
-                                        <div className="cart-item-detail-name">Pizza + Pepsi (Company Offer 1)</div>
-                                        <div className="cart-item-detail-price">€ 30.00</div>
-                                        <div className="cart-item-detail-note">Note :
-                                            <div className="cart-item-detail-note-text">
-                                                Please add a little chilli powder in there and add some mayonese too
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <div className="cart-item-detail">
-                                    <div className="cart-item-detail-photo">
-                                        <div className="cart-item-detail-image"><img src="images/combo2.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note"><img src="images/note.svg"/>Add Note</button></div>
-                                    </div>
-                                    <div className="cart-item-detail-text">
-                                        <div className="cart-item-detail-name">Johny Walker + 2x1,5L + 1 Pizza (33 cm) </div>
-                                        <div className="cart-item-detail-price">€ 30.00</div>
-                                        <div className="cart-item-detail-note">Note :
-                                            <div className="cart-item-detail-note-text">
-                                                Please add a little chilli powder in there and add some mayonese too
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <div className="cart-item-detail">
-                                    <div className="cart-item-detail-photo">
-                                        <div className="cart-item-detail-image"><img src="images/vodka.webp"/></div>
-                                        <div className="cart-item-detail-addNote"><button id="change_note"><img src="images/note.svg"/>Add Note</button></div>
-                                    </div>
-                                    <div className="cart-item-detail-text">
-                                        <div className="cart-item-detail-name">Vodka 1L</div>
-                                        <div className="cart-item-detail-price">€ 30.00</div>
-                                        <div className="cart-item-detail-note">
-                                            <div className="cart-item-detail-note-text">
-                                            </div>
-                                        </div>
-                                </div>
-                        </div>
+                        {this.props.products &&
+					            this.props.products.map((item,index) => (
+                               
+						        <CartItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}
+                                number={index}
+                                id={item.id}
+                                name={item.name}
+                                price={item.price}
+                                note={item.note}
+								  symbol={item.coin_symbol}
+								  image={item.image} 
+								  quantity={item.quantity}
+                                  bin={false}/>
+                                ))}
+
 
 
                     </div>
@@ -134,8 +101,8 @@ class Checkout extends react.Component {
                             <div className="s1-cart-summary">
                                 <div className="s1-cart-summary-title">Payment Summary</div>
                                 <div className="s1-cart-summary-price">
-                                    <div className="s1-cart-summary-price-left">Price (10 items)</div>
-                                    <div className="s1-cart-summary-price-right">€ 120.32</div>
+                                    <div className="s1-cart-summary-price-left">Price ({this.props.products.length} items)</div>
+                                    <div className="s1-cart-summary-price-right">€ {this.props.totalPrice}</div>
                                 </div>
                                 <div className="s1-cart-summary-price">
                                     <div className="s1-cart-summary-price-left">Delivery Fee</div>
@@ -143,7 +110,7 @@ class Checkout extends react.Component {
                                 </div>
                                 <div className="s1-cart-summary-total">
                                     <div className="s1-cart-summary-total-left">Total</div>
-                                    <div className="s1-cart-summary-total-right">€ 123.32</div>
+                                    <div className="s1-cart-summary-total-right">€ {this.props.totalPrice+3}</div>
                             </div>
                             <button id="payment" className="checkout-now-button" onClick={() => this.setState({modalIsOpenPaym: true})}>Choose Payment</button>
                         </div>
@@ -175,7 +142,7 @@ class Checkout extends react.Component {
             zIndex: 9999
           }
         }}>
-            <ModalCheckout closer = { this.closer }/>
+            <ModalCheckout address={this.props.address} changeAddress={this.props.changeAddress}  closer = { this.closer }/>
       </Modal>
 
 
@@ -221,8 +188,8 @@ class Checkout extends react.Component {
             <ModalPayment closer = { this.closer }/>
       </Modal>
 
-
-
+</>
+    }
 
     </div>
 );}

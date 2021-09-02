@@ -41,8 +41,7 @@ class Section1 extends react.Component{
 
                                 {this.props.products &&
 					            this.props.products.map((item,index) => (
-                                <label className="checkboxLabel"><input name="cart-item" type="checkbox" onclick="checkToggle(this)" /> <span className="checkmark"></span>
-						        <CartItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}
+                                <CartItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}
                                 number={index}
                                 id={item.id}
                                 name={item.name}
@@ -51,7 +50,6 @@ class Section1 extends react.Component{
 								  symbol={item.coin_symbol}
 								  image={item.image} 
 								  quantity={item.quantity}/>
-                                  </label>
                                 ))}
 
                         </div>
@@ -130,7 +128,7 @@ class Section1 extends react.Component{
             zIndex: 9999
           }
         }}>
-            <ModalCheckout closer = { this.closer }/>
+            <ModalCheckout address={this.props.address} changeAddress={this.props.changeAddress} closer = { this.closer }/>
       </Modal>
 
 
