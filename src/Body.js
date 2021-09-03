@@ -1,5 +1,8 @@
 import react from 'react'
 import Header from './Header'
+import 'react-notifications/lib/notifications.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
 
 class Body extends react.Component{
     constructor(props){
@@ -38,6 +41,7 @@ class Body extends react.Component{
             products: [...this.state.products, product]
         })
         this.countTotalPrice(product.price*product.quantity)
+        NotificationManager.success(product.name +' (€'+product.price+') x'+product.quantity, 'Product added')
       }
 
 
@@ -67,7 +71,7 @@ class Body extends react.Component{
             let iiitem=this.state.products.filter(item => {return item.number == number})
             this.countTotalPrice(-iiitem[0].price*iiitem[0].quantity)
         }
-        
+        NotificationManager.info('Product has been removed from Cart')
     
     }
     changeAddress = (nam,tel,cit,adr) => {
@@ -81,9 +85,11 @@ class Body extends react.Component{
 
     render(){
         return(
-            
+            <>
+            <NotificationContainer/>
             <Header address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
-        )
+            </>
+            )
     }
 }
 

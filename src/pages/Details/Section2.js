@@ -5,35 +5,35 @@ class Section3 extends React.Component{
         super(props)
         this.state={
             toppings: [{
-                id: 11,
+                id: 304,
                 name: "Pizza Sauce",
                 price: 2,
                 image: "images/pizza-sauce.svg",
                 quantity: 1
             },
             {
-                id: 12,
+                id: 301,
                 name: "Chilli Sauce",
                 price: 3,
                 image: "images/chilli.svg",
                 quantity: 1
             },
             {
-                id: 13,
+                id: 302,
                 name: "Mayonnaise Sauce",
                 price: 1,
                 image: "images/mayonnaise.svg",
                 quantity: 1
             },
             {
-                id: 14,
+                id: 303,
                 name: "Blackpepper Sauce",
                 price: 2,
                 image: "images/blackpepper.svg",
                 quantity: 2
             },
             {
-                id: 15,
+                id: 311,
                 name: "Bacon",
                 price: 2,
                 image: "images/bacon.svg",
@@ -99,7 +99,7 @@ class Section3 extends React.Component{
                                         <div className="delivery-details-title">Chilli Sauce</div>
                                         <div className="delivery-details-description">€ 3.00</div>
                                     </div>
-                                    <button><img src="images/plus.svg"/></button>
+                                    <button onClick={() => this.addTopping({id: 301, name: "Chilli Sauce", price: 3, image: "images/chilli.svg",quantity: 1})}><img src="images/plus.svg"/></button>
                                 </div>
                                 <div className="extra-option">
                                     <div className="crust-image"><img src="images/mayonnaise.svg"/></div>
@@ -107,7 +107,7 @@ class Section3 extends React.Component{
                                         <div className="delivery-details-title">Mayonnaise Sauce</div>
                                         <div className="delivery-details-description">€ 1.00</div>
                                     </div>
-                                    <button><img src="images/plus.svg"/></button>
+                                    <button onClick={() => this.addTopping({id: 302, name: "Mayonnaise", price: 1, image: "images/mayonnaise.svg",quantity: 1})}><img src="images/plus.svg"/></button>
                                 </div>
                                 <div className="extra-option">
                                     <div className="crust-image"><img src="images/blackpepper.svg"/></div>
@@ -115,7 +115,7 @@ class Section3 extends React.Component{
                                         <div className="delivery-details-title">Blackpepper Sauce</div>
                                         <div className="delivery-details-description">€ 2.00</div>
                                     </div>
-                                    <button><img src="images/plus.svg"/></button>
+                                    <button onClick={() => this.addTopping({id: 303, name: "Blackpepper Sauce", price: 2, image: "images/blackpepper.svg",quantity: 1})}><img src="images/plus.svg"/></button>
                                 </div>
                                 <div className="extra-option">
                                     <div className="crust-image"><img src="images/pizza-sauce.svg"/></div>
@@ -123,15 +123,7 @@ class Section3 extends React.Component{
                                         <div className="delivery-details-title">Pizza Sauce</div>
                                         <div className="delivery-details-description">€ 2.00</div>
                                     </div>
-                                    <button><img src="images/plus.svg"/></button>
-                                </div>
-                                <div className="extra-option">
-                                    <div className="crust-image"><img src="images/vodka.webp"/></div>
-                                    <div className="delivery-details">
-                                        <div className="delivery-details-title">Janusz Sauce</div>
-                                        <div className="delivery-details-description">€ 0.01</div>
-                                    </div>
-                                    <button><img src="images/plus.svg"/></button>
+                                    <button onClick={() => this.addTopping({id: 304, name: "Pizza Sauce", price: 2, image: "images/pizza-sauce.svg",quantity: 1})}><img src="images/plus.svg"/></button>
                                 </div>
                         </div>
                     </div>
@@ -144,7 +136,7 @@ class Section3 extends React.Component{
                                     <div className="delivery-details-title">Bacon</div>
                                     <div className="delivery-details-description">€ 2.00</div>
                                 </div>
-                                <button><img src="images/plus.svg"/></button>
+                                <button onClick={() => this.addTopping({id: 311, name: "Bacon", price: 2, image: "images/bacon.svg",quantity: 1})}><img src="images/plus.svg"/></button>
                             </div>
                             <div className="extra-option">
                                 <div className="crust-image"><img src="images/pepperoni.svg"/></div>
@@ -152,7 +144,7 @@ class Section3 extends React.Component{
                                     <div className="delivery-details-title">Pepperoni</div>
                                     <div className="delivery-details-description">€ 3.00</div>
                                 </div>
-                                <button onClick={() => this.addTopping({id: 999, name: "Pepperoni", price: 3, image: "images/pepperoni.svg",quantity: 1})}><img src="images/plus.svg"/></button>
+                                <button onClick={() => this.addTopping({id: 312, name: "Pepperoni", price: 3, image: "images/pepperoni.svg",quantity: 1})}><img src="images/plus.svg"/></button>
                             </div>
                             <div className="extra-option">
                                 <div className="crust-image"><img src="images/salami.svg"/></div>
@@ -160,7 +152,7 @@ class Section3 extends React.Component{
                                     <div className="delivery-details-title">Salami</div>
                                     <div className="delivery-details-description">€ 3.00</div>
                                 </div>
-                                <button><img src="images/plus.svg"/></button>
+                                <button onClick={() => this.addTopping({id: 313, name: "Salami", price: 3, image: "images/salami.svg",quantity: 1})}><img src="images/plus.svg"/></button>
                             </div>
                             <div className="extra-option">
                                 <div className="crust-image"><img src="images/sausage.svg"/></div>
@@ -168,15 +160,7 @@ class Section3 extends React.Component{
                                     <div className="delivery-details-title">Sausage</div>
                                     <div className="delivery-details-description">€ 3.00</div>
                                 </div>
-                                <button><img src="images/plus.svg"/></button>
-                            </div>
-                            <div className="extra-option">
-                                <div className="crust-image"><img src="images/vodka.webp"/></div>
-                                <div className="delivery-details">
-                                    <div className="delivery-details-title">Janusz</div>
-                                    <div className="delivery-details-description">€ 0.01</div>
-                                </div>
-                                <button ><img src="images/plus.svg"/></button>
+                                <button onClick={() => this.addTopping({id: 314, name: "Sausage", price: 3, image: "images/sausage.svg",quantity: 1})}><img src="images/plus.svg"/></button>
                             </div>
                         </div>
                     </div>
