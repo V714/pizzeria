@@ -51,7 +51,7 @@ closer = () => {
   return (
     <Router>
       <header className="top-menu">
-        <div className="top-menu-title">RIANO</div>
+        <div className="top-menu-title"><NavLink to="/home" >RIANO</NavLink></div>
         <nav>
           <ul className="top-menu-select">
             <li><NavLink className="top-tab" to="/home" activeClassName="selected">Home</NavLink></li>

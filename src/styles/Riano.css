@@ -1512,6 +1512,7 @@ line-height: 35px;
 letter-spacing: 0em;
 text-align: left;
 margin-left: 80px;
+cursor: pointer;
 }
 .top-menu{
     display: flex;
@@ -1807,7 +1808,14 @@ border:none;
     box-shadow: 0px 20px 70px rgb(29 24 22 / 3%);
     max-width: 385px;
     height: 380px;
+    border-radius: 7px;
     margin-right: 50px;
+    transition: 0.2s ease-in-out all;
+}
+.service-element:hover{
+    box-shadow: 0px 20px 70px rgb(29 24 22 / 13%);
+    transition: 0.2s ease-in-out all;
+
 }
 .service-element-inner{
     padding: 20px 20px;
@@ -1931,6 +1939,14 @@ height: 90px;
 display: flex;
 justify-content: center;
 align-items: center;
+transition: 0.2s all ease-in-out;
+cursor: pointer;
+}
+.s3-list-element:hover{
+    
+    transition: 0.2s all ease-in-out;
+    background-color: rgba(82, 52, 41, 0.2);
+    color: #7D7774;
 }
 
 .s3-items{
@@ -2070,6 +2086,11 @@ color: #523429;
 border: 0.5px solid #523429;
 background-color: #fff;
 width: 33%;
+transition: 0.2s all ease-in-out;
+}
+.size-button:hover{
+    transition: 0.1s all ease-in-out;
+    background: rgba(82, 52, 41,0.15);
 }
 
 .add-to-cart{
@@ -2111,7 +2132,17 @@ width: 50%;
 
 color: #fff;
 background-color: #523429;
+transition: 0.2s all ease-in-out;
 }
+.s3-add-to-cart:hover{
+    transition: 0.1s all ease-in-out;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 30px 5px #1D181611;
+
+}
+
+
+
 .s4-item-element-inner .s3-item-cart{
     font-size: 16px;
 }
@@ -2372,6 +2403,13 @@ padding: 20px 0px 0px 22px;
     justify-content: center;
     padding-bottom: 20px;
     padding-top: 20px;
+    transition: 0.2s ease-in-out all;
+}
+
+.s5-item:hover{
+    box-shadow: 0px 20px 70px rgb(29 24 22 / 13%);
+    transition: 0.2s ease-in-out all;
+
 }
 .s5-item-inner{
     display: flex;
@@ -2667,6 +2705,7 @@ width: 90%;
 .menu-s2-daily li{
     margin-bottom: 30px;
 }
+
 .menu-s2-daily-item{
     width:23%;
     min-width: 270px;
@@ -2675,6 +2714,13 @@ width: 90%;
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 10px 40px 0px #1D18160D;
+    transition: 0.2s ease-in-out all;
+}
+
+.menu-s2-daily-item:hover{
+    box-shadow: 0px 20px 70px rgb(29 24 22 / 13%);
+    transition: 0.2s ease-in-out all;
+
 }
 .menu-s2-daily-day{
     font-family: Nunito Sans;
@@ -2882,6 +2928,12 @@ color: #1D1816;
     color: #1D1816;
     background-color: #F7F8F8;
     margin-bottom: 10px;
+    transition: all 0.2s  ease-in-out;
+}
+.s3-menu-tabbing li:hover{
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    background-color: rgba(82, 52, 41, 0.15);
 }
 .s3-menu-tabbing img{
     width: 38px;
