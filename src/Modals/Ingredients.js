@@ -8,6 +8,7 @@ class ModalIngredients extends react.Component{
             priceBuffor:0,
             note: '',
             crustPrice: 0,
+            crust:'',
 
             pizzaSauce:false,
             chilliSauce:false,
@@ -31,7 +32,11 @@ class ModalIngredients extends react.Component{
     }
     finishAdding = () => {
         let extras = '';
-
+        switch(this.props.size){
+            case 1: extras='33cm, ';break;
+            case 2: extras='40cm, ';break;
+            case 3: extras='50cm, ';break;
+        }
         this.state.pizzaSauce ? extras+="pizza sauce, " : extras=extras;
         this.state.chilliSauce ? extras+="chilli sauce, " : extras=extras;
         this.state.mayoSauce ? extras+="mayonnaise sauce, " : extras=extras;
@@ -56,9 +61,9 @@ class ModalIngredients extends react.Component{
             name: this.props.name,
             image: this.props.image,
             price: this.props.price+this.state.crustPrice+this.state.priceBuffor,
-            note: this.props.note,
-            quantity: this.state.quantity,
-            extras: extras,
+            note: this.state.note,
+            quantity: this.props.quantity,
+            extras: this.props.crust,extras,
             size: this.props.size})
 
     }
@@ -66,21 +71,18 @@ class ModalIngredients extends react.Component{
         this.setState({note: e.target.value})
     }
     handleChangeRadio = (e) => {
-        console.log([e.target.id])
         let price=0;
         switch(e.target.value){
-            case "default": price=0;
-            case "crispy": price=2;
-            case "stuffed":price=5;
-            case "crown":price=5;
-            case "pan":price=5;
-            case "chilli_moz":price=5;
-            case "cheese":price=5;
-            case "double_cheese":price=5;
+            case "default": price=0;break;
+            case "crispy": price=2;break;
+            case "stuffed":price=5;break;
+            case "crown":price=5;break;
+            case "pan":price=5;break;
+            case "chilli_moz":price=5;break;
+            case "cheese":price=5;break;
+            case "double_cheese":price=5;break;
         }
-        if(this.state[e.target.id]){
-            this.setState({crustPrice: price})
-    }
+        this.setState({crustPrice: price,crust: e.target.value+' crust'})
     }
     handleChangeCheckbox = (e) => {
         let price=0;
@@ -111,7 +113,6 @@ class ModalIngredients extends react.Component{
             this.setState({priceBuffor: this.state.priceBuffor+price})}
 
         this.setState({[e.target.name]: !this.state[e.target.name]})
-        console.log(e.target.name)
     }
     render(){
     return(
@@ -134,7 +135,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 0.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="extra_ingredients" id="default_ingredients"  value="default" onChange={(e) => this.handleChangeCheckbox(e)}  />
+                                 <input type="radio" name="extra_ingredients" id="default_ingredients"  value="default" onChange={(e) => this.handleChangeRadio(e)}  />
                              </div>
                          </label>
                         <label for="crispy_ingredients"> 
@@ -145,7 +146,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 2.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)} id="crispy_ingredients"  value="crispy" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="crispy_ingredients"  value="crispy" />
                              </div>
                          </label>
                          <label for="stuffed_ingredients"> 
@@ -156,7 +157,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)} id="stuffed_ingredients" value="stuffed" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="stuffed_ingredients" value="stuffed" />
                              </div>
                          </label>
 
@@ -168,7 +169,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)} id="crown_ingredients" value="crown" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="crown_ingredients" value="crown" />
                              </div>
                          </label>
                          <label for="pan_ingredients"> 
@@ -179,7 +180,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)} id="pan_ingredients" value="pan" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="pan_ingredients" value="pan" />
                              </div>
                          </label>
 
@@ -191,7 +192,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)} id="chilli_ingredients" value="chilli_moz" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="chilli_ingredients" value="chilli_moz" />
                              </div>
                          </label>
 
@@ -203,7 +204,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)}  id="cheese_ingredients" value="cheese" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)}  id="cheese_ingredients" value="cheese" />
                              </div>
                          </label>
                          <label for="doublecheese_ingredients"> 
@@ -214,7 +215,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 5.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeCheckbox(e)}  id="doublecheese_ingredients" value="double_cheese" />
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)}  id="doublecheese_ingredients" value="double_cheese" />
                              </div>
                          </label>
                     </div>
