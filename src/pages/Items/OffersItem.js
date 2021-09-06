@@ -1,5 +1,4 @@
 import react from "react";
-import { addToCart } from "../../data/cartData";
 
 class OffersItem extends react.Component{
     constructor(props){
@@ -26,7 +25,7 @@ class OffersItem extends react.Component{
                             <div className="s4-item-details">
                                 <div className="s4-item-name-promo">
                                     <div className="s4-item-name">{this.props.name}</div>
-                                    <div className="s4-item-promo">{this.props.promo}</div>
+                                    <div className="s4-item-promo">{this.props.details}</div>
                                 </div>
                                 <div className="s4-item-price">€ {this.props.price}</div>
                             </div>

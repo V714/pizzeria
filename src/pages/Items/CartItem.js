@@ -1,7 +1,6 @@
 import react from 'react';
 
 import ModalNote from "../../Modals/Note";
-import { changeNote, deleteCartItem } from '../../data/cartData';
 
 import Modal from 'react-modal';
 Modal.setAppElement('#root')

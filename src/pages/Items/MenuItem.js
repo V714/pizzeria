@@ -1,6 +1,4 @@
 import react from "react";
-import { addToCart } from "../../data/cartData";
-import ModalCart from "../../Modals/Cart";
 
 
 class MenuItem extends react.Component{

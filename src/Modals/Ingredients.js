@@ -65,7 +65,7 @@ class ModalIngredients extends react.Component{
             quantity: this.props.quantity,
             extras: this.props.crust,extras,
             size: this.props.size})
-
+        this.props.closer();
     }
     changeNoteProp = (e) => {
         this.setState({note: e.target.value})
