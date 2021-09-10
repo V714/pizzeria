@@ -4743,3 +4743,13 @@ Media responsivnes
 
 
 
+.search-results{
+    overflow-x: auto;
+    height: 500px;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: max-content;
+    width: 95%;
+}

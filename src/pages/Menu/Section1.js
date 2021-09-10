@@ -3,6 +3,22 @@ import react from "react";
 class Section1 extends react.Component{
     constructor(props){
         super(props)
+        this.state={
+            value: ''
+        }
+    }
+    changeSearchValue = (value) => {
+        this.setState({
+            value: value
+        })
+    }
+    _handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            window.location.href=`/search?searchValue=${e.target.value}`
+        }
+      }
+    websiteForward = (value) => {
+        window.location.href=`/search?searchValue=${value}`
     }
     render(){
     return(
@@ -13,7 +29,7 @@ class Section1 extends react.Component{
             <div className="menu-search-box">
                 <div className="menu-search-box-field">
                     <img src="images/search.svg"/>
-                    <input className="menu-search-input" type="search" placeholder="Search for cheese pizza"/>
+                    <input className="menu-search-input" value={this.state.value} onKeyDown={(e) => {this._handleKeyDown(e)}} onChange={(e) => this.changeSearchValue(e.target.value)}  type="search" placeholder="Search for cheese pizza"/>
                 </div>
             </div>
         </div>
