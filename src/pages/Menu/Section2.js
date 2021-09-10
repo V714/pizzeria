@@ -65,7 +65,7 @@ class Section2 extends React.Component{
 
             {allProducts && 
                     allProducts.filter(item => item.section=='combo').map((item) => (
-                        <ComboItem  products={this.props.products} addProduct={this.props.addProduct} id={431}
+                        <ComboItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
                                 image={item.image}
                                 price={item.price}

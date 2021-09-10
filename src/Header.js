@@ -14,6 +14,7 @@ import Checkout from './pages/Checkout';
 import Details from './pages/Details';
 import Item from './pages/Item';
 import History from './pages/History';
+import Search from "./pages/Search";
 
 import ModalNotification from './Modals/Notification';
 import ModalCart from './Modals/Cart';
@@ -30,6 +31,7 @@ class Header extends react.Component {
         modalIsOpenNoti: false,
         modalIsOpenCart: false,
         modalIsOpenBTC: false,
+        search:''
     }
 }
 
@@ -45,6 +47,9 @@ closer = () => {
     })
     localStorage.setItem("bitcoinModal", JSON.stringify("false"));
   }
+}
+setSearch = (e) =>{
+ this.setState({search: e.target.value})
 }
 
   render(){
@@ -84,6 +89,7 @@ closer = () => {
 
 
         <Route path="/home"><Home products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
+        <Route path="/search"><Search products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} search={this.state.search} setSearch={this.setSearch}/></Route>
         <Route path="/menu"><Menu products={this.props.products} addProduct={this.props.addProduct}/></Route>
         <Route path="/uber"><Uber/></Route>
       </Switch>

@@ -13,7 +13,7 @@ class Section1 extends react.Component{
             <div className="menu-search-box">
                 <div className="menu-search-box-field">
                     <img src="images/search.svg"/>
-                    <input className="menu-search-input" type="search" placeholder="Search for cheese pizza"/>
+                    <input className="menu-search-input" type="search" onChange={(e) => this.props.setSearch(e)} placeholder="Search for cheese pizza"/>
                 </div>
             </div>
         </div>
