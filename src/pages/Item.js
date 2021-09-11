@@ -5,13 +5,16 @@ import react from "react";
 class Item extends react.Component {
     constructor(props){
       super(props)
+      this.state={
+        extras: '',
+      }
     }
       render(){
     return(
         
         <div>
-            <Section1 products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
-            <Section2 products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
+            <Section1 addProduct={this.props.addProduct}/>
+            <Section2 addProduct={this.props.addProduct}/>
         </div>
 
     );

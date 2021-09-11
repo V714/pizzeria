@@ -8,7 +8,7 @@ class ModalIngredients extends react.Component{
             priceBuffor:0,
             note: '',
             crustPrice: 0,
-            crust:'',
+            crust:'default crust, ',
 
             pizzaSauce:false,
             chilliSauce:false,
@@ -55,16 +55,17 @@ class ModalIngredients extends react.Component{
         this.state.greenTop ? extras+="green pepper, " : extras=extras;
         this.state.onionTop ? extras+="onion, " : extras=extras;
         console.log(extras)
+
         this.props.addProduct({
-                    
             id: this.props.id,
             name: this.props.name,
             image: this.props.image,
             price: this.props.price+this.state.crustPrice+this.state.priceBuffor,
             note: this.state.note,
             quantity: this.props.quantity,
-            extras: this.props.crust,extras,
+            extras: this.state.crust+extras,
             size: this.props.size})
+        
         this.props.closer();
     }
     changeNoteProp = (e) => {
@@ -82,7 +83,7 @@ class ModalIngredients extends react.Component{
             case "cheese":price=5;break;
             case "double_cheese":price=5;break;
         }
-        this.setState({crustPrice: price,crust: e.target.value+' crust'})
+        this.setState({crustPrice: price,crust: e.target.value+' crust, '})
     }
     handleChangeCheckbox = (e) => {
         let price=0;
@@ -135,7 +136,7 @@ class ModalIngredients extends react.Component{
                                         <div className="ingredients-details-title-right">+ € 0.00</div>
                                     </div>
                                  </div>
-                                 <input type="radio" name="extra_ingredients" id="default_ingredients"  value="default" onChange={(e) => this.handleChangeRadio(e)}  />
+                                 <input type="radio" default name="extra_ingredients" id="default_ingredients"  value="default" onChange={(e) => this.handleChangeRadio(e)}  />
                              </div>
                          </label>
                         <label for="crispy_ingredients"> 

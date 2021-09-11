@@ -83,7 +83,7 @@ setSearch = (e) =>{
 
         <Route path="/cart"><Cart address={this.props.address} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}/></Route>
         <Route path="/checkout"><Checkout address={this.props.address} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} /></Route>
-        <Route path="/details"><Details products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
+        <Route path="/details"><Details addProduct={this.props.addProduct} /></Route>
         <Route path="/item"><Item products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
         <Route path="/history"><History/></Route>
 

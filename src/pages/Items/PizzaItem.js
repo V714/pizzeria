@@ -56,7 +56,7 @@ class PizzaItem extends react.Component{
             <div className="s3-item-image"><img src={this.props.image}/></div>
             <div className="s3-item-name">{this.props.name}</div>
             <div className="s3-item-price">
-                <div className="s3-item-price-cost">€ {this.props.price}</div>
+                <div className="s3-item-price-cost">€ {this.props.price[this.state.size-1]}</div>
                 <div className="s3-item-price-rating"><img src="images/star.svg"/>{this.props.rating}</div>
             </div>
             <div className="s3-item-details">{this.props.details}</div>
@@ -98,7 +98,7 @@ class PizzaItem extends react.Component{
                 id={this.props.id}
                 name={this.props.name}
                 image={this.props.image}
-                price={this.props.price}
+                price={this.props.price[this.state.size-1]}
                 quantity={this.state.quantity}/>
       </Modal>
       
