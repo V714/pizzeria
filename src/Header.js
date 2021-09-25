@@ -22,7 +22,14 @@ import ModalBTC from './Modals/Bitcoin';
 
 import react from 'react'
 import Modal from 'react-modal';
+
+import ReactGA from 'react-ga';
+
+
 Modal.setAppElement('#root')
+ReactGA.initialize('UA-000000-01');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 
 class Header extends react.Component {
   constructor(props){
