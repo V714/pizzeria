@@ -10,12 +10,13 @@ class Body extends react.Component{
         this.state={
             products: [],
             totalPrice: 0,
-            address: []
+            address: [],
+            deliveryPrice: 3,
         }
     }
     countTotalPrice = (price) => {
         this.setState({
-            totalPrice: this.state.totalPrice+price
+            totalPrice: Math.round( (this.state.totalPrice+price) * 100)/100
         })
     }
     componentDidMount = () => {
@@ -74,10 +75,10 @@ class Body extends react.Component{
         NotificationManager.info('Product has been removed from Cart')
     
     }
-    changeAddress = (nam,tel,cit,adr) => {
-        localStorage.setItem("Address", JSON.stringify({name: nam, telephone: tel, city: cit, address: adr}));
+    changeAddress = (nam,tel,cit,adr,nt,dlv) => {
+        localStorage.setItem("Address", JSON.stringify({name: nam, telephone: tel, city: cit, address: adr, note: nt,delivery:dlv}));
         this.setState({
-            address: {name: nam, telephone: tel, city: cit, address: adr}
+            address: {name: nam, telephone: tel, city: cit, address: adr, note: nt, delivery: dlv}
         })
         console.log(this.state.address)
     }
@@ -87,7 +88,7 @@ class Body extends react.Component{
         return(
             <>
             <NotificationContainer/>
-            <Header address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
+            <Header deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
             </>
             )
     }

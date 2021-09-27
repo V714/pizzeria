@@ -17,6 +17,9 @@ class Section1 extends react.Component{
         }
     }
 
+    changeDelivery = (delivery) => {
+        this.setState({delivery: delivery})
+    }
 
     closer = () => {
         this.setState({modalIsOpenDeli: false, modalIsOpenChck: false})
@@ -60,7 +63,7 @@ class Section1 extends react.Component{
                         <div className="s1-cart-right-inner">
                             <div className="s1-cart-delivery">
                                 <div className="s1-cart-delivery-info">
-                                    <img src="images/delivery.svg"/> Delivery Order
+                                    <img src={this.state.delivery ? "images/delivery.svg" : "images/pickup.svg"}/> {this.state.delivery ? "Delivery Order" : "Pickup Order"}
                                 </div>
                                 <button id="change_delivery" className="delivery-change-button" onClick={() => this.setState({modalIsOpenDeli: true})}>Change</button>
                             </div>
@@ -70,16 +73,26 @@ class Section1 extends react.Component{
                                     <div className="s1-cart-summary-price-left">Price ({this.props.products.length} items)</div>
                                     <div className="s1-cart-summary-price-right">€ {this.props.totalPrice}</div>
                                 </div>
+                                {this.state.delivery ? <><div className="s1-cart-summary-price">
+                                    <div className="s1-cart-summary-price-left">Delivery Fee</div>
+                                    <div className="s1-cart-summary-price-right">€ {this.props.deliveryPrice}</div>
+                                </div> </> : <></>}
                                 <div className="s1-cart-summary-total">
                                     <div className="s1-cart-summary-total-left">Total</div>
-                                    <div className="s1-cart-summary-total-right">€ {this.props.totalPrice+3}</div>
+                                    <div className="s1-cart-summary-total-right">€ {this.props.totalPrice+ (this.state.delivery ? this.props.deliveryPrice : 0)}</div>
                             </div>
                             <button id="checkoutNow" className="checkout-now-button" onClick={() => this.setState({modalIsOpenChck: true})} >Checkout Now</button>
                         </div>
                     </div>
                 </div>
+                
 
             </div>
+            <div class="coupon-element">
+                            <u>Coupon Code</u>
+                            <input placeholder="Gebe dein Coupon Code ein"/>
+                        </div>
+
         </div>
 
 }
@@ -88,7 +101,10 @@ class Section1 extends react.Component{
                     <div className="s1-cart-left">
                         <div className="s1-cart-left-title">Shopping Cart is Empty</div>
 </div></div></div>
+
+
 }
+
         <Modal 
         isOpen={this.state.modalIsOpenDeli} 
         shouldCloseOnOverlayClick={true} 
@@ -107,7 +123,7 @@ class Section1 extends react.Component{
             zIndex: 9999
           }
         }}>
-            <ModalDelivery closer = { this.closer }/>
+            <ModalDelivery delivery={this.state.delivery} changeDelivery={this.changeDelivery} closer = { this.closer }/>
       </Modal>
 
 
@@ -129,7 +145,7 @@ class Section1 extends react.Component{
             zIndex: 9999
           }
         }}>
-            <ModalCheckout address={this.props.address} changeAddress={this.props.changeAddress} closer = { this.closer }/>
+            <ModalCheckout deliveryPrice={this.props.deliveryPrice} delivery={this.state.delivery} address={this.props.address} changeAddress={this.props.changeAddress} closer = { this.closer }/>
       </Modal>
 
 

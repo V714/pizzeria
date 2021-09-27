@@ -1,6 +1,9 @@
 import react from 'react';
 
 class ModalDelivery extends react.Component{
+    constructor(props){
+        super(props)
+    }
     render(){
         return(
             <div class="modal fade" id="change_delivery_modal" role="dialog">
@@ -16,7 +19,7 @@ class ModalDelivery extends react.Component{
                                     <div class="delivery-details-title">Delivery Order</div>
                                     <div class="delivery-details-description">You will get free delivery if the range is 21.Bezirk (District in Vienna)</div>
                                 </div>
-                                <input type="radio" name="delivery_option" id="delivery_radio"  value="delivery_order" checked  />
+                                <input type="radio" name="delivery_option" onClick={() => this.props.changeDelivery(true)} id="delivery_radio"  value="delivery_order" checked={this.props.delivery}  />
                             </div>
                         </label>
                         <label for="pickup_radio"> 
@@ -26,7 +29,7 @@ class ModalDelivery extends react.Component{
                                      <div class="delivery-details-title">Pickup Order</div>
                                      <div class="delivery-details-description">For every self-pickup, you will get 0.33L Pepsi for free in 10€ minumum order</div>
                                  </div>
-                                 <input type="radio" name="delivery_option" id="pickup_radio"  value="pickup_order"/>
+                                 <input type="radio" name="delivery_option" id="pickup_radio" onClick={() => this.props.changeDelivery(false)} value="pickup_order" checked={!this.props.delivery}/>
                              </div>
                          </label>
                        

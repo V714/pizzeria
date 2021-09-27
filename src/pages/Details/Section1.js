@@ -14,19 +14,26 @@ class Section1 extends react.Component{
             size1: false,
             size2: true,
             size3: false,
-            size: 2,
+            size: 0,
             toppingLength: this.props.toppings.length,
         }
     }
 
     componentDidMount = () => {
         const urlParams = new URLSearchParams(window.location.search);
-        const queryID = urlParams.get('id')
-        this.setState({id: queryID})
+        const queryID = parseInt(urlParams.get('id'));
+        const querySIZE = parseInt(urlParams.get('size'));
         
         if(queryID!=0){
             this.setState({product: allProducts.find(item => item.id==queryID)})
         }
+
+        window.addEventListener('load', (event) => {
+        if(querySIZE!=0){
+            this.pizzaSize(querySIZE);
+        }
+    })
+        
     }
 
     typeNote = (e) => {
@@ -34,7 +41,9 @@ class Section1 extends react.Component{
     }
 
     pizzaSize = (sizeNumber) => {
+
         this.setState({size1 : false,size2 : false,size3 : false})
+        console.log(sizeNumber)
         switch(sizeNumber){
             case 1:
                 this.setState({size1 : true})
@@ -49,15 +58,15 @@ class Section1 extends react.Component{
                 document.getElementById("pizza_size").style.height = '1100px';
                 break;
             case 3:
+                
                 this.setState({size3 : true})
                 this.setState({size : 3})
                 document.getElementById("pizza_size").style.width = '1150px';
                 document.getElementById("pizza_size").style.height = '1150px';
                 break;
-        }
         
-    }
-
+    }}
+    
     addToCart = () => {
         let extras = this.props.toppings.map(item => item.name+", ")
         let size;

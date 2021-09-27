@@ -1,5 +1,4 @@
 import react from 'react';
-import {useHistory} from 'react-router-dom';
 
 class ModalCheckout extends react.Component{
     constructor(props){
@@ -8,7 +7,9 @@ class ModalCheckout extends react.Component{
             name: '',
             telp: '',
             city: '',
-            address: ''
+            address: '',
+            note: '',
+            delivery: null
         }
     }
     componentDidMount = () =>{
@@ -17,14 +18,16 @@ class ModalCheckout extends react.Component{
             this.setState({name: address.name,
                             telp: address.telephone,
                             city: address.city,
-                            address: address.address})}
+                            address: address.address,
+                        note: address.note,
+                    delivery: address.delivery})}
     }
 
     handleChange = (e) => {
         this.setState({[e.target.name]: [e.target.value]})
     }
     submitAddress = () => {
-        this.props.changeAddress(this.state.name,this.state.telp,this.state.city,this.state.address)
+        this.props.changeAddress(this.state.name,this.state.telp,this.state.city,this.state.address,this.state.note,this.props.delivery)
         window.location.href="Checkout";
     }
     render(){
@@ -46,12 +49,16 @@ class ModalCheckout extends react.Component{
                     </div>
                     <div class="checkoutNow-modal-info-addres" >
                         City
-                        <input placeholder="City" value={this.state.city} name="city" onChange={(e) => this.handleChange(e)}/>
+                        <input placeholder="Opole" value={this.state.city} name="city" onChange={(e) => this.handleChange(e)}/>
                         <div class="checkoutNow-modal-info-smaller">Example : House, Company, Apartment</div>
                     </div>
                     <div class="checkoutNow-modal-info-address">
                         Address
-                        <input placeholder="21DistrictExample, Sun Resident" value={this.state.address} name="address" onChange={(e) => this.handleChange(e)}/>
+                        <input placeholder="21 DistrictExample, Sun Resident" value={this.state.address} name="address" onChange={(e) => this.handleChange(e)}/>
+                     </div>
+                     <div class="checkoutNow-modal-info-address">
+                        Note
+                        <input placeholder="please do not use a doorbell because the kid is sleeping" value={this.state.note} name="note" onChange={(e) => this.handleChange(e)}/>
                      </div>
                      <div class="checkoutNow-modal-buttons">
                          <button class="checkoutNow-modal-button">Cancel</button>

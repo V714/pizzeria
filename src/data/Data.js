@@ -205,5 +205,8 @@ export const allProducts = [
         more_images: [],
         section: "drink"
     },
-              
 ];
+
+export const recommendedProducts = [
+    201,601,1001,104
+]

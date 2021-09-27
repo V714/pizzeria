@@ -13,7 +13,7 @@ class Cart extends react.Component {
 
    <div>
 
-        <Section1 address={this.props.address} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}/>
+        <Section1 deliveryPrice={this.props.deliveryPrice} address={this.props.address} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}/>
         <Section2 products={this.props.products} addProduct={this.props.addProduct} />
 
     </div>

@@ -1,9 +1,62 @@
 import react from "react";
 import MenuItem from "../Items/MenuItem";
+import PizzaItem from "../Items/PizzaItem";
+import OffersItem from "../Items/OffersItem";
+import { recommendedProducts } from "../../data/Data";
+import { allProducts } from "../../data/Data";
 
  class Section2 extends react.Component{
     constructor(props){
         super(props)
+    }
+
+    getPizzaItemDOM = (item, addProduct, changeNote) => {
+        return (
+            <li key={item.id}>
+                <PizzaItem
+                    addProduct={addProduct}                        
+                    changeNote={changeNote}                       
+                    id={item.id}                        
+                    name={item.name}                         
+                    image={item.image}                         
+                    price={item.price}                      
+                    rating={item.rating}                 
+                    details={item.details}
+                />
+            </li>
+        )    
+    }
+
+    getOffersItemDOM = (item, addProduct) => {
+        return (
+            <li key={item.id}>
+                <OffersItem
+                    addProduct={addProduct} 
+                    id={item.id}
+                    name={item.name} 
+                    image={item.image}
+                    price={item.price}
+                    rating={item.rating}
+                    details={item.details}
+                />
+            </li>
+        )    
+    }
+
+    getMenuItemDOM = (item, addProduct) => {
+        return (
+            <li key={item.id}>
+                <MenuItem
+                    addProduct={addProduct} 
+                    id={item.id}
+                    name={item.name} 
+                    image={item.image}
+                    price={item.price}
+                    rating={item.rating}
+                    details={item.details}
+                />
+            </li>
+        )    
     }
     render(){
     return(
@@ -23,63 +76,26 @@ import MenuItem from "../Items/MenuItem";
                 </div>
             </div>
             <div className="s22-items">
-                
                
-                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}  
-                                name="Italian Risotto" 
-                                image="images/risotto.webp"
-                                price={120.00}
-                                rating="4,2" 
-                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+            {
 
-                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
-                                name="Italian Risotto" 
-                                image="images/risotto.webp"
-                                price={120.00}
-                                rating="4,2" 
-                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
 
-                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
-                                name="Italian Risotto" 
-                                image="images/risotto.webp"
-                                price={120.00}
-                                rating="4,2" 
-                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
-
-                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
-                                name="Italian Risotto" 
-                                image="images/risotto.webp"
-                                price={120.00}
-                                rating="4,2" 
-                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
-
-                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
-                                name="Italian Risotto" 
-                                image="images/risotto.webp"
-                                price={120.00}
-                                rating="4,2" 
-                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
-
-                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
-                                name="Italian Risotto" 
-                                image="images/risotto.webp"
-                                price={120.00}
-                                rating="4,2" 
-                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
-
-                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
-                                name="Italian Risotto" 
-                                image="images/risotto.webp"
-                                price={120.00}
-                                rating="4,2" 
-                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
-
-                    <MenuItem   products={this.props.products} addProduct={this.props.addProduct}id={401}
-                                name="Italian Risotto" 
-                                image="images/risotto.webp"
-                                price={120.00}
-                                rating="4,2" 
-                                details="Italian Risotto ist unsere beliebteste Pizza. Es wurde mit Tomaten, Hühnchen, Käse und auch einem Spinat gemacht."/>
+                    allProducts.filter(item => recommendedProducts.includes(item.id)).map(product => {
+                        switch (product.section) {
+                            case 'pizza':
+                                return this.getPizzaItemDOM(product, this.props.addProduct, this.props.changeNote)
+                            case 'combo':
+                                return this.getComboItemDOM(product, this.props.addProduct)
+                            case 'offer':
+                                return this.getOffersItemDOM(product, this.props.addProduct)
+                            default:
+                                return this.getMenuItemDOM(product, this.props.addProduct)
+                        }
+                    })
+                        
+                    }
+                    
+                
 
             </div>
         </div>
