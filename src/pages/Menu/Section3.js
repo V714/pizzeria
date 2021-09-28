@@ -33,7 +33,8 @@ class Section3 extends React.Component{
                 
             {allProducts && 
                     allProducts.filter(item => item.section=='pizza').map((item) => (
-                        <PizzaItem  products={this.props.products} addProduct={this.props.addProduct} id={431}
+                        <PizzaItem  products={this.props.products} addProduct={this.props.addProduct} 
+                                id={item.id}
                                 name={item.name} 
                                 image={item.image}
                                 price={item.price}
@@ -49,7 +50,7 @@ class Section3 extends React.Component{
                 
             {allProducts && 
                     allProducts.filter(item => item.section=='risotto').map((item) => (
-                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={431}
+                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
                                 image={item.image}
                                 price={item.price}
@@ -65,7 +66,7 @@ class Section3 extends React.Component{
                 
             {allProducts && 
                     allProducts.filter(item => item.section=='ribs').map((item) => (
-                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={431}
+                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
                                 image={item.image}
                                 price={item.price}
@@ -81,7 +82,7 @@ class Section3 extends React.Component{
                     
                 {allProducts && 
                     allProducts.filter(item => item.section=='indische').map((item) => (
-                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={431}
+                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
                                 image={item.image}
                                 price={item.price}
@@ -97,7 +98,7 @@ class Section3 extends React.Component{
                 
                 {allProducts && 
                     allProducts.filter(item => item.section=='burger').map((item) => (
-                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={431}
+                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
                                 image={item.image}
                                 price={item.price}
@@ -113,7 +114,7 @@ class Section3 extends React.Component{
                     
                 {allProducts && 
                     allProducts.filter(item => item.section=='dessert').map((item) => (
-                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={431}
+                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
                                 image={item.image}
                                 price={item.price}

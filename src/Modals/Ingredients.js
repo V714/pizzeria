@@ -121,10 +121,10 @@ class ModalIngredients extends react.Component{
         <div className="ingredients-modal">
             <button className="modal-x" onClick={() => this.props.closer()} ><img src="images/x.svg"/></button>
             <div className="ingredients-modal-inner">
-                <div className="ingredients-modal-title">Custom Ingredients</div>
+                <div className="ingredients-modal-title">Package 1</div>
                 <div className="ingredients-modal-selects">
                     <div className="ingredients-modal-selects-title">
-                        Pizza Crust
+                        Pizza Choose:
                         <div className="ingredients-modal-selects-title-smaller">Choose 1</div>
                     </div>
                     <div className="ingredients-selection-list">
@@ -132,8 +132,7 @@ class ModalIngredients extends react.Component{
                             <div className="ingredients-option">
                                  <div className="ingredients-details">
                                      <div className="ingredients-details-title">
-                                         Default
-                                        <div className="ingredients-details-title-right">+ € 0.00</div>
+                                         Pizza zajebista
                                     </div>
                                  </div>
                                  <input type="radio" default name="extra_ingredients" id="default_ingredients"  value="default" onChange={(e) => this.handleChangeRadio(e)}  />
@@ -143,8 +142,7 @@ class ModalIngredients extends react.Component{
                             <div className="ingredients-option">
                                  <div className="ingredients-details">
                                      <div className="ingredients-details-title">
-                                         Crispy
-                                        <div className="ingredients-details-title-right">+ € 2.00</div>
+                                         Pizza taka inna
                                     </div>
                                  </div>
                                  <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="crispy_ingredients"  value="crispy" />
@@ -154,8 +152,7 @@ class ModalIngredients extends react.Component{
                             <div className="ingredients-option">
                                  <div className="ingredients-details">
                                      <div className="ingredients-details-title">
-                                        Stuffed Crust Cheese
-                                        <div className="ingredients-details-title-right">+ € 5.00</div>
+                                        Pizza dla wegan
                                     </div>
                                  </div>
                                  <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="stuffed_ingredients" value="stuffed" />
@@ -166,61 +163,58 @@ class ModalIngredients extends react.Component{
                             <div className="ingredients-option">
                                  <div className="ingredients-details">
                                      <div className="ingredients-details-title">
-                                        Crown Crust
-                                        <div className="ingredients-details-title-right">+ € 5.00</div>
+                                        Pizza wykurwista
                                     </div>
                                  </div>
                                  <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="crown_ingredients" value="crown" />
                              </div>
                          </label>
-                         <label for="pan_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Pan Pizza
-                                        <div className="ingredients-details-title-right">+ € 5.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="pan_ingredients" value="pan" />
-                             </div>
-                         </label>
-
-                         <label for="chilli_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Filled Chili Mozzarella
-                                        <div className="ingredients-details-title-right">+ € 5.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="chilli_ingredients" value="chilli_moz" />
-                             </div>
-                         </label>
-
-                         <label for="cheese_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Cheese Burst
-                                        <div className="ingredients-details-title-right">+ € 5.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)}  id="cheese_ingredients" value="cheese" />
-                             </div>
-                         </label>
-                         <label for="doublecheese_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Double Cheese Burst
-                                        <div className="ingredients-details-title-right">+ € 5.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)}  id="doublecheese_ingredients" value="double_cheese" />
-                             </div>
-                         </label>
                     </div>
                 </div>
+
+
+
+
+
+                <div className="ingredients-modal-selects-title">
+                        Drink:
+                        <div className="ingredients-modal-selects-title-smaller">Choose 1</div>
+                    </div>
+                    <div className="ingredients-selection-list">
+                    <label for="default_ingredients"> 
+                            <div className="ingredients-option">
+                                 <div className="ingredients-details">
+                                     <div className="ingredients-details-title">
+                                         Pepsi
+                                    </div>
+                                 </div>
+                                 <input type="radio" default name="extra_ingredients" id="default_ingredients"  value="default" onChange={(e) => this.handleChangeRadio(e)}  />
+                             </div>
+                         </label>
+                        <label for="crispy_ingredients"> 
+                            <div className="ingredients-option">
+                                 <div className="ingredients-details">
+                                     <div className="ingredients-details-title">
+                                         Vodka
+                                    </div>
+                                 </div>
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="crispy_ingredients"  value="crispy" />
+                             </div>
+                         </label>
+                         <label for="stuffed_ingredients"> 
+                            <div className="ingredients-option">
+                                 <div className="ingredients-details">
+                                     <div className="ingredients-details-title">
+                                        Vodka ver Hardbass
+                                    </div>
+                                 </div>
+                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="stuffed_ingredients" value="stuffed" />
+                             </div>
+                         </label>
+
+                    </div>
+
+
 
 
 
@@ -236,15 +230,14 @@ class ModalIngredients extends react.Component{
 
                 <div className="ingredients-modal-selects">
                     <div className="ingredients-modal-selects-title">
-                        Pizza Sauce
-                        <div className="ingredients-modal-selects-title-smaller">max 3</div>
+                        Extras:
                     </div>
                     <div className="ingredients-selection-list">
                         <label for="pizza_sauce"> 
                             <div className="ingredients-option">
                                  <div className="ingredients-details">
                                      <div className="ingredients-details-title">
-                                        Pizza Sauce
+                                        szczypiorek
                                         <div className="ingredients-details-title-right">+ € 3.00</div>
                                     </div>
                                  </div>
@@ -255,7 +248,7 @@ class ModalIngredients extends react.Component{
                             <div className="ingredients-option">
                                  <div className="ingredients-details">
                                      <div className="ingredients-details-title">
-                                        Chilli Sauce
+                                        nie wiem co może tu być
                                         <div className="ingredients-details-title-right">+ € 1.00</div>
                                     </div>
                                  </div>

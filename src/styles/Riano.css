@@ -2025,11 +2025,9 @@ cursor: pointer;
 
 }
 .s3-menu-tab-pizza{
-    max-height: 1400px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    overflow-x: scroll;
 }
 .s3-menu-item{
     width: 400px;
@@ -2405,10 +2403,11 @@ padding: 20px 0px 0px 22px;
     padding:50px 130px;
     z-index: 2;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 .s5-kontakt{
     width: 800px;
+    min-width: 660px;
     margin-left: 40px;
 }
 .s5-kontakt-texts-small{
@@ -4279,7 +4278,7 @@ Media responsivnes
     }
 }
 @media screen and (max-width:1100px) {
-    .s3-menu{width:100%}
+    .s3-menu{max-width:95%;min-width: 95%;}
     .section3-inner-again{flex-wrap: wrap;}
     .s3-items{margin-top:50px}
     .s2-menu-all-content{
@@ -4409,15 +4408,28 @@ Media responsivnes
     }
     .s3-item{
         margin-right: 30px;
+        
+    }
+    .s3-menu-tabbing{
+        padding-left: 0;
     }
     .s3-menu-tab-pizza{
-        flex-wrap: nowrap;
-        flex-direction: row;
-        height: 700px;
+        flex-wrap: wrap;
+        flex-direction: column;
     }
     .s3-menu-tabbing a{
         padding: 10px 20px;
         height: 55px;
+    }
+    .s3-menu-tabbing li {
+        padding: 10px 15px;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    .s3-menu-tabbing img{
+        margin-right: 5px;
+        width: 25px;
+        height: 25px;
     }
     .section6-inner{
         padding:40px 0;
@@ -4668,7 +4680,8 @@ Media responsivnes
     }
     .s3-item{
         margin-left: 0;
-        padding-left: 25px;
+        padding-left: 5px;
+        min-width: 250px;
     }
     .s22-items ul{
         padding-left: 0;

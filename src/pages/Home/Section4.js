@@ -26,7 +26,7 @@ class Section4 extends react.Component{
                     allProducts.filter(item => item.section=='offer').map((item,index) => (
                         <OffersItem products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 image={item.image}
-                                info={'Packages '+index}
+                                info={'Packages '+(index+1)}
                                 name={item.name}
                                 details={item.details}
                                 price={item.price}/>

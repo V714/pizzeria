@@ -140,7 +140,7 @@ class Section1 extends react.Component{
                     </div>
                 </div>
                 <div className="pizza-rotate">
-                    <img id="pizza_size" src="images/pizza.webp"/>
+                    <img id="pizza_size" src={this.state.product.image}/>
                     <div className="pizza-element pe1">
                         <div className="pizza-element-box">Crispy Crust</div>
                         <div className="pizza-element-dots"></div>
