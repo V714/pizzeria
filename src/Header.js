@@ -88,16 +88,16 @@ setSearch = (e) =>{
       <Redirect to="/home" />
       </Route>
 
-        <Route path="/cart"><Cart deliveryPrice={this.props.deliveryPrice} address={this.props.address} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}/></Route>
-        <Route path="/checkout"><Checkout deliveryPrice={this.props.deliveryPrice} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} /></Route>
-        <Route path="/details"><Details addProduct={this.props.addProduct} /></Route>
-        <Route path="/item"><Item products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
+        <Route path="/cart"><Cart allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} address={this.props.address} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}/></Route>
+        <Route path="/checkout"><Checkout allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} /></Route>
+        <Route path="/details"><Details allProducts={this.props.allProducts}addProduct={this.props.addProduct} /></Route>
+        <Route path="/item"><Item allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
         <Route path="/history"><History/></Route>
 
 
-        <Route path="/home"><Home products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
-        <Route path="/search"><Search products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} search={this.state.search} setSearch={this.setSearch}/></Route>
-        <Route path="/menu"><Menu products={this.props.products} addProduct={this.props.addProduct}/></Route>
+        <Route path="/home"><Home allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
+        <Route path="/search"><Search allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} search={this.state.search} setSearch={this.setSearch}/></Route>
+        <Route path="/menu"><Menu allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct}/></Route>
         <Route path="/uber"><Uber/></Route>
       </Switch>
       </div>

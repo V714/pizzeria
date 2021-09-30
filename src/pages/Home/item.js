@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import ModalIngredients from '../../Modals/Ingredients';
 Modal.setAppElement('#root')
 
-class MenuItem extends react.Component{
+class ProductItem extends react.Component{
     constructor(props){
         super(props)
         this.state={
@@ -24,7 +24,7 @@ class MenuItem extends react.Component{
                 <div className="s3-item-price-cost">€ {this.props.price}</div>
                 <div className="s3-item-price-rating"><img src="images/star.svg"/>{this.props.rating}</div>
             </div>
-            <div className="s3-item-details">{this.props.details}</div>
+            <div className="s3-item-details">{this.props.description}</div>
             <div className="s3-item-size">
                 <button onclick="selectSize(this)" className="size-button">33cm</button>
                 <button onclick="selectSize(this)" className="size-button active">40cm</button>
@@ -56,7 +56,7 @@ class MenuItem extends react.Component{
             zIndex: 9999
           }
         }}>
-            <ModalIngredients closer = {this.closer}/>
+            <ModalIngredients allProducts={this.props.allProducts} closer = {this.closer}/>
       </Modal>
       
       
@@ -65,4 +65,4 @@ class MenuItem extends react.Component{
     }
 }
 
-export default MenuItem;
+export default ProductItem;

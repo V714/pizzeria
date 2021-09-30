@@ -1,5 +1,4 @@
 import react from "react";
-import { allProducts } from "../../data/Data";
 
 const size = "size-button";
 const sizePicked = "size-button picked-size";
@@ -25,7 +24,7 @@ class Section1 extends react.Component{
         const querySIZE = parseInt(urlParams.get('size'));
         
         if(queryID!=0){
-            this.setState({product: allProducts.find(item => item.id==queryID)})
+            this.setState({product: this.props.allProducts.find(item => item.id==queryID)})
         }
 
         window.addEventListener('load', (event) => {

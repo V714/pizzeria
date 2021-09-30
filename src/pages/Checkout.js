@@ -99,7 +99,7 @@ class Checkout extends react.Component {
                                 name={item.name}
                                 price={item.price}
 								symbol={item.coin_symbol}
-								image={item.image} 
+								image={item.imgPath} 
 								quantity={item.quantity}/>
                                 ))}
 

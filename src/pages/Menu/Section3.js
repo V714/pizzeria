@@ -3,9 +3,7 @@
 import React from 'react';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
-import MenuItem from "../Items/MenuItem";
-import PizzaItem from '../Items/PizzaItem';
-import { allProducts } from '../../data/Data';
+import ProductItem from "../Items/ProductItem";
 
 class Section3 extends React.Component{
     constructor(props){
@@ -31,15 +29,15 @@ class Section3 extends React.Component{
             </TabList>
             <TabPanel className="s3-menu-tab-pizza tabContent">
                 
-            {allProducts && 
-                    allProducts.filter(item => item.section=='pizza').map((item) => (
-                        <PizzaItem  products={this.props.products} addProduct={this.props.addProduct} 
+            {this.props.allProducts && 
+                    this.props.allProducts.filter(item => item.type=='PIZZA').map((item) => (
+                        <ProductItem  products={this.props.products} addProduct={this.props.addProduct} 
                                 id={item.id}
                                 name={item.name} 
-                                image={item.image}
+                                image={item.imgPath}
                                 price={item.price}
                                 rating={item.rating}
-                                details={item.details}/>
+                                description={item.description}/>
 
                     ))
                 }
@@ -48,14 +46,14 @@ class Section3 extends React.Component{
 
             <TabPanel className="s3-menu-tab-pizza tabContent">
                 
-            {allProducts && 
-                    allProducts.filter(item => item.section=='risotto').map((item) => (
-                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
+            {this.props.allProducts && 
+                    this.props.allProducts.filter(item => item.type=='RISOTTO').map((item) => (
+                        <ProductItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
-                                image={item.image}
+                                image={item.imgPath}
                                 price={item.price}
                                 rating={item.rating}
-                                details={item.details}/>
+                                description={item.description}/>
 
                     ))
                 }
@@ -64,14 +62,14 @@ class Section3 extends React.Component{
             </TabPanel>
             <TabPanel className="s3-menu-tab-pizza tabContent">
                 
-            {allProducts && 
-                    allProducts.filter(item => item.section=='ribs').map((item) => (
-                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
+            {this.props.allProducts && 
+                    this.props.allProducts.filter(item => item.type=='SPARERIBS').map((item) => (
+                        <ProductItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
-                                image={item.image}
+                                image={item.imgPath}
                                 price={item.price}
                                 rating={item.rating}
-                                details={item.details}/>
+                                description={item.description}/>
 
                     ))
                 }
@@ -80,14 +78,14 @@ class Section3 extends React.Component{
     
                 <TabPanel className="s3-menu-tab-pizza tabContent">
                     
-                {allProducts && 
-                    allProducts.filter(item => item.section=='indische').map((item) => (
-                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
+                {this.props.allProducts && 
+                    this.props.allProducts.filter(item => item.type=='INDIAN_VEGE' || item.type=='INDIAN_MEAT').map((item) => (
+                        <ProductItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
-                                image={item.image}
+                                image={item.imgPath}
                                 price={item.price}
                                 rating={item.rating}
-                                details={item.details}/>
+                                description={item.description}/>
 
                     ))
                 }
@@ -96,14 +94,14 @@ class Section3 extends React.Component{
                 </TabPanel>
                 <TabPanel className="s3-menu-tab-pizza tabContent">
                 
-                {allProducts && 
-                    allProducts.filter(item => item.section=='burger').map((item) => (
-                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
+                {this.props.allProducts && 
+                    this.props.allProducts.filter(item => item.type=='BURGER').map((item) => (
+                        <ProductItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
-                                image={item.image}
+                                image={item.imgPath}
                                 price={item.price}
                                 rating={item.rating}
-                                details={item.details}/>
+                                description={item.description}/>
 
                     ))
                 }
@@ -112,14 +110,14 @@ class Section3 extends React.Component{
     
                 <TabPanel className="s3-menu-tab-pizza tabContent">
                     
-                {allProducts && 
-                    allProducts.filter(item => item.section=='dessert').map((item) => (
-                        <MenuItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
+                {this.props.allProducts && 
+                    this.props.allProducts.filter(item => item.type=='DESSERT').map((item) => (
+                        <ProductItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
-                                image={item.image}
+                                image={item.imgPath}
                                 price={item.price}
                                 rating={item.rating}
-                                details={item.details}/>
+                                description={item.description}/>
 
                     ))
                 }

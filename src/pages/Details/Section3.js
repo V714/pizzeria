@@ -1,8 +1,6 @@
 import React from 'react';
-import MenuItem from '../Items/MenuItem';
+import ProductItem from '../Items/ProductItem';
 import OffersItem from '../Items/OffersItem';
-import PizzaItem from '../Items/PizzaItem';
-import { allProducts } from '../../data/Data';
 import { recommendedProducts } from '../../data/Data';
 
 class Section4 extends React.Component{
@@ -10,18 +8,18 @@ class Section4 extends React.Component{
         super(props)
     }
 
-    getPizzaItemDOM = (item, addProduct, changeNote) => {
+    getProductItemDOM = (item, addProduct, changeNote) => {
         return (
             <li key={item.id}>
-                <PizzaItem
+                <ProductItem
                     addProduct={addProduct}                        
                     changeNote={changeNote}                       
                     id={item.id}                        
                     name={item.name}                         
-                    image={item.image}                         
+                    image={item.imgPath}                         
                     price={item.price}                      
                     rating={item.rating}                 
-                    details={item.details}
+                    description={item.description}
                 />
             </li>
         )    
@@ -34,26 +32,26 @@ class Section4 extends React.Component{
                     addProduct={addProduct} 
                     id={item.id}
                     name={item.name} 
-                    image={item.image}
+                    image={item.imgPath}
                     price={item.price}
                     rating={item.rating}
-                    details={item.details}
+                    description={item.description}
                 />
             </li>
         )    
     }
 
-    getMenuItemDOM = (item, addProduct) => {
+    getProductItemDOM = (item, addProduct) => {
         return (
             <li key={item.id}>
-                <MenuItem
+                <ProductItem
                     addProduct={addProduct} 
                     id={item.id}
                     name={item.name} 
-                    image={item.image}
+                    image={item.imgPath}
                     price={item.price}
                     rating={item.rating}
-                    details={item.details}
+                    description={item.description}
                 />
             </li>
         )    
@@ -81,16 +79,16 @@ class Section4 extends React.Component{
                 {
 
 
-allProducts.filter(item => recommendedProducts.includes(item.id)).map(product => {
+this.props.allProducts.filter(item => recommendedProducts.includes(item.id)).map(product => {
     switch (product.section) {
         case 'pizza':
-            return this.getPizzaItemDOM(product, this.props.addProduct, this.props.changeNote)
+            return this.getProductItemDOM(product, this.props.addProduct, this.props.changeNote)
         case 'combo':
             return this.getComboItemDOM(product, this.props.addProduct)
         case 'offer':
             return this.getOffersItemDOM(product, this.props.addProduct)
         default:
-            return this.getMenuItemDOM(product, this.props.addProduct)
+            return this.getProductItemDOM(product, this.props.addProduct)
     }
 })
     

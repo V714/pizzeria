@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { allProducts } from '../data/Data';
 import SearchResults from './Search/SearchResults';
 
 class Menu extends React.Component {
@@ -26,12 +25,12 @@ class Menu extends React.Component {
   getFilteredProducts = (value) => {
     if (value) {
       const regexp = new RegExp(value, 'i')
-      return allProducts.filter(product => {
+      return this.props.allProducts.filter(product => {
         return (regexp).test(product.name)
       })
     }
     else
-      return allProducts
+      return this.props.allProducts
   }
 
   handleSearchValueChange = (value) => {
@@ -64,6 +63,7 @@ class Menu extends React.Component {
           </div>
 
           <SearchResults 
+          allProducts={this.props.allProducts}
             products={this.state.products} 
             addProduct={this.props.addProduct} 
             changeNote={this.props.changeNote}

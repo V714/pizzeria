@@ -46,7 +46,7 @@ class Section3 extends React.Component{
 					            this.props.toppings.map((item) => (
                                     <li className="one-topping">
                                     <div className="magic-topping"><button onClick={() => this.props.deleteTopping(item.id)}>-</button></div>
-                                    <div className="one-topping-image"><img src={item.image}/></div>
+                                    <div className="one-topping-image"><img src={item.imgPath}/></div>
                                     {item.name} {item.quantity > 1 && <>(x{item.quantity}) </>}
                                     </li>
                                 ))}

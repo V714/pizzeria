@@ -51,7 +51,7 @@ class Section1 extends react.Component{
                                 price={item.price}
                                 note={item.note}
 								  symbol={item.coin_symbol}
-								  image={item.image} 
+								  image={item.imgPath} 
 								  quantity={item.quantity}
                                   extras={item.extras}/>
                                 ))}
@@ -123,7 +123,7 @@ class Section1 extends react.Component{
             zIndex: 9999
           }
         }}>
-            <ModalDelivery delivery={this.state.delivery} changeDelivery={this.changeDelivery} closer = { this.closer }/>
+            <ModalDelivery allProducts={this.props.allProducts} delivery={this.state.delivery} changeDelivery={this.changeDelivery} closer = { this.closer }/>
       </Modal>
 
 
@@ -145,7 +145,7 @@ class Section1 extends react.Component{
             zIndex: 9999
           }
         }}>
-            <ModalCheckout deliveryPrice={this.props.deliveryPrice} delivery={this.state.delivery} address={this.props.address} changeAddress={this.props.changeAddress} closer = { this.closer }/>
+            <ModalCheckout allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} delivery={this.state.delivery} address={this.props.address} changeAddress={this.props.changeAddress} closer = { this.closer }/>
       </Modal>
 
 

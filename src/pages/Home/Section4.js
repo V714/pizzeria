@@ -1,6 +1,5 @@
 import react from "react";
 import OffersItem from "../Items/OffersItem";
-import {allProducts} from "../../data/Data";
 
 class Section4 extends react.Component{
     constructor(props){
@@ -22,13 +21,13 @@ class Section4 extends react.Component{
             <div className="s4-items">
                 <ul>
 
-                    {allProducts && 
-                    allProducts.filter(item => item.section=='offer').map((item,index) => (
-                        <OffersItem products={this.props.products} addProduct={this.props.addProduct} id={item.id}
-                                image={item.image}
+                    {this.props.allProducts && 
+                    this.props.allProducts.filter(item => item.type=='PACKAGES').map((item,index) => (
+                        <OffersItem allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} id={item.id}
+                                image={item.imgPath}
                                 info={'Packages '+(index+1)}
                                 name={item.name}
-                                details={item.details}
+                                description={item.description}
                                 price={item.price}/>
                     ))
                 }

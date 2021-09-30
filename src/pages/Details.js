@@ -78,9 +78,9 @@ class Details extends React.Component{
     return(
         <div>
 
-            <Section1 crustPrice={this.state.crustPrice} toppingsPrice={this.state.toppingsPrice} addProduct={this.props.addProduct} crust={this.state.crust} toppings={this.state.toppings}/>
-            <Section2 crust={this.state.crust} changeCrust={this.changeCrust} toppings={this.state.toppings} addTopping={this.addTopping} deleteTopping={this.deleteTopping}/>
-            <Section3 products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
+            <Section1 allProducts={this.props.allProducts} crustPrice={this.state.crustPrice} toppingsPrice={this.state.toppingsPrice} addProduct={this.props.addProduct} crust={this.state.crust} toppings={this.state.toppings}/>
+            <Section2 allProducts={this.props.allProducts} crust={this.state.crust} changeCrust={this.changeCrust} toppings={this.state.toppings} addTopping={this.addTopping} deleteTopping={this.deleteTopping}/>
+            <Section3 allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
 
         </div>
     );}

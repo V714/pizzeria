@@ -3,6 +3,7 @@
   "homepage": ".",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost/",
   "dependencies": {
     "@react-google-maps/api": "^2.2.0",
     "@testing-library/jest-dom": "^5.14.1",

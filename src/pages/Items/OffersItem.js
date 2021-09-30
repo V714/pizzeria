@@ -30,7 +30,7 @@ class OffersItem extends react.Component{
                             <div className="s4-item-details">
                                 <div className="s4-item-name-promo">
                                     <div className="s4-item-name">{this.props.name}</div>
-                                    <div className="s4-item-promo">{this.props.details}</div>
+                                    <div className="s4-item-promo">{this.props.description}</div>
                                 </div>
                                 <div className="s4-item-price">€ {this.props.price}</div>
                             </div>
@@ -61,7 +61,7 @@ class OffersItem extends react.Component{
             zIndex: 9999
           }
         }}>
-            <ModalIngredients 
+            <ModalIngredients allProducts={this.props.allProducts}
             addProduct = {this.props.addProduct}
                 closer = {this.closer} 
                 size={this.state.size}

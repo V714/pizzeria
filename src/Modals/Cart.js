@@ -20,7 +20,7 @@ class ModalCart extends react.Component{
 					            this.props.products.map((item) => (
                                     <li>
                                     <div className="cart-element-inner">
-                                        <div className="cart-element-left"><img src={item.image}/>
+                                        <div className="cart-element-left"><img src={item.imgPath}/>
                                             <div className="cart-element-details">
                                                 <div className="cart-element-name">{item.name}</div>
                                                 

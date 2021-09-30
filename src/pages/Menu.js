@@ -12,9 +12,9 @@ class Menu extends React.Component {
   return (
     <div>
 
-        <Section1 products={this.props.products} addProduct={this.props.addProduct} />
-        <Section2 products={this.props.products} addProduct={this.props.addProduct} />
-        <Section3 products={this.props.products} addProduct={this.props.addProduct} />
+        <Section1 allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} />
+        <Section2 allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} />
+        <Section3 allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} />
 
     </div>
   );

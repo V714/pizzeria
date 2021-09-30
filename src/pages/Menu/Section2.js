@@ -1,7 +1,6 @@
 import React from "react";
 import ComboItem from "../Items/ComboItem";
 import OffersItem from "../Items/OffersItem";
-import { allProducts } from "../../data/Data";
 
 class Section2 extends React.Component{
     constructor(props){
@@ -63,14 +62,14 @@ class Section2 extends React.Component{
             <div className="s2-combo-items">
 
 
-            {allProducts && 
-                    allProducts.filter(item => item.section=='combo').map((item) => (
+            {this.props.allProducts && 
+                    this.props.allProducts.filter(item => item.type=='COMBO').map((item) => (
                         <ComboItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
                                 name={item.name} 
-                                image={item.image}
+                                image={item.imgPath}
                                 price={item.price}
                                 rating={item.rating}
-                                details={item.details}/>
+                                description={item.description}/>
 
                     ))
                 }
@@ -85,14 +84,14 @@ class Section2 extends React.Component{
             </div>
             <div className="s2-firme-items">
                 <ul>
-                {allProducts && 
-                    allProducts.filter(item => item.section=='offer').map((item) => (
+                {this.props.allProducts && 
+                    this.props.allProducts.filter(item => item.type=='PACKAGES').map((item) => (
                         <OffersItem  products={this.props.products} addProduct={this.props.addProduct} id={431}
                                 name={item.name} 
-                                image={item.image}
+                                image={item.imgPath}
                                 price={item.price}
                                 rating={item.rating}
-                                details={item.details}/>
+                                description={item.description}/>
 
                     ))
                 }

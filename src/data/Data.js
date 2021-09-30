@@ -210,3 +210,32 @@ export const allProducts = [
 export const recommendedProducts = [
     201,601,1001,104
 ]
+
+
+export const getAllNew = [
+    {
+        "id": "61547f2e8c4c7f33472ac249",
+        "name": "Marinata",
+        "description": "EloPizza",
+        "allergens": "G",
+        "sizes": [
+          {
+            "size": "33",
+            "price": 6,
+            "sizeType": "CM"
+          },
+          {
+            "size": "40",
+            "price": 10.9,
+            "sizeType": "CM"
+          },
+          {
+            "size": "55",
+            "price": 14,
+            "sizeType": "CM"
+          }
+        ],
+        "type": "PIZZA",
+        "imgPath": "c:/elo"
+      }
+    ]

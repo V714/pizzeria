@@ -13,8 +13,8 @@ class Item extends react.Component {
     return(
         
         <div>
-            <Section1 addProduct={this.props.addProduct}/>
-            <Section2 addProduct={this.props.addProduct}/>
+            <Section1 allProducts={this.props.allProducts} addProduct={this.props.addProduct}/>
+            <Section2 allProducts={this.props.allProducts} addProduct={this.props.addProduct}/>
         </div>
 
     );

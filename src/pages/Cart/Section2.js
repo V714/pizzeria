@@ -1,27 +1,25 @@
 import react from "react";
-import MenuItem from "../Items/MenuItem";
-import PizzaItem from "../Items/PizzaItem";
+import ProductItem from "../Items/ProductItem";
 import OffersItem from "../Items/OffersItem";
 import { recommendedProducts } from "../../data/Data";
-import { allProducts } from "../../data/Data";
 
  class Section2 extends react.Component{
     constructor(props){
         super(props)
     }
 
-    getPizzaItemDOM = (item, addProduct, changeNote) => {
+    getProductItemDOM = (item, addProduct, changeNote) => {
         return (
             <li key={item.id}>
-                <PizzaItem
+                <ProductItem
                     addProduct={addProduct}                        
                     changeNote={changeNote}                       
                     id={item.id}                        
                     name={item.name}                         
-                    image={item.image}                         
+                    image={item.imgPath}                         
                     price={item.price}                      
                     rating={item.rating}                 
-                    details={item.details}
+                    description={item.description}
                 />
             </li>
         )    
@@ -34,26 +32,26 @@ import { allProducts } from "../../data/Data";
                     addProduct={addProduct} 
                     id={item.id}
                     name={item.name} 
-                    image={item.image}
+                    image={item.imgPath}
                     price={item.price}
                     rating={item.rating}
-                    details={item.details}
+                    description={item.description}
                 />
             </li>
         )    
     }
 
-    getMenuItemDOM = (item, addProduct) => {
+    getProductItemDOM = (item, addProduct) => {
         return (
             <li key={item.id}>
-                <MenuItem
+                <ProductItem
                     addProduct={addProduct} 
                     id={item.id}
                     name={item.name} 
-                    image={item.image}
+                    image={item.imgPath}
                     price={item.price}
                     rating={item.rating}
-                    details={item.details}
+                    description={item.description}
                 />
             </li>
         )    
@@ -80,16 +78,16 @@ import { allProducts } from "../../data/Data";
             {
 
 
-                    allProducts.filter(item => recommendedProducts.includes(item.id)).map(product => {
+this.props.allProducts.filter(item => recommendedProducts.includes(item.id)).map(product => {
                         switch (product.section) {
                             case 'pizza':
-                                return this.getPizzaItemDOM(product, this.props.addProduct, this.props.changeNote)
+                                return this.getProductItemDOM(product, this.props.addProduct, this.props.changeNote)
                             case 'combo':
                                 return this.getComboItemDOM(product, this.props.addProduct)
                             case 'offer':
                                 return this.getOffersItemDOM(product, this.props.addProduct)
                             default:
-                                return this.getMenuItemDOM(product, this.props.addProduct)
+                                return this.getProductItemDOM(product, this.props.addProduct)
                         }
                     })
                         

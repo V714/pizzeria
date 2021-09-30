@@ -1,5 +1,4 @@
 import react from "react";
-import { allProducts } from "../../data/Data";
 
 class Section1 extends react.Component{
     constructor(props){
@@ -17,7 +16,7 @@ class Section1 extends react.Component{
         this.setState({id: queryID})
         
         if(queryID!=0){
-            this.setState({product: allProducts.find(item => item.id==queryID)})
+            this.setState({product: this.props.allProducts.find(item => item.id==queryID)})
         }
     }
 
