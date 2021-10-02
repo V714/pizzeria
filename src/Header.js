@@ -95,9 +95,9 @@ setSearch = (e) =>{
         <Route path="/history"><History/></Route>
 
 
-        <Route path="/home"><Home allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
+        <Route path="/home"><Home allTypes={this.props.allTypes} allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
         <Route path="/search"><Search allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} search={this.state.search} setSearch={this.setSearch}/></Route>
-        <Route path="/menu"><Menu allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct}/></Route>
+        <Route path="/menu"><Menu allTypes={this.props.allTypes} allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct}/></Route>
         <Route path="/uber"><Uber/></Route>
       </Switch>
       </div>

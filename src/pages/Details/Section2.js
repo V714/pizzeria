@@ -42,11 +42,18 @@ class Section3 extends React.Component{
                             {this.props.crust}
                         </li>
 
-                {this.props.toppings &&
-					            this.props.toppings.map((item) => (
+                {this.props.item &&
+					            this.props.item.addons.map((item) => (
+                                    <li className="one-topping">
+                                    <div className="one-topping-image"><img src="./images/mayonnaise.svg"/></div>
+                                    {item.name} {item.quantity > 1 && <>(x{item.quantity}) </>}
+                                    </li>
+                                ))}
+                {this.props.extraAddons &&
+					            this.props.extraAddons.map((item) => (
                                     <li className="one-topping">
                                     <div className="magic-topping"><button onClick={() => this.props.deleteTopping(item.id)}>-</button></div>
-                                    <div className="one-topping-image"><img src={item.imgPath}/></div>
+                                    <div className="one-topping-image"><img src="./images/kcal.svg"/></div>
                                     {item.name} {item.quantity > 1 && <>(x{item.quantity}) </>}
                                     </li>
                                 ))}
@@ -99,38 +106,20 @@ class Section3 extends React.Component{
                     <div className="extra-topping">
                         <div className="extra-topping-title">Pizza Topping</div>
                         <div className="extra-topping-list">
-                            <div className="extra-option">
+
+                            {this.props.item.extraAddons.map(item => (
+
+                                <div className="extra-option">
                                 <div className="crust-image"><img src="images/bacon.svg"/></div>
                                 <div className="delivery-details">
-                                    <div className="delivery-details-title">Bacon</div>
-                                    <div className="delivery-details-description">€ 2.00</div>
+                                    <div className="delivery-details-title">{item.name}</div>
+                                    <div className="delivery-details-description">€ {item.price}</div>
                                 </div>
-                                <button onClick={() => this.props.addTopping({id: 2011, name: "Bacon", price: 2, image: "images/bacon.svg",quantity: 1})}><img src="images/plus.svg"/></button>
-                            </div>
-                            <div className="extra-option">
-                                <div className="crust-image"><img src="images/pepperoni.svg"/></div>
-                                <div className="delivery-details">
-                                    <div className="delivery-details-title">Pepperoni</div>
-                                    <div className="delivery-details-description">€ 3.00</div>
+                                <button onClick={() => this.props.addTopping({id: item.id, name: item.name, price: item.price, image: item.imgPath,quantity: 1})}><img src="images/plus.svg"/></button>
                                 </div>
-                                <button onClick={() => this.props.addTopping({id: 2012, name: "Pepperoni", price: 3, image: "images/pepperoni.svg",quantity: 1})}><img src="images/plus.svg"/></button>
-                            </div>
-                            <div className="extra-option">
-                                <div className="crust-image"><img src="images/salami.svg"/></div>
-                                <div className="delivery-details">
-                                    <div className="delivery-details-title">Salami</div>
-                                    <div className="delivery-details-description">€ 3.00</div>
-                                </div>
-                                <button onClick={() => this.props.addTopping({id: 2013, name: "Salami", price: 3, image: "images/salami.svg",quantity: 1})}><img src="images/plus.svg"/></button>
-                            </div>
-                            <div className="extra-option">
-                                <div className="crust-image"><img src="images/sausage.svg"/></div>
-                                <div className="delivery-details">
-                                    <div className="delivery-details-title">Sausage</div>
-                                    <div className="delivery-details-description">€ 3.00</div>
-                                </div>
-                                <button onClick={() => this.props.addTopping({id: 2014, name: "Sausage", price: 3, image: "images/sausage.svg",quantity: 1})}><img src="images/plus.svg"/></button>
-                            </div>
+                            ) )
+                           
+    }
                         </div>
                     </div>
                 </div>

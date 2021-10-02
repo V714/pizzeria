@@ -8,23 +8,6 @@ class SearchResults extends react.Component{
         super(props)
     }
 
-    getProductItemDOM = (item, addProduct, changeNote) => {
-        return (
-            <li key={item.id}>
-                <ProductItem
-                    addProduct={addProduct}                        
-                    changeNote={changeNote}                       
-                    id={item.id}                        
-                    name={item.name}                         
-                    image={item.imgPath}                         
-                    price={item.price}                      
-                    rating={item.rating}                 
-                    description={item.description}
-                />
-            </li>
-        )    
-    }
-
     getComboItemDOM = (item, addProduct) => {
         return (
             <li key={item.id}>
@@ -33,7 +16,7 @@ class SearchResults extends react.Component{
                     id={item.id}
                     name={item.name} 
                     image={item.imgPath}
-                    price={item.price}
+                    sizes={item.sizes}
                     rating={item.rating}
                     description={item.description}
                 />
@@ -49,7 +32,7 @@ class SearchResults extends react.Component{
                     id={item.id}
                     name={item.name} 
                     image={item.imgPath}
-                    price={item.price}
+                    sizes={item.sizes}
                     rating={item.rating}
                     description={item.description}
                 />
@@ -65,7 +48,7 @@ class SearchResults extends react.Component{
                     id={item.id}
                     name={item.name} 
                     image={item.imgPath}
-                    price={item.price}
+                    sizes={item.sizes}
                     rating={item.rating}
                     description={item.description}
                 />
@@ -79,8 +62,6 @@ class SearchResults extends react.Component{
                 {
                     this.props.products.map(product => {
                         switch (product.section) {
-                            case 'pizza':
-                                return this.getProductItemDOM(product, this.props.addProduct, this.props.changeNote)
                             case 'combo':
                                 return this.getComboItemDOM(product, this.props.addProduct)
                             case 'offer':

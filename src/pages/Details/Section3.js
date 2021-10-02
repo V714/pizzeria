@@ -41,22 +41,6 @@ class Section4 extends React.Component{
         )    
     }
 
-    getProductItemDOM = (item, addProduct) => {
-        return (
-            <li key={item.id}>
-                <ProductItem
-                    addProduct={addProduct} 
-                    id={item.id}
-                    name={item.name} 
-                    image={item.imgPath}
-                    price={item.price}
-                    rating={item.rating}
-                    description={item.description}
-                />
-            </li>
-        )    
-    }
-
     render(){
     return(
         <div className="section4">
@@ -80,16 +64,8 @@ class Section4 extends React.Component{
 
 
 this.props.allProducts.filter(item => recommendedProducts.includes(item.id)).map(product => {
-    switch (product.section) {
-        case 'pizza':
-            return this.getProductItemDOM(product, this.props.addProduct, this.props.changeNote)
-        case 'combo':
-            return this.getComboItemDOM(product, this.props.addProduct)
-        case 'offer':
-            return this.getOffersItemDOM(product, this.props.addProduct)
-        default:
-            return this.getProductItemDOM(product, this.props.addProduct)
-    }
+    this.getProductItemDOM(product, this.props.addProduct)
+    
 })
     
 }

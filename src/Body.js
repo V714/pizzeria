@@ -2,7 +2,7 @@ import react from 'react'
 import Header from './Header'
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-import { allProducts, getAllNew } from './data/Data';
+import { getAllNew, product_types } from './data/Data';
 
 
 class Body extends react.Component{
@@ -14,6 +14,7 @@ class Body extends react.Component{
             totalPrice: 0,
             address: [],
             deliveryPrice: 3,
+            allTypes: [],
         }
     }
     countTotalPrice = (price) => {
@@ -38,13 +39,14 @@ class Body extends react.Component{
         this.countTotalPrice(sum)
 
         this.getAllProducts()
+        this.getAllTypes()
 
     }
 
     getAllProducts = async() => {
         
-        try {
-            fetch('http://localhost:8080/products/')
+        /* try {
+            fetch('http://localhost:8080/products')
             .then( resp => resp.json())
             .then((data)=> {
                 this.setState({
@@ -53,8 +55,23 @@ class Body extends react.Component{
             })
           } catch (error) {
             console.log(error);
-          }
-         /*  this.setState({allProducts: getAllNew}) */
+          } */
+          this.setState({allProducts: getAllNew})
+    }
+
+    getAllTypes = async() => {
+        /* try {
+            fetch('http://localhost:8080/dictionaries/product-types')
+            .then( resp => resp.json())
+            .then((data)=> {
+                this.setState({
+                    allTypes: data
+                })
+            })
+          } catch (error) {
+            console.log(error);
+          } */
+          this.setState({allTypes: product_types})
     }
 
 
@@ -111,7 +128,7 @@ class Body extends react.Component{
         return(
             <>
             <NotificationContainer/>
-            <Header allProducts={this.state.allProducts} deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
+            <Header allTypes={this.state.allTypes} allProducts={this.state.allProducts} deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
             </>
             )
     }

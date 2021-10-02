@@ -214,28 +214,279 @@ export const recommendedProducts = [
 
 export const getAllNew = [
     {
-        "id": "61547f2e8c4c7f33472ac249",
-        "name": "Marinata",
-        "description": "EloPizza",
-        "allergens": "G",
-        "sizes": [
-          {
-            "size": "33",
-            "price": 6,
-            "sizeType": "CM"
-          },
-          {
-            "size": "40",
-            "price": 10.9,
-            "sizeType": "CM"
-          },
-          {
-            "size": "55",
-            "price": 14,
-            "sizeType": "CM"
-          }
-        ],
-        "type": "PIZZA",
-        "imgPath": "c:/elo"
+      "id": "61547f2e8c4c7f33472ac249",
+      "name": "Marinata",
+      "description": "EloPizza",
+      "allergens": "G",
+      "sizes": [
+        {
+          "size": "33",
+          "price": 6,
+          "sizeType": "CM"
+        },
+        {
+          "size": "40",
+          "price": 10.9,
+          "sizeType": "CM"
+        },
+        {
+          "size": "55",
+          "price": 14,
+          "sizeType": "CM"
+        }
+      ],
+      "type": "PIZZA",
+      "imgPath": "c:/elo"
+    },
+    {
+      "id": "6155e447153de5018366c3c7",
+      "name": "Cipolla",
+      "description": "EloPizza",
+      "allergens": "G",
+      "sizes": [
+        {
+          "size": "33",
+          "price": 6.7,
+          "sizeType": "CM"
+        },
+        {
+          "size": "40",
+          "price": 12.5,
+          "sizeType": "CM"
+        },
+        {
+          "size": "55",
+          "price": 16.5,
+          "sizeType": "CM"
+        }
+      ],
+      "type": "PIZZA",
+      "imgPath": "c:/elo"
+    },
+    {
+      "id": "6155e570704b336866c84b13",
+      "name": "Fungi",
+      "description": "EloPizza",
+      "allergens": "G",
+      "sizes": [
+        {
+          "size": "33",
+          "price": 6.9,
+          "sizeType": "CM"
+        },
+        {
+          "size": "40",
+          "price": 12.5,
+          "sizeType": "CM"
+        },
+        {
+          "size": "55",
+          "price": 16.5,
+          "sizeType": "CM"
+        }
+      ],
+      "type": "PIZZA",
+      "imgPath": "c:/elo"
+    },
+    {
+      "id": "6155e646704b336866c84b14",
+      "name": "Cardinale",
+      "description": "EloPizza",
+      "allergens": "G",
+      "sizes": [
+        {
+          "size": "33",
+          "price": 7.6,
+          "sizeType": "CM"
+        },
+        {
+          "size": "40",
+          "price": 13.5,
+          "sizeType": "CM"
+        },
+        {
+          "size": "55",
+          "price": 16.9,
+          "sizeType": "CM"
+        }
+      ],
+      "type": "PIZZA",
+      "imgPath": "c:/elo"
+    },
+    {
+      "id": "6155e754cef9091aac1d42bf",
+      "name": "Pepsi",
+      "description": "EloPizza",
+      "allergens": "",
+      "sizes": [
+        {
+          "size": "0,33",
+          "price": 1.6,
+          "sizeType": "L"
+        }
+      ],
+      "type": "DRINK",
+      "imgPath": "c:/elo"
+    },
+    {
+      "id": "6155e7b2cef9091aac1d42c0",
+      "name": "Gösser",
+      "description": "EloPizza",
+      "allergens": "",
+      "sizes": [
+        {
+          "size": "0,5",
+          "price": 2.2,
+          "sizeType": "L"
+        }
+      ],
+      "type": "ALCOHOL",
+      "imgPath": "c:/elo"
+    },
+    {
+      "id": "61561f500555c5780f900a2d",
+      "name": "Johny Walker",
+      "description": "EloPizza",
+      "allergens": "",
+      "sizes": [
+        {
+          "size": "0,7",
+          "price": 25.9,
+          "sizeType": "L"
+        }
+      ],
+      "type": "ALCOHOL",
+      "imgPath": "c:/elo"
+    }
+  ]
+
+export const product_types = [
+    "SOUP",
+    "PASTA",
+    "SPATZLE",
+    "STARTER",
+    "SALAD",
+    "VEGE",
+    "DESSERT",
+    "FISH",
+    "BURGER",
+    "SPARERIBS",
+    "MEAT",
+    "RISOTTO",
+    "INIDAN_VEGE",
+    "INDIAN_MEAT",
+    "PIZZA",
+    "DRINK",
+    "ALCOHOL"
+  ]
+
+  export const Marinata = {
+    "id": "61547f2e8c4c7f33472ac249",
+    "name": "Marinata",
+    "addons": [
+      {
+        "id": "61542ba9b1c35f2392c4717b",
+        "name": "Tomaten",
+        "addonType": "VEGETABLE",
+        "imgPath": "img"
+      },
+      {
+        "id": "61542e36b1c35f2392c4717e",
+        "name": "Knoblauch",
+        "addonType": "HERBS",
+        "imgPath": "img"
+      },
+      {
+        "id": "61542cf2b1c35f2392c4717d",
+        "name": "Oregano",
+        "addonType": "HERBS",
+        "imgPath": "img"
       }
-    ]
+    ],
+    "extraAddons": [
+      {
+        "id": "615440b4b1c35f2392c4719a",
+        "name": "Meeresfrüchte",
+        "addonType": "FISH",
+        "imgPath": "img",
+        "price": 2.5
+      },
+      {
+        "id": "615450a2b1c35f2392c471c8",
+        "name": "Shrimps",
+        "addonType": "FISH",
+        "imgPath": "img",
+        "price": 2.5
+      },
+      {
+        "id": "61544314b1c35f2392c471a4",
+        "name": "Gorgonzola",
+        "addonType": "CHEESE",
+        "imgPath": "img",
+        "price": 2.5
+      },
+      {
+        "id": "61543e18b1c35f2392c47193",
+        "name": "Mozzarella",
+        "addonType": "CHEESE",
+        "imgPath": "img",
+        "price": 2.5
+      },
+      {
+        "id": "61543dbdb1c35f2392c47192",
+        "name": "Schafskäse",
+        "addonType": "CHEESE",
+        "imgPath": "img",
+        "price": 2.5
+      },
+      {
+        "id": "61542fd5b1c35f2392c47181",
+        "name": "Schinken",
+        "addonType": "MEAT",
+        "imgPath": "img",
+        "price": 1.5
+      },
+      {
+        "id": "61543996b1c35f2392c47186",
+        "name": "Salami",
+        "addonType": "MEAT",
+        "imgPath": "img",
+        "price": 1.5
+      },
+      {
+        "id": "6154520a00379c6844c8a293",
+        "name": "Putenschinken",
+        "addonType": "MEAT",
+        "imgPath": "img",
+        "price": 1
+      },
+      {
+        "id": "6154528f00379c6844c8a294",
+        "name": "Putensalami und jede weitere Auflage",
+        "addonType": "MEAT",
+        "imgPath": "img",
+        "price": 1
+      }
+    ],
+    "description": "EloPizza",
+    "allergens": "G",
+    "sizes": [
+      {
+        "size": "33",
+        "price": 6,
+        "sizeType": "CM"
+      },
+      {
+        "size": "40",
+        "price": 10.9,
+        "sizeType": "CM"
+      },
+      {
+        "size": "55",
+        "price": 14,
+        "sizeType": "CM"
+      }
+    ],
+    "type": "PIZZA",
+    "imgPath": "c:/elo"
+  }
