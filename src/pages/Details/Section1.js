@@ -51,7 +51,7 @@ class Section1 extends react.Component{
                         <div className="triple-head-details-title">Details</div>
                         <div className="triple-head-details-line"></div>
                         <div className="triple-head-details-info">
-                            <div className="triple-head-details-info-star"><img src="images/star.svg"/>2</div>
+                            <div className="triple-head-details-info-star"><img src="images/star.svg"/>{this.props.item.rating}</div>
                             <div className="triple-head-details-info-element"><img src="images/clock.svg"/>30min</div>
                             <div className="triple-head-details-info-element"><img src="images/kcal.svg"/>700 kCal</div>
                         </div>

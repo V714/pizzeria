@@ -9,7 +9,9 @@ import Section6 from './Home/Section6';
 import react from 'react';
 
 class Home extends react.Component{
-
+  constructor(props){
+    super(props)
+  }
   render() {
 
     return (
@@ -19,7 +21,7 @@ class Home extends react.Component{
           <Section2/>
           <Section3 allTypes={this.props.allTypes} allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
           <Section4 allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
-          <Section5 />
+          <Section5 contactInfo={this.props.contactInfo}/>
           <Section6/>
 
       </div>

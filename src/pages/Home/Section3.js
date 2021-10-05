@@ -27,7 +27,7 @@ class Section3 extends react.Component{
                     <TabList className="s3-menu-scroll">
                         <ul>
                         {this.props.allTypes && this.props.allTypes.map((itemb,index) => {return(
-                        <Tab id={"gat"+toString(index+1)} className="s3-list-element">{itemb}</Tab>)})}
+                        <Tab id={"gat"+toString(index+1)} className="s3-list-element">{itemb.label}</Tab>)})}
                         </ul>
                     </TabList>
                 </div>
@@ -36,7 +36,7 @@ class Section3 extends react.Component{
                 {this.props.allTypes && this.props.allTypes.map(itema => {return(<TabPanel id="pizza_tab2" className="s3-items">
                 
                 {this.props.allProducts && 
-                    this.props.allProducts.filter(item => item.type==itema).map((item) => (
+                    this.props.allProducts.filter(item => item.type==itema.key).map((item) => (
                         <ProductItem  products={this.props.products} addProduct={this.props.addProduct} 
                                 id={item.id}
                                 name={item.name} 

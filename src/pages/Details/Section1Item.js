@@ -45,7 +45,7 @@ class Section1Item extends react.Component{
                     <div className="item-detail-description">
                         <div className="item-detail-name">{this.props.item.name}</div>
                         <div className="item-detail-info">
-                            <div className="item-detail-info-small"><img src="images/star.svg"/>4.3</div>
+                            <div className="item-detail-info-small"><img src="images/star.svg"/>{this.props.item.rating}</div>
                             <div className="item-detail-info-small"><img src="images/clock.svg"/>20min</div>
                             <div className="item-detail-info-small"><img src="images/kcal.svg"/>200 kCal</div>
                         </div>

@@ -1,7 +1,19 @@
 
+import react from 'react';
 import GMap from './GoogleMaps';
 
-function Section5 (){
+class Section5 extends react.Component{
+    constructor(props){
+        super(props)
+    }
+    componentDidMount = () => {
+        
+        
+
+            
+    }
+
+    render(){
     return(
         <div className="section5" id="section5">
         <div className="section5-inner">
@@ -16,7 +28,7 @@ function Section5 (){
                                 <img src="images/smartphone.svg"/>
                                 <div className="s5-kontakt-info">
                                     <div className="s5-kontakt-name">Mobile</div>
-                                    <div className="s5-kontakt-details">+43 (0) 699 103 11 888</div>
+                                    <div className="s5-kontakt-details">{[...this.props.contactInfo.phoneNumber].map((d, i) => (i) % 3 == 0 ? ' ' + d : d).join('').trim()}</div>
                                 </div>
                             </div>
                         </li>
@@ -25,7 +37,7 @@ function Section5 (){
                                 <img src="images/addresse.svg"/>
                                 <div className="s5-kontakt-info">
                                     <div className="s5-kontakt-name">Addresse</div>
-                                    <div className="s5-kontakt-details">Gerasdorfer Str. 124, 1210 Wien, Austria</div>
+                                    <div className="s5-kontakt-details">{this.props.contactInfo.address}</div>
                                 </div>
                             </div>
                         </li>
@@ -33,8 +45,9 @@ function Section5 (){
                             <div className="s5-item-inner">
                                 <img src="images/telefonnummer.svg"/>
                                 <div className="s5-kontakt-info">
-                                    <div className="s5-kontakt-name">Telefonnummer</div>
-                                    <div className="s5-kontakt-details">+43 (0) 1 294 80 30</div>
+                                    <div className="s5-kontakt-name">E-Mail</div>
+                                    <div className="s5-kontakt-details">{this.props.contactInfo.email}
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -43,7 +56,7 @@ function Section5 (){
                                 <img src="images/booking.svg"/>
                                 <div className="s5-kontakt-info">
                                     <div className="s5-kontakt-name">Öffnungszeiten</div>
-                                    <div className="s5-kontakt-details">Montag - Sonntag, 10:00 - 10:00</div>
+                                    <div className="s5-kontakt-details">{this.props.contactInfo.openingHours}</div>
                                 </div>
                             </div>
                         </li>
@@ -52,7 +65,7 @@ function Section5 (){
             </div>
         </div>
     </div>
-    );
+    );}
 }
 
 export default Section5;

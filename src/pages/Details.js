@@ -26,29 +26,31 @@ class Details extends React.Component{
         const queryID = urlParams.get('id');
         const querySIZE = urlParams.get('size');
         
-        /* try {
-            await fetch('http://localhost:8080/products/{queryID}')
+        try {
+            await fetch(`http://localhost:8080/products/${queryID}`)
             .then( resp => resp.json())
             .then((data)=> {
                 this.setState({
-                    item: data
-                })
+                    item: data,
+                    size: querySIZE,
+                });
+                if(data.sizes.find(item => item.size == querySIZE)){
+                    this.setState({
+                        
+                      showItem: true,
+                      price: data.sizes.find(item => item.size == querySIZE).price,
+                    })
+                  };
             })
           } catch (error) {
             console.log(error);
-          } */
-          this.setState({
+          }
+          /* this.setState({
               item: Marinata,
               size: querySIZE,
           })
-
-          if(Marinata.sizes.find(item => item.size == querySIZE)){
-          this.setState({
-              
-            showItem: true,
-            price: Marinata.sizes.find(item => item.size == querySIZE).price,
-          })
-        }
+ */
+          
           
           
     }

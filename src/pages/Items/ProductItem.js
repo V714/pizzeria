@@ -35,7 +35,7 @@ class ProductItem extends react.Component{
             <div className="s3-item-name">{this.props.name} {this.props.sizes.length===1 && "("+this.props.sizes[0].size+" "+this.props.sizes[0].sizeType+")"}</div>
             <div className="s3-item-price">
                 <div className="s3-item-price-cost">€ {this.state.price}</div>
-                <div className="s3-item-price-rating"><img src="images/star.svg"/>3</div>
+                <div className="s3-item-price-rating"><img src="images/star.svg"/>{this.props.rating}</div>
             </div>
             <div className="s3-item-details">{this.props.description}</div>
             <div className="s3-item-size">
