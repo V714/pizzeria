@@ -490,3 +490,20 @@ export const product_types = [
     "type": "PIZZA",
     "imgPath": "c:/elo"
   }
+
+
+  export const Drink = {
+    "id": "619",
+    "name": "Drrr",
+    "description": "EloPizza",
+    "allergens": "G",
+    "sizes": [
+      {
+        "size": "0.5",
+        "price": 2,
+        "sizeType": "CM"
+      }
+    ],
+    "type": "DRINKS",
+    "imgPath": "c:/elo"
+  }

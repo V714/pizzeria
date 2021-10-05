@@ -3,7 +3,8 @@ import Section1 from './Details/Section1';
 import Section2 from './Details/Section2';
 import Section3 from './Details/Section3';
 import React from 'react';
-import { Marinata } from '../data/Data';
+import { Drink, Marinata } from '../data/Data';
+import Section1Item from './Details/Section1Item';
 
 class Details extends React.Component{
     constructor(props){
@@ -26,7 +27,7 @@ class Details extends React.Component{
         const querySIZE = urlParams.get('size');
         
         /* try {
-            await fetch('http://localhost:8080/products/queryID')
+            await fetch('http://localhost:8080/products/{queryID}')
             .then( resp => resp.json())
             .then((data)=> {
                 this.setState({
@@ -97,12 +98,18 @@ class Details extends React.Component{
     render(){
     return(
         <div>
-            {this.state.showItem &&
+            {this.state.showItem && this.state.item.type=='PIZZA' &&
                 <>
                     <Section1 pizzaSize={this.pizzaSize} price={this.state.price} extraAddons={this.state.extraAddons} extraAddonsPrice={this.state.extraAddonsPrice} size={this.state.size} item={this.state.item} allProducts={this.props.allProducts} addProduct={this.props.addProduct}/>
                     <Section2 extraAddons={this.state.extraAddons} item={this.state.item} allProducts={this.props.allProducts} changeCrust={this.changeCrust} toppings={this.state.toppings} addTopping={this.addTopping} deleteTopping={this.deleteTopping}/>
                 </>
             }
+            {this.state.showItem && this.state.item.type !='PIZZA' &&
+                <>  
+                    <Section1Item price={this.state.price} extraAddons={this.state.extraAddons} extraAddonsPrice={this.state.extraAddonsPrice} size={this.state.size} item={this.state.item} allProducts={this.props.allProducts} addProduct={this.props.addProduct}/>
+                 </>
+            }
+           
            
             <Section3 allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
 

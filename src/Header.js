@@ -12,7 +12,6 @@ import Uber from './pages/Uber';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Details from './pages/Details';
-import Item from './pages/Item';
 import History from './pages/History';
 import Search from "./pages/Search";
 
@@ -91,7 +90,6 @@ setSearch = (e) =>{
         <Route path="/cart"><Cart allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} address={this.props.address} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}/></Route>
         <Route path="/checkout"><Checkout allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} /></Route>
         <Route path="/details"><Details allProducts={this.props.allProducts}addProduct={this.props.addProduct} /></Route>
-        <Route path="/item"><Item allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/></Route>
         <Route path="/history"><History/></Route>
 
 
