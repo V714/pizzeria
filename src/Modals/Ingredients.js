@@ -122,311 +122,55 @@ class ModalIngredients extends react.Component{
             <button className="modal-x" onClick={() => this.props.closer()} ><img src="images/x.svg"/></button>
             <div className="ingredients-modal-inner">
                 <div className="ingredients-modal-title">Package 1</div>
+                    
+                    
+                {this.props.item && this.props.item.options.map(item => {return(
                 <div className="ingredients-modal-selects">
                     <div className="ingredients-modal-selects-title">
-                        Pizza Choose:
-                        <div className="ingredients-modal-selects-title-smaller">Choose 1</div>
+                    {item.sectionName}:
+                    <div className="ingredients-modal-selects-title-smaller">Choose 1</div>
                     </div>
                     <div className="ingredients-selection-list">
-                    <label for="default_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                         Pizza zajebista
-                                    </div>
-                                 </div>
-                                 <input type="radio" default name="extra_ingredients" id="default_ingredients"  value="default" onChange={(e) => this.handleChangeRadio(e)}  />
-                             </div>
-                         </label>
-                        <label for="crispy_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                         Pizza taka inna
-                                    </div>
-                                 </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="crispy_ingredients"  value="crispy" />
-                             </div>
-                         </label>
-                         <label for="stuffed_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Pizza dla wegan
-                                    </div>
-                                 </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="stuffed_ingredients" value="stuffed" />
-                             </div>
-                         </label>
-
-                         <label for="crown_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Pizza wykurwista
-                                    </div>
-                                 </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="crown_ingredients" value="crown" />
-                             </div>
-                         </label>
-                    </div>
-                </div>
 
 
+                    {item.availableProducts.map((item2,index) => {return(
+                        
+
+                        <label for={item2.optionId}> 
+                        <div className="ingredients-option">
+                            <div className="ingredients-details">
+                                <div className="ingredients-details-title">
+                                    {item2.product.name}
+                                    {item2.extraPrice === 0 ? '' : <div className="ingredients-details-title-right">+ € {item2.extraPrice}</div>}
+                                        
+                                </div>
+                            </div>
+                            {index === 0 ? 
+                                <input type="radio" name={item.sectionName} id={item2.optionId} defaultChecked /> : 
+                                <input type="radio" name={item.sectionName} id={item2.optionId} />}
+                            
+                        </div>
+                    </label>)
+
+                    })
+
+                    }
+                    
 
 
-
-                <div className="ingredients-modal-selects-title">
-                        Drink:
-                        <div className="ingredients-modal-selects-title-smaller">Choose 1</div>
-                    </div>
-                    <div className="ingredients-selection-list">
-                    <label for="default_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                         Pepsi
-                                    </div>
-                                 </div>
-                                 <input type="radio" default name="extra_ingredients" id="default_ingredients"  value="default" onChange={(e) => this.handleChangeRadio(e)}  />
-                             </div>
-                         </label>
-                        <label for="crispy_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                         Vodka
-                                    </div>
-                                 </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="crispy_ingredients"  value="crispy" />
-                             </div>
-                         </label>
-                         <label for="stuffed_ingredients"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Vodka ver Hardbass
-                                    </div>
-                                 </div>
-                                 <input type="radio" name="extra_ingredients" onChange={(e) => this.handleChangeRadio(e)} id="stuffed_ingredients" value="stuffed" />
-                             </div>
-                         </label>
 
                     </div>
+                    </div>)
+
+
+                })}
+                    
+                
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-                <div className="ingredients-modal-selects">
-                    <div className="ingredients-modal-selects-title">
-                        Extras:
-                    </div>
-                    <div className="ingredients-selection-list">
-                        <label for="pizza_sauce"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        szczypiorek
-                                        <div className="ingredients-details-title-right">+ € 3.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="pizzaSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.pizzaSauce} id="pizza_sauce" value="pizza_sauce" />
-                             </div>
-                         </label>
-                         <label for="chilli_sauce"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        nie wiem co może tu być
-                                        <div className="ingredients-details-title-right">+ € 1.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="chilliSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.chilliSauce} id="chilli_sauce" value="chilli_sauce" />
-                             </div>
-                         </label>
-
-
-                         <label for="mayonnaise_sauce"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Mayonnaise Sauce
-                                        <div className="ingredients-details-title-right">+ € 2.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="mayoSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.mayoSauce}  id="mayonnaise_sauce" value="mayonnaise_sauce" />
-                             </div>
-                         </label>
-                         <label for="blackpepper_sauce"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Blackpepper Sauce
-                                        <div className="ingredients-details-title-right">+ € 2.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="blackpepperSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.blackpepperSauce} id="blackpepper_sauce" value="blackpepper_sauce" />
-                             </div>
-                         </label>
-                         <label for="spicy_bbq"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Spicy BBQ
-                                        <div className="ingredients-details-title-right">+ € 2.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="bbqSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.bbqSauce} id="spicy_bbq" value="spicy_bbq" />
-                             </div>
-                         </label>
-                         <label for="truffle_sauce"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Truffle Mushroom Sauce
-                                        <div className="ingredients-details-title-right">+ € 1.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="truffleSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.truffleSauce} id="truffle_sauce" value="truffle_sauce" />
-                             </div>
-                         </label>
-                         <label for="mexican_seasoning"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Mexican Seasoning
-                                        <div className="ingredients-details-title-right">+ € 4.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="mexicanSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.mexicanSauce} id="mexican_seasoning" value="mexican_seasoning" />
-                             </div>
-                         </label>
-                         <label for="butterschatch_sauce"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Butterschotch Sauce
-                                        <div className="ingredients-details-title-right">+ € 5.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="butterSauce" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.butterSauce} id="butterschatch_sauce" value="butterschatch_sauce" />
-                             </div>
-                         </label>
-                    </div>
-                </div>
-
-
-
-
-                <div className="ingredients-modal-selects">
-                    <div className="ingredients-modal-selects-title">
-                        Pizza Toppings
-                        <div className="ingredients-modal-selects-title-smaller">max 5</div>
-                    </div>
-                    <div className="ingredients-selection-list">
-                        <label for="spicy_tuna"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Hot Spicy Tuna
-                                        <div className="ingredients-details-title-right">+ € 4.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="hotTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.hotTop} id="spicy_tuna" value="spicy_tuna" />
-                             </div>
-                         </label>
-                         <label for="beef_black"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Beef Black Pepper
-                                        <div className="ingredients-details-title-right">+ € 3.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="beefBlackTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.beefBlackTop}  id="beef_black" value="beef_black" />
-                             </div>
-                         </label>
-
-
-                         <label for="beef_rasher"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Beef Rasher
-                                        <div className="ingredients-details-title-right">+ € 2.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="beefRasherTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.beefRasherTop} id="beef_rasher" value="beef_rasher" />
-                             </div>
-                         </label>
-                         <label for="beef_sausage"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Beef Sausage
-                                        <div className="ingredients-details-title-right">+ € 3.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="beefSausageTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.beefSausageTop} id="beef_sausage" value="beef_sausage" />
-                             </div>
-                         </label>
-                         <label for="corn"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Corn
-                                        <div className="ingredients-details-title-right">+ € 2.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="cornTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.cornTop} id="corn" value="corn" />
-                             </div>
-                         </label>
-                         <label for="jalapeno"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Jalapeno
-                                        <div className="ingredients-details-title-right">+ € 1.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="jalapenoTop" id="jalapeno" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.jalapenoTop} value="jalapeno" />
-                             </div>
-                         </label>
-                         <label for="green_pepper"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Green pepper
-                                        <div className="ingredients-details-title-right">+ € 3.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="greenTop" id="green_pepper" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.greenTop} value="green_pepper" />
-                             </div>
-                         </label>
-                         <label for="onion"> 
-                            <div className="ingredients-option">
-                                 <div className="ingredients-details">
-                                     <div className="ingredients-details-title">
-                                        Onion
-                                        <div className="ingredients-details-title-right">+ € 2.00</div>
-                                    </div>
-                                 </div>
-                                 <input type="checkbox" name="onionTop" onChange={(e) => this.handleChangeCheckbox(e)} checked={this.state.onionTop}  id="onion" value="onion" />
-                             </div>
-                         </label>
-                    </div>
-                </div>
 
                 <div className="ingredients-modal-selects-title">
                     Note :

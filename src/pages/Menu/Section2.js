@@ -62,14 +62,9 @@ class Section2 extends React.Component{
             <div className="s2-combo-items">
 
 
-            {this.props.allProducts && 
-                    this.props.allProducts.filter(item => item.type=='COMBO').map((item) => (
-                        <ComboItem  products={this.props.products} addProduct={this.props.addProduct} id={item.id}
-                                name={item.name} 
-                                image={item.imgPath}
-                                price={item.price}
-                                rating={item.rating}
-                                description={item.description}/>
+            {this.props.allCombos && 
+                    this.props.allCombos.map((item,index) => (
+                        <ComboItem  products={this.props.products} addProduct={this.props.addProduct} item={item} index={index+1}/>
 
                     ))
                 }
@@ -84,14 +79,11 @@ class Section2 extends React.Component{
             </div>
             <div className="s2-firme-items">
                 <ul>
-                {this.props.allProducts && 
-                    this.props.allProducts.filter(item => item.type=='PACKAGES').map((item) => (
-                        <OffersItem  products={this.props.products} addProduct={this.props.addProduct} id={431}
-                                name={item.name} 
-                                image={item.imgPath}
-                                price={item.price}
-                                rating={item.rating}
-                                description={item.description}/>
+                {this.props.allPackages && 
+                    this.props.allPackages.map((item,index) => (
+                        <OffersItem  products={this.props.products} addProduct={this.props.addProduct} 
+                        item={item}
+                        index={index+1}/>
 
                     ))
                 }

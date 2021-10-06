@@ -16,6 +16,8 @@ class Body extends react.Component{
             deliveryPrice: 3,
             allTypes: [],
             contactInfo: [],
+            allPackages: [],
+            allCombos: [],
         }
     }
     countTotalPrice = (price) => {
@@ -42,6 +44,8 @@ class Body extends react.Component{
         this.getAllProducts()
         this.getAllTypes()
         this.getContactInfo()
+        this.getPackagesProducts()
+        this.getCombosProducts()
 
     }
 
@@ -53,6 +57,38 @@ class Body extends react.Component{
             .then((data)=> {
                 this.setState({
                     allProducts: data
+                })
+            })
+          } catch (error) {
+            console.log(error);
+          }
+         /*  this.setState({allProducts: getAllNew}) */
+    }
+
+    getPackagesProducts = async() => {
+        
+        try {
+            fetch('http://localhost:8080/packages?type=PACKAGE')
+            .then( resp => resp.json())
+            .then((data)=> {
+                this.setState({
+                    allPackages: data
+                })
+            })
+          } catch (error) {
+            console.log(error);
+          }
+         /*  this.setState({allProducts: getAllNew}) */
+    }
+
+    getCombosProducts = async() => {
+        
+        try {
+            fetch('http://localhost:8080/packages?type=COMBO')
+            .then( resp => resp.json())
+            .then((data)=> {
+                this.setState({
+                    allCombos: data
                 })
             })
           } catch (error) {
@@ -147,7 +183,7 @@ class Body extends react.Component{
         return(
             <>
             <NotificationContainer/>
-            <Header contactInfo={this.state.contactInfo} allTypes={this.state.allTypes} allProducts={this.state.allProducts} deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
+            <Header allCombos={this.state.allCombos} allPackages={this.state.allPackages} contactInfo={this.state.contactInfo} allTypes={this.state.allTypes} allProducts={this.state.allProducts} deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
             </>
             )
     }

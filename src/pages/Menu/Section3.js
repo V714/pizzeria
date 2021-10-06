@@ -20,13 +20,13 @@ class Section3 extends React.Component{
             </div>
             <Tabs>
             <TabList className="s3-menu-tabbing">
-            {this.props.allTypes && this.props.allTypes.map(itema => {return(<Tab><img src="images/pizza.svg"/><div className="s3-menu-tabbing-text">{itema}</div></Tab>)})}
+            {this.props.allTypes && this.props.allTypes.map(itema => {return(<Tab><img src={itema.imgPath}/><div className="s3-menu-tabbing-text">{itema.label}</div></Tab>)})}
 
             </TabList>
             {this.props.allTypes && this.props.allTypes.map(itema => {return(<TabPanel className="s3-menu-tab-pizza tabContent">
                 
             {this.props.allProducts && 
-                    this.props.allProducts.filter(item => item.type==itema).map((item) => (
+                    this.props.allProducts.filter(item => item.type==itema.key).map((item) => (
                         <ProductItem  products={this.props.products} addProduct={this.props.addProduct} 
                                 id={item.id}
                                 name={item.name} 

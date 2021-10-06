@@ -28,8 +28,9 @@ class Section5 extends react.Component{
                                 <img src="images/smartphone.svg"/>
                                 <div className="s5-kontakt-info">
                                     <div className="s5-kontakt-name">Mobile</div>
-                                    <div className="s5-kontakt-details">{[...this.props.contactInfo.phoneNumber].map((d, i) => (i) % 3 == 0 ? ' ' + d : d).join('').trim()}</div>
-                                </div>
+                                    {/* <div className="s5-kontakt-details">{[...this.props.contactInfo.phoneNumber].map((d, i) => (i) % 3 == 0 ? ' ' + d : d).join('').trim()}</div> */}
+                                    <div className="s5-kontakt-details">{this.props.contactInfo.phoneNumber && [...this.props.contactInfo.phoneNumber].map((d, i) => (i) % 3 == 0 ? ' ' + d : d).join('').trim()}</div>
+                                    </div>
                             </div>
                         </li>
                         <li className="s5-item">

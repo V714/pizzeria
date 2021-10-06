@@ -13,6 +13,10 @@ class OffersItem extends react.Component{
         }
     }
     
+    closer = () => {
+        this.setState({modalIsOpenIngr: false})
+    }
+
     quantityPlus = () => {
         this.setState({ quantity: this.state.quantity + 1 })
     }
@@ -25,14 +29,14 @@ class OffersItem extends react.Component{
         return(
             <li className="s4-item-element">
                         <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img src={this.props.image}/></div>
-                            <div className="s4-item-info">{this.props.info}</div>
+                            <div className="s4-item-photo"><img src=""/></div>
+                            <div className="s4-item-info">Package {this.props.index}</div>
                             <div className="s4-item-details">
                                 <div className="s4-item-name-promo">
-                                    <div className="s4-item-name">{this.props.name}</div>
+                                    <div className="s4-item-name">{this.props.item.packageName}</div>
                                     <div className="s4-item-promo">{this.props.description}</div>
                                 </div>
-                                <div className="s4-item-price">€ {this.props.price}</div>
+                                <div className="s4-item-price">€ {this.props.item.price}</div>
                             </div>
                             
             <div className="magic-buttons-offers">
@@ -64,12 +68,7 @@ class OffersItem extends react.Component{
             <ModalIngredients allProducts={this.props.allProducts}
             addProduct = {this.props.addProduct}
                 closer = {this.closer} 
-                size={this.state.size}
-                id={this.props.id}
-                name={this.props.name}
-                image={this.props.image}
-                price={this.props.price[this.state.size-1]}
-                quantity={this.state.quantity}/>
+                item={this.props.item}/>
       </Modal>
                     </li>
         );

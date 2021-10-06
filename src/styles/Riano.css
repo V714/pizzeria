@@ -2349,13 +2349,16 @@ padding: 20px 0px 0px 22px;
     display: flex;
     flex-direction: column;
     font-family: Nunito Sans;
-    font-size: 24px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
     line-height: 35px;
     letter-spacing: 0em;
     text-align: left;
     color: #1D1816;
+}
+.s4-item-name-promo{
+    max-width: 80%;
 }
 .s4-item-promo{
     font-family: Nunito Sans;
@@ -2368,6 +2371,8 @@ padding: 20px 0px 0px 22px;
     color: #ADA7A4; 
 }
 .s4-item-price{
+    min-width: max-content;
+    word-break:normal;
     font-family: Nunito Sans;
     font-size: 20px;
     font-style: normal;

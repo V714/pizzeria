@@ -13,7 +13,7 @@ class Menu extends React.Component {
     <div>
 
         <Section1 allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} />
-        <Section2 allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} />
+        <Section2 allCombos={this.props.allCombos}  allPackages={this.props.allPackages} allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} /> 
         <Section3 allTypes={this.props.allTypes} allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} />
 
     </div>

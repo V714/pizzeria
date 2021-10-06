@@ -21,14 +21,9 @@ class Section4 extends react.Component{
             <div className="s4-items">
                 <ul>
 
-                    {this.props.allProducts && 
-                    this.props.allProducts.filter(item => item.type=='PACKAGES').map((item,index) => (
-                        <OffersItem allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} id={item.id}
-                                image={item.imgPath}
-                                info={'Packages '+(index+1)}
-                                name={item.name}
-                                description={item.description}
-                                price={item.price}/>
+                    {this.props.allPackages && 
+                    this.props.allPackages.map((item,index) => (
+                        <OffersItem allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} index={index+1} item={item}/>
                     ))
                 }
    
