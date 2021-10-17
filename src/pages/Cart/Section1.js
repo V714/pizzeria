@@ -141,7 +141,7 @@ class Section1 extends react.Component{
             zIndex: 9999
           }
         }}>
-            <ModalCheckout allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} delivery={this.state.delivery} address={this.props.address} changeAddress={this.props.changeAddress} closer = { this.closer }/>
+            <ModalCheckout getOrderPrice={this.props.getOrderPrice} allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} delivery={this.state.delivery} address={this.props.address} changeAddress={this.props.changeAddress} closer = { this.closer }/>
       </Modal>
 
 

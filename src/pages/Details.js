@@ -3,7 +3,6 @@ import Section1 from './Details/Section1';
 import Section2 from './Details/Section2';
 import Section3 from './Details/Section3';
 import React from 'react';
-import { Drink, Marinata } from '../data/Data';
 import Section1Item from './Details/Section1Item';
 
 class Details extends React.Component{

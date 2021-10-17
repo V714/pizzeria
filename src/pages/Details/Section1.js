@@ -34,7 +34,8 @@ class Section1 extends react.Component{
             note: this.state.note,
             quantity: 1,
             extras: this.state.size,
-            size: this.state.size})
+            size: this.state.size,
+            type: 'Product'})
     }
 
 

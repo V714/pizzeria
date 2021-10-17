@@ -72,7 +72,8 @@ class Section1Item extends react.Component{
                                 image: this.props.item.imgPath,
                                 price: this.props.item.sizes[0].price,
                                 note: this.state.note,
-                                quantity: 1})} id="addToCart">
+                                quantity: 1,
+                                type: 'Product'})} id="addToCart">
                                 <img src="images/cart-white.svg"/>Add to cart</button>
                     </div>
                 </div></>}

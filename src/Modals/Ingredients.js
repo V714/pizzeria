@@ -30,7 +30,7 @@ class ModalIngredients extends react.Component{
                 options.push({sectionId: item.sectionId, chosenOptionId: extraProduct.optionId})
                 }})}
 
-                console.log(options)
+
         this.props.addProduct({
             id: this.props.item.id,
             name: this.props.item.packageName,

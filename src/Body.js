@@ -171,6 +171,7 @@ class Body extends react.Component{
         NotificationManager.info('Product has been removed from Cart')
     
     }
+    
     changeAddress = (nam,tel,cit,adr,nt,dlv) => {
         localStorage.setItem("Address", JSON.stringify({name: nam, telephone: tel, city: cit, address: adr, note: nt,delivery:dlv}));
         this.setState({
@@ -178,12 +179,24 @@ class Body extends react.Component{
         })
     }
 
+    getOrderPrice = (discountCode) => {
+        const products = this.state.products.filter(item => item.type==='Product')
+        const packages = this.state.products.filter(item => item.type==='Package')
+        const json_data= {
+            "discountCode": discountCode.toString(),
+            "orderProducts": products.map(item => {return(
+                {"productId": item.id, "sizeId": item.size, "extraAddonsIds": item.extraAddonsIds})}),
+            "OrderPackages": packages.map(item => {return(
+                {"packageId": item.id, "packageSelectedOptions": item.packageSelectedOptions})})
+        }
+        localStorage.setItem("ASDASD", JSON.stringify({json_data}));
+    }
 
     render(){
         return(
             <>
             <NotificationContainer/>
-            <Header allCombos={this.state.allCombos} allPackages={this.state.allPackages} contactInfo={this.state.contactInfo} allTypes={this.state.allTypes} allProducts={this.state.allProducts} deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
+            <Header getOrderPrice={this.getOrderPrice} allCombos={this.state.allCombos} allPackages={this.state.allPackages} contactInfo={this.state.contactInfo} allTypes={this.state.allTypes} allProducts={this.state.allProducts} deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
             </>
             )
     }

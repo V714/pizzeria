@@ -9,7 +9,8 @@ class ModalCheckout extends react.Component{
             city: '',
             address: '',
             note: '',
-            delivery: null
+            delivery: null,
+            coupon: '',
         }
     }
     componentDidMount = () =>{
@@ -28,6 +29,7 @@ class ModalCheckout extends react.Component{
     }
     submitAddress = () => {
         this.props.changeAddress(this.state.name,this.state.telp,this.state.city,this.state.address,this.state.note,this.props.delivery)
+        this.props.getOrderPrice(this.state.coupon);
         window.location.href="Checkout";
     }
     render(){
