@@ -60,6 +60,10 @@ class ModalCheckout extends react.Component{
                         Note
                         <input placeholder="please do not use a doorbell because the kid is sleeping" value={this.state.note} name="note" onChange={(e) => this.handleChange(e)}/>
                      </div>
+                     <div class="checkoutNow-modal-info-address">
+                        Coupon Code
+                        <input placeholder="Enter coupon code" value={this.state.coupon} name="coupon" onChange={(e) => this.handleChange(e)}/>
+                     </div>
                      <div class="checkoutNow-modal-buttons">
                          <button class="checkoutNow-modal-button">Cancel</button>
                          <button class="checkoutNow-modal-button actived" onClick={() => this.submitAddress()}>Confirm</button>

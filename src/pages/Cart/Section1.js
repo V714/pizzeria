@@ -88,10 +88,6 @@ class Section1 extends react.Component{
                 
 
             </div>
-            <div class="coupon-element">
-                            <u>Coupon Code</u>
-                            <input placeholder="Gebe dein Coupon Code ein"/>
-                        </div>
 
         </div>
 

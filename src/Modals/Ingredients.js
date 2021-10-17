@@ -4,117 +4,55 @@ class ModalIngredients extends react.Component{
     constructor(props){
         super(props)
         this.state={
-            price:this.props.price,
-            priceBuffor:0,
             note: '',
-            crustPrice: 0,
-            crust:'default crust, ',
-
-            pizzaSauce:false,
-            chilliSauce:false,
-            mayoSauce:false,
-            blackpepperSauce:false,
-            bbqSauce:false,
-            truffleSauce:false,
-            mexicanSauce:false,
-            butterSauce:false,
-
-            hotTop:false,
-            beefBlackTop:false,
-            beefRasherTop:false,
-            beefSausageTop:false,
-            cornTop:false,
-            jalapenoTop:false,
-            greenTop:false,
-            onionTop:false
-
         }
     }
     finishAdding = () => {
-        let extras = '';
-        switch(this.props.size){
-            case 1: extras='33cm, ';break;
-            case 2: extras='40cm, ';break;
-            case 3: extras='50cm, ';break;
-        }
-        this.state.pizzaSauce ? extras+="pizza sauce, " : extras=extras;
-        this.state.chilliSauce ? extras+="chilli sauce, " : extras=extras;
-        this.state.mayoSauce ? extras+="mayonnaise sauce, " : extras=extras;
-        this.state.blackpepperSauce ? extras+="blackpepper sauce, " : extras=extras;
-        this.state.bbqSauce ? extras+="spicy BBQ, " : extras=extras;
-        this.state.truffleSauce ? extras+="truffle mushroom sauce, " : extras=extras;
-        this.state.mexicanSauce ? extras+="mexican seasoning, " : extras=extras;
-        this.state.butterSauce ? extras+="butterschotch sauce, " : extras=extras;
+        let idOfExtra = ''
+        let extrasIds = []
+        let extrasPrice = 0
+        let extras = ''
+        let options = []
 
-        this.state.hotTop ? extras+="hot spicy tuna, " : extras=extras;
-        this.state.beefBlackTop ? extras+="beef black pepper, " : extras=extras;
-        this.state.beefRasherTop ? extras+="beef rasher, " : extras=extras;
-        this.state.beefSausageTop ? extras+="beef sausage, " : extras=extras;
-        this.state.cornTop ? extras+="corn, " : extras=extras;
-        this.state.jalapenoTop ? extras+="jalapeno, " : extras=extras;
-        this.state.greenTop ? extras+="green pepper, " : extras=extras;
-        this.state.onionTop ? extras+="onion, " : extras=extras;
-        console.log(extras)
+        {this.props.item && this.props.item.options.map(item => {
+            {   
+                try{
+                    idOfExtra = (Object.entries(this.state).find(item2 => item2[0] === item.sectionName)[1]).toString()
+                }
+                catch {
+                    idOfExtra = item.availableProducts[0].product.id
+                }
+                extrasIds.push(idOfExtra)
+                const extraProduct = item.availableProducts.find(item2 => item2.product.id===idOfExtra)
+                
+                extrasPrice += extraProduct.extraPrice
+                extras += extraProduct.product.name+", "
+                options.push({sectionId: item.sectionId, chosenOptionId: extraProduct.optionId})
+                }})}
 
+                console.log(options)
         this.props.addProduct({
-            id: this.props.id,
-            name: this.props.name,
-            image: this.props.image,
-            price: this.props.price+this.state.crustPrice+this.state.priceBuffor,
+            id: this.props.item.id,
+            name: this.props.item.packageName,
+            imgPath: this.props.image,
+            price: this.props.item.price+extrasPrice,
             note: this.state.note,
-            quantity: this.props.quantity,
-            extras: this.state.crust+extras,
-            size: this.props.size})
-        
+            quantity: 1,
+            packageSelectedOptions: options,
+            extras: extras,
+            extrasIds: extrasIds,
+            type: 'Package'})
+
         this.props.closer();
     }
     changeNoteProp = (e) => {
         this.setState({note: e.target.value})
     }
-    handleChangeRadio = (e) => {
-        let price=0;
-        switch(e.target.value){
-            case "default": price=0;break;
-            case "crispy": price=2;break;
-            case "stuffed":price=5;break;
-            case "crown":price=5;break;
-            case "pan":price=5;break;
-            case "chilli_moz":price=5;break;
-            case "cheese":price=5;break;
-            case "double_cheese":price=5;break;
-        }
-        this.setState({crustPrice: price,crust: e.target.value+' crust, '})
+
+    handleRadio = (e) => {
+        this.setState({[e.target.name]: [e.target.value]})
     }
-    handleChangeCheckbox = (e) => {
-        let price=0;
-        switch(e.target.name){
-
-            case "pizzaSauce":price=3;break;
-            case "chilliSauce":price=1;break;
-            case "mayoSauce":price=2;break;
-            case "blackpepperSauce":price=2;break;
-            case "bbqSauce":price=2;break;
-            case "truffleSauce":price=1;break;
-            case "mexicanSauce":price=4;break;
-            case "butterSauce":price=5;break;
-
-            case "hotTop":price=4;break;
-            case "beefBlackTop":price=3;break;
-            case "beefRasherTop":price=2;break;
-            case "beefSausageTop":price=3;break;
-            case "cornTop":price=2;break;
-            case "jalapenoTop":price=1;break;
-            case "greenTop":price=3;break;
-            case "onionTop":price=2;break;
-        }
-        if(this.state[e.target.name]){
-            this.setState({priceBuffor: this.state.priceBuffor-price})
-        }
-        else{
-            this.setState({priceBuffor: this.state.priceBuffor+price})}
-
-        this.setState({[e.target.name]: !this.state[e.target.name]})
-    }
+    
     render(){
     return(
         <div id="ingredients_dialog" className="modal-dialog">
@@ -126,17 +64,14 @@ class ModalIngredients extends react.Component{
                     
                 {this.props.item && this.props.item.options.map(item => {return(
                 <div className="ingredients-modal-selects">
-                    <div className="ingredients-modal-selects-title">
-                    {item.sectionName}:
-                    <div className="ingredients-modal-selects-title-smaller">Choose 1</div>
+                    <div className="ingredients-modal-selects-title"> {item.sectionName}:
+                        <div className="ingredients-modal-selects-title-smaller">Choose 1</div>
                     </div>
                     <div className="ingredients-selection-list">
 
-
                     {item.availableProducts.map((item2,index) => {return(
-                        
-
-                        <label for={item2.optionId}> 
+                       
+                        <label for={item.sectionName+item2.optionId}> 
                         <div className="ingredients-option">
                             <div className="ingredients-details">
                                 <div className="ingredients-details-title">
@@ -146,8 +81,8 @@ class ModalIngredients extends react.Component{
                                 </div>
                             </div>
                             {index === 0 ? 
-                                <input type="radio" name={item.sectionName} id={item2.optionId} defaultChecked /> : 
-                                <input type="radio" name={item.sectionName} id={item2.optionId} />}
+                                <input type="radio" value={item2.product.id} onChange={e => this.handleRadio(e)} name={item.sectionName} id={item.sectionName+item2.optionId} defaultChecked /> : 
+                                <input type="radio" value={item2.product.id} onChange={e => this.handleRadio(e)} name={item.sectionName} id={item.sectionName+item2.optionId} />}
                             
                         </div>
                     </label>)
@@ -183,7 +118,7 @@ class ModalIngredients extends react.Component{
                 </div>
                 <button className="add-to-cart-button" 
                 onClick={() => this.finishAdding()}>
-                    Add to Cart - €{this.state.price+this.state.crustPrice+this.state.priceBuffor}</button>
+                    Add to Cart - €{this.props.item.price}</button>
             </div>
         </div>
     </div>

@@ -41,7 +41,8 @@ class ProductItem extends react.Component{
                 image: this.props.image,
                 price: this.props.price,
                 note: this.props.note,
-                quantity: this.state.quantity})}
+                quantity: this.state.quantity,
+                type: 'Product'})}
             
             > <img src="images/cart-white.svg"/>Add to Cart </button>
    </div>
