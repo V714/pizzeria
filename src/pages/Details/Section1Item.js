@@ -73,6 +73,7 @@ class Section1Item extends react.Component{
                                 price: this.props.item.sizes[0].price,
                                 note: this.state.note,
                                 quantity: 1,
+                                sizeId: this.props.item.sizes.filter(item => item.size === this.props.size)[0].sizeId,
                                 type: 'Product'})} id="addToCart">
                                 <img src="images/cart-white.svg"/>Add to cart</button>
                     </div>

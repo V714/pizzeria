@@ -30,7 +30,6 @@ class ModalCheckout extends react.Component{
     submitAddress = () => {
         this.props.changeAddress(this.state.name,this.state.telp,this.state.city,this.state.address,this.state.note,this.props.delivery)
         this.props.getOrderPrice(this.state.coupon);
-        window.location.href="Checkout";
     }
     render(){
         return(

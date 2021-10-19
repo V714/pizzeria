@@ -44,8 +44,8 @@ class ProductItem extends react.Component{
 
                     })}
             </div>
-            <div className="magic-buttons"><div className="s3-item-cart"><button onClick={() => this.quantityMinus()}><img src="images/minus.svg"/></button>{this.state.quantity}<button onClick={() => this.quantityPlus()}><img src="images/plus.svg"/></button>
-            </div>
+            <div className="magic-buttons">{/* <div className="s3-item-cart"><button onClick={() => this.quantityMinus()}><img src="images/minus.svg"/></button>{this.state.quantity}<button onClick={() => this.quantityPlus()}><img src="images/plus.svg"/></button>
+            </div> */}
         <a className="s3-add-to-cart" href={"details?id="+this.props.id+"&size="+this.state.size}> <img src="images/cart-white.svg"/>Add to Cart </a>
    </div>
    

@@ -179,17 +179,31 @@ class Body extends react.Component{
         })
     }
 
-    getOrderPrice = (discountCode) => {
+    getOrderPrice = async(discountCode) => {
         const products = this.state.products.filter(item => item.type==='Product')
         const packages = this.state.products.filter(item => item.type==='Package')
         const json_data= {
             "discountCode": discountCode.toString(),
             "orderProducts": products.map(item => {return(
-                {"productId": item.id, "sizeId": item.size, "extraAddonsIds": item.extraAddonsIds})}),
+                {"productId": item.id, "sizeId": item.sizeId, "extraAddonsIds": item.extraAddonsIds})}),
             "OrderPackages": packages.map(item => {return(
                 {"packageId": item.id, "packageSelectedOptions": item.packageSelectedOptions})})
         }
-        localStorage.setItem("ASDASD", JSON.stringify({json_data}));
+
+        const requestOptions = {
+            mode: 'cors',
+            headers: {
+                'Access-Control-Allow-Origin':'*'
+            },
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(json_data)
+        };
+        const response = await fetch('http://localhost:8080/order/order-price/get', requestOptions);
+        const data = await response.json();
+        localStorage.setItem("RESPONSE_SERVER", JSON.stringify({data}));
+    
+        
     }
 
     render(){

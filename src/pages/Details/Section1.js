@@ -15,6 +15,7 @@ class Section1 extends react.Component{
 
     typeNote = (e) => {
         this.setState({note: e.target.value})
+        
     }
 
     
@@ -25,7 +26,6 @@ class Section1 extends react.Component{
 
     addToCart = () => {
 
-
         this.props.addProduct({
             id: this.props.item.id,
             name: this.props.item.name,
@@ -34,7 +34,9 @@ class Section1 extends react.Component{
             note: this.state.note,
             quantity: 1,
             extras: this.state.size,
+            extraAddonsIds: this.props.extraAddons.map(item => item.id),
             size: this.state.size,
+            sizeId: this.props.item.sizes.filter(item => item.size === this.props.size)[0].sizeId,
             type: 'Product'})
     }
 

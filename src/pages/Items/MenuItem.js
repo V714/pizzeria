@@ -31,8 +31,8 @@ class ProductItem extends react.Component{
                 <div className="s3-item-price-rating"><img src="images/star.svg"/>{this.props.rating}</div>
             </div>
             <div className="s3-item-details">{this.props.description}</div>
-            <div className="magic-buttons"><div className="s3-item-cart"><button onClick={() => this.quantityMinus()}><img src="images/minus.svg"/></button>{this.state.quantity}<button onClick={() => this.quantityPlus()}><img src="images/plus.svg"/></button>
-            </div>
+            <div className="magic-buttons">{/* <div className="s3-item-cart"><button onClick={() => this.quantityMinus()}><img src="images/minus.svg"/></button>{this.state.quantity}<button onClick={() => this.quantityPlus()}><img src="images/plus.svg"/></button>
+            </div> */}
         <button className="s3-add-to-cart" 
             onClick={() => this.props.addProduct({
 
