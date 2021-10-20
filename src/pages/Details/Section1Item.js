@@ -64,7 +64,7 @@ class Section1Item extends react.Component{
                             </div>
                         </div>
                         <div className="item-detail-add-note">Add Note</div>
-                        <input placeholder="ex. add more chilli" value={this.props.note} onChange={(e) => this.typeNote(e)}/>
+                        <input placeholder="ex. add more chilli" value={this.state.note} onChange={(e) => this.typeNote(e)}/>
                         <button className="item-detail-button" 
                             onClick={() => this.props.addProduct({
                                 id: this.props.item.id,

@@ -73,10 +73,6 @@ class Section1 extends react.Component{
                                     <div className="s1-cart-summary-price-left">Price ({this.props.products.length} items)</div>
                                     <div className="s1-cart-summary-price-right">€ {this.props.totalPrice}</div>
                                 </div>
-                                {this.state.delivery ? <><div className="s1-cart-summary-price">
-                                    <div className="s1-cart-summary-price-left">Delivery Fee</div>
-                                    <div className="s1-cart-summary-price-right">€ {this.props.deliveryPrice}</div>
-                                </div> </> : <></>}
                                 <div className="s1-cart-summary-total">
                                     <div className="s1-cart-summary-total-left">Total</div>
                                     <div className="s1-cart-summary-total-right">€ {this.props.totalPrice+ (this.state.delivery ? this.props.deliveryPrice : 0)}</div>

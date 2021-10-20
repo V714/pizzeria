@@ -1,61 +1,11 @@
 import react from "react";
 import ProductItem from "../Items/ProductItem";
-import OffersItem from "../Items/OffersItem";
-import { recommendedProducts } from "../../data/Data";
 
  class Section2 extends react.Component{
     constructor(props){
         super(props)
     }
 
-    getProductItemDOM = (item, addProduct, changeNote) => {
-        return (
-            <li key={item.id}>
-                <ProductItem
-                    addProduct={addProduct}                        
-                    changeNote={changeNote}                       
-                    id={item.id}                        
-                    name={item.name}                         
-                    image={item.imgPath}                         
-                    price={item.price}                      
-                    rating={item.rating}                 
-                    description={item.description}
-                />
-            </li>
-        )    
-    }
-
-    getOffersItemDOM = (item, addProduct) => {
-        return (
-            <li key={item.id}>
-                <OffersItem
-                    addProduct={addProduct} 
-                    id={item.id}
-                    name={item.name} 
-                    image={item.imgPath}
-                    price={item.price}
-                    rating={item.rating}
-                    description={item.description}
-                />
-            </li>
-        )    
-    }
-
-    getProductItemDOM = (item, addProduct) => {
-        return (
-            <li key={item.id}>
-                <ProductItem
-                    addProduct={addProduct} 
-                    id={item.id}
-                    name={item.name} 
-                    image={item.imgPath}
-                    price={item.price}
-                    rating={item.rating}
-                    description={item.description}
-                />
-            </li>
-        )    
-    }
     render(){
     return(
         <div className="section2">
@@ -76,20 +26,24 @@ import { recommendedProducts } from "../../data/Data";
             <div className="s22-items">
                
             {
+                this.props.mostOrdered &&
 
-
-this.props.allProducts.filter(item => recommendedProducts.includes(item.id)).map(product => {
-                        switch (product.section) {
-                            case 'pizza':
-                                return this.getProductItemDOM(product, this.props.addProduct, this.props.changeNote)
-                            case 'combo':
-                                return this.getComboItemDOM(product, this.props.addProduct)
-                            case 'offer':
-                                return this.getOffersItemDOM(product, this.props.addProduct)
-                            default:
-                                return this.getProductItemDOM(product, this.props.addProduct)
-                        }
-                    })
+            this.props.mostOrdered.map(item => {return(
+                <li key={item.id}>
+                <ProductItem
+                products={this.props.products}
+                    addProduct={this.props.addProduct}                        
+                    changeNote={this.props.changeNote}                       
+                    id={item.id}                        
+                    name={item.name}                         
+                    image={item.imgPath}                         
+                    sizes={item.sizes}                    
+                    rating={item.rating}                 
+                    description={item.description}
+                />
+            </li>)
+            })
+            
                         
                     }
                     

@@ -105,7 +105,7 @@ class Details extends React.Component{
             }
            
            
-            <Section3 allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
+            <Section3 mostOrdered={this.props.mostOrdered} allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
 
         </div>
     );}

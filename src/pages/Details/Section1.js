@@ -15,7 +15,6 @@ class Section1 extends react.Component{
 
     typeNote = (e) => {
         this.setState({note: e.target.value})
-        
     }
 
     
@@ -25,7 +24,8 @@ class Section1 extends react.Component{
     }
 
     addToCart = () => {
-
+        let extrasIds = []
+        this.props.extraAddons.map(item => {for(var i=0; i < item.quantity; i++){extrasIds.push(item.id)}})
         this.props.addProduct({
             id: this.props.item.id,
             name: this.props.item.name,
@@ -33,8 +33,8 @@ class Section1 extends react.Component{
             price: this.props.price,
             note: this.state.note,
             quantity: 1,
-            extras: this.state.size,
-            extraAddonsIds: this.props.extraAddons.map(item => item.id),
+            extras: this.props.size+', '+this.props.extraAddons.map(item => (item.name+', ')),
+            extraAddonsIds: extrasIds,
             size: this.state.size,
             sizeId: this.props.item.sizes.filter(item => item.size === this.props.size)[0].sizeId,
             type: 'Product'})
@@ -85,7 +85,7 @@ class Section1 extends react.Component{
                         </div>
                         <div className="add-note">
                             Add Note
-                            <input type="text" placeholder="ex. add more chilli"/>
+                            <input type="text" onChange={(e) => this.typeNote(e)} value={this.state.note} placeholder="ex. add more chilli"/>
                         </div>
                         <button onClick={() => this.addToCart()}
             

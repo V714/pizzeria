@@ -930,6 +930,7 @@ margin-top: 80px;
     justify-content: center;
     align-items: center;
     width: 95%;
+    padding-top: 150px;
     max-width:900px;
     height: 100%;
 }
@@ -939,8 +940,9 @@ margin-top: 80px;
     margin-top: 50px;
     width: 95%;
     max-width: 800px;
-    
+    height: 75%;
     border-radius: 10px;
+    overflow-y: scroll;
 }
 .checkoutNow-modal-inner{
     padding:20px 20px;
@@ -2046,7 +2048,7 @@ cursor: pointer;
 }
 .magic-buttons{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
     align-items: center;
     flex-wrap: nowrap;
@@ -3411,8 +3413,9 @@ item-preview
 
 .s2-items{
     margin-top: 20px;
-    overflow-x: hidden;
+    overflow-x: scroll;
     display: flex;
+    justify-content: flex-start;
 }
 .s2-items ul{
     padding-bottom: 50px;
@@ -4299,6 +4302,7 @@ Media responsivnes
     }
     #checkoutNow_dialog{
         width:90%;
+        padding-top: 200px;
     }
     .checkoutNow-modal{
         width: 90%;

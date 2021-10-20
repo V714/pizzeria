@@ -87,9 +87,9 @@ setSearch = (e) =>{
       <Redirect to="/home" />
       </Route>
 
-        <Route path="/cart"><Cart getOrderPrice={this.props.getOrderPrice} allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} address={this.props.address} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}/></Route>
+        <Route path="/cart"><Cart mostOrdered={this.props.mostOrdered} getOrderPrice={this.props.getOrderPrice} allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} address={this.props.address} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}/></Route>
         <Route path="/checkout"><Checkout allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} changeAddress={this.props.changeAddress} totalPrice={this.props.totalPrice} products={this.props.products} /></Route>
-        <Route path="/details"><Details allProducts={this.props.allProducts}addProduct={this.props.addProduct} /></Route>
+        <Route path="/details"><Details mostOrdered={this.props.mostOrdered} allProducts={this.props.allProducts}addProduct={this.props.addProduct} /></Route>
         <Route path="/history"><History/></Route>
 
 
@@ -135,7 +135,7 @@ setSearch = (e) =>{
             zIndex: 9999
           }
         }}>
-        <ModalNotification/>
+        <ModalNotification news={this.props.news}/>
       </Modal>
      
      

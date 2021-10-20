@@ -2,7 +2,6 @@ import react from 'react'
 import Header from './Header'
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-import { getAllNew, product_types } from './data/Data';
 
 
 class Body extends react.Component{
@@ -18,6 +17,8 @@ class Body extends react.Component{
             contactInfo: [],
             allPackages: [],
             allCombos: [],
+            mostOrdered: [],
+            news: [],
         }
     }
     countTotalPrice = (price) => {
@@ -46,6 +47,8 @@ class Body extends react.Component{
         this.getContactInfo()
         this.getPackagesProducts()
         this.getCombosProducts()
+        this.getMostOrdered()
+        this.getNews()
 
     }
 
@@ -129,8 +132,35 @@ class Body extends react.Component{
           /* this.setState({allTypes: product_types}) */
     }
 
+    getNews = async() => {
+        try {
+            fetch('http://localhost:8080/info/news')
+            .then( resp => resp.json())
+            .then((data)=> {
+                this.setState({
+                    news: data
+                })
+            })
+          } catch (error) {
+            console.log(error);
+          } 
+    }
+    
 
-
+    getMostOrdered = async() => {
+        try {
+           fetch('http://localhost:8080/products/most-ordered')
+           .then( resp => resp.json())
+           .then((data)=> {
+               this.setState({
+                   mostOrdered: data
+               })
+           })
+         } catch (error) {
+           console.log(error);
+         } 
+         /* this.setState({allTypes: product_types}) */
+   }
 
     addProduct = (product) => {
         localStorage.setItem("Cart", JSON.stringify([...this.state.products, product]));
@@ -182,25 +212,22 @@ class Body extends react.Component{
     getOrderPrice = async(discountCode) => {
         const products = this.state.products.filter(item => item.type==='Product')
         const packages = this.state.products.filter(item => item.type==='Package')
-        const json_data= {
+        const json_data= JSON.stringify({
             "discountCode": discountCode.toString(),
             "orderProducts": products.map(item => {return(
                 {"productId": item.id, "sizeId": item.sizeId, "extraAddonsIds": item.extraAddonsIds})}),
-            "OrderPackages": packages.map(item => {return(
+            "orderPackages": packages.map(item => {return(
                 {"packageId": item.id, "packageSelectedOptions": item.packageSelectedOptions})})
-        }
+        })
 
         const requestOptions = {
-            mode: 'cors',
-            headers: {
-                'Access-Control-Allow-Origin':'*'
-            },
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(json_data)
+            headers: { 'Content-Type': 'application/json'},
+            body: json_data
         };
         const response = await fetch('http://localhost:8080/order/order-price/get', requestOptions);
         const data = await response.json();
+        
         localStorage.setItem("RESPONSE_SERVER", JSON.stringify({data}));
     
         
@@ -210,7 +237,7 @@ class Body extends react.Component{
         return(
             <>
             <NotificationContainer/>
-            <Header getOrderPrice={this.getOrderPrice} allCombos={this.state.allCombos} allPackages={this.state.allPackages} contactInfo={this.state.contactInfo} allTypes={this.state.allTypes} allProducts={this.state.allProducts} deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
+            <Header news={this.state.news} mostOrdered={this.state.mostOrdered} getOrderPrice={this.getOrderPrice} allCombos={this.state.allCombos} allPackages={this.state.allPackages} contactInfo={this.state.contactInfo} allTypes={this.state.allTypes} allProducts={this.state.allProducts} deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
             </>
             )
     }
