@@ -21,12 +21,13 @@ class Checkout extends react.Component {
 
             modalIsOpenPaym: false,
             modalIsOpenChck: false,
-            checkout: false
+            checkout: false,
+            orderItems: [],
         }
     }
     
     componentDidMount = () => {
-        if (JSON.parse(localStorage.getItem('Address'))){
+        if (JSON.parse(localStorage.getItem('Address')) && JSON.parse(localStorage.getItem('orderItems')) ){
             this.setState({checkout: true })
             const address = JSON.parse(localStorage.getItem('Address'))
             this.setState({name: address.name,
@@ -35,6 +36,8 @@ class Checkout extends react.Component {
                             address: address.address,
                         note: address.note,
                     delivery: address.delivery})
+                    
+        this.setState({orderItems: JSON.parse(localStorage.getItem('orderItems'))});
         }
         else{this.setState({checkout: false });window.location.href="cart"; }
     }
@@ -89,21 +92,37 @@ class Checkout extends react.Component {
                         </div>
                         <button id="checkoutNow" className="change-address-button" onClick={() => this.setState({modalIsOpenChck: true})}>Change Address</button>
                         <div className="s1-cart-left-list">
-                        {this.props.products &&
-					            this.props.products.map((item,index) => (
+                        {this.state.orderItems &&
+					            this.state.orderItems.orderProducts.map(item => (
                                
 						        <CheckoutItem 
                                 note={item.note}
-                                number={index}
-                                id={item.id}
+                                id={item.productId}
                                 name={item.name}
-                                price={item.price}
-								symbol={item.coin_symbol}
-								image={item.imgPath} 
-								quantity={item.quantity}/>
+                                size={item.size+item.sizeType}
+                                price={item.totalPrice}
+                                extras={item.extraAddons.map(item=>{return(item.name+' ('+item.totalPrice+'€), ')})}
+								image={item.imgPath} />
                                 ))}
 
-
+                        
+                    {this.state.orderItems.orderPackages &&
+					            this.state.orderItems.orderPackages.map(item => (
+                        
+						        <CheckoutItem 
+                                note={'asd'}
+                                id={item.productId}
+                                name={'asd'}
+                                size={'asd'}
+                                price={item.totalPrice}
+                                extras={item.chosenOptions.map(item => 
+                                    {
+                                        let thisPrice = ''
+                                        if(item.optionPrice!=0){thisPrice = ' - ' + item.optionPrice +'€' }
+                                        return(item.sectionName+': '+item.optionName+thisPrice+', ')})
+                                }
+								image={item.imgPath} />
+                                ))}
 
                     </div>
                     </div>
@@ -120,7 +139,7 @@ class Checkout extends react.Component {
                                 <div className="s1-cart-summary-title">Payment Summary</div>
                                 <div className="s1-cart-summary-price">
                                     <div className="s1-cart-summary-price-left">Price ({this.props.products.length} items)</div>
-                                    <div className="s1-cart-summary-price-right">€ {this.props.totalPrice}</div>
+                                    <div className="s1-cart-summary-price-right">€ {this.state.orderItems.totalPrice}</div>
                                 </div>
                                 {this.state.delivery ? <><div className="s1-cart-summary-price">
                                     <div className="s1-cart-summary-price-left">Delivery Fee</div>
@@ -129,7 +148,7 @@ class Checkout extends react.Component {
                                 
                                 <div className="s1-cart-summary-total">
                                     <div className="s1-cart-summary-total-left">Total</div>
-                                    <div className="s1-cart-summary-total-right">€ {this.props.totalPrice+ (this.state.delivery ? this.props.deliveryPrice : 0)}</div>
+                                    <div className="s1-cart-summary-total-right">€ {this.state.orderItems.totalPrice+ (this.state.delivery ? this.props.deliveryPrice : 0)}</div>
                             </div>
                             <button id="payment" className="checkout-now-button" onClick={() => this.setState({modalIsOpenPaym: true})}>Choose Payment</button>
                         </div>

@@ -19,6 +19,8 @@ class Body extends react.Component{
             allCombos: [],
             mostOrdered: [],
             news: [],
+            orderItems: null,
+            couponError: {}
         }
     }
     countTotalPrice = (price) => {
@@ -225,19 +227,32 @@ class Body extends react.Component{
             headers: { 'Content-Type': 'application/json'},
             body: json_data
         };
+        this.setState({waitCheckoutResponse: true})
+
         const response = await fetch('http://localhost:8080/order/order-price/get', requestOptions);
         const data = await response.json();
-        
-        localStorage.setItem("RESPONSE_SERVER", JSON.stringify({data}));
-    
-        
+        const status = await response.status;
+
+        if(status === 200){
+            this.setState({orderItems: data,waitCheckoutResponse: false,couponError: null});
+            localStorage.setItem("orderItems", JSON.stringify(data));
+            window.location.href = '/checkout';
+        }
+        else if(status === 404){
+            this.setState({couponError: data,waitCheckoutResponse: false})
+        }
+        else{
+            this.setState({waitCheckoutResponse: false,couponError: null})
+        }
     }
+
+
 
     render(){
         return(
             <>
             <NotificationContainer/>
-            <Header news={this.state.news} mostOrdered={this.state.mostOrdered} getOrderPrice={this.getOrderPrice} allCombos={this.state.allCombos} allPackages={this.state.allPackages} contactInfo={this.state.contactInfo} allTypes={this.state.allTypes} allProducts={this.state.allProducts} deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
+            <Header orderItems={this.state.orderItems} couponError={this.state.couponError} waitCheckoutResponse={this.state.waitCheckoutResponse} news={this.state.news} mostOrdered={this.state.mostOrdered} getOrderPrice={this.getOrderPrice} allCombos={this.state.allCombos} allPackages={this.state.allPackages} contactInfo={this.state.contactInfo} allTypes={this.state.allTypes} allProducts={this.state.allProducts} deliveryPrice={this.state.deliveryPrice} address={this.state.address} changeAddress={this.changeAddress} totalPrice={this.state.totalPrice} products={this.state.products} addProduct={this.addProduct} changeNote={this.changeNote} deleteProduct={this.deleteProduct}/>
             </>
             )
     }

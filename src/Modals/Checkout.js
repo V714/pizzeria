@@ -34,6 +34,7 @@ class ModalCheckout extends react.Component{
     render(){
         return(
     <div  id="checkoutNow_dialog" class="modal-dialog">
+        {!this.props.waitCheckoutResponse &&
             <div class="checkoutNow-modal-inner">
                 <button class="modal-x" onClick={() => this.props.closer()}><img src="images/x.svg"/></button>
                 <div class="checkoutNow-modal-title">Choose Location</div>
@@ -41,7 +42,7 @@ class ModalCheckout extends react.Component{
                     <div class="checkoutNow-modal-info-double">
                         <div class="checkoutNow-modal-info-name">
                             Recipient's Name
-                            <input placeholder="JohnDoeExample" value={this.state.name} name="name" onChange={(e) => this.handleChange(e)}/>
+                            <input placeholder="John Doe Example" value={this.state.name} name="name" onChange={(e) => this.handleChange(e)}/>
                         </div>
                         <div class="checkoutNow-modal-info-telp">
                             Telp Number
@@ -50,12 +51,12 @@ class ModalCheckout extends react.Component{
                     </div>
                     <div class="checkoutNow-modal-info-addres" >
                         City
-                        <input placeholder="Opole" value={this.state.city} name="city" onChange={(e) => this.handleChange(e)}/>
+                        <input placeholder="City" value={this.state.city} name="city" onChange={(e) => this.handleChange(e)}/>
                         <div class="checkoutNow-modal-info-smaller">Example : House, Company, Apartment</div>
                     </div>
                     <div class="checkoutNow-modal-info-address">
                         Address
-                        <input placeholder="21 DistrictExample, Sun Resident" value={this.state.address} name="address" onChange={(e) => this.handleChange(e)}/>
+                        <input placeholder="21 District Example, Sun Resident" value={this.state.address} name="address" onChange={(e) => this.handleChange(e)}/>
                      </div>
                      <div class="checkoutNow-modal-info-address">
                         Note
@@ -64,12 +65,16 @@ class ModalCheckout extends react.Component{
                      <div class="checkoutNow-modal-info-address">
                         Coupon Code
                         <input placeholder="Enter coupon code" value={this.state.coupon} name="coupon" onChange={(e) => this.handleChange(e)}/>
+                        {this.props.couponError && <div style={{color:'#f00',marginBottom:'25px'}}>{this.props.couponError.errorMessage}</div>}
                      </div>
+                     
                      <div class="checkoutNow-modal-buttons">
                          <button class="checkoutNow-modal-button">Cancel</button>
                          <button class="checkoutNow-modal-button actived" onClick={() => this.submitAddress()}>Confirm</button>
                      </div>
-            </div>
+            </div>}
+            {this.props.waitCheckoutResponse && <div style={{color:'#523429',marginTop:'25px',display:'flex',justifyContent:'center',fontSize:'24px'}}>Wait for response...</div>}
+                     
     </div>
         );
 }}

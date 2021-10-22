@@ -11,7 +11,7 @@ class CheckoutItem extends react.Component{
             <div className="cart-item-detail-image"><img src={this.props.image}/></div>
         </div>
         <div className="cart-item-detail-text">
-            <div className="cart-item-detail-name">{this.props.name}</div>
+            <div className="cart-item-detail-name">{this.props.name} - {this.props.size}</div>
             <div className="cart-item-detail-price">€ {this.props.price}</div>
             <div className="cart-item-detail-note">
                 <div className="cart-item-detail-note-text">{this.props.note}</div>

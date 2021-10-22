@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import Header from './Header';
 import Footer from './Footer';
 import Body from './Body';
 import './styles/Riano.css';
