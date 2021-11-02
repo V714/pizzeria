@@ -204,18 +204,19 @@ class Body extends react.Component{
     
     }
     
-    changeAddress = (nam,tel,cit,adr,nt,dlv) => {
-        localStorage.setItem("Address", JSON.stringify({name: nam, telephone: tel, city: cit, address: adr, note: nt,delivery:dlv}));
+    changeAddress = (nam,tel,cit,adr,nt,dlv,dct) => {
+        localStorage.setItem("Address", JSON.stringify({name: nam, telephone: tel, city: cit, address: adr, note: nt,delivery:dlv,district:dct,}));
         this.setState({
-            address: {name: nam, telephone: tel, city: cit, address: adr, note: nt, delivery: dlv}
+            address: {name: nam, telephone: tel, city: cit, address: adr, note: nt, delivery: dlv, district:dct,}
         })
     }
 
-    getOrderPrice = async(discountCode) => {
+    getOrderPrice = async(discountCode,districtCode) => {
         const products = this.state.products.filter(item => item.type==='Product')
         const packages = this.state.products.filter(item => item.type==='Package')
         const json_data= JSON.stringify({
             "discountCode": discountCode.toString(),
+            "districtCode": districtCode.toString(),
             "orderProducts": products.map(item => {return(
                 {"productId": item.id, "sizeId": item.sizeId, "extraAddonsIds": item.extraAddonsIds})}),
             "orderPackages": packages.map(item => {return(

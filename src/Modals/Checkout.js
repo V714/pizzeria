@@ -9,6 +9,7 @@ class ModalCheckout extends react.Component{
             city: '',
             address: '',
             note: '',
+            district: '',
             delivery: null,
             coupon: '',
         }
@@ -20,6 +21,7 @@ class ModalCheckout extends react.Component{
                             telp: address.telephone,
                             city: address.city,
                             address: address.address,
+                            district: address.district,
                         note: address.note,
                     delivery: address.delivery})}
     }
@@ -28,8 +30,8 @@ class ModalCheckout extends react.Component{
         this.setState({[e.target.name]: [e.target.value]})
     }
     submitAddress = () => {
-        this.props.changeAddress(this.state.name,this.state.telp,this.state.city,this.state.address,this.state.note,this.props.delivery)
-        this.props.getOrderPrice(this.state.coupon);
+        this.props.changeAddress(this.state.name,this.state.telp,this.state.city,this.state.address,this.state.note,this.props.delivery,this.state.district)
+        this.props.getOrderPrice(this.state.coupon,this.state.district);
     }
     render(){
         return(
@@ -49,7 +51,7 @@ class ModalCheckout extends react.Component{
                             <input placeholder="+62 021-2029-2932" value={this.state.telp} name="telp" onChange={(e) => this.handleChange(e)}/>
                         </div>
                     </div>
-                    <div class="checkoutNow-modal-info-addres" >
+                    <div class="checkoutNow-modal-info-address" >
                         City
                         <input placeholder="City" value={this.state.city} name="city" onChange={(e) => this.handleChange(e)}/>
                         <div class="checkoutNow-modal-info-smaller">Example : House, Company, Apartment</div>
@@ -57,6 +59,10 @@ class ModalCheckout extends react.Component{
                     <div class="checkoutNow-modal-info-address">
                         Address
                         <input placeholder="21 District Example, Sun Resident" value={this.state.address} name="address" onChange={(e) => this.handleChange(e)}/>
+                     </div>
+                     <div class="checkoutNow-modal-info-address">
+                        District Code
+                        <input placeholder="1010" value={this.state.district} name="district" onChange={(e) => this.handleChange(e)}/>
                      </div>
                      <div class="checkoutNow-modal-info-address">
                         Note

@@ -18,7 +18,7 @@ class Checkout extends react.Component {
             address: '',
             note: '',
             delivery: null,
-
+            district: '',
             modalIsOpenPaym: false,
             modalIsOpenChck: false,
             checkout: false,
@@ -35,9 +35,11 @@ class Checkout extends react.Component {
                             city: address.city,
                             address: address.address,
                         note: address.note,
-                    delivery: address.delivery})
+                    delivery: address.delivery,
+                district:address.district})
                     
         this.setState({orderItems: JSON.parse(localStorage.getItem('orderItems'))});
+        console.log(JSON.parse(localStorage.getItem('orderItems')))
         }
         else{this.setState({checkout: false });window.location.href="cart"; }
     }
@@ -53,10 +55,6 @@ class Checkout extends react.Component {
        {this.state.checkout && <>
   < div className="section1-item">
             <div className="section1-item-inner">
-                <div className="history-head">
-                    <div className="history-head-left">Order id “<b>#1290</b>”</div>
-                    <div className="history-head-right">Sunday, 24 April 2021 | 19:20:02</div>
-                </div>
                 <div className="s1-cart">
                     <div className="s1-cart-left">
                         
@@ -82,6 +80,11 @@ class Checkout extends react.Component {
                                     <div className="user-data-detail-1">Address</div>
                                     <div className="user-data-detail-2">:</div>
                                     <div className="user-data-detail-3">{this.state.address}</div>
+                                </div>
+                                <div className="user-data-detail">
+                                    <div className="user-data-detail-1">District Code</div>
+                                    <div className="user-data-detail-2">:</div>
+                                    <div className="user-data-detail-3">{this.state.district}</div>
                                 </div>
                                 <div className="user-data-detail">
                                     <div className="user-data-detail-1">Note</div>
@@ -134,21 +137,21 @@ class Checkout extends react.Component {
                                     <img src={this.state.delivery ? "images/delivery.svg" : "images/pickup.svg"}/> {this.state.delivery ? "Delivery Order" : "Pickup Order"}
                                 </div>
                             </div>
-                            <div className="s1-cart-checkout-info">Estimate Time : 1hours 10minutes</div>
+                            <div className="s1-cart-checkout-info">Estimate Time : ***</div>
                             <div className="s1-cart-summary">
                                 <div className="s1-cart-summary-title">Payment Summary</div>
                                 <div className="s1-cart-summary-price">
                                     <div className="s1-cart-summary-price-left">Price ({this.props.products.length} items)</div>
-                                    <div className="s1-cart-summary-price-right">€ {this.state.orderItems.totalPrice}</div>
+                                    <div className="s1-cart-summary-price-right">€ {this.state.orderItems.totalPrice-this.state.orderItems.deliveryFee}</div>
                                 </div>
                                 {this.state.delivery ? <><div className="s1-cart-summary-price">
                                     <div className="s1-cart-summary-price-left">Delivery Fee</div>
-                                    <div className="s1-cart-summary-price-right">€ {this.props.deliveryPrice}</div>
+                                    <div className="s1-cart-summary-price-right">€ {this.state.orderItems.deliveryFee}</div>
                                 </div> </> : <></>}
                                 
                                 <div className="s1-cart-summary-total">
                                     <div className="s1-cart-summary-total-left">Total</div>
-                                    <div className="s1-cart-summary-total-right">€ {this.state.orderItems.totalPrice+ (this.state.delivery ? this.props.deliveryPrice : 0)}</div>
+                                    <div className="s1-cart-summary-total-right">€ {this.state.orderItems.totalPrice}</div>
                             </div>
                             <button id="payment" className="checkout-now-button" onClick={() => this.setState({modalIsOpenPaym: true})}>Choose Payment</button>
                         </div>
