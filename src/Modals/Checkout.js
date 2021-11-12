@@ -31,7 +31,7 @@ class ModalCheckout extends react.Component{
     }
     submitAddress = () => {
         this.props.changeAddress(this.state.name,this.state.telp,this.state.city,this.state.address,this.state.note,this.props.delivery,this.state.district)
-        this.props.getOrderPrice(this.state.coupon,this.state.district);
+        this.props.getOrderPrice(this.state.coupon,this.state.district,this.state.delivery);
     }
     render(){
         return(

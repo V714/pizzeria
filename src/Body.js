@@ -211,16 +211,31 @@ class Body extends react.Component{
         })
     }
 
-    getOrderPrice = async(discountCode,districtCode) => {
+    getOrderPrice = async(discountCode,districtCode,deliveryType) => {
         const products = this.state.products.filter(item => item.type==='Product')
         const packages = this.state.products.filter(item => item.type==='Package')
+        const address = this.state.address
         const json_data= JSON.stringify({
-            "discountCode": discountCode.toString(),
-            "districtCode": districtCode.toString(),
-            "orderProducts": products.map(item => {return(
-                {"productId": item.id, "sizeId": item.sizeId, "extraAddonsIds": item.extraAddonsIds})}),
-            "orderPackages": packages.map(item => {return(
-                {"packageId": item.id, "packageSelectedOptions": item.packageSelectedOptions})})
+            "deliveryType": deliveryType ? "ADDRESS_DELIVERY":"PICKUP_DELIVERY",
+            "address": {
+                "recipientsName": address.name.toString(),
+                "districtCode": districtCode.toString(),
+                "phoneNumber": address.telephone.toString(),
+                "address": address.city.toString()+" "+address.address.toString()
+            },
+
+            "cart":{
+                "discountCode": discountCode.toString(),
+                "orderProducts": products.map(item => {return(
+                    {   "productId": item.id,
+                        "sizeId": item.sizeId,
+                        "extraAddonsIds": item.extraAddonsIds,
+                        "notes": item.note
+                    })}),
+                "orderPackages": packages.map(item => {return(
+                    {   "packageId": item.id, 
+                        "packageSelectedOptions": item.packageSelectedOptions
+                })})}
         })
 
         const requestOptions = {
@@ -241,6 +256,9 @@ class Body extends react.Component{
         }
         else if(status === 404){
             this.setState({couponError: data,waitCheckoutResponse: false})
+        }
+        else if(status === 400){
+            this.setState({couponError: data[0],waitCheckoutResponse: false})
         }
         else{
             this.setState({waitCheckoutResponse: false,couponError: null})
