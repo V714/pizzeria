@@ -1,29 +1,32 @@
 import React from "react";
-import ComboItem from "../Items/ComboItem";
-import OffersItem from "../Items/OffersItem";
+import { useSelector } from "react-redux";
+import ComboItem from "../../items/ComboItem";
+import OffersItem from "../../items/OffersItem";
 
-class Section2 extends React.Component{
-    constructor(props){
-        super(props)
-    }
-    render(){
+function Section2(){
+    
+    const lang = useSelector(state => state.language)
+    const allProducts = useSelector(state=>state.products)
+    const allCombos = allProducts.filter(item=>item.type==='COMBO')
+    const allPackages = allProducts.filter(item=>item.type==='PACKAGE')
+
     return(
         <div className="section2">
         <div className="section2-inner">
             <div className="s2-menu-border"></div>
             <div className="s2-head">
                 <div className="s2-head-left">
-                    <div className="s2-head-left-small">UNSERE DEALS</div>
-                    <div className="s2-head-left-big">RIANO DEALS</div>
-                    <div className="s2-head-left-description">Wir bieten Kunden verschiedene Rabatte, denn unser Motto lautet Kundenzufriedenheit ist Nummer eins.  </div>
+                    <div className="s2-head-left-small">{lang.menu.section2title}</div>
+                    <div className="s2-head-left-big">{lang.menu.section2bold}</div>
+                    <div className="s2-head-left-description">{lang.menu.section2thin}</div>
                 </div>
             </div>
             <div className="s2-next-menu">
                 <div className="s2-menu-left">
                     <div className="s2-menu-left-icon">01</div>
                     <div className="s2-menu-left-text">
-                        <div className="s2-menu-left-text-big">Daily Deals</div>
-                        <div className="s2-menu-left-text-small">Für bestimmte Tage haben wir bestimmte Angebote! Interessant, oder?</div>
+                        <div className="s2-menu-left-text-big">{lang.menu.section2step1_title}</div>
+                        <div className="s2-menu-left-text-small">{lang.menu.section2step1_desc}</div>
                     </div>
                 </div>
             </div>
@@ -54,17 +57,17 @@ class Section2 extends React.Component{
             <div className="s2-menu-right-again">
                 <div className="s2-menu-right-icon">02</div>
                 <div className="s2-menu-right-text">
-                    <div className="s2-menu-right-text-big">Combos</div>
-                    <div className="s2-menu-right-text-small">Für Combos erhalten Sie verschiedene Speiseangebote ink. Getränke. Interessant, oder?</div>
+                    <div className="s2-menu-right-text-big">{lang.menu.section2step2_title}</div>
+                    <div className="s2-menu-right-text-small">{lang.menu.section2step2_desc}</div>
                 </div>
             </div>
            <div className="s2-menu-border-again"></div>
             <div className="s2-combo-items">
 
 
-            {this.props.allCombos && 
-                    this.props.allCombos.map((item,index) => (
-                        <ComboItem  products={this.props.products} addProduct={this.props.addProduct} item={item} index={index+1}/>
+            {allCombos && 
+                    allCombos.map((item,index) => (
+                        <ComboItem item={item} index={index+1}/>
 
                     ))
                 }
@@ -73,26 +76,21 @@ class Section2 extends React.Component{
             <div className="s2-menu-left-again">
                 <div className="s2-menu-left-icon">03</div>
                 <div className="s2-menu-left-text">
-                    <div className="s2-menu-left-text-big">Firmenangebote</div>
-                    <div className="s2-menu-left-text-small">For company offers, only for legal companies in Austria, is your company legal?</div>
+                    <div className="s2-menu-left-text-big">{lang.menu.section2step3_title}</div>
+                    <div className="s2-menu-left-text-small">{lang.menu.section2step3_desc}</div>
                 </div>
             </div>
             <div className="s2-firme-items">
                 <ul>
-                {this.props.allPackages && 
-                    this.props.allPackages.map((item,index) => (
-                        <OffersItem  products={this.props.products} addProduct={this.props.addProduct} 
-                        item={item}
-                        index={index+1}/>
-
-                    ))
+                {allPackages && 
+                    allPackages.map((item,index) => (
+                        <OffersItem item={item} index={index+1}/>))
                 }
-
                 </ul>
             </div>
         </div>
     </div>
-    );}
+    );
 }
 
 export default Section2;

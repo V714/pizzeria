@@ -1,88 +1,125 @@
-import react from 'react';
+import react, { useEffect, useState } from 'react';
+import Modal from 'react-modal';
+import { useDispatch } from 'react-redux';
+import { getOrderPrice } from '../functions/cart';
+import { refreshUserData } from '../redux/slices/userSlice';
 
-class ModalCheckout extends react.Component{
-    constructor(props){
-        super(props)
-        this.state={
-            name: '',
-            telp: '',
-            city: '',
-            address: '',
-            note: '',
-            district: '',
-            delivery: null,
-            coupon: '',
+
+Modal.setAppElement('#root')
+export default function ModalCheckout(props){
+    const [name,setName] = useState('')
+    const [telp,setTelp] = useState('')
+    const [city,setCity] = useState('')
+    const [address,setAddress] = useState('')
+    const [note,setNote] = useState('')
+    const [waitCheckoutResponse,setWaitCheckoutResponse] = useState(false)
+    const [error,setError] = useState('')
+    const [district,setDistrict] = useState('')
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        const user = JSON.parse(localStorage.getItem('User'))
+        if(user){
+            setName(user.name)
+            setTelp(user.telp)
+            setCity(user.city)
+            setAddress(user.address)
+            setNote(user.note)
+            setDistrict(user.district)
+        }
+    },[])
+    
+    const handleChange = (e) => {
+        switch(e.target.name){
+            case "name": setName(e.target.value);break;
+            case "telp": setTelp(e.target.value);break;
+            case "city": setCity(e.target.value);break;
+            case "address": setAddress(e.target.value);break;
+            case "note": setNote(e.target.value);break;
+            case "district": setDistrict(e.target.value);break;
         }
     }
-    componentDidMount = () =>{
-        if (JSON.parse(localStorage.getItem('Address'))){
-            const address = JSON.parse(localStorage.getItem('Address'))
-            this.setState({name: address.name,
-                            telp: address.telephone,
-                            city: address.city,
-                            address: address.address,
-                            district: address.district,
-                        note: address.note,
-                    delivery: address.delivery})}
+    const submitAddress = () => {
+        const user = {
+            name:name,
+            telp:telp,
+            city:city,
+            address:address,
+            note:note,
+            district:district,
+            delivery:props.delivery
+        }
+        dispatch(refreshUserData(user))
+        localStorage.setItem("User", JSON.stringify(user));
+        getOrderPrice(props.products,user,setWaitCheckoutResponse,props.delivery,200,setError)
     }
-
-    handleChange = (e) => {
-        this.setState({[e.target.name]: [e.target.value]})
-    }
-    submitAddress = () => {
-        this.props.changeAddress(this.state.name,this.state.telp,this.state.city,this.state.address,this.state.note,this.props.delivery,this.state.district)
-        this.props.getOrderPrice(this.state.coupon,this.state.district,this.state.delivery);
-    }
-    render(){
         return(
-    <div  id="checkoutNow_dialog" class="modal-dialog">
-        {!this.props.waitCheckoutResponse &&
+            <Modal 
+              isOpen={props.modalIsOpenChck} 
+              shouldCloseOnOverlayClick={true} 
+              onRequestClose={() => props.closer()}
+              closeTimeoutMS={350}
+              className={"checkoutNow-modal"}
+              style={{
+                overlay: {
+                  position: 'fixed',
+                  transition: 'all 0.4s ease-in-out',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                  zIndex: 9999
+                }
+              }}>
+                  <div  id="checkoutNow_dialog" class="modal-dialog">
+        {!props.waitCheckoutResponse &&
             <div class="checkoutNow-modal-inner">
-                <button class="modal-x" onClick={() => this.props.closer()}><img src="images/x.svg"/></button>
-                <div class="checkoutNow-modal-title">Choose Location</div>
+                <button class="modal-x" onClick={() => props.closer()}><img src="images/x.svg"/></button>
+                <div class="checkoutNow-modal-title">{props.lang.cart.checkout.choose}</div>
                 <button id="current_location" onclick="getLocation();" class="checkoutNow-modal-map"></button>
                     <div class="checkoutNow-modal-info-double">
                         <div class="checkoutNow-modal-info-name">
-                            Recipient's Name
-                            <input placeholder="John Doe Example" value={this.state.name} name="name" onChange={(e) => this.handleChange(e)}/>
+                        {props.lang.cart.checkout.name}
+                            <input placeholder={props.lang.cart.checkout.name_placeholder} value={name} name="name" onChange={(e) => handleChange(e)}/>
                         </div>
                         <div class="checkoutNow-modal-info-telp">
-                            Telp Number
-                            <input placeholder="+62 021-2029-2932" value={this.state.telp} name="telp" onChange={(e) => this.handleChange(e)}/>
+                        {props.lang.cart.checkout.mobile}
+                            <input placeholder={props.lang.cart.checkout.mobile_placeholder} value={telp} name="telp" onChange={(e) => handleChange(e)}/>
                         </div>
                     </div>
                     <div class="checkoutNow-modal-info-address" >
-                        City
-                        <input placeholder="City" value={this.state.city} name="city" onChange={(e) => this.handleChange(e)}/>
-                        <div class="checkoutNow-modal-info-smaller">Example : House, Company, Apartment</div>
+                    {props.lang.cart.checkout.city}
+                        <input placeholder={props.lang.cart.checkout.city_placeholder} value={city} name="city" onChange={(e) => handleChange(e)}/>
                     </div>
                     <div class="checkoutNow-modal-info-address">
-                        Address
-                        <input placeholder="21 District Example, Sun Resident" value={this.state.address} name="address" onChange={(e) => this.handleChange(e)}/>
+                    {props.lang.cart.checkout.address}
+                        <input placeholder={props.lang.cart.checkout.address_placeholder} value={address} name="address" onChange={(e) => handleChange(e)}/>
                      </div>
                      <div class="checkoutNow-modal-info-address">
-                        District Code
-                        <input placeholder="1010" value={this.state.district} name="district" onChange={(e) => this.handleChange(e)}/>
+                     {props.lang.cart.checkout.district}
+                        <input placeholder={props.lang.cart.checkout.district_placeholder} value={district} name="district" onChange={(e) => handleChange(e)}/>
                      </div>
                      <div class="checkoutNow-modal-info-address">
-                        Note
-                        <input placeholder="please do not use a doorbell because the kid is sleeping" value={this.state.note} name="note" onChange={(e) => this.handleChange(e)}/>
+                     {props.lang.cart.checkout.note}
+                        <input placeholder={props.lang.cart.checkout.note_placeholder} value={note} name="note" onChange={(e) => handleChange(e)}/>
                      </div>
-                     <div class="checkoutNow-modal-info-address">
-                        Coupon Code
-                        <input placeholder="Enter coupon code" value={this.state.coupon} name="coupon" onChange={(e) => this.handleChange(e)}/>
-                        {this.props.couponError && <div style={{color:'#f00',marginBottom:'25px'}}>{this.props.couponError.errorMessage}</div>}
-                     </div>
+                     {/* <div class="checkoutNow-modal-info-address">
+                     {props.lang.cart.checkout.coupon}
+                        <input placeholder={props.lang.cart.checkout.coupon_placeholder} value={coupon} name="coupon" onChange={(e) => handleChange(e)}/>
+                    </div> */}
+                    {error && <div style={{color:'#f00',marginBottom:'15px',textAlign:'center',fontSize:'24px',fontWeight:'800'}}>{error}</div>}
+                    {waitCheckoutResponse && <div style={{color:'#523429',marginTop:'25px',display:'flex',justifyContent:'center',fontSize:'24px'}}>{props.lang.cart.checkout.wait}</div>}
                      
                      <div class="checkoutNow-modal-buttons">
-                         <button class="checkoutNow-modal-button">Cancel</button>
-                         <button class="checkoutNow-modal-button actived" onClick={() => this.submitAddress()}>Confirm</button>
+                         <button class="checkoutNow-modal-button">{props.lang.cart.checkout.cancel}</button>
+                         <button class="checkoutNow-modal-button actived" onClick={() => submitAddress()}>{props.lang.cart.checkout.confirm}</button>
                      </div>
             </div>}
-            {this.props.waitCheckoutResponse && <div style={{color:'#523429',marginTop:'25px',display:'flex',justifyContent:'center',fontSize:'24px'}}>Wait for response...</div>}
                      
     </div>
-        );
-}}
+            </Modal>
 
-export default ModalCheckout;
+    
+        );
+}

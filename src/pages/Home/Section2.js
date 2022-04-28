@@ -1,15 +1,19 @@
+import { useSelector } from "react-redux";
 
 function Section2 (){
+    
+    const lang = useSelector(state=>state.language)
+
     return(
         <div id="section2" className="section2">
     <div className="section2-inner">
-        <div className="s2-head-left-small">WAS WIR ANBIETEN</div>
+        <div className="s2-head-left-small">{lang.home.section2title}</div>
         <div className="s2-head">
             <div className="s2-head-left">
-                <div className="s2-head-left-big">Unser Special Service</div>
+                <div className="s2-head-left-big">{lang.home.section2bold}</div>
             </div>
             <div className="s2-head-right">
-                wir habenseit über 21 Jahre Erfahrung darin, Pizza mit einem unverwechselbaren und authentischen Geschmack zu servieren 
+            {lang.home.section2right}
             </div>
         </div>
         <div >
@@ -22,26 +26,25 @@ function Section2 (){
                     <li className="service-element">
                         <div className="service-element-inner">
                             <div className="service-icon"><img src="images/service1.svg"/></div>
-                            <div className="service-title">Premium Qualität</div>
-                            <div className="service-description">Wir verwenden hochwertige Zutaten für die Herstellung unserer Pizzen, daher sind die Aromen authentischer als in anderen Geschäften!</div>
-                            <div className="service-button"> <a>Mehr erfahren</a><img src="images/arrow-right.svg"/></div>
+                            <div className="service-title">{lang.home.section2service1title}</div>
+                            <div className="service-description">{lang.home.section2service1desc}</div>
+                            <div className="service-button"> <a>{lang.home.section2service_button}</a><img src="images/arrow-right.svg"/></div>
                         </div>
                     </li>
                     <li className="service-element">
                         <div className="service-element-inner">
                             <div className="service-icon"><img src="images/service2.svg"/></div>
-                            <div className="service-title">Schnelle Lieferung</div>
-                            <div className="service-description">Wir bieten kostenlose 
-                                Lieferserices für Gebiete innerhalb von 10 km von uns.</div>
-                            <div className="service-button"> <a>Mehr erfahren</a><img src="images/arrow-right.svg"/></div>
+                            <div className="service-title">{lang.home.section2service2title}</div>
+                            <div className="service-description">{lang.home.section2service2desc}</div>
+                            <div className="service-button"> <a>{lang.home.section2service_button}</a><img src="images/arrow-right.svg"/></div>
                         </div>
                     </li>
                     <li className="service-element">
                         <div className="service-element-inner">
                             <div className="service-icon"><img src="images/service3.svg"/></div>
-                            <div className="service-title">Krypto Zahlung</div>
-                            <div className="service-description">Wir bieten an, ein Stück Pizza mit Krypto zu kaufen. Verwandeln Sie jetzt Ihre Krypto’s in eine Pizza</div>
-                            <div className="service-button"> <a>Mehr erfahren</a><img src="images/arrow-right.svg"/></div>
+                            <div className="service-title">{lang.home.section2service3title}</div>
+                            <div className="service-description">{lang.home.section2service3desc}</div>
+                            <div className="service-button"> <a>{lang.home.section2service_button}</a><img src="images/arrow-right.svg"/></div>
                         </div>
                     </li>
                 </ul>

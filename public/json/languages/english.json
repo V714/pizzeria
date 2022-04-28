@@ -1,0 +1,161 @@
+{
+    "name": "PIZZERIA",
+    "currency":"€",
+    "header": {
+        "home": "Home",
+        "menu": "Menu",
+        "aboutus": "About Us",
+        "contact":"Contact"
+    },
+    "footer":{
+        "description":"we provide fast food with premium goods and fast and safe delivery. we are also accept payments in crypto.",
+        "about":"About",
+        "about_us":"About Us",
+        "features":"Features",
+        "news":"News",
+        "support":"Support",
+        "feedback":"Feedback",
+        "contact":"Contact",
+        "cookies":"Cookies Information",
+        "get_in_touch":"Get in Touch",
+        "question_or_feedback":"Question or feedback?",
+        "hear_from_you":"We'd love to hear from you"
+    },
+    "home": {
+        "section1bold":"Order now, a piece of happiness",
+        "section1thin":"Have sun in your heart and pizza in your stomach. Then you're happy and you're full too.",
+        "section1input":"Find your favorite pizza...",
+        "section1button":"Search",
+
+        "section2title":"WHAT WE OFFER",
+        "section2bold":"Our special service",
+        "section2right":"we have over 21 years of experience in serving pizza with a distinctive and authentic taste",
+        "section2service_button":"Learn more",
+        "section2service1title":"Premium quality",
+        "section2service1desc":"We use quality ingredients to make our pizzas, so the flavors are more authentic than other stores!",
+        "section2service2title":"Fast delivery",
+        "section2service2desc":"We offer free delivery services for areas within 10km from us.",
+        "section2service3title":"Crypto Payment",
+        "section2service3desc":"We offer to buy a slice of pizza with crypto. Now turn your crypto's into a pizza.",
+
+        "section3title":"OUR MENU",
+        "section3bold":"Ordered the most",
+        "section3thin":"There are over +230 Menus with different categories",
+
+        "section4title":"COMPANY OFFERS",
+        "section4bold":"Our special offers for companies.",
+        "section4right":"Are you a law firm in Austria? Get a special offer now.",
+
+        "section5title":"OUR PROFILE",
+        "section5bold":"Contact",
+        "section5mobile":"Mobile",
+        "section5address":"Address",
+        "section5email":"E-mail",
+        "section5openhours":"Opening Hours",
+
+        "section6title":"SUBSCRIBE",
+        "section6bold":"Leave your email to receive the latest news or offers",
+        "section6thin":"If you subscribe to our newsletter, you will receive additional coupons and always the latest offers from us.",
+        "section6input":"Enter your e-mail address",
+        "section6button":"Subscribe"
+    },
+    "menu":{
+        "search_title":"Find a Food That You Like",
+        "search_desc":"there are around +230 fast food menus avaible",
+        "search_input":"Search for cheese pizza",
+
+        "section2title":"OUR DEALS",
+        "section2bold":"PIZZERIA DEALS",
+        "section2thin":"We offer customers various discounts because our motto is customer satisfaction is number one.",
+        "section2step1_title":"Daily Deals",
+        "section2step1_desc":"For certain days we have certain offers! Interesting right?",
+        "section2step2_title":"Combos",
+        "section2step2_desc":"For combos you get different food offers incl. Beverages. Interesting right?",
+        "section2step3_title":"Corporate Offers",
+        "section2step3_desc":"For company offers, only for legal companies in Austria, is your company legal?",
+    
+        "section3title":"OUR MENU",
+        "section3bold":"Our Offer",
+        "section3thin":"We offer different dish categories for our customers"
+    },
+
+    "about": {
+        "section1title":"WHO ARE WE",
+        "section1bold":"About us",
+        "section1thin":"RIANO is a pizzeria in Vienna, Austria. Our pizzeria not only sells pizza, but also other delicious foods that you must try. Pizzaria offers quality food at an affordable price",
+        "section1button":"Order Now",
+
+        "section2title":"GALLERY",
+        "section2bold":"Gallery",
+        "section2thin":"Let's look at the places we provide, there are several different places to eat, interesting isn't it?",
+        "section2indoor_title":"Indoor Seating",
+        "section2indoor_desc":"We provide an indoor dining area, you will be accompanied by music for 24/7, while eating your food",
+        "section2outdoor_title":"Outdoor Seating",
+        "section2outdoor_desc":"We provide an outdoor dining area, perfect for those of you who want to smoke after eating"
+    },
+
+    "details": {
+        "section1details":"Details",
+        "section1price":"Price",
+        "section1add_note":"Add Note",
+        "section1note_example":"ex. add more chilli",
+        "section1add_button":"Add to cart",
+
+        "section2toppings":"Toppings",
+        "section2extra_toppings":"Add Extra Toppings",
+        "section2pizza_topping":"Pizza Topping"
+    },
+    "similar":{
+        "title":"SIMILAR PRODUCTS",
+        "bold":"Similar foods",
+        "thin":"Here are our recommendations with a similar menu and must be tried"
+    },
+    "cart":{
+        "shopping_cart":"Shopping Cart",
+        "payment_summary":"Payment Summary",
+        "delivery_fee":"Delivery Fee",
+        "change":"Change",
+        "price":"Price",
+        "items_quantity":"items",
+        "total":"Total",
+        "checkout_now":"Checkout Now",
+        "cart_empty":"Shopping Cart is Empty",
+        "edit_note":"Edit note",
+        "estimate_time":"Estimate Time",
+        "choose_payment":"Choose Payment",
+        "delivery":{
+            "choose":"Choose Order Option",
+            "delivery":"Delivery Order",
+            "delivery_desc":"You will get free delivery if the range is 21.Bezirk (District in Vienna)",
+            "pickup":"Pickup Order",
+            "pickup_desc":"For every self-pickup, you will get 0.33L Pepsi for free in 10€ minumum order",
+            "confirm":"Confirm"
+        },
+        "checkout":{
+            "delivery_address":"Delivery Address",
+            "choose":"Choose Location",
+            "name":"Recipient's Name",
+            "name_placeholder":"John Doe Example",
+            "mobile":"Telephone Number",
+            "mobile_placeholder":"+62 021-2029-2932",
+            "city":"City",
+            "city_placeholder":"Vienna",
+            "address":"Address",
+            "address_placeholder":"21 District Example, Sun Resident",
+            "district":"District Code",
+            "district_placeholder":"1010",
+            "note":"Note",
+            "note_placeholder":"please do not use a doorbell because the kid is sleeping",
+            "coupon":"Coupon Code",
+            "coupon_placeholder":"Enter coupon code",
+            "cancel":"Cancel",
+            "confirm":"Confirm",
+            "wait":"Wait for response..."
+        }
+    
+    },
+    "checkout":{
+
+    }
+
+}

@@ -1,21 +1,20 @@
 import React from 'react';
-import ProductItem from '../Items/ProductItem';
+import { useSelector } from 'react-redux';
+import ProductItem from '../../items/ProductItem';
 
-class Section4 extends React.Component{
-    constructor(props){
-        super(props)
-    }
+function Section3(props){
 
+    const lang = useSelector(state=>state.language)
+    const allProducts = useSelector(state=>state.products)
 
-    render(){
     return(
         <div className="section4">
             <div className="section4-inner">
                 <div className="s2-head">
                     <div className="s2-head-left">
-                        <div className="s2-head-left-small">ÄNHLICHE PRODUKTE</div>
-                        <div className="s2-head-left-big">Änhliche Speisen</div>
-                        <div className="s2-head-left-description">Here are our recommendations with a similar menu and must be tried</div>
+                        <div className="s2-head-left-small">{lang.similar.title}</div>
+                        <div className="s2-head-left-big">{lang.similar.bold}</div>
+                        <div className="s2-head-left-description">{lang.similar.thin}</div>
                     </div>
                     <div className="uber-s2-head-right">
                         <div className="paginate-items">
@@ -27,21 +26,11 @@ class Section4 extends React.Component{
                 <div className="s2-items">
                     
                 {
-                this.props.mostOrdered &&
+                allProducts &&
 
-            this.props.mostOrdered.map(item => {return(
+                allProducts.filter(item=>item.type==='BURGER').map(item => {return(
                 <li key={item.id}>
-                <ProductItem
-                products={this.props.products}
-                    addProduct={this.props.addProduct}                        
-                    changeNote={this.props.changeNote}                       
-                    id={item.id}                        
-                    name={item.name}                         
-                    image={item.imgPath}                         
-                    sizes={item.sizes}                    
-                    rating={item.rating}                 
-                    description={item.description}
-                />
+                <ProductItem item={item}/>
             </li>)
             })
             
@@ -51,6 +40,6 @@ class Section4 extends React.Component{
             </div>
         </div>
     );
-}}
+}
 
-export default Section4;
+export default Section3;

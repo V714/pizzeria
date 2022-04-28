@@ -1,44 +1,80 @@
 
+import { useEffect, useState } from 'react';
+import Modal from 'react-modal';
+import { useSelector } from 'react-redux';
+import { cartPrice } from '../functions/cart';
 
-import react from 'react';
 
-class ModalCart extends react.Component{
-    constructor(props){
-        super(props)
-    }
-    render(){
+Modal.setAppElement('#root')
+
+export default function ModalCart (props){
+    const [totalPrice,setTotalPrice] = useState(0)
+    const allProducts = useSelector(state => state.products)
+
+    useEffect(()=>{
+        if(props.products)setTotalPrice(cartPrice(allProducts,props.products))
+    },[])
+
     return(
-        <div className="notification-modal">
+        <Modal 
+        isOpen={props.modalIsOpenCart} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => props.closer()}
+        closeTimeoutMS={350}
+        className={"notification-modal"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+       <div className="notification-modal">
         <div className="notification-modal-inner">
-            <div className="fm-head">
-                <div className="fm-head-left">Cart ({this.props.products.length}): {this.props.totalPrice}€</div>
+            {props.products ? <><div className="fm-head">
+                <div className="fm-head-left">Cart ({props.products.length}): {totalPrice}€</div>
                 <div className="fm-head-right"><a href="cart">View all</a></div>
             </div>
             <div className="cart-list">
                 <ul>
-                {this.props.products &&
-					            this.props.products.map((item) => (
-                                    <li>
-                                    <div className="cart-element-inner">
-                                        <div className="cart-element-left"><img src={item.imgPath}/>
-                                            <div className="cart-element-details">
-                                                <div className="cart-element-name">{item.name}</div>
-                                                
-                                                {item.quantity > 1 &&   <div className="cart-element-quantity">  {item.quantity} Items</div>}
+                {props.products &&
+					            props.products.map((item) => {  
+                                    const product = allProducts.find(_item => _item.id === item.id)
+                                    let price = product.sizes ? parseFloat(product.sizes.find(_item => _item.id === item.option).price) : parseFloat(product.price)
+                                    if(item.extra){
+                                        item.extra.map(_item => {
+                                            price += parseFloat(product.extraAddons.find(aitem => aitem.id === _item).price)
+                                        })
+                                    }
+
+                                    return(
+                                        <li>
+                                            <div className="cart-element-inner">
+                                                <div className="cart-element-left"><img src={product.imgPath}/>
+                                                    <div className="cart-element-details">
+                                                        <div className="cart-element-name">{product.name}</div>
+                                                    </div>
+                                                </div>
+                                                <div className="cart-element-right">€{price.toFixed(2)}</div>
                                             </div>
-                                        </div>
-                                        <div className="cart-element-right">€ {item.price}</div>
-                                    </div>
-                                </li>
-                                ))}
+                                        </li>
+                                    )
+                                    })}
                     
                 </ul>
             </div>
-            <a href="cart" className="checkout-now-button">Checkout Now</a>
+            <a href="cart" className="checkout-now-button">Checkout Now</a></>
+            :
+            <><div className="fm-head-left">Cart is empty</div></>}
         </div>
     </div>
+      </Modal>
+        
  
     );
-}}
-
-export default ModalCart;
+}

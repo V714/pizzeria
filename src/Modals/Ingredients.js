@@ -1,23 +1,22 @@
-import react from "react";
+/* import { useState } from 'react';
+import Modal from 'react-modal';
+Modal.setAppElement('#root')
 
-class ModalIngredients extends react.Component{
-    constructor(props){
-        super(props)
-        this.state={
-            note: '',
-        }
-    }
-    finishAdding = () => {
+
+function ModalIngredients (props){
+    const [note,setNote] = useState('')
+
+    const finishAdding = () => {
         let idOfExtra = ''
         let extrasIds = []
         let extrasPrice = 0
         let extras = ''
         let options = []
 
-        {this.props.item && this.props.item.options.map(item => {
+        {props.item && props.item.options.map(item => {
             {   
                 try{
-                    idOfExtra = (Object.entries(this.state).find(item2 => item2[0] === item.sectionName)[1]).toString()
+                    idOfExtra = (Object.entries(state).find(item2 => item2[0] === item.sectionName)[1]).toString()
                 }
                 catch {
                     idOfExtra = item.availableProducts[0].product.id
@@ -30,39 +29,45 @@ class ModalIngredients extends react.Component{
                 options.push({sectionId: item.sectionId, chosenOptionId: extraProduct.optionId})
                 }})}
 
-
-        this.props.addProduct({
-            id: this.props.item.id,
-            name: this.props.item.packageName,
-            imgPath: this.props.image,
-            price: this.props.item.price+extrasPrice,
-            note: this.state.note,
-            quantity: 1,
-            packageSelectedOptions: options,
-            extras: extras,
-            extrasIds: extrasIds,
-            type: 'Package'})
-
-        this.props.closer();
+        props.closer();
     }
-    changeNoteProp = (e) => {
-        this.setState({note: e.target.value})
+    const changeNoteProp = (e) => {
+        setNote(e.target.value)
     }
 
-    handleRadio = (e) => {
-        this.setState({[e.target.name]: [e.target.value]})
+    const handleRadio = (e) => {
+        switch(e.target.name){
+            
+        }
+        setState({[e.target.name]: [e.target.value]})
     }
     
-    render(){
-    return(
-        <div id="ingredients_dialog" className="modal-dialog">
+    return( <Modal 
+        isOpen={state.modalIsOpenIngr} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => setState({modalIsOpenIngr: false})}
+        closeTimeoutMS={350}
+        className={"ingredients_dialog"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+             <div id="ingredients_dialog" className="modal-dialog">
         <div className="ingredients-modal">
-            <button className="modal-x" onClick={() => this.props.closer()} ><img src="images/x.svg"/></button>
+            <button className="modal-x" onClick={() => props.closer()} ><img src="images/x.svg"/></button>
             <div className="ingredients-modal-inner">
                 <div className="ingredients-modal-title">Package 1</div>
                     
                     
-                {this.props.item && this.props.item.options.map(item => {return(
+                {props.item && props.item.options.map(item => {return(
                 <div className="ingredients-modal-selects">
                     <div className="ingredients-modal-selects-title"> {item.sectionName}:
                         <div className="ingredients-modal-selects-title-smaller">Choose 1</div>
@@ -81,8 +86,8 @@ class ModalIngredients extends react.Component{
                                 </div>
                             </div>
                             {index === 0 ? 
-                                <input type="radio" value={item2.product.id} onChange={e => this.handleRadio(e)} name={item.sectionName} id={item.sectionName+item2.optionId} defaultChecked /> : 
-                                <input type="radio" value={item2.product.id} onChange={e => this.handleRadio(e)} name={item.sectionName} id={item.sectionName+item2.optionId} />}
+                                <input type="radio" value={item2.product.id} onChange={e => handleRadio(e)} name={item.sectionName} id={item.sectionName+item2.optionId} defaultChecked /> : 
+                                <input type="radio" value={item2.product.id} onChange={e => handleRadio(e)} name={item.sectionName} id={item.sectionName+item2.optionId} />}
                             
                         </div>
                     </label>)
@@ -111,19 +116,21 @@ class ModalIngredients extends react.Component{
                     Note :
                     <div className="ingredients-modal-selects-title-smaller">(optional)</div>
                 </div>
-                <input placeholder="Make it more spicy" onChange={(e) => this.changeNoteProp(e)} className="note-input-modal"/>
+                <input placeholder="Make it more spicy" onChange={(e) => changeNoteProp(e)} className="note-input-modal"/>
                 <div className="ingredients-total">
                     Total Pizza
-                    <div className="s3-item-cart">{this.props.quantity}</div>
+                    <div className="s3-item-cart">{props.quantity}</div>
                 </div>
                 <button className="add-to-cart-button" 
-                onClick={() => this.finishAdding()}>
-                    Add to Cart - €{this.props.item.price}</button>
+                onClick={() => finishAdding()}>
+                    Add to Cart - €{props.item.price}</button>
             </div>
         </div>
     </div>
+      </Modal>
+       
      
-    );}
+    );
 }
 
-export default ModalIngredients;
+export default ModalIngredients; */

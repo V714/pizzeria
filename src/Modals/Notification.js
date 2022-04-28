@@ -1,17 +1,36 @@
-import react from "react";
 
-class ModalNotification extends react.Component{
-    constructor(props){
-        super(props)
-    }
-    render(){return(
+import Modal from 'react-modal';
+
+
+Modal.setAppElement('#root')
+
+export default function ModalNotification (props){
+    return(
+        <Modal 
+        isOpen={props.modalIsOpenNoti} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => props.closer()}
+        closeTimeoutMS={350}
+        className={"notification-modal"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
         <div className="notification-modal">
             <div className="notification-modal-inner">
                 
             <div className="fm-head-right"><a>View all</a></div>
                     <div className="modal-news-list">
                         <ul>
-                            {this.props.news && this.props.news.map(item => {
+                            {/* {news && news.map(item => {
                                 return(<li>
                                     <div className="modal-news-element-inner">
                                         <div className="promo-info">{item.type}</div>
@@ -24,7 +43,7 @@ class ModalNotification extends react.Component{
                                      </div>
                                     </div>
                                 </li>)
-                            })}
+                            })} */}
                             
                         </ul>
                     </div>
@@ -35,7 +54,7 @@ class ModalNotification extends react.Component{
                     </div>
             </div>
         </div>
-    );}
+      </Modal>
+        
+    );
 }
-
-export default ModalNotification;

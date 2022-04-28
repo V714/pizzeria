@@ -1,32 +1,47 @@
-import react from 'react';
+import { useEffect, useState } from "react";
 
-class ModalNote extends react.Component{
-    
-    constructor(props){
-        super(props)
-        this.state={
-            modalIsOpenNote: false,
-            note: this.props.note
-        }
-    }
-    render(){
-        return(
+import Modal from 'react-modal';
+Modal.setAppElement('#root')
+
+
+function ModalNote(props){
+
+        return( <Modal 
+        isOpen={props.modalIsOpenNote} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => props.closer()}
+        closeTimeoutMS={350}
+        className={"modal-dialog"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+            
             <div class="modal fade" id="feedback_modal" role="dialog">
     <div class="modal-dialog">
         <div class="feedback-modal">
-            <button class="modal-x" onClick={() => this.props.closer()}><img src="images/x.svg"/></button>
+            <button class="modal-x" onClick={() => props.closer()}><img src="images/x.svg"/></button>
             <div class="feedback-modal-inner">
                 <div class="modal-title">Note:</div>
-                <textarea class="modal-textarea" onChange={(e) => this.props.changeNote(e)}>{this.state.note}</textarea>
+                <textarea class="modal-textarea" onChange={(e) => props.changeNoteProp(e)}>{props.note}</textarea>
                 
                 <div class="modal-feedback-button">
-                    <button class="modal-feedback-send" onClick={() => this.props.closer()}>Confirm</button>
+                    <button class="modal-feedback-send" onClick={() => props.closer()}>Confirm</button>
                 </div>
             </div>
         </div>
     </div>
   </div>
+      </Modal> 
         );
-}}
+}
 
 export default ModalNote;

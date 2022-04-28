@@ -1,64 +1,37 @@
-
-import react from 'react';
-import ProductItem from '../Items/ProductItem';
+import ProductItem from '../../items/ProductItem';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+import { useSelector } from 'react-redux';
 
-class Section3 extends react.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            tabIndex: 1
-        }
+const Section3 = () => {
+    const allTypes = useSelector(state => state.types)
+    const allProducts = useSelector(state => state.products)
+    const lang = useSelector(state=>state.language)
 
-    }
-
-
-    render(){
     return(
         <div className="section3">
         <div className="section3-inner">
             <Tabs className="section3-inner-again">
                 <div className="s3-menu">
                     <div className="s3-menu-texts">
-                        <div className="s3-menu-texts-small">UNSER MENÜ</div>
-                        <div className="s3-menu-texts-big">Am meisten bestellt</div>
-                        <div className="s3-menu-texts-description">There are over +230 Menüs with different categories</div>
+                        <div className="s3-menu-texts-small">{lang.home.section3title}</div>
+                        <div className="s3-menu-texts-big">{lang.home.section3bold}</div>
+                        <div className="s3-menu-texts-description">{lang.home.section3thin}</div>
                     </div>
                     <TabList className="s3-menu-scroll">
                         <ul>
-                        {this.props.allTypes && this.props.allTypes.map((itemb,index) => {return(
+                        {allTypes && allTypes.map((itemb,index) => {return(
                         <Tab id={"gat"+toString(index+1)} className="s3-list-element">{itemb.label}</Tab>)})}
                         </ul>
                     </TabList>
                 </div>
 
-
-                {this.props.allTypes && this.props.allTypes.map(itema => {return(<TabPanel id="pizza_tab2" className="s3-items">
-                
-                {this.props.allProducts && 
-                    this.props.allProducts.filter(item => item.type==itema.key).map((item) => (
-                        <ProductItem  products={this.props.products} addProduct={this.props.addProduct} 
-                                id={item.id}
-                                name={item.name} 
-                                image={item.imgPath}
-                                sizes={item.sizes}
-                                rating={item.rating}
-                                description={item.description}/>
-
-                    ))
-                }
-                </TabPanel>)} )
-
-                }
-   
-
-
-
-
-         
-
-               
-           
+                {allTypes && allTypes.map(itema => {return(
+                    <TabPanel id="pizza_tab2" className="s3-items">
+                    {allProducts && allProducts.filter(item => item.type==itema.key).map((item,index) => (
+                            <ProductItem key={index} item={item}/>
+                        ))}
+                    </TabPanel>
+                )})}
                 
             </Tabs>
             {/* <div className="s3-pagination">
@@ -70,23 +43,6 @@ class Section3 extends react.Component{
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
 
@@ -94,7 +50,7 @@ class Section3 extends react.Component{
 
 
 
-    );}
+    );
 }
 
 export default Section3;

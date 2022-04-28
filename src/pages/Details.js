@@ -2,113 +2,111 @@
 import Section1 from './Details/Section1';
 import Section2 from './Details/Section2';
 import Section3 from './Details/Section3';
-import React from 'react';
 import Section1Item from './Details/Section1Item';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-class Details extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-            item: null,
-            size: 0,
-            crust: 'Cryspy Crust, ',
-            crustPrice: 0,
-            price:0,
-            showItem: false,
-            extraAddons: [],
-            extraAddonsPrice: 0,
-        }
-    }
+function Details(){
+    const [item,setItem] = useState(null)
+    const [price,setPrice] = useState(0)
+    const [size,setSize] = useState(0)
+    const [crustPrice,setCrustPrice] = useState(0)
+    const [extraAddons,setExtraAddons] = useState([])
+    const [extraAddonsPrice,setExtraAddonsPrice] = useState(0)
+    const [showItem,setShowItem] = useState(false)
+    const [crust,setCrust] = useState(undefined)
 
-    componentDidMount = async() => {
+    const allProducts = useSelector(state=>state.products)
+
+    useEffect(()=>{
+        init();
+    },[])
+
+    const init = async() => {
         const urlParams = new URLSearchParams(window.location.search);
         const queryID = urlParams.get('id');
         const querySIZE = urlParams.get('size');
-        
-        try {
-            await fetch(`http://localhost:8080/products/${queryID}`)
-            .then( resp => resp.json())
-            .then((data)=> {
-                this.setState({
-                    item: data,
-                    size: querySIZE,
-                });
-                if(data.sizes.find(item => item.size == querySIZE)){
-                    this.setState({
-                        
-                      showItem: true,
-                      price: data.sizes.find(item => item.size == querySIZE).price,
-                    })
-                  };
-            })
-          } catch (error) {
-            console.log(error);
-          }
+        const product = allProducts.find(_item=>_item.id===queryID)
+        if(product){
+            setItem(product)
+            setSize(querySIZE)
+            setShowItem(true)
+            if(product.sizes){
+                setPrice(product.sizes.find(_item=>_item.size===querySIZE).price)
+            } else {
+                setPrice(product.price)
+            }
+            if(product.crust)setCrust(product.crust[0])
+        }
           
     }
 
-    pizzaSize = (size) => {
-        
-        this.setState({size: size, price: this.state.item.sizes.find(item => item.size === size).price+this.state.extraAddonsPrice})
-        this.state.item.sizes.map((item, index) => {if(item.size==size){
+    const pizzaSize = (s) => {
+        setSize(s)
+        if(item.type=='PIZZA'){
+            
+            item.sizes.map((i, index) => {if(i.size==s){
 
-            let a=((150/this.state.item.sizes.length) * index )+1050
+            let a=((150/item.sizes.length) * index )+1050
             document.getElementById("pizza_size").style.width = a+"px";
             document.getElementById("pizza_size").style.height = a+"px";
 
 
-        }})
+        }})}
     }
 
-    changeCrust=(crust,price) => {
-        this.setState({crust: crust+' crust.', crustPrice: price})
-    }
-    
-    deleteTopping = (id) => {
-        const priceToSubstract = this.state.extraAddonsPrice-this.state.extraAddons.find(item => item.id==id).price*this.state.extraAddons.find(item => item.id==id).quantity
-        this.setState({
-            extraAddons: this.state.extraAddons.filter(item => item.id != id),
-            extraAddonsPrice: priceToSubstract,
-            price: this.state.item.sizes.find(item => item.size === this.state.size).price+priceToSubstract
-        })
-    }
-    addTopping = (top) => {
-        const priceToAdd= this.state.extraAddonsPrice+top.price
-        if(this.state.extraAddons.some(item => item.id == top.id)){
-            this.setState({
-                extraAddons: this.state.extraAddons.map(item => item.id == top.id? {...item, quantity: item.quantity+1} : item),
-                extraAddonsPrice: priceToAdd,
-                price: this.state.item.sizes.find(item => item.size === this.state.size).price+priceToAdd
+    useEffect(()=>{
+        if(extraAddons[0]){
+            let extraPrice = 0
+            extraAddons.map(_item => {
+                extraPrice += _item.price * _item.quantity
             })
+            setExtraAddonsPrice(extraPrice)
+        }
+    },[extraAddons])
+
+    useEffect(()=>{
+        if(crust===undefined)return 0;
+        setCrustPrice(parseFloat(crust.price))
+    },[crust])
+
+    useEffect(()=>{
+        if(item&&item.sizes)setPrice((parseFloat(item.sizes.find(_item => _item.size === size).price)+parseFloat(extraAddonsPrice)+parseFloat(crustPrice)).toFixed(2))
+    },[extraAddonsPrice,size,crustPrice])
+    
+    const deleteTopping = (id) => {
+        setExtraAddons(extraAddons.filter(item => item.id != id))
+    }
+
+    const addTopping = (top) => {
+        if(extraAddons.some(_item => _item.id == top.id)){ /* If Top already exists */
+            setExtraAddons(extraAddons.map(_item => _item.id == top.id? {..._item, quantity:_item.quantity+1} : _item))
         }
         else{
-        this.setState({
-            extraAddons: [...this.state.extraAddons, top],
-            extraAddonsPrice: priceToAdd,
-            price: this.state.item.sizes.find(item => item.size === this.state.size).price+priceToAdd
-        })}
+            setExtraAddons([...extraAddons, top])
+        }
     }
 
-    render(){
     return(
         <div>
-            {this.state.showItem && this.state.item.type=='PIZZA' &&
+            {showItem && item.type=='PIZZA' &&
                 <>
-                    <Section1 pizzaSize={this.pizzaSize} price={this.state.price} extraAddons={this.state.extraAddons} extraAddonsPrice={this.state.extraAddonsPrice} size={this.state.size} item={this.state.item} allProducts={this.props.allProducts} addProduct={this.props.addProduct}/>
-                    <Section2 extraAddons={this.state.extraAddons} item={this.state.item} allProducts={this.props.allProducts} changeCrust={this.changeCrust} toppings={this.state.toppings} addTopping={this.addTopping} deleteTopping={this.deleteTopping}/>
+                    <Section1 pizzaSize={pizzaSize} price={price} extraAddons={extraAddons} crust={crust} extraAddonsPrice={extraAddonsPrice} size={size} item={item}/>
+                    <Section2 extraAddons={extraAddons} item={item} addTopping={addTopping} crust={crust} setCrust={setCrust} deleteTopping={deleteTopping}/>
                 </>
             }
-            {this.state.showItem && this.state.item.type !='PIZZA' &&
+            {showItem && item.type !='PIZZA' &&
                 <>  
-                    <Section1Item price={this.state.price} extraAddons={this.state.extraAddons} extraAddonsPrice={this.state.extraAddonsPrice} size={this.state.size} item={this.state.item} allProducts={this.props.allProducts} addProduct={this.props.addProduct}/>
+                    <Section1Item pizzaSize={pizzaSize} size={size} price={price} item={item}/>
                  </>
             }
            
            
-            <Section3 mostOrdered={this.props.mostOrdered} allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote}/>
+            <Section3/>
 
         </div>
-    );}
+    );
 }
 
 export default Details;

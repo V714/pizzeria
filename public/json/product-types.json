@@ -1,0 +1,37 @@
+[
+    {
+        "key":"PIZZA",
+        "label":"Pizza",
+        "imgPath":"/images/pizza.svg"
+    },
+    {
+        "key":"VEGAN",
+        "label":"Vegan",
+        "imgPath":"/images/vegan.svg"
+    },
+    {
+        "key":"RISOTTO",
+        "label":"Risotto",
+        "imgPath":"/images/risotto.svg"
+    },
+    {
+        "key":"BURGER",
+        "label":"Burgers",
+        "imgPath":"/images/burgers.svg"
+    },
+    {
+        "key":"RIB",
+        "label":"Spare Ribs",
+        "imgPath":"/images/spareribs.svg"
+    },
+    {
+        "key":"DRINK",
+        "label":"Drinks",
+        "imgPath":"/images/drinks.svg"
+    },
+    {
+        "key":"FISH",
+        "label":"Fish",
+        "imgPath":"/images/fish.svg"
+    }
+]

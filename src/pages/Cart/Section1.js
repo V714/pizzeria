@@ -1,60 +1,54 @@
-import react from "react";
-import CartItem from '../Items/CartItem';
-import ModalDelivery from "../../Modals/Delivery";
-import ModalCheckout from "../../Modals/Checkout";
+import react, { useEffect, useState } from "react";
+import CartItem from '../../items/CartItem';
 
 import Modal from 'react-modal';
+import { useSelector } from "react-redux";
+import ModalDelivery from "../../modals/Delivery";
+import ModalCheckout from "../../modals/Checkout";
+import { cartPrice } from "../../functions/cart";
 Modal.setAppElement('#root')
 
 
-class Section1 extends react.Component{
-    constructor(props){
-        super(props)
-        this.state={
-            modalIsOpenDeli: false,
-            modalIsOpenChck: false,
-            delivery: true
-        }
+function Section1(){
+    const [modalIsOpenChck,setModalIsOpenChck] = useState(false)
+    const [modalIsOpenDeli,setModalIsOpenDeli] = useState(false)
+    const [delivery,setDelivery] = useState(true)
+    const [price,setPrice] = useState(0)
+
+    const lang = useSelector(state=>state.language)
+    const products = useSelector(state=>state.cart)
+    const allProducts = useSelector(state=>state.products)
+
+    useEffect(()=>{
+        setPrice(parseFloat(cartPrice(allProducts,products)))
+    },[])
+
+    const closer = () => {
+        setModalIsOpenChck(false)
+        setModalIsOpenDeli(false)
     }
 
-    changeDelivery = (delivery) => {
-        this.setState({delivery: delivery})
-    }
 
-    closer = () => {
-        this.setState({modalIsOpenDeli: false, modalIsOpenChck: false})
-    }
-
-    render(){
     return(
         <div className="section1-item">
-            {this.props.products.length > 0 && <div className="section1-item-inner">
-                <div className="page-links">
+            {products.length > 0 && <div className="section1-item-inner">
+                {/* <div className="page-links">
                     <ul>
                         <li><a href="home">Home</a></li>
                         <li><a className="actual"><img src="images/right-vector.svg"/>Shopping Cart</a></li>
                     </ul>
-                </div>
+                </div> */}
 
                 <div className="s1-cart">
                     <div className="s1-cart-left">
-                        <div className="s1-cart-left-title">Shopping Cart</div>
+                        <div className="s1-cart-left-title">{lang.cart.shopping_cart}</div>
 
                         <div className="s1-cart-left-list">
 
-                                {this.props.products &&
-					            this.props.products.map((item,index) => (
-                                <CartItem products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} deleteProduct={this.props.deleteProduct}
-                                number={index}
-                                id={item.id}
-                                name={item.name}
-                                price={item.price}
-                                note={item.note}
-								  symbol={item.coin_symbol}
-								  image={item.imgPath} 
-								  quantity={item.quantity}
-                                  extras={item.extras}/>
-                                ))}
+                            {products && products.map(item => {
+                                const product = allProducts.find(_item => _item.id === item.id)
+                                return(<CartItem lang={lang} item={item} product={product}/>)
+                                })}
 
                         </div>
                     </div>
@@ -63,21 +57,21 @@ class Section1 extends react.Component{
                         <div className="s1-cart-right-inner">
                             <div className="s1-cart-delivery">
                                 <div className="s1-cart-delivery-info">
-                                    <img src={this.state.delivery ? "images/delivery.svg" : "images/pickup.svg"}/> {this.state.delivery ? "Delivery Order" : "Pickup Order"}
+                                    <img src={delivery ? "images/delivery.svg" : "images/pickup.svg"}/> {delivery ? "Delivery Order" : "Pickup Order"}
                                 </div>
-                                <button id="change_delivery" className="delivery-change-button" onClick={() => this.setState({modalIsOpenDeli: true})}>Change</button>
+                                <button id="change_delivery" className="delivery-change-button" onClick={() => setModalIsOpenDeli(true)}>{lang.cart.change}</button>
                             </div>
                             <div className="s1-cart-summary">
-                                <div className="s1-cart-summary-title">Payment Summary</div>
+                                <div className="s1-cart-summary-title">{lang.cart.payment_summary}</div>
                                 <div className="s1-cart-summary-price">
-                                    <div className="s1-cart-summary-price-left">Price ({this.props.products.length} items)</div>
-                                    <div className="s1-cart-summary-price-right">€ {this.props.totalPrice}</div>
+                                    <div className="s1-cart-summary-price-left">{lang.cart.price} ({products.length} {lang.cart.items_quantity})</div>
+                                    <div className="s1-cart-summary-price-right">{lang.currency} {price.toFixed(2)}</div>
                                 </div>
                                 <div className="s1-cart-summary-total">
-                                    <div className="s1-cart-summary-total-left">Total</div>
-                                    <div className="s1-cart-summary-total-right">€ {this.props.totalPrice+ (this.state.delivery ? this.props.deliveryPrice : 0)}</div>
+                                    <div className="s1-cart-summary-total-left">{lang.cart.total}</div>
+                                    <div className="s1-cart-summary-total-right">{lang.currency} {(price + (delivery ? 3.99 : 0)).toFixed(2)}</div>
                             </div>
-                            <button id="checkoutNow" className="checkout-now-button" onClick={() => this.setState({modalIsOpenChck: true})} >Checkout Now</button>
+                            <button id="checkoutNow" className="checkout-now-button" onClick={() => setModalIsOpenChck(true)} >{lang.cart.checkout_now}</button>
                         </div>
                     </div>
                 </div>
@@ -88,63 +82,20 @@ class Section1 extends react.Component{
         </div>
 
 }
-{this.props.products.length <= 0 && <div className="section1-item-inner">
+{products.length <= 0 && <div className="section1-item-inner">
     <div className="s1-cart" style={{justifyContent: "center"}}>
                     <div className="s1-cart-left">
-                        <div className="s1-cart-left-title">Shopping Cart is Empty</div>
+                        <div className="s1-cart-left-title">{lang.cart.cart_empty}</div>
 </div></div></div>
 
 
 }
-
-        <Modal 
-        isOpen={this.state.modalIsOpenDeli} 
-        shouldCloseOnOverlayClick={true} 
-        onRequestClose={() => this.closer()}
-        closeTimeoutMS={350}
-        className={"delivery-modal"}
-        style={{
-          overlay: {
-            position: 'fixed',
-            transition: 'all 0.4s ease-in-out',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-            zIndex: 9999
-          }
-        }}>
-            <ModalDelivery allProducts={this.props.allProducts} delivery={this.state.delivery} changeDelivery={this.changeDelivery} closer = { this.closer }/>
-      </Modal>
-
-
-      <Modal 
-        isOpen={this.state.modalIsOpenChck} 
-        shouldCloseOnOverlayClick={true} 
-        onRequestClose={() => this.closer()}
-        closeTimeoutMS={350}
-        className={"checkoutNow-modal"}
-        style={{
-          overlay: {
-            position: 'fixed',
-            transition: 'all 0.4s ease-in-out',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-            zIndex: 9999
-          }
-        }}>
-            <ModalCheckout couponError={this.props.couponError} waitCheckoutResponse={this.props.waitCheckoutResponse} getOrderPrice={this.props.getOrderPrice} allProducts={this.props.allProducts} deliveryPrice={this.props.deliveryPrice} delivery={this.state.delivery} address={this.props.address} changeAddress={this.props.changeAddress} closer = { this.closer }/>
-      </Modal>
-
-
+    <ModalDelivery lang={lang} modalIsOpenDeli={modalIsOpenDeli} closer={closer} delivery={delivery} setDelivery={setDelivery}/>
+    <ModalCheckout lang={lang} allproducts={products} closer={closer} modalIsOpenChck={modalIsOpenChck} delivery={delivery}/>
      
 
         </div>
-    );}
+    );
 }
 
 export default Section1;

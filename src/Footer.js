@@ -1,31 +1,23 @@
-import react from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
-
-import ModalFeedback from './Modals/Feedback';
+import ModalFeedback from './modals/Feedback.js';
 import Modal from 'react-modal';
 
 Modal.setAppElement('#root')
 
-class Footer extends react.Component {
-    constructor(props){
-        super(props)
-        this.state={
-            modalIsOpenFeed: false
-        }
+function Footer(){
+    const [modalIsOpenFeed, setModalIsOpenFeed] = useState(false)
+    const lang = useSelector(state => state.language)
+    const closer = () => {
+        setModalIsOpenFeed(false)
     }
-    closer = () => {
-        this.setState({modaIsOpenFeed: false})
-    }
-
-    render(){
-    return(
-    <div className="foot">
-        <div className="foot-left">
-            <div className="foot-left-title"> RIANO</div>
+    return(<>
+        {lang.footer && 
+            <div className="foot"> <div className="foot-left">
+            <div className="foot-left-title">{lang.name}</div>
             <div className="foot-left-description">
-                we provide fast food with premium
-                goods and fast and safe delivery. we are
-                also accept payments in crypto.
+                {lang.footer.description}
             </div>
             <div className="foot-left-socials">
                 <a><img src="images/instagram.svg"/></a>
@@ -34,27 +26,27 @@ class Footer extends react.Component {
             </div>
         </div>
         <div className="foot-right">
-            <div className="foot-right-about">About
-                <a href="uber">Uber Uns</a>
-                <a href="home#section2">Features</a>
-                <a id="news-href">News</a>
+            <div className="foot-right-about">{lang.footer.about}
+                <a href="uber">{lang.footer.about_us}</a>
+                <a href="home#section2">{lang.footer.features}</a>
+                <a id="news-href">{lang.footer.news}</a>
             </div>
-            <div className="foot-right-support">Support
-                <a id="feedback" onClick={() => this.setState({modaIsOpenFeed: true})} >Feedback</a>
-                <a href="home#section5">Kontakt</a>
-                <a>Cookies Information</a>
+            <div className="foot-right-support">{lang.footer.support}
+                <a id="feedback" onClick={() => setModalIsOpenFeed(true)} >{lang.footer.feedback}</a>
+                <a href="home#section5">{lang.footer.contact}</a>
+                <a>{lang.footer.cookies}</a>
             </div>
-            <div className="foot-right-touch">Get in Touch
-                <a id="question" onClick={() => this.setState({modaIsOpenFeed: true})} >Question or feedback?</a>
-                <a>We'd love to hear from you</a>
+            <div className="foot-right-touch">{lang.footer.get_in_touch}
+                <a id="question" onClick={() => setModalIsOpenFeed(true)} >{lang.footer.question_or_feedback}</a>
+                <a>{lang.footer.hear_from_you}</a>
             </div>
         </div>
 
 
         <Modal 
-        isOpen={this.state.modaIsOpenFeed} 
+        isOpen={modalIsOpenFeed} 
         shouldCloseOnOverlayClick={true} 
-        onRequestClose={() => this.closer()}
+        onRequestClose={() => closer()}
         closeTimeoutMS={350}
         className={"feedback-modal"}
         style={{
@@ -69,10 +61,10 @@ class Footer extends react.Component {
             zIndex: 9999
           }
         }}>
-        <ModalFeedback closer = {this.closer} />
-      </Modal>
-    </div>
-    );}
+        <ModalFeedback closer = {closer} />
+      </Modal></div>}
+    </>
+    )
 }
 
 export default Footer;

@@ -1,40 +1,34 @@
-import react from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
-class Section1 extends react.Component{
+const Section1 = () => {
+    const lang = useSelector(state=>state.language)
 
-    constructor(props){
-        super(props)
-        this.state = {
-            value: ''
-        }
-    }
+    const [value,setValue] = useState('')
     
-    changeSearchValue = (value) => {
-        this.setState({
-            value: value
-        })
+    const changeSearchValue = (v) => {
+        setValue(v)
     }
-    _handleKeyDown = (e) => {
+    const _handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             window.location.href=`/search?searchValue=${e.target.value}`
         }
       }
-    websiteForward = (value) => {
-        window.location.href=`/search?searchValue=${value}`
+    const websiteForward = (v) => {
+        window.location.href=`/search?searchValue=${v}`
     }
 
-    render(){
     return(
         <div className="section1">
         <div className="section1-inner">
-            <div className="s1-title">Bestelle jetzt, ein Stück Happiness</div>
-            <div className="s1-description">Hab Sonne im Herzenund Pizza im Bauch.Dann bist du glücklichund satt bist du auch.</div>
+            <div className="s1-title">{lang.home.section1bold}</div>
+            <div className="s1-description">{lang.home.section1thin}</div>
             <div className="search-box">
                 <div className="search-box-field">
                     <img src="images/search.svg"/>
-                    <input className="search-input" type="search" value={this.state.value} onKeyDown={(e) => {this._handleKeyDown(e)}} onChange={(e) => this.changeSearchValue(e.target.value)}  placeholder="Suche deine Lieblingspizza..."/>
+                    <input className="search-input" type="search" value={value} onKeyDown={(e) => {_handleKeyDown(e)}} onChange={(e) => changeSearchValue(e.target.value)}  placeholder={lang.home.section1input}/>
                 </div>
-            <button className="search-button" onClick={(e) => {this.websiteForward(this.state.value)}} >Search</button>
+            <button className="search-button" onClick={(e) => {websiteForward(value)}} >{lang.home.section1button}</button>
             </div>
             <div id="bitcoin">
                 <img src="images/btc.svg"/>
@@ -42,7 +36,7 @@ class Section1 extends react.Component{
         </div>
         <img className="pizza" src="images/pizza.webp"/>
     </div>
-    );}
+    );
 }
 
 export default Section1;

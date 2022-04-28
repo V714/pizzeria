@@ -1,72 +1,56 @@
-import react from "react";
+import react, { useEffect, useState } from "react";
+import { NotificationManager } from "react-notifications";
+import { useDispatch, useSelector } from "react-redux";
+import { addProductToCart } from "../../functions/cart";
+import { addToCart } from "../../redux/slices/cartSlice";
+import { initCart } from "../../redux/slices/cartSlice"
 
 
-class Section1 extends react.Component{
-    constructor(props){
-        super(props)
-        this.state={
-            note: '',
-        }
+function Section1(props){
+    const [note, setNote] = useState('')
+    const lang = useSelector(state=>state.language)
+    const dispatch = useDispatch()
+
+    const typeNote = (e) => {
+        setNote(e.target.value)
     }
-
-    componentDidMount = () => {
-        this.props.pizzaSize(this.props.size)
-    }
-
-    typeNote = (e) => {
-        this.setState({note: e.target.value})
-    }
-
     
-    selectButtonStyle = (size) => {
-        if(this.props.size === size){return "size-button picked-size"}
+    const selectButtonStyle = (size) => {
+        if(props.size === size){return "size-button picked-size"}
         else{return "size-button"}
     }
 
-    addToCart = () => {
+    const aaddToCart = () => {
         let extrasIds = []
-        this.props.extraAddons.map(item => {for(var i=0; i < item.quantity; i++){extrasIds.push(item.id)}})
-        this.props.addProduct({
-            id: this.props.item.id,
-            name: this.props.item.name,
-            image: this.props.item.imgPath,
-            price: this.props.price,
-            note: this.state.note,
-            quantity: 1,
-            extras: this.props.size+', '+this.props.extraAddons.map(item => (item.name+', ')),
-            extraAddonsIds: extrasIds,
-            size: this.state.size,
-            sizeId: this.props.item.sizes.filter(item => item.size === this.props.size)[0].sizeId,
-            type: 'Product'})
-    }
+        props.extraAddons.map(_item => {for(var i=0; i < _item.quantity; i++){extrasIds.push(_item.id)}})
+        addProductToCart(dispatch,addToCart,initCart,props.item,props.size,props.price,NotificationManager,extrasIds,note,props.crust)
+    }   
 
-
-    render(){
     return(
         <>
-        {this.props.item && 
+        {props.item && 
             <>
             <div className="menu-section1-inner">
             <div className="detail-section1-inner">
             
                 <div className="triple-head">
                     <div className="triple-head-details">
-                        <div className="triple-head-details-title">Details</div>
+                        <div className="triple-head-details-title">{lang.details.section1details}</div>
                         <div className="triple-head-details-line"></div>
                         <div className="triple-head-details-info">
-                            <div className="triple-head-details-info-star"><img src="images/star.svg"/>{this.props.item.rating}</div>
+                            <div className="triple-head-details-info-star"><img src="images/star.svg"/>{props.item.rating}</div>
                             <div className="triple-head-details-info-element"><img src="images/clock.svg"/>30min</div>
                             <div className="triple-head-details-info-element"><img src="images/kcal.svg"/>700 kCal</div>
                         </div>
-                        <div className="item-detail-text-smaller">{this.props.item.description}</div>
+                        <div className="item-detail-text-smaller">{props.item.description}</div>
                         
                     </div>
                     <div className="triple-head-title">
-                        <div className="triple-head-title-title">Meat Lovers</div>
+                        <div className="triple-head-title-title">{props.item.name}</div>
                         <div className="triple-head-title-size">
                             <div className="s3-item-size">
-                            {this.props.item.sizes && this.props.item.sizes.map(item => {
-                                return( <button onClick={() => this.props.pizzaSize(item.size)} className={this.selectButtonStyle(item.size)} >{item.size}{item.sizeType}</button>)
+                            {props.item.sizes && props.item.sizes.map(item => {
+                                return( <button onClick={() => props.pizzaSize(item.size)} className={selectButtonStyle(item.size)} >{item.size}{item.sizeType}</button>)
 
                              })}
                      </div>
@@ -78,36 +62,24 @@ class Section1 extends react.Component{
                         <div className="triple-head-price-head">
                             <div className="triple-head-price-head-left">
                                 <div className="triple-head-price-head-left-title">Price</div>
-                                <div className="triple-head-price-head-left-price">€ {this.props.price}</div>
+                                <div className="triple-head-price-head-left-price">{lang.currency} {parseFloat(props.price).toFixed(2)}</div>
                             </div>
                             <div className="s3-item-cart">
                             </div>
                         </div>
                         <div className="add-note">
                             Add Note
-                            <input type="text" onChange={(e) => this.typeNote(e)} value={this.state.note} placeholder="ex. add more chilli"/>
+                            <input type="text" onChange={(e) => typeNote(e)} value={note} placeholder="ex. add more chilli"/>
                         </div>
-                        <button onClick={() => this.addToCart()}
+                        <button onClick={() => aaddToCart()}
             
             className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
                     </div>
                 </div>
                 <div className="pizza-rotate">
-                    {/* <img id="pizza_size" src={this.props.item.imgPath}/> */}
-                    <img id="pizza_size" src="./images/pizza.webp"/> 
-                    <div className="pizza-element pe1">
-                        <div className="pizza-element-box">Crispy Crust</div>
-                        <div className="pizza-element-dots"></div>
-                    </div>
-                    {this.props.toppings &&
-                    this.props.addons.map((item,index) => 
-
-                        <div className={'pizza-element pe'+(index+2).toString() }>
-                            <div className="pizza-element-box">{item.name}</div>
-                            <div className="pizza-element-dots"></div>
-                        </div>
+                    {/* <img id="pizza_size" src={props.item.imgPath}/> */}
+                    <img id="pizza_size" src={props.item.imgPath}/> 
                     
-                    )}
                     
                 </div>
                 
@@ -115,6 +87,6 @@ class Section1 extends react.Component{
         </div>
         </>}</>
     );
-}}
+}
 
 export default Section1;

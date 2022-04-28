@@ -1,12 +1,10 @@
-import react from "react";
-import ProductItem from "../Items/ProductItem";
+import { useSelector } from "react-redux";
+import ProductItem from "../../items/ProductItem";
 
- class Section2 extends react.Component{
-    constructor(props){
-        super(props)
-    }
+ function Section2 (){
 
-    render(){
+    const allProducts = useSelector(state=>state.products)
+
     return(
         <div className="section2">
         <div className="section2-inner">
@@ -17,42 +15,23 @@ import ProductItem from "../Items/ProductItem";
                     <div className="s2-head-left-description">There are some menus that are recommended and mandatory for you to try</div>
                 </div>
                 <div className="uber-s2-head-right">
-                    <div className="paginate-items">
+                    {/* <div className="paginate-items">
                         <button id="left_scroll1" className="circle1"><img id="paginate_left1" src="images/scroll-left-dis.svg"/></button>
                         <button id="right_scroll1" className="circle2"><img id="paginate_right1" src="images/scroll-right.svg"/></button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="s22-items">
-               
-            {
-                this.props.mostOrdered &&
-
-            this.props.mostOrdered.map(item => {return(
-                <li key={item.id}>
-                <ProductItem
-                products={this.props.products}
-                    addProduct={this.props.addProduct}                        
-                    changeNote={this.props.changeNote}                       
-                    id={item.id}                        
-                    name={item.name}                         
-                    image={item.imgPath}                         
-                    sizes={item.sizes}                    
-                    rating={item.rating}                 
-                    description={item.description}
-                />
-            </li>)
-            })
-            
-                        
-                    }
+            {allProducts.filter(item => item.type=="PIZZA").map((item,index) => (
+                            <ProductItem key={index} item={item}/>
+                        ))}
                     
                 
 
             </div>
         </div>
     </div>
-    );}
+    );
 }
 
 export default Section2;

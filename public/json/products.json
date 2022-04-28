@@ -1,0 +1,355 @@
+[
+    {
+        "id":"dsa-123",
+        "name":"Margaritta",
+        "imgPath":"/images/pizza.webp",
+        "sizes":[
+            {
+                "size":"30",
+                "sizeType":"CM",
+                "price":"5.99",
+                "id":"dsa-123-01"
+            },
+            {
+                "size":"35",
+                "sizeType":"CM",
+                "price":"6.99",
+                "id":"dsa-123-02"
+            },
+            {
+                "size":"45",
+                "sizeType":"CM",
+                "price":"8.99",
+                "id":"dsa-123-03"
+            }
+        ],
+        "time":"25",
+        "kcal":"350",
+        "rating":"4.7",
+        "description":"Tasty simple pizza.",
+        "type":"PIZZA",
+        "extraAddons":[
+            {"id":"top-111","name":"Salami","price":"1.99","imgPath":"/images/salami.svg","type":"top"},
+            {"id":"top-113","name":"Pepperoni","price":"1.99","imgPath":"/images/pepperoni.svg","type":"top"},
+            {"id":"top-112","name":"Bacon","price":"2.99","imgPath":"/images/bacon.svg","type":"top"},
+            {"id":"top-121","name":"Cheeeesee","price":"2.99","imgPath":"/images/cheese.svg","type":"top"},
+            {"id":"sauce-121","name":"Mayonnaise","price":"2.99","imgPath":"/images/mayonnaise.svg","type":"sauce"},
+            {"id":"sauce-122","name":"Chilli Sauce","price":"2.99","imgPath":"/images/chilli.svg","type":"sauce"},
+            {"id":"sauce-123","name":"Black Pepper","price":"2.99","imgPath":"/images/blackpepper.svg","type":"sauce"},
+            {"id":"sauce-124","name":"Pizza Sauce","price":"2.99","imgPath":"/images/pizza-sauce.svg","type":"sauce"}
+        ],
+        "crust":[
+            {"id":"cr1","name":"Default","price":"0"},
+            {"id":"cr2","name":"Crispy","price":"2.00"},
+            {"id":"cr3","name":"Stuffed Crust Cheese","price":"5.00"},
+            {"id":"cr4","name":"Crown Crust","price":"5.00"},
+            {"id":"cr5","name":"Pan Pizza","price":"5.00"},
+            {"id":"cr6","name":"Filled Chili Mozzarella","price":"5.00"},
+            {"id":"cr7","name":"Cheese Burst","price":"5.00"},
+            {"id":"cr8","name":"Double Cheese Burst","price":"5.00"}
+        ]
+    },
+    {
+        "id":"dsa-124",
+        "name":"Margaritta Plus",
+        "imgPath":"/images/pizza.webp",
+        "sizes":[
+            {
+                "size":"33",
+                "sizeType":"CM",
+                "id":"dsa-124-01",
+                "price":"8.99"
+            },
+            {
+                "size":"39",
+                "sizeType":"CM",
+                "id":"dsa-124-02",
+                "price":"9.99"
+            },
+            {
+                "size":"55",
+                "sizeType":"CM",
+                "id":"dsa-124-03",
+                "price":"12.99"
+            }
+        ],
+        "time":"45",
+        "kcal":"300",
+        "rating":"5.0",
+        "description":"Tasty simple GIGA pizza.",
+        "type":"PIZZA",
+        "extraAddons":[
+            {"id":"top-111","name":"Salami","price":"1.99","imgPath":"/images/salami.svg","type":"top"},
+            {"id":"top-113","name":"Pepperoni","price":"1.99","imgPath":"/images/pepperoni.svg","type":"top"},
+            {"id":"top-112","name":"Bacon","price":"2.99","imgPath":"/images/bacon.svg","type":"top"},
+            {"id":"top-121","name":"Cheeeesee","price":"2.99","imgPath":"/images/cheese.svg","type":"top"},
+            {"id":"sauce-121","name":"Mayonnaise","price":"2.99","imgPath":"/images/mayonnaise.svg","type":"sauce"},
+            {"id":"sauce-122","name":"Chilli Sauce","price":"2.99","imgPath":"/images/chilli.svg","type":"sauce"},
+            {"id":"sauce-123","name":"Black Pepper","price":"2.99","imgPath":"/images/blackpepper.svg","type":"sauce"},
+            {"id":"sauce-124","name":"Pizza Sauce","price":"2.99","imgPath":"/images/pizza-sauce.svg","type":"sauce"}
+        ],
+        "crust":[
+            {"id":"cr1","name":"Default","price":"0"},
+            {"id":"cr2","name":"Crispy","price":"2.00"},
+            {"id":"cr3","name":"Stuffed Crust Cheese","price":"5.00"},
+            {"id":"cr4","name":"Crown Crust","price":"5.00"},
+            {"id":"cr5","name":"Pan Pizza","price":"5.00"},
+            {"id":"cr6","name":"Filled Chili Mozzarella","price":"5.00"},
+            {"id":"cr7","name":"Cheese Burst","price":"5.00"},
+            {"id":"cr8","name":"Double Cheese Burst","price":"5.00"}
+        ]
+    },
+    {
+        "id":"pck-123",
+        "name":"Simple Pack",
+        "imgPath":"/images/aitem1.webp",
+        "price":"4.99",
+        "rating":"4.8",
+        "description":"Burger and french fries.",
+        "type":"PACKAGE"
+    },
+    {
+        "id":"pck-133",
+        "name":"Medium Package",
+        "imgPath":"/images/aitem2.webp",
+        "price":"15.99",
+        "rating":"4.3",
+        "description":"Pizza with french fries and drink.",
+        "type":"PACKAGE"
+    },
+    {
+        "id":"pck-143",
+        "name":"Family Pack",
+        "imgPath":"/images/aitem3.webp",
+        "price":"25.99",
+        "rating":"4.1",
+        "description":"Family size pizza + 4 drinks + 4x french fries.",
+        "type":"PACKAGE"
+    },
+    {
+        "id":"com-100",
+        "name":"Extra Combo",
+        "imgPath":"/images/combo1.webp",
+        "price":"9.99",
+        "rating":"4.3",
+        "description":"Pizza with french fries and drink.",
+        "type":"COMBO"
+    },
+    {
+        "id":"com-101",
+        "name":"Extra Combo 2",
+        "imgPath":"/images/combo2.webp",
+        "price":"19.99",
+        "rating":"4.3",
+        "description":"Pizza with french fries and drink.",
+        "type":"COMBO"
+    },
+    {
+        "id":"com-102",
+        "name":"Extra Combo SUPER",
+        "imgPath":"/images/combo3.webp",
+        "price":"29.99",
+        "rating":"4.3",
+        "description":"Pizza with french fries and drink.",
+        "type":"COMBO"
+    },
+    {
+        "id":"dsa-223",
+        "name":"Risotto",
+        "imgPath":"/images/risotto.webp",
+        "sizes":[
+            {
+                "size":"300",
+                "sizeType":"ml",
+                "price":"3.99",
+                "id":"dsa-223-01"
+            },
+            {
+                "size":"400",
+                "sizeType":"ml",
+                "price":"4.99",
+                "id":"dsa-223-02"
+            }
+        ],
+        "time":"15",
+        "kcal":"250",
+        "rating":"3.2",
+        "description":"Tasty Risotto.",
+        "type":"RISOTTO"
+    },
+    {
+        "id":"ba-225",
+        "name":"HUGE Burger",
+        "imgPath":"/images/burger2.webp",
+        "sizes":[
+            {
+                "size":"550",
+                "sizeType":"mg",
+                "price":"12.99",
+                "id":"ba-225-01"
+            },
+            {
+                "size":"650",
+                "sizeType":"mg",
+                "price":"14.99",
+                "id":"ba-225-02"
+            }
+        ],
+        "time":"25",
+        "kcal":"1250",
+        "rating":"4.7",
+        "description":"The best burger you ever seen!.",
+        "type":"BURGER"
+    },
+    {
+        "id":"ba-223",
+        "name":"Cheese Burger",
+        "imgPath":"/images/burger3.webp",
+        "sizes":[
+            {
+                "size":"400",
+                "sizeType":"mg",
+                "price":"6.99",
+                "id":"ba-223-01"
+            },
+            {
+                "size":"500",
+                "sizeType":"mg",
+                "price":"7.99",
+                "id":"ba-223-02"
+            }
+        ],
+        "time":"15",
+        "kcal":"2150",
+        "rating":"5.0",
+        "description":"mmm cheeseee.",
+        "type":"BURGER"
+    },
+    {
+        "id":"ba-224",
+        "name":"Big Burger",
+        "imgPath":"/images/burger.webp",
+        "sizes":[
+            {
+                "size":"500",
+                "sizeType":"mg",
+                "price":"6.99",
+                "id":"ba-224-01"
+            },
+            {
+                "size":"600",
+                "sizeType":"mg",
+                "price":"7.99",
+                "id":"ba-224-02"
+            }
+        ],
+        "time":"25",
+        "kcal":"7250",
+        "rating":"4.7",
+        "description":"Burger, delicious burger!.",
+        "type":"BURGER"
+    },
+    {
+        "id":"ba-225",
+        "name":"Burgier",
+        "imgPath":"/images/burger4.webp",
+        "sizes":[
+            {
+                "size":"550",
+                "sizeType":"mg",
+                "price":"8.99",
+                "id":"ba-225-01"
+            },
+            {
+                "size":"650",
+                "sizeType":"mg",
+                "price":"9.99",
+                "id":"ba-225-02"
+            }
+        ],
+        "time":"25",
+        "kcal":"7250",
+        "rating":"4.7",
+        "description":"burgier!.",
+        "type":"BURGER"
+    },
+    {
+        "id":"vsa-223",
+        "name":"Vegan Salad",
+        "imgPath":"/images/vegan.webp",
+        "time":"5",
+        "kcal":"200",
+        "rating":"4.6",
+        "description":"Tasty Vegan Salaaad.",
+        "type":"VEGAN",
+        "price":"8.99"
+    },
+    {
+        "id":"ssa-223",
+        "name":"Spare Ribs",
+        "imgPath":"/images/spare.webp",
+        "time":"95",
+        "kcal":"1200",
+        "rating":"1.6",
+        "description":"Mmmm just try it!",
+        "type":"RIB",
+        "price":"10.54"
+    },
+    {
+        "id":"vsa-224",
+        "name":"Vegan Salad Extra",
+        "imgPath":"/images/vegan2.webp",
+        "time":"5",
+        "kcal":"250",
+        "rating":"5.0",
+        "description":"THE BEST SALAD EVER BRO.",
+        "type":"VEGAN",
+        "price":"12.99"
+    },
+    {
+        "id":"rsa-224",
+        "name":"Fish Dish",
+        "imgPath":"/images/fish.webp",
+        "time":"45",
+        "kcal":"526",
+        "rating":"3.9",
+        "description":"Fish - we just catch this one.",
+        "type":"FISH",
+        "price":"2.99"
+    },
+    {
+        "id":"rsa-225",
+        "name":"Fish Dish but Better",
+        "imgPath":"/images/fish2.webp",
+        "time":"315",
+        "kcal":"1426",
+        "rating":"5.01",
+        "description":"Fish - we barely catch that one.",
+        "type":"FISH",
+        "price":"22.99"
+    },
+    {
+        "id":"da-101",
+        "name":"Vodka",
+        "imgPath":"/images/vodka.webp",
+        "sizes":[
+            {
+                "size":"700",
+                "sizeType":"ml",
+                "price":"8.99",
+                "id":"da-101-01"
+            },
+            {
+                "size":"1",
+                "sizeType":"l",
+                "price":"9.99",
+                "id":"da-101-02"
+            }
+        ],
+        "time":"25",
+        "kcal":"0",
+        "rating":"9.99",
+        "description":"cheeky breeky",
+        "type":"DRINK"
+    }
+]
