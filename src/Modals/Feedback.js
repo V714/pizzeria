@@ -1,11 +1,30 @@
-import react from "react";
+import Modal from 'react-modal';
 
-class ModalFeedback extends react.Component{
-    render(){
+Modal.setAppElement('#root')
+
+function ModalFeedback (props){
     return(
-        <div class="modal-dialog">
+        <Modal 
+        isOpen={modalIsOpenFeed} 
+        shouldCloseOnOverlayClick={true} 
+        onRequestClose={() => props.closer()}
+        closeTimeoutMS={350}
+        className={"feedback-modal"}
+        style={{
+          overlay: {
+            position: 'fixed',
+            transition: 'all 0.4s ease-in-out',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            zIndex: 9999
+          }
+        }}>
+         <div class="modal-dialog">
         <div class="feedback-modal">
-            <button class="modal-x" onClick={() => this.props.closer()}><img src="images/x.svg"/></button>
+            <button class="modal-x" onClick={() => props.closer()}><img src="images/x.svg"/></button>
             <div class="feedback-modal-inner">
                 <div class="modal-title">Leave us some feedback!</div>
                 <div class="modal-feedback-title">Feedback</div>
@@ -21,13 +40,15 @@ class ModalFeedback extends react.Component{
                     </div>
                 </div>
                 <div class="modal-feedback-button">
-                    <button class="modal-feedback-send" onClick={() => this.props.closer()}>Send Feedback</button>
+                    <button class="modal-feedback-send" onClick={() => props.closer()}>Send Feedback</button>
                 </div>
             </div>
         </div>
     </div>
+      </Modal>
+       
      
-    );}
+    );
 }
 
 export default ModalFeedback;

@@ -2,9 +2,6 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import ModalFeedback from './modals/Feedback.js';
-import Modal from 'react-modal';
-
-Modal.setAppElement('#root')
 
 function Footer(){
     const [modalIsOpenFeed, setModalIsOpenFeed] = useState(false)
@@ -41,28 +38,9 @@ function Footer(){
                 <a>{lang.footer.hear_from_you}</a>
             </div>
         </div>
+            <ModalFeedback modalIsOpenFeed={modalIsOpenFeed} closer={closer}/>
 
-
-        <Modal 
-        isOpen={modalIsOpenFeed} 
-        shouldCloseOnOverlayClick={true} 
-        onRequestClose={() => closer()}
-        closeTimeoutMS={350}
-        className={"feedback-modal"}
-        style={{
-          overlay: {
-            position: 'fixed',
-            transition: 'all 0.4s ease-in-out',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-            zIndex: 9999
-          }
-        }}>
-        <ModalFeedback closer = {closer} />
-      </Modal></div>}
+        </div>}
     </>
     )
 }
