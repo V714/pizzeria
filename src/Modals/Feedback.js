@@ -5,7 +5,7 @@ Modal.setAppElement('#root')
 function ModalFeedback (props){
     return(
         <Modal 
-        isOpen={modalIsOpenFeed} 
+        isOpen={props.modalIsOpenFeed} 
         shouldCloseOnOverlayClick={true} 
         onRequestClose={() => props.closer()}
         closeTimeoutMS={350}
