@@ -15,8 +15,8 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 
 /* 
-import History from './pages/History';
-import Search from "./pages/Search"; */
+import History from './pages/History';*/
+import Search from "./pages/Search"; 
 
 
 import ReactGA from 'react-ga';
@@ -49,8 +49,8 @@ function Content (){
 
 
         <Route path="/home"><Home/></Route>
-        {/* <Route path="/search"><Search allProducts={this.props.allProducts} products={this.props.products} addProduct={this.props.addProduct} changeNote={this.props.changeNote} search={this.state.search} setSearch={this.setSearch}/></Route>
-        */}<Route path="/menu"><Menu /></Route>
+        <Route path="/search"><Search/></Route>
+        <Route path="/menu"><Menu /></Route>
        <Route path="/about"><About/></Route>
       </Switch>
       </div>

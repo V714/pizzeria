@@ -67,6 +67,7 @@ function Details(){
     },[extraAddons])
 
     useEffect(()=>{
+        
         if(crust===undefined)return 0;
         setCrustPrice(parseFloat(crust.price))
     },[crust])

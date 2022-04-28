@@ -30,9 +30,9 @@ const Section1 = () => {
                 </div>
             <button className="search-button" onClick={(e) => {websiteForward(value)}} >{lang.home.section1button}</button>
             </div>
-            <div id="bitcoin">
+            {/* <div id="bitcoin">
                 <img src="images/btc.svg"/>
-              </div>
+              </div> */}
         </div>
         <img className="pizza" src="images/pizza.webp"/>
     </div>
