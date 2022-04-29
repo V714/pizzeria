@@ -2,7 +2,7 @@ import react, { useEffect, useState } from 'react';
 
 function CheckoutItem (props){
     const [extras,setExtras]=useState([])
-    const [size,setSize]=useState("")
+    const [size,setSize]=useState({name:""})
     const [price,setPrice]=useState(0)
     const [extra,setExtra] = useState({})
     const [extraList,setExtraList] = useState([])
