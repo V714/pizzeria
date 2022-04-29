@@ -6,7 +6,6 @@ function SearchResults (props){
             <ul className="search-results">
                  {
                     props.products.map(product => {
-                        console.log(product)
                         return(<li key={product.id}>
                             <ProductItem item={product}/>
                         </li>)

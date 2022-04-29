@@ -15,12 +15,14 @@ function Details(){
     const [extraAddonsPrice,setExtraAddonsPrice] = useState(0)
     const [showItem,setShowItem] = useState(false)
     const [crust,setCrust] = useState(undefined)
+    const [itemFound,setItemFound] = useState(false)
     const [itemToPrint,setItemToPrint] = useState(<></>)
+
     const allProducts = useSelector(state=>state.products)
 
     useEffect(()=>{
          init();
-    },[])
+    },[allProducts])
 
     useEffect(()=>{
         setItemToPrint(printItem())
@@ -31,16 +33,13 @@ function Details(){
         const urlParams = new URLSearchParams(window.location.search);
         const queryID = urlParams.get('id');
         const querySIZE = urlParams.get('size');
-        while(!allProducts || allProducts.length===0){
-            console.log("Searching...")
-        }
-        console.log(allProducts)
         const product = allProducts.find(_item=>_item.id===queryID)
         if(querySIZE && product.sizes){
             if(product && product.sizes.find(item=>item.size===querySIZE)){
                 setItem(product)
                 setSize(querySIZE)
                 setShowItem(true)
+                setItemFound(true)
                 if(product.sizes){
                     setPrice(product.sizes.find(_item=>_item.size===querySIZE).price)
                 } else {
@@ -54,9 +53,10 @@ function Details(){
                 setItem(product)
                 setPrice(product.price)
                 setShowItem(true)
+                setItemFound(true)
             }
         }
-          
+        setShowItem(true)
     }
 
     const pizzaSize = (s) => {
@@ -123,9 +123,10 @@ function Details(){
         <div>
             {itemToPrint}
             {
-                showItem? <></>:<>
-                    <div id="search_box_div" style={{width:'100%',textAlign:"center", fontSize:"52px",fontFamily:"Playfair Display",color:"#523429",margin:"80px 0"}}>Product not found :(</div>
-        
+                showItem? <>{itemFound?<div id="search_box_div" style={{width:'100%',textAlign:"center", fontSize:"52px",fontFamily:"Playfair Display",color:"#523429",margin:"80px 0"}}>please wait...</div>
+                :<div id="search_box_div" style={{width:'100%',textAlign:"center", fontSize:"52px",fontFamily:"Playfair Display",color:"#523429",margin:"80px 0"}}>Product not found :(</div>
+                      }</>:<>
+                    
                 </>
             }
            

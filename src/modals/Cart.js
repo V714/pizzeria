@@ -13,7 +13,7 @@ export default function ModalCart (props){
 
     useEffect(()=>{
         if(props.products)setTotalPrice(cartPrice(allProducts,props.products))
-    },[props.products])
+    },[allProducts])
 
     return(
         <Modal 

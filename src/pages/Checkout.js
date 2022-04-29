@@ -21,12 +21,8 @@ export default function Checkout(){
     useEffect(()=>{
         if(products&&user)setCheckout(true)
         
-        while(!allProducts || allProducts.length===0){
-            console.log("Searching...")
-        }
-        console.log(allProducts)
         setPrice(cartPrice(allProducts,products))
-    },[])
+    },[allProducts])
 
     const closer = () => {
         setModalIsOpenChck(false)
