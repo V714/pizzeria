@@ -24,6 +24,11 @@ function Details(){
         init();
     },[])
 
+    const checkAllTheTime = () => {
+        init();
+        setTimeout(()=>{if(!showItem)checkAllTheTime()},1000) 
+    }
+
     useEffect(()=>{
         setItemToPrint(printItem())
     },[item,size,crust,extraAddons,price])
@@ -33,6 +38,7 @@ function Details(){
         const queryID = urlParams.get('id');
         const querySIZE = urlParams.get('size');
         const product = allProducts.find(_item=>_item.id===queryID)
+        if(querySIZE){
         if(product && product.sizes.find(item=>item.size===querySIZE)){
             setItem(product)
             setSize(querySIZE)
@@ -43,6 +49,11 @@ function Details(){
                 setPrice(product.price)
             }
             if(product.crust)setCrust(product.crust[0])
+        }}
+        else{
+            setItem(product)
+            setPrice(product.price)
+            setShowItem(true)
         }
           
     }
