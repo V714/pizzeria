@@ -15,11 +15,11 @@ export const cartPrice = (allProducts, products) => {
         {
             if(product.sizes)price +=parseFloat(product.sizes.find(_item => _item.id === item.option).price)
             else price += parseFloat(product.price)
-        }
-        if(item.extra){
-            item.extra.map(_item => {
-                price += parseFloat(product.extraAddons.find(aitem => aitem.id === _item).price)
-            })
+            if(item.extra&&product.extraAddons){
+                item.extra.map(_item => {
+                    price += parseFloat(product.extraAddons.find(aitem => aitem.id === _item).price)
+                })
+            }
         }
         
     })

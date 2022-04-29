@@ -14,7 +14,7 @@ function CheckoutItem (props){
             if(props.product.sizes)setSize(props.product.sizes.find(_item=>_item.id===props.item.option))
             _price = props.product.sizes ? parseFloat(props.product.sizes.find(_item => _item.id === props.item.option).price) : parseFloat(props.product.price)
             if(props.product.sizes)setSize(props.product.sizes.find(_item => _item.id === props.item.option))
-                if(props.item.extra){
+                if(props.item.extra&&props.product.extraAddons){
                     props.item.extra.map(_item => {
                         const __item = props.product.extraAddons.find(aitem => aitem.id === _item)
                         _price += parseFloat(__item.price)

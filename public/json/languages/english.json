@@ -157,7 +157,7 @@
     "payment":{
         "payment":"Payment",
         "choose_payment":"Choose Payment Method",
-        "crypto":"Cryptocurrency","crypto_desc":"Krypto in eine Pizza",
+        "crypto":"Cryptocurrency","crypto_desc":"Crypto into a pizza",
         "card":"Credit Card / Debit","card_desc":"Fast and 24/7",
         "klarna":"Klarna","klarna_desc":"Klarna Payment",
         "delivery":"Payment by Delivery","delivery_desc":"Pay when the food comes",

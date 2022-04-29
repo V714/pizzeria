@@ -247,8 +247,8 @@
     .user-data-detail-3{font-size: 14px;line-height: 15px;}
     #checkout_summary_div{width: 100% !important;}
     
-
-
+    .bitcoin-modal{margin-top: 20px;}
+    .bitcoin-modal-imgs{width: 50px;height: 50px;}
 
     #search_box_div{font-size: 32px !important;}
     .search-results{height: 450px;flex-direction: row;flex-wrap: nowrap;justify-content: flex-start;border-top: 2px solid #52342944;border-bottom: 2px solid #52342944;}
