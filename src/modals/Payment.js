@@ -119,7 +119,7 @@ function ModalPayment (props){
                                 </div> </> : <></>}
                             <div class="s1-cart-summary-total">
                                 <div class="s1-cart-summary-total-left">Total</div>
-                                <div class="s1-cart-summary-total-right">€ {parseFloat(props.price) + parseFloat((props.delivery? 3.99:0).toFixed(2))}</div>
+                                <div class="s1-cart-summary-total-right">€ {(parseFloat(props.price) + parseFloat((props.delivery? 3.99:0).toFixed(2))).toFixed(2)}</div>
                         </div>
                         <button id="payment_go" class="checkout-now-button" onClick={()=>{thanksfor()}}>Next</button>
                     </div>

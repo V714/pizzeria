@@ -16,6 +16,7 @@ function Details(){
     const [extraAddonsPrice,setExtraAddonsPrice] = useState(0)
     const [showItem,setShowItem] = useState(false)
     const [crust,setCrust] = useState(undefined)
+    const [itemToPrint,setItemToPrint] = useState(<></>)
 
     const allProducts = useSelector(state=>state.products)
 
@@ -23,12 +24,16 @@ function Details(){
         init();
     },[])
 
+    useEffect(()=>{
+        setItemToPrint(printItem())
+    },[item,size,crust,extraAddons,price])
+
     const init = async() => {
         const urlParams = new URLSearchParams(window.location.search);
         const queryID = urlParams.get('id');
         const querySIZE = urlParams.get('size');
         const product = allProducts.find(_item=>_item.id===queryID)
-        if(product){
+        if(product && product.sizes.find(item=>item.size===querySIZE)){
             setItem(product)
             setSize(querySIZE)
             setShowItem(true)
@@ -88,10 +93,8 @@ function Details(){
             setExtraAddons([...extraAddons, top])
         }
     }
-
-    return(
-        <div>
-            {showItem && item.type=='PIZZA' &&
+    const printItem = () => {
+        return(<>{showItem && item.type=='PIZZA' &&
                 <>
                     <Section1 pizzaSize={pizzaSize} price={price} extraAddons={extraAddons} crust={crust} extraAddonsPrice={extraAddonsPrice} size={size} item={item}/>
                     <Section2 extraAddons={extraAddons} item={item} addTopping={addTopping} crust={crust} setCrust={setCrust} deleteTopping={deleteTopping}/>
@@ -101,6 +104,17 @@ function Details(){
                 <>  
                     <Section1Item pizzaSize={pizzaSize} size={size} price={price} item={item}/>
                  </>
+            }</>)
+    }
+
+    return(
+        <div>
+            {itemToPrint}
+            {
+                showItem? <></>:<>
+                    <div id="search_box_div" style={{width:'100%',textAlign:"center", fontSize:"52px",fontFamily:"Playfair Display",color:"#523429",margin:"80px 0"}}>Product not found :(</div>
+        
+                </>
             }
            
            
