@@ -37,7 +37,7 @@ export default function CartItem(props){
         _extra.forEach(x => { counts[x] = (counts[x] || 0) + 1; });
         setExtra(counts)
         setPrice(_price.toFixed(2))
-    },[products])
+    },[products,props.product])
     const deleteCartItem = () => {
         removeProductFromCart(dispatch,initCart,products,props.item)
     }
