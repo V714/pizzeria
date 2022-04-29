@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CartItem from '../../items/CartItem';
 
 import Modal from 'react-modal';
@@ -31,7 +31,7 @@ function Section1(){
 
     return(
         <div className="section1-item">
-            {products.length > 0 && <div className="section1-item-inner">
+            {products && products.length > 0 && <div className="section1-item-inner">
                 {/* <div className="page-links">
                     <ul>
                         <li><a href="home">Home</a></li>
@@ -82,7 +82,7 @@ function Section1(){
         </div>
 
 }
-{products.length <= 0 && <div className="section1-item-inner">
+{products && products.length <= 0 && <div className="section1-item-inner">
     <div className="s1-cart" style={{justifyContent: "center"}}>
                     <div className="s1-cart-left">
                         <div className="s1-cart-left-title">{lang.cart.cart_empty}</div>

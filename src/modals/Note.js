@@ -6,6 +6,11 @@ Modal.setAppElement('#root')
 
 function ModalNote(props){
 
+  const changeNoteNow = () =>{
+    props.changeNote()
+    props.closer()
+  }
+
         return( <Modal 
         isOpen={props.modalIsOpenNote} 
         shouldCloseOnOverlayClick={true} 
@@ -34,7 +39,7 @@ function ModalNote(props){
                 <textarea class="modal-textarea" onChange={(e) => props.changeNoteProp(e)}>{props.note}</textarea>
                 
                 <div class="modal-feedback-button">
-                    <button class="modal-feedback-send" onClick={() => props.closer()}>Confirm</button>
+                    <button class="modal-feedback-send" onClick={() => changeNoteNow()}>Confirm</button>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ import ModalNote from "../modals/Note";
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { initCart } from '../redux/slices/cartSlice';
-import { removeProductFromCart } from '../functions/cart';
+import { changeOneNote, removeProductFromCart } from '../functions/cart';
 Modal.setAppElement('#root')
 
 export default function CartItem(props){
@@ -36,7 +36,6 @@ export default function CartItem(props){
         setExtra(counts)
         setPrice(_price.toFixed(2))
     },[])
-
     const deleteCartItem = () => {
         removeProductFromCart(dispatch,initCart,products,props.item)
     }
@@ -46,6 +45,9 @@ export default function CartItem(props){
     }
     const changeNoteProp = (e) => {
         setNote(e.target.value)
+    }
+    const changeNote = () => {
+        changeOneNote(dispatch,initCart,props.item,note)
     }
 
         return(<div className="cart-item-detail">
@@ -57,18 +59,18 @@ export default function CartItem(props){
             <div className="cart-item-detail-name">{props.product.name}  - {size.size}{size.sizeType} {props.item.crust && <>- {props.item.crust.name}</>}</div>
             <div className="cart-item-detail-price">€ {price}</div>
             <div className="cart-item-detail-note">
-                <div className="cart-item-detail-note-text">{note}</div>
-                <div className="cart-item-detail-note-text">
+                <div className="cart-item-detail-note-text">{note?<><b>Note: </b>{note}</>:''}</div>
+                <div className="cart-item-detail-note-text">{extraList[0]?<><b>Addons: </b> 
                     {extra && extraList.map(item=>{
                         return(
-                            extra[item]+'x '+item+', ')})}</div>
+                            ' '+extra[item]+'x '+item+', ')})}</>:''}</div>
                 </div>
         </div>
         <div className="cart-item-detail-quantity">
             <button onClick={() => deleteCartItem()}><img src="images/bin.svg"/></button>
             <div className="s3-item-cart">{""}</div>
         </div>
-        <ModalNote modalIsOpenNote={modalIsOpenNote} note={note} changeNoteProp={changeNoteProp} closer={closer}/>
+        <ModalNote changeNote={changeNote} modalIsOpenNote={modalIsOpenNote} note={note} changeNoteProp={changeNoteProp} closer={closer}/>
     </div>)
     
 }

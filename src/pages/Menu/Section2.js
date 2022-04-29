@@ -80,7 +80,7 @@ function Section2(){
                     <div className="s2-menu-left-text-small">{lang.menu.section2step3_desc}</div>
                 </div>
             </div>
-            <div className="s2-firme-items">
+            <div className="s2-items">
                 <ul>
                 {allPackages && 
                     allPackages.map((item,index) => (

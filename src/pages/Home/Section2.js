@@ -16,10 +16,10 @@ function Section2 (){
             {lang.home.section2right}
             </div>
         </div>
-        <div >
+        <div >{/* 
             <div className="mobile-paginate" >
                 <button id="left_scroll1" className="circle1"><img id="paginate_left1" src="images/scroll-left-dis.svg"/></button>       
-            </div>
+            </div> */}
             <div className="s2-items">
                 
                 <ul>
@@ -48,10 +48,10 @@ function Section2 (){
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div>{/* 
             <div className="mobile-paginate" >
                 <button id="right_scroll1" className="circle2"><img id="paginate_right1" src="images/scroll-right.svg"/></button>
-            </div>
+            </div> */}
          </div>
  </div>
 </div>

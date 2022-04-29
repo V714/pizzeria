@@ -17,10 +17,6 @@ function Section2 (){
                         <div className="uber-s2-head-left-description">{lang.about.section2indoor_desc}</div>
                     </div>
                     <div className="uber-s2-head-right">
-                        <div className="paginate-items">
-                            <button id="left_scroll1" className="circle1"><img id="paginate_left1" src="images/scroll-left-dis.svg"/></button>
-                            <button id="right_scroll1" className="circle2"><img id="paginate_right1" src="images/scroll-right.svg"/></button>
-                        </div>
                     </div>
                 </div>
                 <div className="gallery1">
@@ -34,10 +30,6 @@ function Section2 (){
                         <div className="uber-s2-head-left-description">{lang.about.section2outdoor_desc}</div>
                     </div>
                     <div className="uber-s2-head-right">
-                        <div className="paginate-items">
-                            <button id="left_scroll2" className="circle1"><img id="paginate_left2" src="images/scroll-left-dis.svg"/></button>
-                            <button id="right_scroll2" className="circle2"><img id="paginate_right2" src="images/scroll-right.svg"/></button>
-                        </div>
                     </div>
                 </div>
                 <div className="gallery2">

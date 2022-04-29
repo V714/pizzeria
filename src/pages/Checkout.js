@@ -89,7 +89,7 @@ export default function Checkout(){
                     </div>
                     </div>
 
-                    <div className="s1-cart-right">
+                    <div className="s1-cart-right" id="checkout_summary_div">
                         <div className="s1-cart-right-inner-checkout">
                             <div className="s1-cart-checkout">
                             <div className="s1-cart-delivery-info">
@@ -110,7 +110,7 @@ export default function Checkout(){
                                 
                                 <div className="s1-cart-summary-total">
                                     <div className="s1-cart-summary-total-left">{lang.cart.total}</div>
-                                    <div className="s1-cart-summary-total-right">{lang.currency} {parseFloat(price) + parseFloat((user.delivery? 3.99:0).toFixed(2))}</div>
+                                    <div className="s1-cart-summary-total-right">{lang.currency} {(parseFloat(price) + parseFloat((user.delivery? 3.99:0).toFixed(2))).toFixed(2)}</div>
                                     {/* <div className="s1-cart-summary-total-right">€ {this.state.orderItems.order.cart.totalPriceDiscounted}</div> */}
                             </div>
                             <button id="payment" className="checkout-now-button" onClick={() => setModalIsOpenPaym(true)}>{lang.cart.choose_payment}</button>

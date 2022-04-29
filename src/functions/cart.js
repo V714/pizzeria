@@ -9,7 +9,7 @@ export const checkCart = (dispatch,action,action2) => {
 
 export const cartPrice = (allProducts, products) => {
     let price = 0
-    products.map(item => {
+    if(products)products.map(item => {
         const product = allProducts.find(_item => _item.id === item.id)
         if(product.sizes)price += parseFloat(product.sizes.find(_item => _item.id === item.option).price)
         else price += parseFloat(product.price)
@@ -54,6 +54,14 @@ export const removeProductFromCart = (dispatch,action,products,item) => {
     const newCart = products.filter(_item => _item !== item)
     dispatch(action(newCart))
     localStorage.setItem("Cart", JSON.stringify(newCart));
+}
+
+export const changeOneNote = (dispatch,action,item,note) => {
+    let cart = JSON.parse(localStorage.getItem('Cart'))
+    let newCart = [...new Set(cart)];
+    newCart.find(_item=>JSON.stringify(_item) === JSON.stringify(item)).note = note
+    localStorage.setItem("Cart", JSON.stringify(newCart));
+    dispatch(action(newCart))
 }
 
 export const getOrderPrice = async(products,user,setWaitCheckoutResponse,deliveryType,status,setError) => {

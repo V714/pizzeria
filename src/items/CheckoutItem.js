@@ -31,14 +31,14 @@ function CheckoutItem (props){
             <div className="cart-item-detail-image"><img src={props.product.imgPath}/></div>
         </div>
         <div className="cart-item-detail-text">
-            <div className="cart-item-detail-name">{props.product.name} - {size.size}{size.sizeType} - {props.item.crust.name}</div>
-            <div className="cart-item-detail-price">€ {price}</div>
+            <div className="cart-item-detail-name">{props.product.name} - {size.size}{size.sizeType} {props.item.crust && <>- {props.item.crust.name}</>}</div>
+            <div className="cart-item-detail-price">€ {parseFloat(price).toFixed(2)}</div>
             <div className="cart-item-detail-note">
-                <div className="cart-item-detail-note-text">{props.item.note}</div>
-                <div className="cart-item-detail-note-text">
+                <div className="cart-item-detail-note-text">{props.item.note?<><b>Note: </b>{props.item.note}</>:''}</div>
+                <div className="cart-item-detail-note-text">{extraList[0]?<><b>Addons: </b>
                     {extra && extraList.map(item=>{
                         return(
-                            extra[item]+'x '+item+', ')})}</div>
+                            extra[item]+'x '+item+', ')})}</>:''}</div>
             </div>
         </div>
         {/* <div className="cart-item-detail-quantity">
