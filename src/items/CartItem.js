@@ -21,15 +21,17 @@ export default function CartItem(props){
     useEffect(()=>{
         setNote(props.item.note)
         let _extra = []
-        let _price = props.product.sizes ? parseFloat(props.product.sizes.find(_item => _item.id === props.item.option).price) : parseFloat(props.product.price)
-        if(props.product.sizes)setSize(props.product.sizes.find(_item => _item.id === props.item.option))
-            if(props.item.extra){
-                props.item.extra.map(_item => {
-                    const __item = props.product.extraAddons.find(aitem => aitem.id === _item)
-                    _price += parseFloat(__item.price)
-                    _extra.push(__item.name)
-                })
-            }
+        let _price = 0
+        if(props.product){
+            _price = props.product.sizes ? parseFloat(props.product.sizes.find(_item => _item.id === props.item.option).price) : parseFloat(props.product.price)
+            if(props.product.sizes)setSize(props.product.sizes.find(_item => _item.id === props.item.option))
+                if(props.item.extra){
+                    props.item.extra.map(_item => {
+                        const __item = props.product.extraAddons.find(aitem => aitem.id === _item)
+                        _price += parseFloat(__item.price)
+                        _extra.push(__item.name)
+                    })
+            }}
         let counts = {};
         setExtraList([...new Set(_extra)])
         _extra.forEach(x => { counts[x] = (counts[x] || 0) + 1; });
