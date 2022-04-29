@@ -44,8 +44,8 @@ function ModalPayment (props){
                     <button class="modal-x" onClick={() => props.closer()}><img src="images/x.svg"/></button>
             <div  id="payment_dialog" >
                     <div class="payment-modal-inner">
-                        <div class="delivery-modal-title">Payment</div>
-                        <div class="delivery-modal-title-small">Choose Payment Method</div>
+                        <div class="delivery-modal-title">{props.lang.payment.payment}</div>
+                        <div class="delivery-modal-title-small">{props.lang.payment.choose_payment}</div>
 
 
 
@@ -55,8 +55,8 @@ function ModalPayment (props){
                            <div class="delivery-option">
                                 <div class="delivery-image"><img src="images/crypto.svg"/></div>
                                 <div class="delivery-details">
-                                    <div class="delivery-details-title">Cryptocurrency</div>
-                                    <div class="delivery-details-description">Krypto in eine Pizza</div>
+                                    <div class="delivery-details-title">{props.lang.payment.crypto}</div>
+                                    <div class="delivery-details-description">{props.lang.payment.crypto_desc}</div>
                                 </div>
                                 <input type="radio" className='payment-radio-button' name="payment_option1" id="crypto_payment" value="crypto_payment" defaultChecked />
                             </div>
@@ -66,8 +66,8 @@ function ModalPayment (props){
                             <div class="delivery-option">
                                  <div class="delivery-image"><img src="images/kredit.svg"/></div>
                                  <div class="delivery-details">
-                                     <div class="delivery-details-title">Kredit Karte / Debit</div>
-                                     <div class="delivery-details-description">You Fast respon and 24/7</div>
+                                     <div class="delivery-details-title">{props.lang.payment.card}</div>
+                                     <div class="delivery-details-description">{props.lang.payment.card_desc}</div>
                                  </div>
                                  <input className='payment-radio-button' type="radio" name="payment_option1" id="kredit_payment" value="kredit_payment"  />
                              </div>
@@ -77,8 +77,8 @@ function ModalPayment (props){
                             <div class="delivery-option">
                                  <div class="delivery-image"><img src="images/klarna.svg"/></div>
                                  <div class="delivery-details">
-                                     <div class="delivery-details-title">Klarna</div>
-                                     <div class="delivery-details-description">Klarna zahlung</div>
+                                     <div class="delivery-details-title">{props.lang.payment.klarna}</div>
+                                     <div class="delivery-details-description">{props.lang.payment.klarna_desc}</div>
                                  </div>
                                  <input type="radio" className='payment-radio-button'  name="payment_option1" id="klarna_payment" value="klarna_payment"  />
                              </div>
@@ -88,8 +88,8 @@ function ModalPayment (props){
                             <div class="delivery-option">
                                  <div class="delivery-image"><img src="images/cash.svg"/></div>
                                  <div class="delivery-details">
-                                     <div class="delivery-details-title">Payment by Delivery</div>
-                                     <div class="delivery-details-description">Zahlen Sie, wenn das Essen kommt</div>
+                                     <div class="delivery-details-title">{props.lang.payment.delivery}</div>
+                                     <div class="delivery-details-description">{props.lang.payment.delivery_desc}</div>
                                  </div>
                                  <input type="radio" className='payment-radio-button' name="payment_option1" id="cash_payment" value="cash_payment"  />
                              </div>
@@ -100,26 +100,26 @@ function ModalPayment (props){
 
 
                          <div class="checkoutNow-modal-info-addres">
-                            Cashback Code
-                            <input placeholder="Füge deinen Chargeback-Code"/>
+                         {props.lang.payment.cashback}
+                            <input placeholder={props.lang.payment.cashbach_placeholder}/>
                             <div class="checkoutNow-modal-info-smaller-double">
-                                <div class="checkoutNow-modal-info-smaller-left">Noch kein Chargeback Kunde?</div>
-                                <div class="checkoutNow-modal-info-smaller-right"><a><u>Hier Anmelden</u></a></div>
+                                <div class="checkoutNow-modal-info-smaller-left">{props.lang.payment.not_cash}</div>
+                                <div class="checkoutNow-modal-info-smaller-right"><a><u>{props.lang.payment.not_cash_desc}</u></a></div>
                             </div>
                         </div>
                         <div class="s1-cart-summary-modal">
-                            <div class="s1-cart-summary-title">Payment Summary</div>
+                            <div class="s1-cart-summary-title">{props.lang.payment.summary}</div>
                             <div class="s1-cart-summary-price">
-                                <div class="s1-cart-summary-price-left">Price ({props.products.length} items)</div>
-                                <div class="s1-cart-summary-price-right">€ {props.price}</div>
+                                <div class="s1-cart-summary-price-left">{props.lang.cart.price} ({props.products.length} {props.lang.cart.items_quantity})</div>
+                                <div class="s1-cart-summary-price-right">{props.lang.currency} {props.price}</div>
                             </div>
                             {props.delivery ? <><div className="s1-cart-summary-price">
-                                    <div className="s1-cart-summary-price-left">Delivery Fee</div>
-                                    <div className="s1-cart-summary-price-right">€ {3.99}</div>
+                                    <div className="s1-cart-summary-price-left">{props.lang.cart.delivery_fee}</div>
+                                    <div className="s1-cart-summary-price-right">{props.lang.currency} {3.99}</div>
                                 </div> </> : <></>}
                             <div class="s1-cart-summary-total">
-                                <div class="s1-cart-summary-total-left">Total</div>
-                                <div class="s1-cart-summary-total-right">€ {(parseFloat(props.price) + parseFloat((props.delivery? 3.99:0).toFixed(2))).toFixed(2)}</div>
+                                <div class="s1-cart-summary-total-left">{props.lang.cart.total}</div>
+                                <div class="s1-cart-summary-total-right">{props.lang.currency} {(parseFloat(props.price) + parseFloat((props.delivery? 3.99:0).toFixed(2))).toFixed(2)}</div>
                         </div>
                         <button id="payment_go" class="checkout-now-button" onClick={()=>{thanksfor()}}>Next</button>
                     </div>

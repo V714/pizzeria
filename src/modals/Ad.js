@@ -41,10 +41,10 @@ export default function ModalAd(props){
                     <img class="bitcoin-modal-imgs" src="images/double-arrow.svg"/>
                     <img class="bitcoin-modal-imgs" src="images/pizza.svg"/>
                 </div>
-                <div class="modal-title">Hey! Have you ever seen a crypto turn into a slice of pizza?</div>
-                <div class="modal-bitcoin-description">Jetzt akzeptieren wir Zahlungen per Kryptowährungen, sodass Sie Ihre Kryptowährungen gegen ein Stück Pizza eintauschen können</div> 
+                <div class="modal-title">{props.lang.bitcoin.hey}</div>
+                <div class="modal-bitcoin-description">{props.lang.bitcoin.desc}</div> 
                 <div class="modal-feedback-button">
-                    <button class="modal-feedback-send" onClick={() =>  props.closer()}>Check it now</button>
+                    <button class="modal-feedback-send" onClick={() =>  props.closer()}>{props.lang.bitcoin.check}</button>
                 </div>
             </div>
         </div>

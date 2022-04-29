@@ -35,7 +35,7 @@ export default function CartItem(props){
         _extra.forEach(x => { counts[x] = (counts[x] || 0) + 1; });
         setExtra(counts)
         setPrice(_price.toFixed(2))
-    },[])
+    },[products])
     const deleteCartItem = () => {
         removeProductFromCart(dispatch,initCart,products,props.item)
     }
@@ -50,7 +50,7 @@ export default function CartItem(props){
         changeOneNote(dispatch,initCart,props.item,note)
     }
 
-        return(props.product?<div className="cart-item-detail">
+        return(products?<div className="cart-item-detail">
         <div className="cart-item-detail-photo">
             <div className="cart-item-detail-image"><img src={props.product.imgPath}/></div>
             <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => setModalIsOpenNote(true)}><img src="images/note.svg"/>{props.lang.cart.edit_note}</button></div>

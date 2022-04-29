@@ -42,7 +42,7 @@ const Header = () => {
     
      
      
-  <ModalAd closer={closer} modalIsOpenAd={modalIsOpenAd} setModalIsOpenAd={setModalIsOpenAd}/>
+  <ModalAd closer={closer} modalIsOpenAd={modalIsOpenAd} setModalIsOpenAd={setModalIsOpenAd} lang={lang}/>
   <ModalCart closer={closer} products={products} modalIsOpenCart={modalIsOpenCart}/>
   <ModalNotification closer={closer} products={products} modalIsOpenNoti={modalIsOpenNoti}/>
 

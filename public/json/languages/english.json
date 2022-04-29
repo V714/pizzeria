@@ -154,8 +154,21 @@
         }
     
     },
-    "checkout":{
-
+    "payment":{
+        "payment":"Payment",
+        "choose_payment":"Choose Payment Method",
+        "crypto":"Cryptocurrency","crypto_desc":"Krypto in eine Pizza",
+        "card":"Credit Card / Debit","card_desc":"Fast and 24/7",
+        "klarna":"Klarna","klarna_desc":"Klarna Payment",
+        "delivery":"Payment by Delivery","delivery_desc":"Pay when the food comes",
+        "cashback":"Cashback Code","cashback_placeholder":"Paste your cashback code",
+        "not_cash":"Not yet a chargeback customer?","not_cash_desc":"Login here",
+        "summary":"Payment Summary"
+    },
+    "bitcoin":{
+        "hey":"Hey! Have you ever seen a crypto turn into a slice of pizza?",
+        "desc":"Now we accept cryptocurrency payments, so you can exchange your cryptocurrencies for a slice of pizza",
+        "check":"Check it now"
     }
 
 }
