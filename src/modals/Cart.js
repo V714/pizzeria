@@ -9,13 +9,16 @@ Modal.setAppElement('#root')
 
 export default function ModalCart (props){
     const [totalPrice,setTotalPrice] = useState(0)
+    const [render,setToRender] = useState(false)
     const allProducts = useSelector(state => state.products)
 
     useEffect(()=>{
         if(props.products)setTotalPrice(cartPrice(allProducts,props.products))
+        if(allProducts&&allProducts.length!==0)setToRender(true)
     },[allProducts])
 
     return(
+        render?
         <Modal 
         isOpen={props.modalIsOpenCart} 
         shouldCloseOnOverlayClick={true} 
@@ -73,7 +76,7 @@ export default function ModalCart (props){
             <><div className="fm-head-left">Cart is empty</div></>}
         </div>
     </div>
-      </Modal>
+      </Modal>:<></>
         
  
     );
