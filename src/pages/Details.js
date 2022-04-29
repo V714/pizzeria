@@ -16,18 +16,12 @@ function Details(){
     const [showItem,setShowItem] = useState(false)
     const [crust,setCrust] = useState(undefined)
     const [itemToPrint,setItemToPrint] = useState(<></>)
-
     const allProducts = useSelector(state=>state.products)
 
-    useEffect(()=>{
-        init();
-        const refresh = setInterval(()=>{checkAllTheTime()},1000)
-        return () => clearInterval(refresh)
-    },[])
 
-    const checkAllTheTime = () => {
-        if(!showItem)init();
-    }
+    useEffect(()=>{
+         init();
+    },[])
 
     useEffect(()=>{
         setItemToPrint(printItem())
@@ -36,10 +30,17 @@ function Details(){
     const init = async() => {
         const urlParams = new URLSearchParams(window.location.search);
         const queryID = urlParams.get('id');
+        console.log(queryID)
         const querySIZE = urlParams.get('size');
+        console.log(querySIZE)
         const product = allProducts.find(_item=>_item.id===queryID)
+        console.log(product)
+        console.log(allProducts)
         if(querySIZE){
+            console.log(product.sizes)
+            console.log(product.sizes.find(item=>item.size===querySIZE))
             if(product && product.sizes.find(item=>item.size===querySIZE)){
+                console.log(product)
                 setItem(product)
                 setSize(querySIZE)
                 setShowItem(true)
