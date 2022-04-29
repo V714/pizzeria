@@ -18,7 +18,6 @@ function Details(){
     const [itemToPrint,setItemToPrint] = useState(<></>)
     const allProducts = useSelector(state=>state.products)
 
-
     useEffect(()=>{
          init();
     },[])
@@ -27,20 +26,17 @@ function Details(){
         setItemToPrint(printItem())
     },[item,size,crust,extraAddons,price])
 
+
     const init = async() => {
         const urlParams = new URLSearchParams(window.location.search);
         const queryID = urlParams.get('id');
-        console.log(queryID)
         const querySIZE = urlParams.get('size');
-        console.log(querySIZE)
+        while(!allProducts){
+            console.log("Searching...")
+        }
         const product = allProducts.find(_item=>_item.id===queryID)
-        console.log(product)
-        console.log(allProducts)
-        if(querySIZE){
-            console.log(product.sizes)
-            console.log(product.sizes.find(item=>item.size===querySIZE))
+        if(querySIZE && product.sizes){
             if(product && product.sizes.find(item=>item.size===querySIZE)){
-                console.log(product)
                 setItem(product)
                 setSize(querySIZE)
                 setShowItem(true)

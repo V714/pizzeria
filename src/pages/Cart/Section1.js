@@ -14,12 +14,16 @@ function Section1(){
     const [modalIsOpenDeli,setModalIsOpenDeli] = useState(false)
     const [delivery,setDelivery] = useState(true)
     const [price,setPrice] = useState(0)
-
+    
+    const allProducts = useSelector(state=>state.products)
     const lang = useSelector(state=>state.language)
     const products = useSelector(state=>state.cart)
-    const allProducts = useSelector(state=>state.products)
 
     useEffect(()=>{
+        
+        while(!allProducts){
+            console.log("Searching...")
+        }
         setPrice(parseFloat(cartPrice(allProducts,products)))
     },[])
 

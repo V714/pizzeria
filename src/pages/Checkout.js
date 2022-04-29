@@ -19,8 +19,11 @@ export default function Checkout(){
     const user = useSelector(state=>state.user)
 
     useEffect(()=>{
-        console.log(user)
         if(products&&user)setCheckout(true)
+        
+        while(!allProducts){
+            console.log("Searching...")
+        }
         setPrice(cartPrice(allProducts,products))
     },[])
 
