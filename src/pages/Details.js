@@ -3,7 +3,6 @@ import Section1 from './Details/Section1';
 import Section2 from './Details/Section2';
 import Section3 from './Details/Section3';
 import Section1Item from './Details/Section1Item';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -22,11 +21,12 @@ function Details(){
 
     useEffect(()=>{
         init();
+        const refresh = setInterval(()=>{checkAllTheTime()},1000)
+        return () => clearInterval(refresh)
     },[])
 
     const checkAllTheTime = () => {
-        init();
-        setTimeout(()=>{if(!showItem)checkAllTheTime()},1000) 
+        if(!showItem)init();
     }
 
     useEffect(()=>{
@@ -39,21 +39,24 @@ function Details(){
         const querySIZE = urlParams.get('size');
         const product = allProducts.find(_item=>_item.id===queryID)
         if(querySIZE){
-        if(product && product.sizes.find(item=>item.size===querySIZE)){
-            setItem(product)
-            setSize(querySIZE)
-            setShowItem(true)
-            if(product.sizes){
-                setPrice(product.sizes.find(_item=>_item.size===querySIZE).price)
-            } else {
-                setPrice(product.price)
-            }
-            if(product.crust)setCrust(product.crust[0])
-        }}
+            if(product && product.sizes.find(item=>item.size===querySIZE)){
+                setItem(product)
+                setSize(querySIZE)
+                setShowItem(true)
+                if(product.sizes){
+                    setPrice(product.sizes.find(_item=>_item.size===querySIZE).price)
+                } else {
+                    setPrice(product.price)
+                }
+                if(product.crust)setCrust(product.crust[0])
+            }}
         else{
-            setItem(product)
-            setPrice(product.price)
-            setShowItem(true)
+            if(product)
+            {
+                setItem(product)
+                setPrice(product.price)
+                setShowItem(true)
+            }
         }
           
     }

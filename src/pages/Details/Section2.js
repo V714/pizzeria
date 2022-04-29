@@ -22,7 +22,7 @@ function Section2(props){
             <li class="one-topping">
                             <div class="magic-topping"><button onClick={() => setModalIsOpenCrust(true)} id="crust"><img src="images/rotate.svg"/></button></div>
                             <div class="one-topping-image"><img src="images/crispy.svg"/></div>
-                            {props.crust.name}
+                            {props.crust && props.crust.name}
                         </li>
                 {props.extraAddons &&
 					            props.extraAddons.map((item) => (
