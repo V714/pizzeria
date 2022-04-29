@@ -21,9 +21,10 @@ function Section1(){
 
     useEffect(()=>{
         
-        while(!allProducts){
+        while(!allProducts || allProducts.length===0){
             console.log("Searching...")
         }
+        console.log(allProducts)
         setPrice(parseFloat(cartPrice(allProducts,products)))
     },[])
 

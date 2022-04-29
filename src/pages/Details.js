@@ -31,9 +31,10 @@ function Details(){
         const urlParams = new URLSearchParams(window.location.search);
         const queryID = urlParams.get('id');
         const querySIZE = urlParams.get('size');
-        while(!allProducts){
+        while(!allProducts || allProducts.length===0){
             console.log("Searching...")
         }
+        console.log(allProducts)
         const product = allProducts.find(_item=>_item.id===queryID)
         if(querySIZE && product.sizes){
             if(product && product.sizes.find(item=>item.size===querySIZE)){
