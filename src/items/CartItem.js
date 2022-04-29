@@ -22,7 +22,7 @@ export default function CartItem(props){
         setNote(props.item.note)
         let _extra = []
         let _price = props.product.sizes ? parseFloat(props.product.sizes.find(_item => _item.id === props.item.option).price) : parseFloat(props.product.price)
-        setSize(props.product.sizes.find(_item => _item.id === props.item.option))
+        if(props.product.sizes)setSize(props.product.sizes.find(_item => _item.id === props.item.option))
             if(props.item.extra){
                 props.item.extra.map(_item => {
                     const __item = props.product.extraAddons.find(aitem => aitem.id === _item)
@@ -50,7 +50,7 @@ export default function CartItem(props){
         changeOneNote(dispatch,initCart,props.item,note)
     }
 
-        return(products?<div className="cart-item-detail">
+        return(props.product?(products?<div className="cart-item-detail">
         <div className="cart-item-detail-photo">
             <div className="cart-item-detail-image"><img src={props.product.imgPath}/></div>
             <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => setModalIsOpenNote(true)}><img src="images/note.svg"/>{props.lang.cart.edit_note}</button></div>
@@ -71,6 +71,6 @@ export default function CartItem(props){
             <div className="s3-item-cart">{""}</div>
         </div>
         <ModalNote changeNote={changeNote} modalIsOpenNote={modalIsOpenNote} note={note} changeNoteProp={changeNoteProp} closer={closer}/>
-    </div>:<></>)
+    </div>:<></>):<></>)
     
 }
