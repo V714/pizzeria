@@ -23,7 +23,7 @@ function Section1Item(props){
         addProductToCart(dispatch,addToCart,initCart,props.item,props.size,props.price,NotificationManager,undefined,note)
     }   
 
-    return(
+    return(props.item?
         <div className="section1-item">
             <div className="section1-item-inner">
                 {props.item && 
@@ -81,7 +81,7 @@ function Section1Item(props){
                     </div>
                 </div></>}
             </div>
-        </div>
+        </div>:<></>
     );
 }
 

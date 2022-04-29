@@ -26,7 +26,7 @@ function Section1(props){
         addProductToCart(dispatch,addToCart,initCart,props.item,props.size,props.price,NotificationManager,extrasIds,note,props.crust)
     }   
 
-    return(
+    return(props.item?
         <>
         {props.item && 
             <>
@@ -85,7 +85,7 @@ function Section1(props){
                 
             </div>
         </div>
-        </>}</>
+        </>}</>:<></>
     );
 }
 

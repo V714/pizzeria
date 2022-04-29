@@ -9,7 +9,7 @@ function Section2(props){
     const [modalIsOpenCrust,setModalIsOpenCrust] = useState(false)
     const lang = useSelector(state=>state.language)
 
-    return( 
+    return(props.item?
      <>
         {props.item && 
             <>
@@ -145,7 +145,7 @@ function Section2(props){
 
       </Modal>
       
-        </>
+        </>:<></>
     );
 }
 

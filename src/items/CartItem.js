@@ -50,7 +50,7 @@ export default function CartItem(props){
         changeOneNote(dispatch,initCart,props.item,note)
     }
 
-        return(<div className="cart-item-detail">
+        return(props.product?<div className="cart-item-detail">
         <div className="cart-item-detail-photo">
             <div className="cart-item-detail-image"><img src={props.product.imgPath}/></div>
             <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => setModalIsOpenNote(true)}><img src="images/note.svg"/>{props.lang.cart.edit_note}</button></div>
@@ -71,6 +71,6 @@ export default function CartItem(props){
             <div className="s3-item-cart">{""}</div>
         </div>
         <ModalNote changeNote={changeNote} modalIsOpenNote={modalIsOpenNote} note={note} changeNoteProp={changeNoteProp} closer={closer}/>
-    </div>)
+    </div>:<></>)
     
 }

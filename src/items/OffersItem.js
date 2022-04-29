@@ -10,14 +10,10 @@ Modal.setAppElement('#root')
 
 function OffersItem(props){
     const [quantity,setQuantity] = useState(1)
-    const [modalIsOpenIngr,setModalIsOpenIngr] = useState(false)
     const {item, index} = props
     const dispatch = useDispatch()
-    const closer = () => {
-        setModalIsOpenIngr(false)
-    }
 
-    return(
+    return(item?
             <li className="s4-item-element">
                         <div className="s4-item-element-inner">
                             <div className="s4-item-photo"><img src={item.imgPath}/></div>
@@ -38,27 +34,7 @@ function OffersItem(props){
                         > <img src="images/cart-white.svg"/>Add to Cart </button>
                </div> </div>
 
-               <Modal 
-        isOpen={modalIsOpenIngr} 
-        shouldCloseOnOverlayClick={true} 
-        onRequestClose={() => setModalIsOpenIngr(false)}
-        closeTimeoutMS={350}
-        className={"ingredients_dialog"}
-        style={{
-          overlay: {
-            position: 'fixed',
-            transition: 'all 0.4s ease-in-out',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
-            zIndex: 9999
-          }
-        }}>
-            <ModalIngredients closer = {closer} item={item}/>
-      </Modal>
-                    </li>
+                    </li>:<></>
         );
 }
 

@@ -25,7 +25,7 @@ function CheckoutItem (props){
         setPrice(_price.toFixed(2))
     },[])
 
-    return(
+    return(props.product?
     <div className="cart-item-detail">
         <div className="cart-item-detail-photo">
             <div className="cart-item-detail-image"><img src={props.product.imgPath}/></div>
@@ -45,7 +45,7 @@ function CheckoutItem (props){
             <div className="s3-item-cart">{this.props.quantity}</div>
         </div> */}
 
-    </div>)
+    </div>:<></>)
     
 }
 

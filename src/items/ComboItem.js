@@ -19,7 +19,7 @@ function ComboItem(props){
     }
 
         return(
-            <div className="s2-combo-item">
+            props.item?<div className="s2-combo-item">
                 <div className="s2-menu-all-content">
                     <img className="s2-img-menu-item" src={props.item.imgPath}/>
                     <div className="s2-menu-item-content">
@@ -32,7 +32,7 @@ function ComboItem(props){
                     </div>
                 </div>
 
-        </div>
+        </div>:<></>
         );
     
 }
