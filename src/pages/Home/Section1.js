@@ -26,7 +26,7 @@ const Section1 = () => {
             <div className="search-box">
                 <div className="search-box-field">
                     <img src="images/search.svg"/>
-                    <input className="search-input" type="search" value={value} onKeyDown={(e) => {_handleKeyDown(e)}} onChange={(e) => changeSearchValue(e.target.value)}  placeholder={lang.home.section1input}/>
+                    <input className="search-input" type="text" value={value} onKeyDown={(e) => {_handleKeyDown(e)}} onChange={(e) => changeSearchValue(e.target.value)}  placeholder={lang.home.section1input}/>
                 </div>
             <button className="search-button" onClick={(e) => {websiteForward(value)}} >{lang.home.section1button}</button>
             </div>

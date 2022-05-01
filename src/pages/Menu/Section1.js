@@ -22,7 +22,7 @@ function Section1(){
             <div className="menu-search-box">
                 <div className="menu-search-box-field">
                     <img src="images/search.svg"/>
-                    <input className="menu-search-input" value={value} onKeyDown={(e) => {_handleKeyDown(e)}} onChange={(e) => changeSearchValue(e.target.value)}  type="search" placeholder={lang.menu.search_input}/>
+                    <input className="menu-search-input" value={value} onKeyDown={(e) => {_handleKeyDown(e)}} onChange={(e) => changeSearchValue(e.target.value)}  type="text" placeholder={lang.menu.search_input}/>
                 </div>
             </div>
         </div>

@@ -38,7 +38,7 @@ return (
                           <img src="images/search.svg"/>
                           <input 
                             className="menu-search-input" 
-                            type="search"
+                            type="text"
                             value={value}
                             onChange={(e) => setValue(e.target.value)} 
                             placeholder="Search for cheese pizza"
