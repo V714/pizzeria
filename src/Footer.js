@@ -17,25 +17,25 @@ function Footer(){
                 {lang.footer.description}
             </div>
             <div className="foot-left-socials">
-                <a><img width="38" height="38" alt="instagram" src="images/instagram.svg"/></a>
-                <a><img width="38" height="38" alt="facebook" src="images/facebook.svg"/></a>
-                <a><img width="38" height="38" alt="twitter" src="images/twitter.svg"/></a>
+                <a role="button"><img width="38" height="38" alt="instagram" src="images/instagram.svg"/></a>
+                <a role="button"><img width="38" height="38" alt="facebook" src="images/facebook.svg"/></a>
+                <a role="button"><img width="38" height="38" alt="twitter" src="images/twitter.svg"/></a>
             </div>
         </div>
         <div className="foot-right">
             <div className="foot-right-about">{lang.footer.about}
-                <a href="uber">{lang.footer.about_us}</a>
-                <a href="home#section2">{lang.footer.features}</a>
-                <a id="news-href">{lang.footer.news}</a>
+                <a  href="uber">{lang.footer.about_us}</a>
+                <a  href="home#section2">{lang.footer.features}</a>
+                <a role="button" id="news-href">{lang.footer.news}</a>
             </div>
             <div className="foot-right-support">{lang.footer.support}
-                <a id="feedback" onClick={() => setModalIsOpenFeed(true)} >{lang.footer.feedback}</a>
+                <a role="button" id="feedback" onClick={() => setModalIsOpenFeed(true)} >{lang.footer.feedback}</a>
                 <a href="home#section5">{lang.footer.contact}</a>
-                <a>{lang.footer.cookies}</a>
+                <a role="button">{lang.footer.cookies}</a>
             </div>
             <div className="foot-right-touch">{lang.footer.get_in_touch}
-                <a id="question" onClick={() => setModalIsOpenFeed(true)} >{lang.footer.question_or_feedback}</a>
-                <a>{lang.footer.hear_from_you}</a>
+                <a role="button" id="question" onClick={() => setModalIsOpenFeed(true)} >{lang.footer.question_or_feedback}</a>
+                <a role="button">{lang.footer.hear_from_you}</a>
             </div>
         </div>
             <ModalFeedback modalIsOpenFeed={modalIsOpenFeed} closer={closer}/>

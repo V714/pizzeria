@@ -1764,6 +1764,7 @@ flex-direction: column;
 .search-box-field img{
     position: relative;
     padding: 0px 20px;
+    top: 22px
 }
 .search-box input{
     border: none;
@@ -2683,6 +2684,7 @@ Menu Page
 .menu-search-box-field img{
     position: relative;
     padding: 0px 20px;
+    top: 24px
 }
 .menu-search-box input{
     border: none;

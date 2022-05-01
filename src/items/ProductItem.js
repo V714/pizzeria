@@ -46,8 +46,8 @@ function ProductItem(props){
                         })}
                 </div>
                 <div style={{display:"flex",alignItems:"center",flexDirection:"column"}}>
-                <a className="s3-add-to-cart" onClick={() => addProductToCart(dispatch,addToCart,initCart,props.item,size,price,NotificationManager,undefined,null)}> <img alt="cart icon" width="24" height="24"  src="images/cart-white.svg"/>Add to Cart</a>
-                <a className="s3-add-to-cart" href={"details?id="+id+"&size="+size}> Customize</a></div>
+                <a role="button" className="s3-add-to-cart" onClick={() => addProductToCart(dispatch,addToCart,initCart,props.item,size,price,NotificationManager,undefined,null)}> <img alt="cart icon" width="24" height="24"  src="images/cart-white.svg"/>Add to Cart</a>
+                <a role="button" className="s3-add-to-cart" href={"details?id="+id+"&size="+size}> Customize</a></div>
             </div>
             :
             <div className="s3-item">
@@ -59,8 +59,8 @@ function ProductItem(props){
                     </div>
                 <div className="s3-item-details">{description}</div>
                 <div style={{display:"flex",alignItems:"center",flexDirection:"column"}}>
-                <a className="s3-add-to-cart" onClick={() => addProductToCart(dispatch,addToCart,initCart,props.item,size,price,NotificationManager,undefined,null)}> <img alt="cart icon" width="24" height="24" src="images/cart-white.svg"/>Add to Cart</a>
-                <a className="s3-add-to-cart" href={"details?id="+id+"&size="+size}> Customize</a></div>
+                <a role="button" className="s3-add-to-cart" onClick={() => addProductToCart(dispatch,addToCart,initCart,props.item,size,price,NotificationManager,undefined,null)}> <img alt="cart icon" width="24" height="24" src="images/cart-white.svg"/>Add to Cart</a>
+                <a role="button" className="s3-add-to-cart" href={"details?id="+id+"&size="+size}> Customize</a></div>
             </div>
             }
     
