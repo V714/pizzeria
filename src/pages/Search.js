@@ -19,7 +19,7 @@ function Search(){
       }
       else
         setProducts(allProducts)
-  },[value])
+  },[value,allProducts])
 
   const getSearchValueByQueryString = () => {
     const urlParams = new URLSearchParams(window.location.search);

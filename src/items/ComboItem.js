@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import Modal from 'react-modal';
 import { addProductToCart } from "../functions/cart";
 import { useDispatch } from "react-redux";
@@ -8,12 +8,7 @@ Modal.setAppElement('#root')
 
 
 function ComboItem(props){
-    const [modalIsOpenIngr,setModalIsOpenIngr] = useState(false)
     const dispatch = useDispatch()
-    
-    const closer = () => {
-        setModalIsOpenIngr(false)
-    }
     const aaddToCart = () => {
         addProductToCart(dispatch,addToCart,initCart,props.item,null,NotificationManager,null,'')
     }
@@ -21,7 +16,7 @@ function ComboItem(props){
         return(
             props.item?<div className="s2-combo-item">
                 <div className="s2-menu-all-content">
-                    <img alt="product image" className="s2-img-menu-item" src={props.item.imgPath}/>
+                    <img alt="product" className="s2-img-menu-item" src={props.item.imgPath}/>
                     <div className="s2-menu-item-content">
                         <div className="s2-menu-item-title">Combos {props.index}</div>
                         <div className="s2-menu-item-name">{props.item.name}</div>

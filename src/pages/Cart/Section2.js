@@ -22,7 +22,7 @@ import ProductItem from "../../items/ProductItem";
                 </div>
             </div>
             <div className="s22-items">
-            {allProducts.filter(item => item.type=="PIZZA").map((item,index) => (
+            {allProducts.filter(item => item.type==="PIZZA").map((item,index) => (
                             <ProductItem key={index} item={item}/>
                         ))}
                     

@@ -24,7 +24,7 @@ class ProductItem extends react.Component{
     render(){
         return(
             <div className="s3-item">
-            <div className="s3-item-image"><img alt="product image" src={this.props.image}/></div>
+            <div className="s3-item-image"><img alt="product" src={this.props.image}/></div>
             <div className="s3-item-name">{this.props.name}</div>
             <div className="s3-item-price">
                 <div className="s3-item-price-cost">€ {this.props.price}</div>

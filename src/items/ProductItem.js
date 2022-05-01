@@ -17,11 +17,11 @@ function ProductItem(props){
         } else {
             setPrice(props.item.price)
         }
-    },[props])
+    },[props,sizes])
 
     const pizzaSize = (s) => {
         setSize(s)
-        setPrice(sizes.find(item=>item.size == s).price)
+        setPrice(sizes.find(item=>item.size === s).price)
     }
 
     const selectButtonStyle = (s) => {
@@ -33,7 +33,7 @@ function ProductItem(props){
         props.item?<>
             {size ? 
             <div className="s3-item">
-                <div className="s3-item-image"><img alt="product image" src={imgPath}/></div>
+                <div className="s3-item-image"><img alt="product" src={imgPath}/></div>
                 <div className="s3-item-name">{name} {sizes.length===1 && "("+sizes[0].size+" "+sizes[0].sizeType+")"}</div>
                 <div className="s3-item-price">
                     <div className="s3-item-price-cost">€ {price}</div>
@@ -51,7 +51,7 @@ function ProductItem(props){
             </div>
             :
             <div className="s3-item">
-                <div className="s3-item-image"><img alt="product image" src={imgPath}/></div>
+                <div className="s3-item-image"><img alt="product" src={imgPath}/></div>
                 <div className="s3-item-name">{name}</div>
                 <div className="s3-item-price">
                     <div className="s3-item-price-cost">€ {price}</div>

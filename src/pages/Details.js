@@ -63,7 +63,7 @@ function Details(){
         setSize(s)
         if(item.type=='PIZZA'){
             
-            item.sizes.map((i, index) => {if(i.size==s){
+            item.sizes.map((i, index) => {if(i.size===s){
 
             let a=((150/item.sizes.length) * index )+1050
             document.getElementById("pizza_size").style.width = a+"px";
@@ -94,25 +94,25 @@ function Details(){
     },[extraAddonsPrice,size,crustPrice])
     
     const deleteTopping = (id) => {
-        setExtraAddons(extraAddons.filter(item => item.id != id))
+        setExtraAddons(extraAddons.filter(item => item.id !== id))
     }
 
     const addTopping = (top) => {
-        if(extraAddons.some(_item => _item.id == top.id)){ /* If Top already exists */
-            setExtraAddons(extraAddons.map(_item => _item.id == top.id? {..._item, quantity:_item.quantity+1} : _item))
+        if(extraAddons.some(_item => _item.id === top.id)){ /* If Top already exists */
+            setExtraAddons(extraAddons.map(_item => _item.id === top.id? {..._item, quantity:_item.quantity+1} : _item))
         }
         else{
             setExtraAddons([...extraAddons, top])
         }
     }
     const printItem = () => {
-        return(<>{showItem && item.type=='PIZZA' &&
+        return(<>{showItem && item.type==='PIZZA' &&
                 <>
                     <Section1 pizzaSize={pizzaSize} price={price} extraAddons={extraAddons} crust={crust} extraAddonsPrice={extraAddonsPrice} size={size} item={item}/>
                     <Section2 extraAddons={extraAddons} item={item} addTopping={addTopping} crust={crust} setCrust={setCrust} deleteTopping={deleteTopping}/>
                 </>
             }
-            {showItem && item.type !='PIZZA' &&
+            {showItem && item.type !=='PIZZA' &&
                 <>  
                     <Section1Item pizzaSize={pizzaSize} size={size} price={price} item={item}/>
                  </>

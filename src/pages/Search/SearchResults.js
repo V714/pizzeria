@@ -5,9 +5,9 @@ function SearchResults (props){
         return(props.products[0]?<>
             <ul className="search-results">
                  {
-                    props.products.map(product => {
+                    props.products.map((product,index) => {
                         return(<li key={product.id}>
-                            <ProductItem item={product}/>
+                            <ProductItem key={index} item={product}/>
                         </li>)
                     })
                 }

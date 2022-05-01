@@ -11,7 +11,7 @@ export default function ModalAd(props){
         {
           props.setModalIsOpenAd(true)
           localStorage.setItem("ad", JSON.stringify("false"));
-        }},[])
+        }},[props])
 
         return(
             <Modal 

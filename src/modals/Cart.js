@@ -46,7 +46,7 @@ export default function ModalCart (props){
             <div className="cart-list">
                 <ul>
                 {props.products &&
-					            props.products.map((item) => {  
+					            props.products.map((item,index) => {  
                                     const product = allProducts.find(_item => _item.id === item.id)
                                     let price = product?(product.sizes ? parseFloat(product.sizes.find(_item => _item.id === item.option).price) : parseFloat(product.price)):0
                                     if(item.extra&&product){
@@ -56,9 +56,9 @@ export default function ModalCart (props){
                                     }
 
                                     return(
-                                        <li>
+                                        <li key={index}>
                                             <div className="cart-element-inner">
-                                                <div className="cart-element-left"><img alt="product image" src={product.imgPath}/>
+                                                <div className="cart-element-left"><img alt="product" src={product.imgPath}/>
                                                     <div className="cart-element-details">
                                                         <div className="cart-element-name">{product.name}</div>
                                                     </div>

@@ -36,7 +36,7 @@ function Section1Item(props){
                 </div> */}
                 <div className="item-details">
                     <div className="item-detail-image">
-                        <div className="item-detail-fullimage"><img alt="product image" src={props.item.imgPath}/></div>
+                        <div className="item-detail-fullimage"><img alt="product" src={props.item.imgPath}/></div>
                        {/*  <div className="item-detail-thumbnails">
                             {state.product.more_images && 
                             state.product.more_images.map(item => {

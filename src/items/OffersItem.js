@@ -1,5 +1,3 @@
-import { useState } from "react";
-import ModalIngredients from '../modals/Ingredients';
 import { addProductToCart } from "../functions/cart";
 import { initCart, addToCart } from "../redux/slices/cartSlice";
 import Modal from 'react-modal';
@@ -9,14 +7,13 @@ Modal.setAppElement('#root')
 
 
 function OffersItem(props){
-    const [quantity,setQuantity] = useState(1)
     const {item, index} = props
     const dispatch = useDispatch()
 
     return(item?
             <li className="s4-item-element">
                         <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img alt="product image" src={item.imgPath}/></div>
+                            <div className="s4-item-photo"><img alt="product" src={item.imgPath}/></div>
                             <div className="s4-item-info">Package {index}</div>
                             <div className="s4-item-details">
                                 <div className="s4-item-name-promo">

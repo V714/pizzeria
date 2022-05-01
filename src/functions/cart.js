@@ -18,10 +18,11 @@ export const cartPrice = (allProducts, products) => {
             if(item.extra&&product.extraAddons){
                 item.extra.map(_item => {
                     price += parseFloat(product.extraAddons.find(aitem => aitem.id === _item).price)
+                    return 0;
                 })
             }
         }
-        
+        return 0;
     })
     return price.toFixed(2)
 }

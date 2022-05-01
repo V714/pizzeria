@@ -1,7 +1,6 @@
-import react, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function CheckoutItem (props){
-    const [extras,setExtras]=useState([])
     const [size,setSize]=useState({name:""})
     const [price,setPrice]=useState(0)
     const [extra,setExtra] = useState({})
@@ -19,6 +18,7 @@ function CheckoutItem (props){
                         const __item = props.product.extraAddons.find(aitem => aitem.id === _item)
                         _price += parseFloat(__item.price)
                         _extra.push(__item.name)
+                        return 0;
                     })
             }}
         let counts = {};
@@ -31,7 +31,7 @@ function CheckoutItem (props){
     return(size?(props.product?
     <div className="cart-item-detail">
         <div className="cart-item-detail-photo">
-            <div className="cart-item-detail-image"><img alt="product image" src={props.product.imgPath}/></div>
+            <div className="cart-item-detail-image"><img alt="product" src={props.product.imgPath}/></div>
         </div>
         <div className="cart-item-detail-text">
             <div className="cart-item-detail-name">{props.product.name} - {size.size}{size.sizeType} {props.item.crust && <>- {props.item.crust.name}</>}</div>

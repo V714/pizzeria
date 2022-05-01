@@ -27,7 +27,7 @@ const Section3 = () => {
 
                 {allTypes && allTypes.map((itema,index) => {return(
                     <TabPanel key={index} id="pizza_tab2" className="s3-items" role="list">
-                    {allProducts && allProducts.filter(item => item.type==itema.key).map((item,index) => (
+                    {allProducts && allProducts.filter(item => item.type===itema.key).map((item,index) => (
                             <ProductItem role="listitem" key={index} item={item}/>
                         ))}
                     </TabPanel>

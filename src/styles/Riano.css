@@ -19,7 +19,7 @@
     .s1-description{font-size:14px;line-height: 15px;}
     .search-box{max-width: 100%;}
     .search-button{font-size: 14px;padding: 0 17px;line-height: 15px;}
-    .search-box-field img{padding:0 10px;width: 15px;}
+    .search-box-field img{padding:0 10px;width: 15px;top: 9px}
     .search-box input{height: 40px;font-size: 14px;line-height: 15px;}
 
     .section2-inner{padding: 40px 20px;}
@@ -29,7 +29,7 @@
     .s2-head-left{margin-bottom: 10px;width: 95%;}
     .s2-head-right{margin-bottom: 10px;width: 95%;font-size: 14px;line-height: 17px;}
     .s2-items{margin:0;}
-    .s2-items ul{height:370px;margin:0;padding:0;overflow-x: scroll;border-top: 2px solid #52342944;border-bottom: 2px solid #52342944;}
+    .s2-items ul{height:370px;margin:0;padding:0;overflow-x: scroll;border-top: 2px solid #52342920;border-bottom: 2px solid #52342920;margin-top: 15px;}
     .service-element{height: 255px;width: 250px;margin-right: 0px;max-width: unset;padding-bottom: 35px;}
     .service-element-inner{width: 200px;}
     .service-icon img{width: 75px;}
@@ -41,9 +41,9 @@
     .s3-menu-texts-big{font-size:28px;line-height: 30px;margin-bottom: 10px;}
     .s3-menu-texts-description{margin-bottom: 10px;width: 95%;font-size: 14px;line-height: 17px;}
     .s3-menu-scroll{max-height: 180px;}
-    .s3-menu-scroll ul{border-left: #52342944 solid 2px;border-right: #52342944 solid 2px;}
+    .s3-menu-scroll ul{border-left: #52342920 solid 2px;border-right: #52342920 solid 2px;}
     .s3-list-element{height: 40px;font-size: 14px;line-height: 15px;}
-    .s3-items{margin-top: 10px;border-top: 2px solid #52342944;border-bottom: 2px solid #52342944;}
+    .s3-items{margin-top: 10px;border-top: 2px solid #52342920;border-bottom: 2px solid #52342920;margin-top: 15px;}
     .s3-item{height: 375px;width: 150px;min-width: unset;max-width: unset;margin-left: unset;margin: 10px 10px 30px 10px;}
     .s3-item-image img{width: 150px;height: 150px;}
     .s3-item-name{font-size: 18px;line-height: 20px;padding-top: 7px;}
@@ -61,7 +61,7 @@
     .s4-head-left-big{font-size:28px;line-height: 30px;}
     .s4-head-left{margin-bottom: 10px;width: 95%;}
     .s4-head-right{margin-bottom: 10px;width: 95%;font-size: 14px;line-height: 17px;}
-    .s4-items{border-top: 2px solid #52342944;border-bottom: 2px solid #52342944;}
+    .s4-items{border-top: 2px solid #52342944;margin-top: 15px;}
     .s4-items ul{padding: 0;padding-bottom: 50px;}
     .s4-item-element{height: 300px;margin-bottom: 0;}
     .s4-item-element-inner{height: 100%;text-align: left;}
@@ -116,7 +116,7 @@
     .menu-s1-description{font-size:14px;line-height: 15px;}
     .menu-search-box{max-width: 100%;}
     .menu-search-button{font-size: 14px;padding: 0 17px;line-height: 15px;}
-    .menu-search-box-field img{padding:0 10px;width: 15px;}
+    .menu-search-box-field img{padding:0 10px;width: 15px; top: 9px}
     .menu-search-box input{height: 40px;font-size: 14px;line-height: 15px;}
 
     .s2-menu-left{width: 90%;}
@@ -132,7 +132,7 @@
     .s2-menu-right-icon{width: 50px;height: 50px;min-height: unset;max-height: unset;min-width: 50px;max-width: 50px;}
     .s2-menu-right-text-small{font-size: 18px;line-height: 20px;}
     .s2-menu-right-text-big{font-size: 24px;line-height: 26px;}
-    .s2-combo-items{border-top: 2px solid #52342944;border-bottom: 2px solid #52342944;}
+    .s2-combo-items{border-top: 2px solid #52342920;border-bottom: 2px solid #52342920;margin-top: 15px;}
     .s2-combo-item{width: 320px;margin-bottom: 0;}
     .s2-menu-all-content{width: 260px;}
     .s2-menu-item-content{padding-left: 7px;}
@@ -141,7 +141,7 @@
     .s2-menu-item-name{line-height: 22px;}
     .s2-menu-item-price{font-size: 20px; line-height: 22px;}
 
-    .s3-menu-tabbing{padding-left: 10px;border-top: 2px solid #52342944;border-bottom: 2px solid #52342944;margin-bottom: 20px;}
+    .s3-menu-tabbing{padding-left: 10px;border-top: 2px solid #52342920;border-bottom: 2px solid #52342920;margin-bottom: 20px;margin-top: 15px;}
     .s3-menu-tabbing li{margin: 10px 10px;padding: 5px 10px;}
     .s3-menu-tabbing img{width: 22px;height: 22px;margin-right: 5px;}
     .s3-menu-tabbing-text{font-size: 14px;}
@@ -161,9 +161,9 @@
     .uber-s2-head-left-big{margin: 0;font-size: 16px;}
     .uber-s2-head-left-small{font-size:28px;line-height: 30px;}
     .gallery-top img{width: 160px;height: 120px;}
-    .gallery1{overflow-x: scroll;border-top: 2px solid #52342944;border-bottom: 2px solid #52342944;margin-bottom: 20px;}
+    .gallery1{overflow-x: scroll;border-top: 2px solid #52342920;border-bottom: 2px solid #52342920;margin-bottom: 20px;margin-top: 15px;}
     .gallery1 img{width: 320px;height: 240px;}
-    .gallery2{overflow-x: scroll;border-top: 2px solid #52342944;border-bottom: 2px solid #52342944;margin-bottom: 20px;}
+    .gallery2{overflow-x: scroll;border-top: 2px solid #52342920;border-bottom: 2px solid #52342920;margin-bottom: 20px;margin-top: 15px;}
     .gallery2 img{width: 320px;height: 240px;}
     .section1-item-inner{padding: 0px 0 0 0;margin-top: 50px;}
 
@@ -251,7 +251,7 @@
     .bitcoin-modal-imgs{width: 50px;height: 50px;}
 
     #search_box_div{font-size: 32px !important;}
-    .search-results{height: 450px;flex-direction: row;flex-wrap: nowrap;justify-content: flex-start;border-top: 2px solid #52342944;border-bottom: 2px solid #52342944;}
+    .search-results{height: 450px;flex-direction: row;flex-wrap: nowrap;justify-content: flex-start;border-top: 2px solid #52342920;border-bottom: 2px solid #52342920;margin-top: 15px;}
 
 
 

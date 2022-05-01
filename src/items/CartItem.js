@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ModalNote from "../modals/Note";
 
@@ -30,6 +30,7 @@ export default function CartItem(props){
                         const __item = props.product.extraAddons.find(aitem => aitem.id === _item)
                         _price += parseFloat(__item.price)
                         _extra.push(__item.name)
+                        return 0;
                     })
             }}
         let counts = {};
@@ -37,7 +38,7 @@ export default function CartItem(props){
         _extra.forEach(x => { counts[x] = (counts[x] || 0) + 1; });
         setExtra(counts)
         setPrice(_price.toFixed(2))
-    },[products,props.product])
+    },[products,props.product,props])
 
 
     const deleteCartItem = () => {
@@ -56,7 +57,7 @@ export default function CartItem(props){
 
         return(props.product?(products?<div className="cart-item-detail">
         <div className="cart-item-detail-photo">
-            <div className="cart-item-detail-image"><img alt="product image" src={props.product.imgPath}/></div>
+            <div className="cart-item-detail-image"><img alt="product" src={props.product.imgPath}/></div>
             <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => setModalIsOpenNote(true)}><img alt="note icon" src="images/note.svg"/>{props.lang.cart.edit_note}</button></div>
         </div>
         <div className="cart-item-detail-text">

@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import { useState } from "react";
 import { NotificationManager } from "react-notifications";
 import { useDispatch, useSelector } from "react-redux";
 import { addProductToCart } from "../../functions/cart";
@@ -78,7 +78,7 @@ function Section1(props){
                 </div>
                 <div className="pizza-rotate">
                     {/* <img id="pizza_size" src={props.item.imgPath}/> */}
-                    <img alt="your product image but rotating" id="pizza_size" src={props.item.imgPath}/> 
+                    <img alt="your product but rotating" id="pizza_size" src={props.item.imgPath}/> 
                     
                     
                 </div>
