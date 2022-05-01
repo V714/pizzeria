@@ -93,7 +93,7 @@ export default function Checkout(){
                         <div className="s1-cart-right-inner-checkout">
                             <div className="s1-cart-checkout">
                             <div className="s1-cart-delivery-info">
-                                    <img src={user.delivery ? "images/delivery.svg" : "images/pickup.svg"}/> {user.delivery ? "Delivery Order" : "Pickup Order"}
+                                    <img alt="pickup or delivery icon" src={user.delivery ? "images/delivery.svg" : "images/pickup.svg"}/> {user.delivery ? "Delivery Order" : "Pickup Order"}
                                 </div>
                             </div>
                             <div className="s1-cart-checkout-info">{lang.cart.estimate_time} : ***</div>

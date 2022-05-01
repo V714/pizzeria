@@ -18,11 +18,11 @@ class ProductItem extends react.Component{
     render(){
         return(
             <div className="s3-item">
-            <div className="s3-item-image"><img src="images/item1.webp"/></div>
+            <div className="s3-item-image"><img alt="item" src="images/item1.webp"/></div>
             <div className="s3-item-name">{this.props.name}</div>
             <div className="s3-item-price">
                 <div className="s3-item-price-cost">€ {this.props.price}</div>
-                <div className="s3-item-price-rating"><img src="images/star.svg"/>{this.props.rating}</div>
+                <div className="s3-item-price-rating"><img alt="star icon" width="16" height="16"  src="images/star.svg"/>{this.props.rating}</div>
             </div>
             <div className="s3-item-details">{this.props.description}</div>
             <div className="s3-item-size">
@@ -30,10 +30,10 @@ class ProductItem extends react.Component{
                 <button onclick="selectSize(this)" className="size-button active">40cm</button>
                 <button onclick="selectSize(this)" className="size-button">55cm</button>
             </div>
-            <div className="magic-buttons"><div className="s3-item-cart"><button ><img src="images/minus.svg"/></button>4<button ><img src="images/plus.svg"/></button>
+            <div className="magic-buttons"><div className="s3-item-cart"><button ><img alt="minus icon" src="images/minus.svg"/></button>4<button ><img alt="plus icon" src="images/plus.svg"/></button>
             </div>
         <button className="s3-add-to-cart" onClick={() => this.setState({modaIsOpenIngr: true})
-} > <img src="images/cart-white.svg"/>Add to Cart </button>
+} > <img alt="cart icon" width="24" height="24" src="images/cart-white.svg"/>Add to Cart </button>
    </div>
    
    

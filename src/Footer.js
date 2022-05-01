@@ -17,9 +17,9 @@ function Footer(){
                 {lang.footer.description}
             </div>
             <div className="foot-left-socials">
-                <a><img src="images/instagram.svg"/></a>
-                <a><img src="images/facebook.svg"/></a>
-                <a><img src="images/twitter.svg"/></a>
+                <a><img width="38" height="38" alt="instagram" src="images/instagram.svg"/></a>
+                <a><img width="38" height="38" alt="facebook" src="images/facebook.svg"/></a>
+                <a><img width="38" height="38" alt="twitter" src="images/twitter.svg"/></a>
             </div>
         </div>
         <div className="foot-right">

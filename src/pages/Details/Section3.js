@@ -24,9 +24,9 @@ function Section3(props){
                 {
                 allProducts &&
 
-                allProducts.filter(item=>item.type==='BURGER').map(item => {return(
+                allProducts.filter(item=>item.type==='BURGER').map((item,index) => {return(
                 <li key={item.id}>
-                <ProductItem item={item}/>
+                <ProductItem key={index} item={item}/>
             </li>)
             })
             

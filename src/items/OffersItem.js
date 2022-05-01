@@ -16,7 +16,7 @@ function OffersItem(props){
     return(item?
             <li className="s4-item-element">
                         <div className="s4-item-element-inner">
-                            <div className="s4-item-photo"><img src={item.imgPath}/></div>
+                            <div className="s4-item-photo"><img alt="product image" src={item.imgPath}/></div>
                             <div className="s4-item-info">Package {index}</div>
                             <div className="s4-item-details">
                                 <div className="s4-item-name-promo">
@@ -31,7 +31,7 @@ function OffersItem(props){
                      onClick={() => addProductToCart(dispatch,addToCart,initCart,item,null,item.price,NotificationManager,undefined,null)}
                     
                         
-                        > <img src="images/cart-white.svg"/>Add to Cart </button>
+                        > <img alt="cart icon" width="24" height="24" src="images/cart-white.svg"/>Add to Cart </button>
                </div> </div>
 
                     </li>:<></>

@@ -67,7 +67,7 @@ function Section2(){
 
             {allCombos && 
                     allCombos.map((item,index) => (
-                        <ComboItem item={item} index={index+1}/>
+                        <ComboItem item={item} key={index} index={index+1}/>
 
                     ))
                 }
@@ -84,7 +84,7 @@ function Section2(){
                 <ul>
                 {allPackages && 
                     allPackages.map((item,index) => (
-                        <OffersItem item={item} index={index+1}/>))
+                        <OffersItem key={index} item={item} index={index+1}/>))
                 }
                 </ul>
             </div>

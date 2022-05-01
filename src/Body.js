@@ -23,7 +23,7 @@ function Body(){
         getContact(axios,dispatch,refreshContactList);
         getCart(dispatch,initCart)
         getUser(dispatch,refreshUserData)
-    },[])
+    },[dispatch])
 
 
     return(

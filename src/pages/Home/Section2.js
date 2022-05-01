@@ -25,26 +25,26 @@ function Section2 (){
                 <ul>
                     <li className="service-element">
                         <div className="service-element-inner">
-                            <div className="service-icon"><img src="images/service1.svg"/></div>
+                            <div className="service-icon"><img alt="service icon" width="100px" height="100px" src="images/service1.svg"/></div>
                             <div className="service-title">{lang.home.section2service1title}</div>
                             <div className="service-description">{lang.home.section2service1desc}</div>
-                            <div className="service-button"> <a>{lang.home.section2service_button}</a><img src="images/arrow-right.svg"/></div>
+                            <div className="service-button"> <a>{lang.home.section2service_button}</a><img width="24" height="24" alt="arrow right icon" src="images/arrow-right.svg"/></div>
                         </div>
                     </li>
                     <li className="service-element">
                         <div className="service-element-inner">
-                            <div className="service-icon"><img src="images/service2.svg"/></div>
+                            <div className="service-icon"><img alt="service icon" width="100px" height="100px" src="images/service2.svg"/></div>
                             <div className="service-title">{lang.home.section2service2title}</div>
                             <div className="service-description">{lang.home.section2service2desc}</div>
-                            <div className="service-button"> <a>{lang.home.section2service_button}</a><img src="images/arrow-right.svg"/></div>
+                            <div className="service-button"> <a>{lang.home.section2service_button}</a><img width="24" height="24" alt="arrow right icon" src="images/arrow-right.svg"/></div>
                         </div>
                     </li>
                     <li className="service-element">
                         <div className="service-element-inner">
-                            <div className="service-icon"><img src="images/service3.svg"/></div>
+                            <div className="service-icon"><img alt="service icon" width="100px" height="100px" src="images/service3.svg"/></div>
                             <div className="service-title">{lang.home.section2service3title}</div>
                             <div className="service-description">{lang.home.section2service3desc}</div>
-                            <div className="service-button"> <a>{lang.home.section2service_button}</a><img src="images/arrow-right.svg"/></div>
+                            <div className="service-button"> <a>{lang.home.section2service_button}</a><img width="24" height="24" alt="arrow right icon" src="images/arrow-right.svg"/></div>
                         </div>
                     </li>
                 </ul>

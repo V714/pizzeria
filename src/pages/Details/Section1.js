@@ -38,9 +38,9 @@ function Section1(props){
                         <div className="triple-head-details-title">{lang.details.section1details}</div>
                         <div className="triple-head-details-line"></div>
                         <div className="triple-head-details-info">
-                            <div className="triple-head-details-info-star"><img src="images/star.svg"/>{props.item.rating}</div>
-                            <div className="triple-head-details-info-element"><img src="images/clock.svg"/>30min</div>
-                            <div className="triple-head-details-info-element"><img src="images/kcal.svg"/>700 kCal</div>
+                            <div className="triple-head-details-info-star"><img alt="star icon" width="16" height="16"  src="images/star.svg"/>{props.item.rating}</div>
+                            <div className="triple-head-details-info-element"><img alt="clock icon" width="20" height="20" src="images/clock.svg"/>30min</div>
+                            <div className="triple-head-details-info-element"><img alt="kcal icon" width="20" height="20" src="images/kcal.svg"/>700 kCal</div>
                         </div>
                         <div className="item-detail-text-smaller">{props.item.description}</div>
                         
@@ -73,12 +73,12 @@ function Section1(props){
                         </div>
                         <button onClick={() => aaddToCart()}
             
-            className="s3-add-to-cart"> <img src="images/cart-white.svg"/>Add to Cart </button>
+            className="s3-add-to-cart"> <img alt="cart icon" width="24" height="24" src="images/cart-white.svg"/>Add to Cart </button>
                     </div>
                 </div>
                 <div className="pizza-rotate">
                     {/* <img id="pizza_size" src={props.item.imgPath}/> */}
-                    <img id="pizza_size" src={props.item.imgPath}/> 
+                    <img alt="your product image but rotating" id="pizza_size" src={props.item.imgPath}/> 
                     
                     
                 </div>

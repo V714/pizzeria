@@ -10,25 +10,25 @@ const Section3 = () => {
     return(
         <div className="section3">
         <div className="section3-inner">
-            <Tabs className="section3-inner-again">
+            <Tabs className="section3-inner-again" role="list">
                 <div className="s3-menu">
                     <div className="s3-menu-texts">
                         <div className="s3-menu-texts-small">{lang.home.section3title}</div>
                         <div className="s3-menu-texts-big">{lang.home.section3bold}</div>
                         <div className="s3-menu-texts-description">{lang.home.section3thin}</div>
                     </div>
-                    <TabList className="s3-menu-scroll">
+                    <TabList className="s3-menu-scroll" role="list">
                         <ul>
                         {allTypes && allTypes.map((itemb,index) => {return(
-                        <Tab id={"gat"+toString(index+1)} className="s3-list-element">{itemb.label}</Tab>)})}
+                        <Tab key={index} id={"gat"+toString(index+1)} role="listitem" className="s3-list-element">{itemb.label}</Tab>)})}
                         </ul>
                     </TabList>
                 </div>
 
-                {allTypes && allTypes.map(itema => {return(
-                    <TabPanel id="pizza_tab2" className="s3-items">
+                {allTypes && allTypes.map((itema,index) => {return(
+                    <TabPanel key={index} id="pizza_tab2" className="s3-items" role="list">
                     {allProducts && allProducts.filter(item => item.type==itema.key).map((item,index) => (
-                            <ProductItem key={index} item={item}/>
+                            <ProductItem role="listitem" key={index} item={item}/>
                         ))}
                     </TabPanel>
                 )})}

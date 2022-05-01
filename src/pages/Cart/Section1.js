@@ -58,7 +58,7 @@ function Section1(){
                         <div className="s1-cart-right-inner">
                             <div className="s1-cart-delivery">
                                 <div className="s1-cart-delivery-info">
-                                    <img src={delivery ? "images/delivery.svg" : "images/pickup.svg"}/> {delivery ? "Delivery Order" : "Pickup Order"}
+                                    <img alt="delivery or pickup icon"  src={delivery ? "images/delivery.svg" : "images/pickup.svg"}/> {delivery ? "Delivery Order" : "Pickup Order"}
                                 </div>
                                 <button id="change_delivery" className="delivery-change-button" onClick={() => setModalIsOpenDeli(true)}>{lang.cart.change}</button>
                             </div>

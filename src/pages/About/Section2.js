@@ -20,9 +20,9 @@ function Section2 (){
                     </div>
                 </div>
                 <div className="gallery1">
-                    <img src="images/gallery3.webp"/>
-                    <img src="images/gallery2.webp"/>
-                    <img src="images/gallery4.webp"/>
+                    <img alt="inside the restaurant - beautiful" src="images/gallery3.webp"/>
+                    <img alt="inside the restaurant - beautiful" src="images/gallery2.webp"/>
+                    <img alt="inside the restaurant - beautiful" src="images/gallery4.webp"/>
                 </div>
                 <div className="uber-s2-head">
                     <div className="uber-s2-head-left">
@@ -33,9 +33,9 @@ function Section2 (){
                     </div>
                 </div>
                 <div className="gallery2">
-                    <img src="images/gallery5.webp"/>
-                    <img src="images/gallery6.webp"/>
-                    <img src="images/gallery7.webp"/>
+                    <img alt="outside the restaurant - beautiful" src="images/gallery5.webp"/>
+                    <img alt="outside the restaurant - beautiful" src="images/gallery6.webp"/>
+                    <img alt="outside the restaurant - beautiful" src="images/gallery7.webp"/>
                 </div>
             </div>
         </div>

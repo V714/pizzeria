@@ -34,12 +34,12 @@ export default function ModalAd(props){
         }}>
         <div class="modal-dialog">
         <div class="bitcoin-modal">
-            <button class="modal-x" onClick={() => props.closer()}><img src="images/x.svg"/></button>
+            <button class="modal-x" onClick={() => props.closer()}><img alt="close icon" src="images/x.svg"/></button>
             <div class="feedback-modal-inner">
                 <div class="bitcoin-modal-images">
-                    <img class="bitcoin-modal-imgs" src="images/bitcoin.webp"/>
-                    <img class="bitcoin-modal-imgs" src="images/double-arrow.svg"/>
-                    <img class="bitcoin-modal-imgs" src="images/pizza.svg"/>
+                    <img alt="bitcoin icon" class="bitcoin-modal-imgs" src="images/bitcoin.webp"/>
+                    <img alt="arrows to the right" class="bitcoin-modal-imgs" src="images/double-arrow.svg"/>
+                    <img alt="pizza icon" class="bitcoin-modal-imgs" src="images/pizza.svg"/>
                 </div>
                 <div class="modal-title">{props.lang.bitcoin.hey}</div>
                 <div class="modal-bitcoin-description">{props.lang.bitcoin.desc}</div> 

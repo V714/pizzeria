@@ -24,11 +24,11 @@ class ProductItem extends react.Component{
     render(){
         return(
             <div className="s3-item">
-            <div className="s3-item-image"><img src={this.props.image}/></div>
+            <div className="s3-item-image"><img alt="product image" src={this.props.image}/></div>
             <div className="s3-item-name">{this.props.name}</div>
             <div className="s3-item-price">
                 <div className="s3-item-price-cost">€ {this.props.price}</div>
-                <div className="s3-item-price-rating"><img src="images/star.svg"/>{this.props.rating}</div>
+                <div className="s3-item-price-rating"><img alt="star icon" width="16" height="16"  src="images/star.svg"/>{this.props.rating}</div>
             </div>
             <div className="s3-item-details">{this.props.description}</div>
             <div className="magic-buttons">{/* <div className="s3-item-cart"><button onClick={() => this.quantityMinus()}><img src="images/minus.svg"/></button>{this.state.quantity}<button onClick={() => this.quantityPlus()}><img src="images/plus.svg"/></button>
@@ -44,7 +44,7 @@ class ProductItem extends react.Component{
                 quantity: this.state.quantity,
                 type: 'Product'})}
             
-            > <img src="images/cart-white.svg"/>Add to Cart </button>
+            > <img alt="cart icon" width="24" height="24" src="images/cart-white.svg"/>Add to Cart </button>
    </div>
    
 

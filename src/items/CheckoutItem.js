@@ -31,7 +31,7 @@ function CheckoutItem (props){
     return(size?(props.product?
     <div className="cart-item-detail">
         <div className="cart-item-detail-photo">
-            <div className="cart-item-detail-image"><img src={props.product.imgPath}/></div>
+            <div className="cart-item-detail-image"><img alt="product image" src={props.product.imgPath}/></div>
         </div>
         <div className="cart-item-detail-text">
             <div className="cart-item-detail-name">{props.product.name} - {size.size}{size.sizeType} {props.item.crust && <>- {props.item.crust.name}</>}</div>

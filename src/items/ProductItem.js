@@ -33,33 +33,33 @@ function ProductItem(props){
         props.item?<>
             {size ? 
             <div className="s3-item">
-                <div className="s3-item-image"><img src={imgPath}/></div>
+                <div className="s3-item-image"><img alt="product image" src={imgPath}/></div>
                 <div className="s3-item-name">{name} {sizes.length===1 && "("+sizes[0].size+" "+sizes[0].sizeType+")"}</div>
                 <div className="s3-item-price">
                     <div className="s3-item-price-cost">€ {price}</div>
-                    <div className="s3-item-price-rating"><img src="images/star.svg"/>{rating}</div>
+                    <div className="s3-item-price-rating"><img alt="star icon" width="16" height="16"  src="images/star.svg"/>{rating}</div>
                     </div>
                 <div className="s3-item-details">{description}</div>
                 <div className="s3-item-size">
-                    {sizes.length>1 && sizes.map(item => {
-                    return( <button onClick={() => pizzaSize(item.size)} className={selectButtonStyle(item.size)} >{item.size}{item.sizeType}</button>)
+                    {sizes.length>1 && sizes.map((item,index) => {
+                    return( <button key={index} onClick={() => pizzaSize(item.size)} className={selectButtonStyle(item.size)} >{item.size}{item.sizeType}</button>)
                         })}
                 </div>
                 <div style={{display:"flex",alignItems:"center",flexDirection:"column"}}>
-                <a className="s3-add-to-cart" onClick={() => addProductToCart(dispatch,addToCart,initCart,props.item,size,price,NotificationManager,undefined,null)}> <img src="images/cart-white.svg"/>Add to Cart</a>
+                <a className="s3-add-to-cart" onClick={() => addProductToCart(dispatch,addToCart,initCart,props.item,size,price,NotificationManager,undefined,null)}> <img alt="cart icon" width="24" height="24"  src="images/cart-white.svg"/>Add to Cart</a>
                 <a className="s3-add-to-cart" href={"details?id="+id+"&size="+size}> Customize</a></div>
             </div>
             :
             <div className="s3-item">
-                <div className="s3-item-image"><img src={imgPath}/></div>
+                <div className="s3-item-image"><img alt="product image" src={imgPath}/></div>
                 <div className="s3-item-name">{name}</div>
                 <div className="s3-item-price">
                     <div className="s3-item-price-cost">€ {price}</div>
-                    <div className="s3-item-price-rating"><img src="images/star.svg"/>{rating}</div>
+                    <div className="s3-item-price-rating"><img alt="star icon" width="16" height="16"  src="images/star.svg"/>{rating}</div>
                     </div>
                 <div className="s3-item-details">{description}</div>
                 <div style={{display:"flex",alignItems:"center",flexDirection:"column"}}>
-                <a className="s3-add-to-cart" onClick={() => addProductToCart(dispatch,addToCart,initCart,props.item,size,price,NotificationManager,undefined,null)}> <img src="images/cart-white.svg"/>Add to Cart</a>
+                <a className="s3-add-to-cart" onClick={() => addProductToCart(dispatch,addToCart,initCart,props.item,size,price,NotificationManager,undefined,null)}> <img alt="cart icon" width="24" height="24" src="images/cart-white.svg"/>Add to Cart</a>
                 <a className="s3-add-to-cart" href={"details?id="+id+"&size="+size}> Customize</a></div>
             </div>
             }

@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 function Section1(){
@@ -21,7 +21,7 @@ function Section1(){
             <div className="menu-s1-description">{lang.menu.search_desc}</div>
             <div className="menu-search-box">
                 <div className="menu-search-box-field">
-                    <img src="images/search.svg"/>
+                    <img width="24" height="24" alt="search icon" src="images/search.svg"/>
                     <input className="menu-search-input" value={value} onKeyDown={(e) => {_handleKeyDown(e)}} onChange={(e) => changeSearchValue(e.target.value)}  type="text" placeholder={lang.menu.search_input}/>
                 </div>
             </div>

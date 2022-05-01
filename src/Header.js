@@ -29,12 +29,12 @@ const Header = () => {
       </ul>
     </nav>
     <div className="top-menu-icons">
-        <button onClick={() => setModalIsOpenNoti(true)} id="notification"><img src="images/bell.svg"/></button>
-        <button onClick={() => setModalIsOpenCart(true)} id="cart">
+        <button onClick={() => setModalIsOpenNoti(true)} name="notifications" id="notification"><img alt="notifications icon" width="24" height="24" src="images/bell.svg"/></button>
+        <button onClick={() => setModalIsOpenCart(true)} name="cart" id="cart">
           {products !== null &&
           products.length > 0 && <div className="new-notification">{products.length}</div>}
           
-          <img src="images/cart.svg"/></button>
+          <img alt="cart icon" width="24" height="24" src="images/cart.svg"/></button>
     </div>
 
 

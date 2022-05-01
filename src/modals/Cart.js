@@ -58,7 +58,7 @@ export default function ModalCart (props){
                                     return(
                                         <li>
                                             <div className="cart-element-inner">
-                                                <div className="cart-element-left"><img src={product.imgPath}/>
+                                                <div className="cart-element-left"><img alt="product image" src={product.imgPath}/>
                                                     <div className="cart-element-details">
                                                         <div className="cart-element-name">{product.name}</div>
                                                     </div>

@@ -33,7 +33,7 @@ function ModalNote(props){
             <div class="modal fade" id="feedback_modal" role="dialog">
     <div class="modal-dialog">
         <div class="feedback-modal">
-            <button class="modal-x" onClick={() => props.closer()}><img src="images/x.svg"/></button>
+            <button class="modal-x" onClick={() => props.closer()}><img alt="close icon" src="images/x.svg"/></button>
             <div class="feedback-modal-inner">
                 <div class="modal-title">Note:</div>
                 <textarea class="modal-textarea" onChange={(e) => props.changeNoteProp(e)}>{props.note}</textarea>

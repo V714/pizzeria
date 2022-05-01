@@ -25,12 +25,12 @@ export default function ModalDelivery (props){
                 <div class="modal fade" id="change_delivery_modal" role="dialog">
             <div class="modal-dialog">
                 <div class="delivery-modal">
-                    <button class="modal-x" onClick={() => props.closer() }><img src="images/x.svg"/></button>
+                    <button class="modal-x" onClick={() => props.closer() }><img alt="close icon" src="images/x.svg"/></button>
                     <div class="delivery-modal-inner">
                         <div class="delivery-modal-title">{props.lang.cart.delivery.choose}</div>
                        <label for="delivery_radio"> 
                            <div class={"delivery-option " +(props.delivery?"delivery-active":"")}>
-                                <div class="delivery-image"><img src="images/delivery-white.svg"/></div>
+                                <div class="delivery-image"><img alt="delivery icon" src="images/delivery-white.svg"/></div>
                                 <div class="delivery-details">
                                     <div class="delivery-details-title">{props.lang.cart.delivery.delivery}</div>
                                     <div class="delivery-details-description">{props.lang.cart.delivery.delivery_desc}</div>
@@ -40,7 +40,7 @@ export default function ModalDelivery (props){
                         </label>
                         <label for="pickup_radio"> 
                             <div class={"delivery-option " +(props.delivery?"":"delivery-active")}>
-                                 <div class="delivery-image"><img src="images/pickup.svg"/></div>
+                                 <div class="delivery-image"><img alt="pickup icon" src="images/pickup.svg"/></div>
                                  <div class="delivery-details">
                                      <div class="delivery-details-title">{props.lang.cart.delivery.pickup}</div>
                                      <div class="delivery-details-description">{props.lang.cart.delivery.pickup_desc}</div>

@@ -24,7 +24,7 @@ function ModalFeedback (props){
         }}>
          <div class="modal-dialog">
         <div class="feedback-modal">
-            <button class="modal-x" onClick={() => props.closer()}><img src="images/x.svg"/></button>
+            <button class="modal-x" onClick={() => props.closer()}><img alt="close icon" src="images/x.svg"/></button>
             <div class="feedback-modal-inner">
                 <div class="modal-title">Leave us some feedback!</div>
                 <div class="modal-feedback-title">Feedback</div>

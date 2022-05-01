@@ -21,13 +21,10 @@ import Search from "./pages/Search";
 
 import ReactGA from 'react-ga';
 
-import { useState } from 'react'
 ReactGA.initialize('UA-000000-01');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 function Content (){
-  const [search, setSearch] = useState('')
-
 
   return (
     <Router>

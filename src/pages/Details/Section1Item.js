@@ -5,8 +5,6 @@ import { addToCart, initCart } from "../../redux/slices/cartSlice"
 import NotificationManager from "react-notifications/lib/NotificationManager"
 
 function Section1Item(props){
-    const [id,setId] = useState(0)
-    const [product,setProduct]=useState(null)
     const [note,setNote]=useState('')
     const dispatch = useDispatch()
 
@@ -38,7 +36,7 @@ function Section1Item(props){
                 </div> */}
                 <div className="item-details">
                     <div className="item-detail-image">
-                        <div className="item-detail-fullimage"><img src={props.item.imgPath}/></div>
+                        <div className="item-detail-fullimage"><img alt="product image" src={props.item.imgPath}/></div>
                        {/*  <div className="item-detail-thumbnails">
                             {state.product.more_images && 
                             state.product.more_images.map(item => {
@@ -49,9 +47,9 @@ function Section1Item(props){
                     <div className="item-detail-description">
                         <div className="item-detail-name">{props.item.name}</div>
                         <div className="item-detail-info">
-                            <div className="item-detail-info-small"><img src="images/star.svg"/>{props.item.rating}</div>
-                            <div className="item-detail-info-small"><img src="images/clock.svg"/>{props.item.time}min</div>
-                            <div className="item-detail-info-small"><img src="images/kcal.svg"/>{props.item.kcal} kCal</div>
+                            <div className="item-detail-info-small"><img alt="star icon" width="16" height="16"  src="images/star.svg"/>{props.item.rating}</div>
+                            <div className="item-detail-info-small"><img alt="clock icon" width="20" height="20" src="images/clock.svg"/>{props.item.time}min</div>
+                            <div className="item-detail-info-small"><img alt="kcal icon" width="20" height="20" src="images/kcal.svg"/>{props.item.kcal} kCal</div>
                         </div>
                         <div className="item-detail-text">
                             <div className="item-detail-text-bigger">{lang.details.section1details}</div>
@@ -77,7 +75,7 @@ function Section1Item(props){
                         <input placeholder="ex. add more chilli" value={note} onChange={(e) => typeNote(e)}/>
                         <button className="item-detail-button" 
                             onClick={() => aaddToCart()} id="addToCart">
-                                <img src="images/cart-white.svg"/>{lang.details.section1add_button}</button>
+                                <img alt="cart icon" width="24" height="24" src="images/cart-white.svg"/>{lang.details.section1add_button}</button>
                     </div>
                 </div></>}
             </div>

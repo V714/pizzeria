@@ -75,7 +75,7 @@ export default function ModalCheckout(props){
                   <div  id="checkoutNow_dialog" class="modal-dialog">
         {!props.waitCheckoutResponse &&
             <div class="checkoutNow-modal-inner">
-                <button class="modal-x" onClick={() => props.closer()}><img src="images/x.svg"/></button>
+                <button class="modal-x" onClick={() => props.closer()}><img alt="close icon" src="images/x.svg"/></button>
                 <div class="checkoutNow-modal-title">{props.lang.cart.checkout.choose}</div>
                 <button id="current_location" onclick="getLocation();" class="checkoutNow-modal-map"></button>
                     <div class="checkoutNow-modal-info-double">

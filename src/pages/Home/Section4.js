@@ -23,7 +23,7 @@ function Section4(){
 
                     {allPackages && 
                     allPackages.map((item,index) => (
-                        <OffersItem index={index+1} item={item}/>
+                        <OffersItem key={index}  index={index+1} item={item}/>
                     ))
                 }
    

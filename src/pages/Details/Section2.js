@@ -20,15 +20,15 @@ function Section2(props){
             <ul>
             
             <li class="one-topping">
-                            <div class="magic-topping"><button onClick={() => setModalIsOpenCrust(true)} id="crust"><img src="images/rotate.svg"/></button></div>
-                            <div class="one-topping-image"><img src="images/crispy.svg"/></div>
+                            <div class="magic-topping"><button onClick={() => setModalIsOpenCrust(true)} id="crust"><img alt="change icon" src="images/rotate.svg"/></button></div>
+                            <div class="one-topping-image"><img alt="crust icon" src="images/crispy.svg"/></div>
                             {props.crust && props.crust.name}
                         </li>
                 {props.extraAddons &&
 					            props.extraAddons.map((item) => (
                                     <li className="one-topping">
                                     <div className="magic-topping"><button onClick={() => props.deleteTopping(item.id)}>-</button></div>
-                                    <div className="one-topping-image"><img src={item.image}/></div>
+                                    <div className="one-topping-image"><img alt="specific crust icon" src={item.image}/></div>
                                     {item.name} {item.quantity > 1 && <>(x{item.quantity}) </>}
                                     </li>
                                 ))}
@@ -48,12 +48,12 @@ function Section2(props){
                             {props.item.extraAddons.map(item => {if(item.type==='sauce')return(
 
                                 <div className="extra-option">
-                                <div className="crust-image"><img src={item.imgPath}/></div>
+                                <div className="crust-image"><img alt="sauce icon" src={item.imgPath}/></div>
                                 <div className="delivery-details">
                                     <div className="delivery-details-title">{item.name}</div>
                                     <div className="delivery-details-description">{lang.currency} {item.price}</div>
                                 </div>
-                                <button onClick={() => props.addTopping({id: item.id, name: item.name, price: item.price, image: item.imgPath,quantity: 1})}><img src="images/plus.svg"/></button>
+                                <button onClick={() => props.addTopping({id: item.id, name: item.name, price: item.price, image: item.imgPath,quantity: 1})}><img alt="plus icon" src="images/plus.svg"/></button>
                                 </div>
                             )} )
                            
@@ -68,12 +68,12 @@ function Section2(props){
                             {props.item.extraAddons.map(item => {if(item.type==='top')return(
 
                                 <div className="extra-option">
-                                <div className="crust-image"><img src={item.imgPath}/></div>
+                                <div className="crust-image"><img alt="addon icon" src={item.imgPath}/></div>
                                 <div className="delivery-details">
                                     <div className="delivery-details-title">{item.name}</div>
                                     <div className="delivery-details-description">{lang.currency} {item.price}</div>
                                 </div>
-                                <button onClick={() => props.addTopping({id: item.id, name: item.name, price: item.price, image: item.imgPath,quantity: 1})}><img src="images/plus.svg"/></button>
+                                <button onClick={() => props.addTopping({id: item.id, name: item.name, price: item.price, image: item.imgPath,quantity: 1})}><img alt="plus icon" src="images/plus.svg"/></button>
                                 </div>
                             )} )
                            
@@ -105,7 +105,7 @@ function Section2(props){
         }}>
             <div id="ingredients_dialog" className="modal-dialog">
         <div className="ingredients-modal">
-            <button className="modal-x" onClick={() => setModalIsOpenCrust(false)} ><img src="images/x.svg"/></button>
+            <button className="modal-x" onClick={() => setModalIsOpenCrust(false)} ><img alt="close icon" src="images/x.svg"/></button>
             <div className="ingredients-modal-inner">
                 <div className="ingredients-modal-selects">
                     <div className="ingredients-modal-selects-title">

@@ -19,16 +19,16 @@ function Section3(){
                 <div className="s2-head-left-big">{lang.menu.section3bold}</div>
                 <div className="s2-head-left-description">{lang.menu.section3thin}</div>
             </div>
-            <Tabs>
-            <TabList className="s3-menu-tabbing">
-            {allTypes && allTypes.map(itema => {return(<Tab><img src={itema.imgPath}/><div className="s3-menu-tabbing-text">{itema.label}</div></Tab>)})}
+            <Tabs role="list">
+            <TabList className="s3-menu-tabbing" role="list">
+            {allTypes && allTypes.map((itema,index) => {return(<Tab key={index} role="listitem"><img alt="item icon" src={itema.imgPath}/><div className="s3-menu-tabbing-text">{itema.label}</div></Tab>)})}
 
             </TabList>
-            {allTypes && allTypes.map(itema => {return(<TabPanel className="s3-menu-tab-pizza tabContent">
+            {allTypes && allTypes.map((itema,index) => {return(<TabPanel key={index} role="list" className="s3-menu-tab-pizza tabContent">
              
             {allProducts && 
-                    allProducts.filter(item => item.type==itema.key).map((item) => (
-                        <ProductItem item={item}/>
+                    allProducts.filter((item) => item.type==itema.key).map((item,index) => (
+                        <ProductItem key={index} item={item}/>
 
                     ))
                 } 

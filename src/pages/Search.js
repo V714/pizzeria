@@ -35,7 +35,7 @@ return (
                   <div className="menu-s1-description">there are around +230 fast food menus available</div>
                   <div className="menu-search-box">
                       <div className="menu-search-box-field">
-                          <img src="images/search.svg"/>
+                          <img width="24" height="24" alt="search icon" src="images/search.svg"/>
                           <input 
                             className="menu-search-input" 
                             type="text"

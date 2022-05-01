@@ -10,9 +10,9 @@ function Section1 (){
                 <div className="uber-s1-description">{lang.about.section1thin}</div>
                 <button className="button-to-order">{lang.about.section1button}</button>
                 <div className="gallery-top">
-                    <img src="images/gallery1.webp"/>
-                    <img src="images/gallery2.webp"/>
-                    <img src="images/gallery3.webp"/>
+                    <img alt="inside the restaurant - beautiful" src="images/gallery1.webp"/>
+                    <img alt="inside the restaurant - beautiful" src="images/gallery2.webp"/>
+                    <img alt="inside the restaurant - beautiful" src="images/gallery3.webp"/>
                 </div>
             </div>
         </div>

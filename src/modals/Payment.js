@@ -41,7 +41,7 @@ function ModalPayment (props){
               }
             }}>
                 <div class="modal fade"  >
-                    <button class="modal-x" onClick={() => props.closer()}><img src="images/x.svg"/></button>
+                    <button class="modal-x" onClick={() => props.closer()}><img alt="close icon" src="images/x.svg"/></button>
             <div  id="payment_dialog" >
                     <div class="payment-modal-inner">
                         <div class="delivery-modal-title">{props.lang.payment.payment}</div>
@@ -53,7 +53,7 @@ function ModalPayment (props){
 
                        <label for="crypto_payment"> 
                            <div class="delivery-option">
-                                <div class="delivery-image"><img src="images/crypto.svg"/></div>
+                                <div class="delivery-image"><img alt="crypto icon" src="images/crypto.svg"/></div>
                                 <div class="delivery-details">
                                     <div class="delivery-details-title">{props.lang.payment.crypto}</div>
                                     <div class="delivery-details-description">{props.lang.payment.crypto_desc}</div>
@@ -64,7 +64,7 @@ function ModalPayment (props){
 
                         <label for="kredit_payment"> 
                             <div class="delivery-option">
-                                 <div class="delivery-image"><img src="images/kredit.svg"/></div>
+                                 <div class="delivery-image"><img alt="credit card icon" src="images/kredit.svg"/></div>
                                  <div class="delivery-details">
                                      <div class="delivery-details-title">{props.lang.payment.card}</div>
                                      <div class="delivery-details-description">{props.lang.payment.card_desc}</div>
@@ -75,7 +75,7 @@ function ModalPayment (props){
 
                          <label > 
                             <div class="delivery-option">
-                                 <div class="delivery-image"><img src="images/klarna.svg"/></div>
+                                 <div class="delivery-image"><img alt="klarna icon" src="images/klarna.svg"/></div>
                                  <div class="delivery-details">
                                      <div class="delivery-details-title">{props.lang.payment.klarna}</div>
                                      <div class="delivery-details-description">{props.lang.payment.klarna_desc}</div>
@@ -86,7 +86,7 @@ function ModalPayment (props){
                          
                          <label for="cash_payment"> 
                             <div class="delivery-option">
-                                 <div class="delivery-image"><img src="images/cash.svg"/></div>
+                                 <div class="delivery-image"><img alt="cash icon" src="images/cash.svg"/></div>
                                  <div class="delivery-details">
                                      <div class="delivery-details-title">{props.lang.payment.delivery}</div>
                                      <div class="delivery-details-description">{props.lang.payment.delivery_desc}</div>
@@ -147,7 +147,7 @@ function ModalPayment (props){
               }
             }}>
                 <div class="modal fade"  >
-                    <button class="modal-x" onClick={() => setModalIsOpenThx(false)}><img src="images/x.svg"/></button>
+                    <button class="modal-x" onClick={() => setModalIsOpenThx(false)}><img alt="close icon" src="images/x.svg"/></button>
             <div  id="payment_dialog" >
                     <div class="thx-modal-inner">
                         <div style={{fontSize:"44px",color:"#0c0",textAlign:"center"}}>Thanks for Purshare!</div>

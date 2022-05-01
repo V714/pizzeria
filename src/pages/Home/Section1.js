@@ -25,7 +25,7 @@ const Section1 = () => {
             <div className="s1-description">{lang.home.section1thin}</div>
             <div className="search-box">
                 <div className="search-box-field">
-                    <img src="images/search.svg"/>
+                    <img width="24" height="24" alt="search icon" src="images/search.svg"/>
                     <input className="search-input" type="text" value={value} onKeyDown={(e) => {_handleKeyDown(e)}} onChange={(e) => changeSearchValue(e.target.value)}  placeholder={lang.home.section1input}/>
                 </div>
             <button className="search-button" onClick={(e) => {websiteForward(value)}} >{lang.home.section1button}</button>
@@ -34,7 +34,7 @@ const Section1 = () => {
                 <img src="images/btc.svg"/>
               </div> */}
         </div>
-        <img className="pizza" src="images/pizza.webp"/>
+        <img alt="pizza" className="pizza" src="images/pizza.webp"/>
     </div>
     );
 }

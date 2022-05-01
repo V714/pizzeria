@@ -56,8 +56,8 @@ export default function CartItem(props){
 
         return(props.product?(products?<div className="cart-item-detail">
         <div className="cart-item-detail-photo">
-            <div className="cart-item-detail-image"><img src={props.product.imgPath}/></div>
-            <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => setModalIsOpenNote(true)}><img src="images/note.svg"/>{props.lang.cart.edit_note}</button></div>
+            <div className="cart-item-detail-image"><img alt="product image" src={props.product.imgPath}/></div>
+            <div className="cart-item-detail-addNote"><button id="change_note" onClick={() => setModalIsOpenNote(true)}><img alt="note icon" src="images/note.svg"/>{props.lang.cart.edit_note}</button></div>
         </div>
         <div className="cart-item-detail-text">
             <div className="cart-item-detail-name">{props.product.name}  - {size.size}{size.sizeType} {props.item.crust && <>- {props.item.crust.name}</>}</div>
@@ -71,7 +71,7 @@ export default function CartItem(props){
                 </div>
         </div>
         <div className="cart-item-detail-quantity">
-            <button onClick={() => deleteCartItem()}><img src="images/bin.svg"/></button>
+            <button onClick={() => deleteCartItem()}><img alt="bin icon" src="images/bin.svg"/></button>
             <div className="s3-item-cart">{""}</div>
         </div>
         <ModalNote changeNote={changeNote} modalIsOpenNote={modalIsOpenNote} note={note} changeNoteProp={changeNoteProp} closer={closer}/>
