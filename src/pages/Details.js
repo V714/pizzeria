@@ -34,29 +34,30 @@ function Details(){
         const queryID = urlParams.get('id');
         const querySIZE = urlParams.get('size');
         const product = allProducts.find(_item=>_item.id===queryID)
-        if(querySIZE && product.sizes){
-            if(product && product.sizes.find(item=>item.size===querySIZE)){
-                setItem(product)
-                setSize(querySIZE)
-                setShowItem(true)
-                setItemFound(true)
-                if(product.sizes){
-                    setPrice(product.sizes.find(_item=>_item.size===querySIZE).price)
-                } else {
+        if(product){
+            if(querySIZE && product.sizes){
+                if(product && product.sizes.find(item=>item.size===querySIZE)){
+                    setItem(product)
+                    setSize(querySIZE)
+                    setShowItem(true)
+                    setItemFound(true)
+                    if(product.sizes){
+                        setPrice(product.sizes.find(_item=>_item.size===querySIZE).price)
+                    } else {
+                        setPrice(product.price)
+                    }
+                    if(product.crust)setCrust(product.crust[0])
+                }}
+            else{
+                if(product)
+                {
+                    setItem(product)
                     setPrice(product.price)
+                    setShowItem(true)
+                    setItemFound(true)
                 }
-                if(product.crust)setCrust(product.crust[0])
-            }}
-        else{
-            if(product)
-            {
-                setItem(product)
-                setPrice(product.price)
-                setShowItem(true)
-                setItemFound(true)
             }
         }
-        setShowItem(true)
     }
 
     const pizzaSize = (s) => {

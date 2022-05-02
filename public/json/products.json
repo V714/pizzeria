@@ -250,7 +250,7 @@
         "type":"BURGER"
     },
     {
-        "id":"ba-225",
+        "id":"ba-235",
         "name":"Burgier",
         "imgPath":"/images/burger4.webp",
         "sizes":[
@@ -258,13 +258,13 @@
                 "size":"550",
                 "sizeType":"mg",
                 "price":"8.99",
-                "id":"ba-225-01"
+                "id":"ba-235-01"
             },
             {
                 "size":"650",
                 "sizeType":"mg",
                 "price":"9.99",
-                "id":"ba-225-02"
+                "id":"ba-235-02"
             }
         ],
         "time":"25",

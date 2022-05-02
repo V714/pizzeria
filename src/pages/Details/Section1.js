@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NotificationManager } from "react-notifications";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addProductToCart } from "../../functions/cart";
 import { addToCart } from "../../redux/slices/cartSlice";
@@ -10,6 +11,7 @@ function Section1(props){
     const [note, setNote] = useState('')
     const lang = useSelector(state=>state.language)
     const dispatch = useDispatch()
+    const navigate = useHistory()
 
     const typeNote = (e) => {
         setNote(e.target.value)
@@ -20,10 +22,11 @@ function Section1(props){
         else{return "size-button"}
     }
 
-    const aaddToCart = () => {
+    const aaddToCart = async() => {
         let extrasIds = []
-        props.extraAddons.map(_item => {for(var i=0; i < _item.quantity; i++){extrasIds.push(_item.id)}})
-        addProductToCart(dispatch,addToCart,initCart,props.item,props.size,props.price,NotificationManager,extrasIds,note,props.crust)
+        props.extraAddons.map(_item => {for(var i=0; i < _item.quantity; i++){extrasIds.push(_item.id)}return 0;})
+        await addProductToCart(dispatch,addToCart,initCart,props.item,props.size,props.price,NotificationManager,extrasIds,note,props.crust)
+        navigate.push('/')
     }   
 
     return(props.item?

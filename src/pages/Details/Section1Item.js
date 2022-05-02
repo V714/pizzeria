@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { useHistory } from "react-router-dom"
 import { addProductToCart } from "../../functions/cart"
 import { addToCart, initCart } from "../../redux/slices/cartSlice"
 import NotificationManager from "react-notifications/lib/NotificationManager"
@@ -7,6 +8,7 @@ import NotificationManager from "react-notifications/lib/NotificationManager"
 function Section1Item(props){
     const [note,setNote]=useState('')
     const dispatch = useDispatch()
+    const navigate = useHistory()
 
     const lang = useSelector(state => state.language)
 
@@ -17,8 +19,9 @@ function Section1Item(props){
         if(props.size === size){return "size-button picked-size"}
         else{return "size-button"}
     }
-    const aaddToCart = () => {
-        addProductToCart(dispatch,addToCart,initCart,props.item,props.size,props.price,NotificationManager,undefined,note)
+    const aaddToCart = async() => {
+        await addProductToCart(dispatch,addToCart,initCart,props.item,props.size,props.price,NotificationManager,undefined,note)
+        navigate.push('/')
     }   
 
     return(props.item?

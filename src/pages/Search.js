@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import SearchResults from './Search/SearchResults';
 
@@ -15,7 +15,8 @@ function Search(){
 
   useEffect(() => {
     if (value) {
-        setProducts(allProducts.filter(_item => _item.name.toLowerCase().includes(value.toLowerCase())))
+        const newProducts = allProducts.filter(_item => _item.name.toLowerCase().includes(value.toLowerCase()))
+        setProducts(newProducts)
       }
       else
         setProducts(allProducts)

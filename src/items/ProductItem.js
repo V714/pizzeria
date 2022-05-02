@@ -30,7 +30,7 @@ function ProductItem(props){
     }
 
     return(
-        props.item?<>
+        props.item&&price?<>
             {size ? 
             <div className="s3-item">
                 <div className="s3-item-image"><img alt="product" src={imgPath}/></div>
