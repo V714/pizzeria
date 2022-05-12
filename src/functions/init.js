@@ -1,17 +1,7 @@
 
     
 export const getAllProducts = async(axios,func,func2) => {
-    axios.get('/json/products.json')
-    .then((data)=> {
-        func(func2(data.data))
-    })
-    .catch( err =>
-      console.log(err)
-    )
-}
-
-export const getAllPackages = async(axios,func,func2) => {
-    axios.get('/json/packages.json')
+    axios.get('/json/example-products.json')
     .then((data)=> {
         func(func2(data.data))
     })
@@ -21,7 +11,7 @@ export const getAllPackages = async(axios,func,func2) => {
 }
 
 export const getAllTypes = async(axios,func,func2) => {
-    axios.get('/json/product-types.json')
+    axios.get('/json/example-product-types.json')
     .then((data)=> {
         func(func2(data.data))
     })
@@ -31,7 +21,7 @@ export const getAllTypes = async(axios,func,func2) => {
 }
 
 export const getContact = async(axios,func,func2) => {
-    axios.get('/json/contact.json')
+    axios.get('/json/example-contact.json')
     .then((data)=> {
         func(func2(data.data))
     })

@@ -113,17 +113,17 @@ function Section2(props){
                         <div className="ingredients-modal-selects-title-smaller">Choose 1</div>
                     </div>
                     <div className="ingredients-selection-list">
-                        {props.item.crust.map(_item=>{
+                        {props.item.crust.map(item2=>{
                             return(
-                                <label for={_item.id+"_ingredients"}> 
+                                <label for={item2.id+"_ingredients"}> 
                                     <div className="ingredients-option">
                                          <div className="ingredients-details">
                                              <div className="ingredients-details-title">
-                                                 {_item.name}
-                                                <div className="ingredients-details-title-right">+ € {_item.price}</div>
+                                                 {item2.name}
+                                                <div className="ingredients-details-title-right">+ € {item2.price}</div>
                                             </div>
                                          </div>
-                                         <input type="radio" default name="extra_ingredients" id={_item.id+"_ingredients"}  value="default" onChange={() => props.setCrust(_item)}  />
+                                         <input type="radio" default name="extra_ingredients" id={item2.id+"_ingredients"}  value="default" onChange={() => props.setCrust(item2)}  />
                                      </div>
                                  </label>
                             )

@@ -47,11 +47,11 @@ export default function ModalCart (props){
                 <ul>
                 {props.products &&
 					            props.products.map((item,index) => {  
-                                    const product = allProducts.find(_item => _item.id === item.id)
-                                    let price = product?(product.sizes ? parseFloat(product.sizes.find(_item => _item.id === item.option).price) : parseFloat(product.price)):0
+                                    const product = allProducts.find(item2 => item2.id === item.id)
+                                    let price = product?(product.sizes ? parseFloat(product.sizes.find(item2 => item2.id === item.option).price) : parseFloat(product.price)):0
                                     if(item.extra&&product){
-                                        if(product.extraAddons)item.extra.map(_item => {
-                                            price += parseFloat(product.extraAddons.find(aitem => aitem.id === _item).price)
+                                        if(product.extraAddons)item.extra.map(item2 => {
+                                            price += parseFloat(product.extraAddons.find(aitem => aitem.id === item2).price)
                                         })
                                     }
 

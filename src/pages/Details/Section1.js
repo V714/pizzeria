@@ -24,7 +24,7 @@ function Section1(props){
 
     const aaddToCart = async() => {
         let extrasIds = []
-        props.extraAddons.map(_item => {for(var i=0; i < _item.quantity; i++){extrasIds.push(_item.id)}return 0;})
+        props.extraAddons.map(item2 => {for(var i=0; i < item2.quantity; i++){extrasIds.push(item2.id)}return 0;})
         await addProductToCart(dispatch,addToCart,initCart,props.item,props.size,props.price,NotificationManager,extrasIds,note,props.crust)
         navigate.push('/')
     }   
@@ -74,16 +74,14 @@ function Section1(props){
                             Add Note
                             <input type="text" onChange={(e) => typeNote(e)} value={note} placeholder="ex. add more chilli"/>
                         </div>
-                        <button onClick={() => aaddToCart()}
-            
-            className="s3-add-to-cart"> <img alt="cart icon" width="24" height="24" src="images/cart-white.svg"/>Add to Cart </button>
+                        <button onClick={() => aaddToCart()} className="s3-add-to-cart"> 
+                            <img alt="cart icon" width="24" height="24" src="images/cart-white.svg"/>
+                            Add to Cart 
+                        </button>
                     </div>
                 </div>
                 <div className="pizza-rotate">
-                    {/* <img id="pizza_size" src={props.item.imgPath}/> */}
                     <img alt="your product but rotating" id="pizza_size" src={props.item.imgPath}/> 
-                    
-                    
                 </div>
                 
             </div>

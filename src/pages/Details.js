@@ -33,7 +33,7 @@ function Details(){
         const urlParams = new URLSearchParams(window.location.search);
         const queryID = urlParams.get('id');
         const querySIZE = urlParams.get('size');
-        const product = allProducts.find(_item=>_item.id===queryID)
+        const product = allProducts.find(item2=>item2.id===queryID)
         if(product){
             if(querySIZE && product.sizes){
                 if(product && product.sizes.find(item=>item.size===querySIZE)){
@@ -42,7 +42,7 @@ function Details(){
                     setShowItem(true)
                     setItemFound(true)
                     if(product.sizes){
-                        setPrice(product.sizes.find(_item=>_item.size===querySIZE).price)
+                        setPrice(product.sizes.find(item2=>item2.size===querySIZE).price)
                     } else {
                         setPrice(product.price)
                     }
@@ -77,8 +77,8 @@ function Details(){
     useEffect(()=>{
         if(extraAddons[0]){
             let extraPrice = 0
-            extraAddons.map(_item => {
-                extraPrice += _item.price * _item.quantity
+            extraAddons.map(item2 => {
+                extraPrice += item2.price * item2.quantity
             })
             setExtraAddonsPrice(extraPrice)
         }
@@ -91,7 +91,7 @@ function Details(){
     },[crust])
 
     useEffect(()=>{
-        if(item&&item.sizes)setPrice((parseFloat(item.sizes.find(_item => _item.size === size).price)+parseFloat(extraAddonsPrice)+parseFloat(crustPrice)).toFixed(2))
+        if(item&&item.sizes)setPrice((parseFloat(item.sizes.find(item2 => item2.size === size).price)+parseFloat(extraAddonsPrice)+parseFloat(crustPrice)).toFixed(2))
     },[extraAddonsPrice,size,crustPrice])
     
     const deleteTopping = (id) => {
@@ -99,11 +99,11 @@ function Details(){
     }
 
     const addTopping = (top) => {
-        if(extraAddons.some(_item => _item.id === top.id)){ /* If Top already exists */
-            setExtraAddons(extraAddons.map(_item => _item.id === top.id? {..._item, quantity:_item.quantity+1} : _item))
+        if(extraAddons.some(item2 => item2.id === top.id)){ /* If Top already exists */
+            setExtraAddons(extraAddons.map(item2 => item2.id === top.id? {...item2, quantity:item2.quantity+1} : item2)) /* ...then just increase quantity */
         }
         else{
-            setExtraAddons([...extraAddons, top])
+            setExtraAddons([...extraAddons, top]) /* If Top doesn't exist yet - add it */
         }
     }
     const printItem = () => {

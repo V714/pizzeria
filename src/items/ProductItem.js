@@ -38,7 +38,7 @@ function ProductItem(props){
                 <div className="s3-item-price">
                     <div className="s3-item-price-cost">€ {price}</div>
                     <div className="s3-item-price-rating"><img alt="star icon" width="16" height="16"  src="images/star.svg"/>{rating}</div>
-                    </div>
+                </div>
                 <div className="s3-item-details">{description}</div>
                 <div className="s3-item-size">
                     {sizes.length>1 && sizes.map((item,index) => {
@@ -67,8 +67,6 @@ function ProductItem(props){
         </>:<></>
    
 
-   
-    
         );
 }
 

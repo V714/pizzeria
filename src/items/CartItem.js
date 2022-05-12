@@ -23,13 +23,13 @@ export default function CartItem(props){
         let _extra = []
         let _price = 0
         if(props.product){
-            _price = props.product.sizes ? parseFloat(props.product.sizes.find(_item => _item.id === props.item.option).price) : parseFloat(props.product.price)
-            if(props.product.sizes)setSize(props.product.sizes.find(_item => _item.id === props.item.option))
+            _price = props.product.sizes ? parseFloat(props.product.sizes.find(item2 => item2.id === props.item.option).price) : parseFloat(props.product.price)
+            if(props.product.sizes)setSize(props.product.sizes.find(item2 => item2.id === props.item.option))
                 if(props.item.extra&&props.product.extraAddons){
-                    props.item.extra.map(_item => {
-                        const __item = props.product.extraAddons.find(aitem => aitem.id === _item)
-                        _price += parseFloat(__item.price)
-                        _extra.push(__item.name)
+                    props.item.extra.map(item2 => {
+                        const _item2 = props.product.extraAddons.find(aitem => aitem.id === item2)
+                        _price += parseFloat(_item2.price)
+                        _extra.push(_item2.name)
                         return 0;
                     })
             }}

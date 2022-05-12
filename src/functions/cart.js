@@ -10,14 +10,14 @@ export const checkCart = (dispatch,action,action2) => {
 export const cartPrice = (allProducts, products) => {
     let price = 0
     if(products)products.map(item => {
-        const product = allProducts.find(_item => _item.id === item.id)
+        const product = allProducts.find(item2 => item2.id === item.id)
         if(product)
         {
-            if(product.sizes)price +=parseFloat(product.sizes.find(_item => _item.id === item.option).price)
+            if(product.sizes)price +=parseFloat(product.sizes.find(item2 => item2.id === item.option).price)
             else price += parseFloat(product.price)
             if(item.extra&&product.extraAddons){
-                item.extra.map(_item => {
-                    price += parseFloat(product.extraAddons.find(aitem => aitem.id === _item).price)
+                item.extra.map(item2 => {
+                    price += parseFloat(product.extraAddons.find(aitem => aitem.id === item2).price)
                     return 0;
                 })
             }
@@ -31,7 +31,7 @@ export const addProductToCart = (dispatch,action,action2,item,size,price,Notific
     const cart = JSON.parse(localStorage.getItem('Cart'))
     const newItem = extrasIds ? {
         id:item.id,
-        option:item.sizes.find(_item => _item.size === size).id,
+        option:item.sizes.find(item2 => item2.size === size).id,
         extra: extrasIds,
         note: note,
         crust: crust? crust:undefined
@@ -39,7 +39,7 @@ export const addProductToCart = (dispatch,action,action2,item,size,price,Notific
     :
     {
         id:item.id,
-        option:item.sizes? item.sizes.find(_item => _item.size === size).id:item.id,
+        option:item.sizes? item.sizes.find(item2 => item2.size === size).id:item.id,
         note: note,
         crust: crust? crust:undefined
     }
@@ -55,7 +55,7 @@ export const addProductToCart = (dispatch,action,action2,item,size,price,Notific
 }
 
 export const removeProductFromCart = (dispatch,action,products,item) => {
-    const newCart = products.filter(_item => _item !== item)
+    const newCart = products.filter(item2 => item2 !== item)
     dispatch(action(newCart))
     localStorage.setItem("Cart", JSON.stringify(newCart));
 }
@@ -63,7 +63,7 @@ export const removeProductFromCart = (dispatch,action,products,item) => {
 export const changeOneNote = (dispatch,action,item,note) => {
     let cart = JSON.parse(localStorage.getItem('Cart'))
     let newCart = [...new Set(cart)];
-    newCart.find(_item=>JSON.stringify(_item) === JSON.stringify(item)).note = note
+    newCart.find(item2=>JSON.stringify(item2) === JSON.stringify(item)).note = note
     localStorage.setItem("Cart", JSON.stringify(newCart));
     dispatch(action(newCart))
 }
@@ -87,56 +87,3 @@ export const getOrderPrice = async(products,user,setWaitCheckoutResponse,deliver
         setWaitCheckoutResponse(false)
     }
 }
-/* 
-
-
-
-
-addProduct = (product) => {
-    localStorage.setItem("Cart", JSON.stringify([...this.state.products, product]));
-    this.setState({
-        products: [...this.state.products, product]
-    })
-    this.countTotalPrice(product.price*product.quantity)
-    NotificationManager.success(product.name +' (€'+product.price+') x'+product.quantity, 'Product added')
-  }
-
-
-changeNote = (number,note) => {
-    for(var i = 0; i < this.state.products.length; i++){
-        this.state.products[i].number = i;
-    }
-    this.setState({
-        products: this.state.products.map(item => item.number == number? {...item, note: note} : item)
-    })
-    localStorage.setItem("Cart", JSON.stringify(this.state.products.map(item => item.number == number? {...item, note: note} : item)));
-}
-
-
-deleteProduct = (number) => {
-    
-    if(this.state.products.length==1)
-    {   this.setState({products: [], totalPrice: 0});
-        localStorage.setItem("Cart", JSON.stringify([]));}
-    else{
-        
-        for(var i = 0; i < this.state.products.length; i++){
-            this.state.products[i].number = i;
-        }
-        localStorage.setItem("Cart", JSON.stringify(this.state.products.filter(item => item.number != number)));
-        this.setState({products: this.state.products.filter(item => item.number != number)})
-        let iiitem=this.state.products.filter(item => {return item.number == number})
-        this.countTotalPrice(-iiitem[0].price*iiitem[0].quantity)
-    }
-    NotificationManager.info('Product has been removed from Cart')
-
-}
-
-changeAddress = (nam,tel,cit,adr,nt,dlv,dct) => {
-    localStorage.setItem("Address", JSON.stringify({name: nam, telephone: tel, city: cit, address: adr, note: nt,delivery:dlv,district:dct,}));
-    this.setState({
-        address: {name: nam, telephone: tel, city: cit, address: adr, note: nt, delivery: dlv, district:dct,}
-    })
-}
-
-*/

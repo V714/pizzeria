@@ -78,7 +78,7 @@ export default function Checkout(){
                         <div className="s1-cart-left-list">
                         {products &&
 					            products.map(item => {
-                                    const product = allProducts.find(_item=>_item.id===item.id)
+                                    const product = allProducts.find(item2=>item2.id===item.id)
                                     return(
 						                <CheckoutItem item={item} product={product}/>
                                     )

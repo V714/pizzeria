@@ -29,23 +29,9 @@ function Section1Item(props){
             <div className="section1-item-inner">
                 {props.item && 
                 <>
-                {/* <div className="page-links">
-                    <ul>
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="menu.html"><img src="images/right-vector.svg"/>Menu </a></li>
-                        <li><a><img src="images/right-vector.svg"/>{props.item.type} </a></li>
-                        <li><a className="actual"><img src="images/right-vector.svg"/>{props.item.name}</a></li>
-                    </ul>
-                </div> */}
                 <div className="item-details">
                     <div className="item-detail-image">
                         <div className="item-detail-fullimage"><img alt="product" src={props.item.imgPath}/></div>
-                       {/*  <div className="item-detail-thumbnails">
-                            {state.product.more_images && 
-                            state.product.more_images.map(item => {
-                                return <div className="item-detail-thumbnails-image"><a href={item}><img src={item}/></a></div>
-                            })}
-                        </div> */}
                     </div>
                     <div className="item-detail-description">
                         <div className="item-detail-name">{props.item.name}</div>

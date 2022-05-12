@@ -47,7 +47,7 @@ function Section1(){
                         <div className="s1-cart-left-list">
 
                             {products && products.map(item => {
-                                const product = allProducts.find(_item => _item.id === item.id)
+                                const product = allProducts.find(item2 => item2.id === item.id)
                                 return(<CartItem lang={lang} item={item} product={product}/>)
                                 })}
 
