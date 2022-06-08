@@ -6,7 +6,6 @@ import store from './redux/Store';
 import { Provider } from 'react-redux'
 import './styles/Riano.css';
 
-
 ReactDOM.render(
   <React.StrictMode>
 

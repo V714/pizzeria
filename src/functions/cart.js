@@ -51,7 +51,7 @@ export const addProductToCart = (dispatch,action,action2,item,size,price,Notific
         dispatch(action2([newItem]))
     }
     NotificationManager.success(item.name +' (€'+price+') Product added')
-
+    return newItem
 }
 
 export const removeProductFromCart = (dispatch,action,products,item) => {
